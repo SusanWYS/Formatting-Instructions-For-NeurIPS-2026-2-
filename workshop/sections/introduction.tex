@@ -1,0 +1,29 @@
+\section{Introduction}
+\label{sec:introduction}
+
+When one event is described immediately after another, comprehenders often infer more than temporal succession: the first event may be understood as explaining why the second occurred. This graded causal implication supports ordinary narrative understanding, explanation, and commonsense reasoning. A language model that is sensitive to the distinction should separate genuinely explanatory factors from details that are merely compatible with an event. Yet a model's prompted answer need not transparently reveal whether it represents that distinction. Answer-token priors, scale presentation, and late-stage readout can all distort an otherwise informative internal signal.
+
+This representation--behavior distinction parallels recent work on event plausibility. Lepori et al. show that linear directions in language-model activations can distinguish modal categories and align with fine-grained human judgments even when output probabilities provide an unreliable behavioral measure \citep{lepori2026fantasy}. Causal implication presents a related but more relational problem: the model must evaluate whether a stated factor explains a particular event, rather than assess the plausibility of one sentence in isolation. Temporal proximity is a particularly important alternative explanation because causes normally precede their effects, but temporal order alone does not establish an explanatory relation.
+
+Before asking how causal implication is represented, we first test whether it is visible in unconstrained next-token behavior. Following the ignorance-continuation logic of \citet{pan-kehler-2025-pragmatic}, an inferred explanation should make a subsequent claim that the reason is unknown less expected. A complementary diagnostic compares the probability of the same factor after \emph{because} versus after the explicitly incidental continuation \emph{and it so happened that}. Together, these tests avoid requiring the model to interpret a metalinguistic Yes/No question or numeric scale.
+
+We therefore analyze causal implication at four levels. First, we compare implicit eliciture signatures from the ignorance and explicit-happenstance diagnostics with direct probabilistic Yes/No and Likert judgments. Second, we compare prompted behavior with linear probes and paired mean-difference directions, and test whether causal and temporal representations transfer across domains. Third, we ask whether the resulting continuous representation scores track probabilistic Yes/No judgments, probabilistic Likert judgments, and an external graded rating. Fourth, we distinguish two probe-relative decision failures: \emph{suppression}, in which the causal probe decodes a factor as explanatory but the model rejects it, and \emph{post-hoc attribution}, in which the probe decodes a factor as non-explanatory but the model accepts it. We test whether these failures are predictable from pre-answer activations and whether subtracting development-selected failure directions changes the final decision.
+
+Our experiments are organized around the following research questions:
+
+\begin{samepage}
+\noindent\textbf{RQ1: Behavioral eliciture diagnostics.} Do causal critical items, relative to matched controls, increase the surprisal of a subsequent ignorance claim and increase the probability of the explanatory factor after \emph{because} relative to \emph{and it so happened that}? How consistently does this implicit sensitivity appear in direct probabilistic Yes/No and Likert judgments?
+\end{samepage}
+
+\begin{samepage}
+\noindent\textbf{RQ2: Decodability and transfer.} Is graded causal implication linearly decodable across pretrained model families, and is the decoded causal signal distinct from a direction learned for temporal relations? How does internal decodability compare with prompted Yes/No and Likert behavior?
+\end{samepage}
+
+\begin{samepage}
+\noindent\textbf{RQ3: Correlation with graded judgments.} Do raw causal probe logits and CAA projections track item-level graded judgments from the target model and an external rater, both across individual items and in critical-minus-control pair differences?
+\end{samepage}
+
+\Needspace{6\baselineskip}
+\begin{samepage}
+\noindent\textbf{RQ4: Predicting and reducing failure modes.} Can probe-relative suppression and post-hoc attribution be predicted from pre-answer activations and reduced by format-balanced, development-selected residual-stream steering without substantially damaging probe--output agreements?
+\end{samepage}

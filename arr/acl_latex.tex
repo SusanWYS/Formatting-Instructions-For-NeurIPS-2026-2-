@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+
+% Support both uploading this folder alone and selecting this file as the
+% main document when the parent repository is uploaded to Overleaf.
+\newif\ifcompiledfromparent
+\IfFileExists{arr/acl.sty}{\compiledfromparenttrue}{\compiledfromparentfalse}
+\ifcompiledfromparent
+  \makeatletter
+  \def\input@path{{arr/}}
+  \makeatother
+\fi
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\ifcompiledfromparent\graphicspath{{arr/}}\fi
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{needspace}
+
+\title{Decoding and Steering Graded Causal Implication in Pretrained Language Models}
+
+\author{Anonymous ACL submission}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study whether pretrained language models behaviorally register graded causal implication, whether that information is linearly accessible, whether representational evidence tracks graded judgments, and whether predictable decision failures can be reduced by activation steering. Across seven models, critical items produce both greater surprisal for a subsequent claim of causal ignorance and a larger factor-probability advantage after \emph{because} than after an explicit happenstance continuation. Direct Yes/No and Likert judgments are more mixed: two Qwen models are highly discriminative, while several other models exhibit weak thresholded accuracy and strong order sensitivity. Across six models, causal probes and contrastive activation addition (CAA) directions discriminate held-out causal items well, whereas directions trained on temporal contrasts transfer inconsistently. Representational scores correlate strongly with an external Gemini rating but, for several models, only weakly with the model's own prompted judgments. Development-selected raw activation interventions improve held-out balanced accuracy in several settings. These results distinguish behavioral sensitivity, linear accessibility, and final decision readout.
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+
+\section*{Limitations}
+Linear decodability does not identify a unique causal mechanism. The intervention vectors contrast naturally occurring error and matched-correct states and can therefore contain correlated features unrelated to the targeted failure. Prompt-order effects also show that failure labels partly depend on the measurement interface.
+
+\ifcompiledfromparent
+  \bibliography{arr/custom}
+\else
+  \bibliography{custom}
+\fi
+
+\appendix
+\input{sections/appendix}
+
+\end{document}
