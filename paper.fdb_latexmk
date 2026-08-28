@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1787928520.97618 "paper.aux" "paper.bbl" "paper" 1787928521.74051 0
+["bibtex paper"] 1787929354.10504 "paper.aux" "paper.bbl" "paper" 1787929354.87505 0
   "./paper.bib" 1787922162.89873 3159 9caf527531e34f4a351b117f9c09aa66 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1787928521.54246 5525 c6d083295aecb5a9a38eb1d5719f91be "pdflatex"
+  "paper.aux" 1787929354.67339 5501 992fbe82505e4d7e847c38f7b4feb95f "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1787928521.02971 "paper.tex" "paper.pdf" "paper" 1787928521.7413 0
+["pdflatex"] 1787929354.15712 "paper.tex" "paper.pdf" "paper" 1787929354.87602 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -109,16 +109,16 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771962468.9046 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771961255 6831120 7a8920521b2023ff229f2e01d990437d ""
   "derived/rq2_results_text.tex" 1787909300.03468 1043 742f9f7fe16f5e80b1fa164dff601c15 ""
-  "figures/rq1_behavior.pdf" 1787928451.4366 12827 ceb125cf04f7f07c5d4932820ce542b0 ""
-  "figures/rq2a_causal_plausibility_heatmaps.pdf" 1787928452.59848 21923 a55dc1a0b77c645ad4064214664c8bb9 ""
-  "figures/rq2a_causal_temporal_heatmaps.pdf" 1787928451.93602 22122 7cc287c8c3a45e1e7a843e366a56efec ""
-  "figures/rq2b_causal_ood_caa_accuracy.pdf" 1787928453.0838 12300 b16dec1b0546da5875718b06d3503161 ""
-  "figures/rq3_self_blinding_raw_histograms.pdf" 1787928453.47611 15641 0de1314ea8642a1034ef7c417d7fbec1 ""
+  "figures/rq1_behavior.pdf" 1787929350.89737 12827 3487c9c89b64ac36352fb7964d4936ec ""
+  "figures/rq2a_causal_plausibility_heatmaps.pdf" 1787929352.06175 22028 a93f3f0a9bca5a8ed1cfb39d7dc97a3e ""
+  "figures/rq2a_causal_temporal_heatmaps.pdf" 1787929351.39598 22219 e395261355be22dd6ad8a82c30983a7c ""
+  "figures/rq2b_causal_ood_caa_accuracy.pdf" 1787929352.55504 12300 c03c3953cfa729d37774c38c0aa8c84d ""
+  "figures/rq3_self_blinding_raw_histograms.pdf" 1787929352.94827 15641 e2532e4b6b14112df089b7728b868c2c ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1787928521.54246 5525 c6d083295aecb5a9a38eb1d5719f91be "pdflatex"
-  "paper.bbl" 1787928521.0225 3149 6f0d7ef8a6eb916a442bcc6cdb939638 "bibtex paper"
-  "paper.out" 1787928521.54339 2038 67b767bb50b2ff09692cc1acb365f997 "pdflatex"
-  "paper.tex" 1787928520.1331 10131 bdebe6798212fe9fc1da160c4d5a7a38 ""
+  "paper.aux" 1787929354.67339 5501 992fbe82505e4d7e847c38f7b4feb95f "pdflatex"
+  "paper.bbl" 1787929354.14958 3149 6f0d7ef8a6eb916a442bcc6cdb939638 "bibtex paper"
+  "paper.out" 1787929354.67433 1431 a9a8e08c3f870ebdb1b6c3ef35631ba5 "pdflatex"
+  "paper.tex" 1787929343.16033 10272 0980f3f40ca56fb8fc2a9cb522bb87b1 ""
   (generated)
   "paper.aux"
   "paper.log"

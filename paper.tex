@@ -49,12 +49,13 @@ We ask three questions:
 \end{itemize}
 Our contribution is...
 
+\section{Studies}
 
-\section{Study 1: Measuring Behavioral Eliciture}
+\subsection{Study 1: Measuring Behavioral Eliciture}
 
 We vary the response measure in a conceptual replication of Pan and Kehler, finding substantial measurement dependence.
 
-\subsection{Methods}
+\paragraph{Methods.}
 
 \textbf{Models.} We evaluate the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3}.
 
@@ -67,15 +68,15 @@ We vary the response measure in a conceptual replication of Pan and Kehler, find
   \label{fig:rq1}
 \end{figure}
 
-\subsection{Results}
+\paragraph{Results.}
 
 Figure~\ref{fig:rq1} shows that Qwen3 4B/8B reach 1.00 with Likert responses and at least .96 with yes/no, but fall to .79/.76 under probability assignment. Conversely, Gemma~2 2B scores .45/.39 with prompting but .83 with \emph{because} versus \emph{and}. Overall, no interface supports a model-independent conclusion.
 
-\section{Study 2: Relation-Selective Causal Representations}
+\subsection{Study 2: Relation-Selective Causal Representations}
 
 We compare cross-sentence causal directions with temporal and plausibility directions, finding strong diagonals and weaker cross-transfer.
 
-\subsection{Methods}
+\paragraph{Methods.}
 
 \textbf{Datasets.} Causal, temporal, and plausibility directions respectively use 384/96, 800/200, and 56/14 train/ID-development pairs.
 
@@ -95,15 +96,15 @@ We compare cross-sentence causal directions with temporal and plausibility direc
   \label{fig:rq2-cp}
 \end{figure}
 
-\subsection{Results}
+\paragraph{Results.}
 
 Figures~\ref{fig:rq2-ct}--\ref{fig:rq2-cp} show causal self-transfer of \CausalSelfRange{}, temporal self-transfer of .93--.95, and plausibility self-transfer of .93--1.00. However, causal-to-temporal accuracy is .47--.73 and causal-to-plausibility is .36--.71; reverse transfer reaches .34--.67 and .15--.46. The gaps support relation selectivity, while occasional above-chance transfer argues against strict orthogonality.
 
-\section{Study 3: Generalization to Causal OOD}
+\subsection{Study 3: Generalization to Causal OOD}
 
 We next test whether causal directions remain selectively informative on unseen causal scenarios.
 
-\subsection{Methods}
+\paragraph{Methods.}
 
 \textbf{Datasets.} Causal and temporal CAAs use 1,000/200 and 800/200 train/development pairs; the plausibility CAA uses 70 probable/impossible pairs with five-fold layer selection. We evaluate every frozen direction on the same 150-pair causal OOD set.
 
@@ -116,15 +117,15 @@ We next test whether causal directions remain selectively informative on unseen 
   \label{fig:rq2b}
 \end{figure}
 
-\subsection{Results}
+\paragraph{Results.}
 
 Figure~\ref{fig:rq2b} shows that causal CAA reaches .97--1.00 paired accuracy across models. Temporal CAA varies from .57--.95, whereas plausibility CAA ranges from .41--.69. The causal direction therefore generalizes most consistently to new causal scenarios; transfer from the comparison directions is weaker and model-dependent.
 
-\section{Study 4: Generalization to Naturalistic Scenarios}
+\subsection{Study 4: Generalization to Naturalistic Scenarios}
 
 We finally test causal representations on matched naturalistic scenarios.
 
-\subsection{Methods}
+\paragraph{Methods.}
 
 \textbf{Dataset.} We evaluate 65 self-blinding scenarios per model in matched White-male, marginalized-male, and marginalized-female versions.
 
@@ -135,16 +136,12 @@ We finally test causal representations on matched naturalistic scenarios.
   \caption{\textbf{RQ3.} Mean paired unit-CAA change $\pm$ bootstrap 95\% CI half-width (65 scenarios/model).}
   \label{tab:rq3}
   \scriptsize
-  \begin{tabular}{lcc}
+  \begin{tabular}{lrrrrrr}
     \toprule
-    Model & Marginalized male $-$ White male & Marginalized female $-$ White male \\
+      & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen3\\4B} & \shortstack{Qwen3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
     \midrule
-    Gemma~2 2B  & $0.41 \pm 0.32$  & $0.57 \pm 0.32$ \\
-    Gemma~2 9B  & $1.9 \pm 0.40$   & $2.3 \pm 0.41$ \\
-    Qwen3 4B    & $0.073 \pm 0.093$ & $0.15 \pm 0.10$ \\
-    Qwen3 8B    & $0.29 \pm 0.17$  & $0.39 \pm 0.15$ \\
-    Llama~3.2 3B & $0.025 \pm 0.029$ & $0.069 \pm 0.033$ \\
-    Llama~3 8B  & $0.030 \pm 0.020$ & $0.060 \pm 0.021$ \\
+    Marg. male $-$ White male & $.41\mathbin{\pm}.32$ & $1.9\mathbin{\pm}.40$ & $.073\mathbin{\pm}.093$ & $.29\mathbin{\pm}.17$ & $.025\mathbin{\pm}.029$ & $.030\mathbin{\pm}.020$ \\
+    Marg. female $-$ White male & $.57\mathbin{\pm}.32$ & $2.3\mathbin{\pm}.41$ & $.15\mathbin{\pm}.10$ & $.39\mathbin{\pm}.15$ & $.069\mathbin{\pm}.033$ & $.060\mathbin{\pm}.021$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -156,7 +153,7 @@ We finally test causal representations on matched naturalistic scenarios.
   \label{fig:rq3-distributions}
 \end{figure}
 
-\subsection{Results}
+\paragraph{Results.}
 
 Table~\ref{tab:rq3} shows positive estimates for both contrasts in every model. Marginalized-female intervals exclude zero for all six; marginalized-male intervals do so for four. However, Figure~\ref{fig:rq3-distributions} shows substantial distributional overlap. These associations do not establish social bias, behavior, or a causal mechanism.
 
