@@ -63,8 +63,8 @@ We vary the response measure in a conceptual replication of Pan and Kehler, find
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=.9\linewidth]{figures/rq1_behavior.pdf}
-  \caption{\textbf{RQ1.} Paired accuracy on 150 eliciture pairs. Dashed line: chance. Behavioral conclusions vary substantially with response mapping, particularly for smaller models.}
+  \includegraphics[width=.78\linewidth]{figures/rq1_behavior.pdf}
+  \caption{\textbf{RQ1.} Paired accuracy on 150 eliciture pairs with Wilson 95\% CIs. Dashed line: chance.}
   \label{fig:rq1}
 \end{figure}
 
@@ -112,8 +112,8 @@ We next test whether causal directions remain selectively informative on unseen 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.9\linewidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
-  \caption{\textbf{RQ2b.} Paired accuracy of causal, temporal, and plausibility CAAs on 150 causal OOD pairs. Dashed line: chance.}
+  \includegraphics[width=.78\linewidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
+  \caption{\textbf{RQ2b.} Paired accuracy on 150 causal OOD pairs with Wilson 95\% CIs. Dashed line: chance.}
   \label{fig:rq2b}
 \end{figure}
 
@@ -146,16 +146,9 @@ We finally test causal representations on matched naturalistic scenarios.
   \end{tabular}
 \end{table}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=.9\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
-  \caption{\textbf{RQ3.} Raw CAA projections by matched condition (65 scores/condition/model).}
-  \label{fig:rq3-distributions}
-\end{figure}
-
 \paragraph{Results.}
 
-Table~\ref{tab:rq3} shows positive estimates for both contrasts in every model. Marginalized-female intervals exclude zero for all six; marginalized-male intervals do so for four. However, Figure~\ref{fig:rq3-distributions} shows substantial distributional overlap. These associations do not establish social bias, behavior, or a causal mechanism.
+Table~\ref{tab:rq3} shows positive estimates for both contrasts in every model. Marginalized-female intervals exclude zero for all six; marginalized-male intervals do so for four. However, Appendix Figure~\ref{fig:rq3-distributions} shows substantial distributional overlap. These associations do not establish social bias, behavior, or a causal mechanism.
 
 \section{Discussion}
 
@@ -165,6 +158,18 @@ Behavioral evidence is measurement-sensitive, whereas causal directions are rela
 \setlength{\bibsep}{1pt}
 \bibliographystyle{plainnat}
 \bibliography{paper}
+
+\normalsize
+\clearpage
+\appendix
+\section{Raw CAA Projection Distributions}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
+  \caption{\textbf{RQ3.} Raw CAA projections by matched condition (65 scores/condition/model). Colors and line styles distinguish the three conditions.}
+  \label{fig:rq3-distributions}
+\end{figure}
 
 % The NeurIPS checklist is retained in the template directory and can be
 % completed once workshop submission requirements are finalized.
