@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{microtype}
+\usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{float}
 \usepackage{enumitem}
@@ -137,12 +138,13 @@ We finally test causal representations on matched naturalistic scenarios.
   \caption{\textbf{RQ3.} Mean paired unit-CAA change $\pm$ bootstrap 95\% CI half-width (65 scenarios/model).}
   \label{tab:rq3}
   \scriptsize
+  \setlength{\tabcolsep}{5pt}
   \begin{tabular}{lrrrrrr}
     \toprule
       & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen3\\4B} & \shortstack{Qwen3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
     \midrule
-    Minority male $-$ White male & $.41\mathbin{\pm}.32$ & $1.9\mathbin{\pm}.40$ & $.073\mathbin{\pm}.093$ & $.29\mathbin{\pm}.17$ & $.025\mathbin{\pm}.029$ & $.030\mathbin{\pm}.020$ \\
-    Minority female $-$ White male & $.57\mathbin{\pm}.32$ & $2.3\mathbin{\pm}.41$ & $.15\mathbin{\pm}.10$ & $.39\mathbin{\pm}.15$ & $.069\mathbin{\pm}.033$ & $.060\mathbin{\pm}.021$ \\
+    Minority male $-$ White male & $\boldsymbol{.41\mathbin{\pm}.32}$ & $\boldsymbol{1.9\mathbin{\pm}.40}$ & $.073\mathbin{\pm}.093$ & $\boldsymbol{.29\mathbin{\pm}.17}$ & $.025\mathbin{\pm}.029$ & $\boldsymbol{.030\mathbin{\pm}.020}$ \\
+    Minority female $-$ White male & $\boldsymbol{.57\mathbin{\pm}.32}$ & $\boldsymbol{2.3\mathbin{\pm}.41}$ & $\boldsymbol{.15\mathbin{\pm}.10}$ & $\boldsymbol{.39\mathbin{\pm}.15}$ & $\boldsymbol{.069\mathbin{\pm}.033}$ & $\boldsymbol{.060\mathbin{\pm}.021}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
