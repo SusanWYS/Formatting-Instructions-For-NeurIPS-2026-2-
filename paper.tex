@@ -8,9 +8,9 @@
 \usepackage{booktabs}
 \usepackage{microtype}
 \usepackage{xcolor}
+\usepackage{float}
 \usepackage{hyperref}
 \usepackage{url}
-\usepackage{enumitem}
 
 \renewcommand{\topfraction}{.95}
 \renewcommand{\bottomfraction}{.9}
@@ -18,6 +18,7 @@
 \renewcommand{\floatpagefraction}{.85}
 \setlength{\textfloatsep}{7pt plus 2pt minus 2pt}
 \setlength{\floatsep}{7pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 1pt minus 1pt}
 
 \newcommand{\caa}{CAA}
 \newcommand{\modelname}[1]{\textsc{#1}}
@@ -30,28 +31,24 @@
 \maketitle
 
 \begin{abstract}
-placeholder
+Do language models merely behave as if they infer implicit causes, or do they encode causal relationships that generalize? Four studies test behavioral elicitation, relation selectivity, syntactic transfer, and naturalistic transfer. Across six models, behavioral conclusions depend on elicitation method, whereas causal directions discriminate held-out causal pairs and reach .75--.94 accuracy after a cross-sentence to within-sentence shift. Demographic substitutions also shift causal projections in 65 matched scenarios per model. These studies connect pragmatic behavior to internal representation while exposing important construct-validity limits.
 \end{abstract}
 
 \section{Introduction}
 
-Cohen and Kehler call this class of pragmatic inference \emph{conversational eliciture} \citep{cohen-kehler-2021-conversational}; Pan and Kehler show that large language models can reproduce human-like eliciture judgments and downstream relative-clause preferences \citep{pan-kehler-2025-pragmatic}. 
-We ask three questions: 
-\begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
-\item
-\textbf{RQ1} \textit{Do model behaviors reflect inferences about implicit causal relationships within sentences? }
-\item \textbf{RQ2} \textit{Do LMs form internal representations of implicit causal relationships?}
-\item \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
-\end{itemize}
-Our contribution is an aligned behavioral and representational evaluation using CAA \citep{rimsky-etal-2024-steering} throughout the representation experiments.
+Cohen and Kehler call defeasible pragmatic enrichments \emph{conversational elicitures} \citep{cohen-kehler-2021-conversational}. Language models reproduce human-like eliciture judgments and relative-clause preferences \citep{pan-kehler-2025-pragmatic}, but behavioral agreement does not reveal whether they encode the inferred relation. Because linear representations can reveal event-plausibility distinctions obscured by output probabilities \citep{lepori-etal-2026-fantasy}, we use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to study implicit causality.
 
-\section{Methods}
+Study~1 tests whether behavioral evidence is robust to measurement; Study~2 compares causal, temporal, and plausibility directions; Study~3 tests syntactic transfer; and Study~4 tests matched naturalistic scenarios. Behavioral measures disagree, whereas causal directions are discriminative, relation-selective, and informative after both shifts.
 
-\textbf{Models.}
-We evaluate the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3}.
+\section{Study 1: Measuring Behavioral Eliciture}
 
-\textbf{RQ1: behavioral elicitation.}
-We evaluate 150 critical/control eliciture pairs using three response mappings: direct yes/no judgments, expected scores under a seven-point Likert distribution, and a probability-based comparison of continuations headed by \emph{because} versus bare \emph{and}. The latter uses no metalinguistic judgment context and scores the mean log probability of the same continuation under the two connectives. A pair is correct when the critical item receives the stronger causal response. This is a conceptual rather than exact replication of Pan and Kehler: it retains their paired implicit-causality contrast but compares elicitation interfaces, following evidence that prompts and probability measurements need not agree \citep{hu-levy-2023-prompting}.
+We vary the response measure in a conceptual replication of Pan and Kehler, finding substantial measurement dependence.
+
+\subsection{Methods}
+
+\textbf{Models.} We evaluate the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3}.
+
+\textbf{Dataset and analysis.} We evaluate 150 critical/control pairs with yes/no judgments, expected seven-point Likert scores, and the relative probability of the same continuation after \emph{because} versus bare \emph{and}. The last measure uses no metalinguistic prompt. A pair is correct when the critical item receives the stronger causal response, allowing us to compare prompting with probability measurement \citep{hu-levy-2023-prompting}.
 
 \begin{figure}[t]
   \centering
@@ -60,16 +57,19 @@ We evaluate 150 critical/control eliciture pairs using three response mappings: 
   \label{fig:rq1}
 \end{figure}
 
-\textbf{RQ2: contrastive activation addition.}
-At each candidate layer (every fourth layer plus the final layer), CAA averages final-token activation differences between matched positive and negative texts. The causal direction is fit on 384 cross-sentence critical/control pairs and selected on 96 held-out in-distribution (ID) pairs. Temporal directions use 800 train and 200 ID-development earlier/later pairs; plausibility directions use 56 train and 14 ID-development probable/impossible pairs. For each source relation, we select the earliest layer maximizing the mean of own-development paired accuracy and ROC--AUC. We then apply that frozen direction at the same layer to every target set. RQ2a reports both directions of transfer in two $2\times2$ source--target matrices per model. RQ2b applies the cross-sentence causal direction to 200 held-out within-sentence relative-clause pairs, a syntactic and discourse-unit shift motivated by prior eliciture processing results \citep{rohde-etal-2011-anticipating}. No out-of-distribution test set is used for RQ2a.
+\subsection{Results}
 
-\textbf{RQ3: self-blinding scenarios.}
-For each model, we evaluate 65 naturalistic scenarios describing a negative outcome caused by a failure to seek help. Every scenario has matched White-male, minority-male, and minority-female versions. Here the frozen unit causal direction is estimated separately from 1,000 within-sentence eliciture pairs, then used to project the final-token state of each scenario sentence. We compute within-scenario differences from the White-male version and report means with 10,000-sample scenario bootstrap 95\% intervals. This is a representational association test, not a measure of downstream decisions or evidence that demographic identity caused the outcome.
+Figure~\ref{fig:rq1} shows that Qwen3 4B/8B reach 1.00 with Likert responses and at least .96 with yes/no, but fall to .79/.76 under probability assignment. Conversely, Gemma~2 2B scores .45/.39 with prompting but .83 with \emph{because} versus \emph{and}. Overall, no interface supports a model-independent conclusion.
 
-\section{Results}
+\section{Study 2: Relation-Selective Causal Representations}
 
-\textbf{RQ1: apparent competence is measurement-sensitive.}
-Figure~\ref{fig:rq1} shows that no single interface supports a model-independent conclusion. Qwen3 4B/8B reach 1.00 Likert paired accuracy and at least .96 with yes/no, yet fall to .79/.76 under probability assignment. Conversely, Gemma~2 2B is below chance for both prompted measures (.45/.39) but reaches .83 with \emph{because} versus \emph{and}. The probability measure is comparatively stable (.76--.89), whereas direct judgments span .39--1.00. Thus models often favor the predicted causal continuation, but behavioral evidence for eliciture is inseparable from how the response is elicited.
+We compare cross-sentence causal directions with temporal and plausibility directions, finding strong diagonals and weaker cross-transfer.
+
+\subsection{Methods}
+
+\textbf{Datasets.} Causal, temporal, and plausibility directions respectively use 384/96, 800/200, and 56/14 train/ID-development pairs.
+
+\textbf{Analysis.} At every fourth layer and the final layer, CAA averages final-token differences between matched positive and negative texts. We select the earliest layer maximizing mean own-development paired accuracy and ROC--AUC, then apply that frozen direction to every target relation. Matrix diagonals measure within-relation discrimination; off-diagonals measure cross-transfer. This is an ID-development analysis, not an OOD test.
 
 \begin{figure}[t]
   \centering
@@ -85,34 +85,53 @@ Figure~\ref{fig:rq1} shows that no single interface supports a model-independent
   \label{fig:rq2-cp}
 \end{figure}
 
-\textbf{Implicit causal directions are \RQTwoAHeadline.}
-Across models, causal self-transfer is \CausalSelfRange{}, while temporal and plausibility self-transfer are \OtherSelfSummary{}. Off-diagonal transfer is \CrossTransferSummary{} (Figures~\ref{fig:rq2-ct}--\ref{fig:rq2-cp}). \RQTwoAInterpretation{}. Because layer selection and evaluation use ID development data, these results diagnose accessibility and cross-relation geometry rather than unseen-distribution generalization.
+\subsection{Results}
 
-\begin{figure}[t]
+Figures~\ref{fig:rq2-ct}--\ref{fig:rq2-cp} show causal self-transfer of \CausalSelfRange{}, temporal self-transfer of .93--.95, and plausibility self-transfer of .93--1.00. However, causal-to-temporal accuracy is .47--.73 and causal-to-plausibility is .36--.71; reverse transfer reaches .34--.67 and .15--.46. The gaps support relation selectivity, while occasional above-chance transfer argues against strict orthogonality.
+
+\section{Study 3: Generalization Across Syntax}
+
+We next test whether cross-sentence causal directions generalize to within-sentence eliciture.
+
+\subsection{Methods}
+
+We apply each Study~2 causal direction to 200 held-out within-sentence relative-clause pairs, changing both syntax and discourse unit \citep{rohde-etal-2011-anticipating}. A pair is correct when the critical sentence projects farther along the direction.
+
+\begin{figure}[H]
   \centering
-  \IfFileExists{figures/rq2b_syntactic_generalization.pdf}{\includegraphics[width=.68\linewidth]{figures/rq2b_syntactic_generalization.pdf}}{\rule{.68\linewidth}{.28\linewidth}}
-  \caption{\textbf{RQ2b.} Cross-sentence causal CAA accuracy on 200 within-sentence pairs; dashed line: chance.}
+  \IfFileExists{figures/rq2b_syntactic_generalization.pdf}{\includegraphics[width=.58\linewidth]{figures/rq2b_syntactic_generalization.pdf}}{\rule{.58\linewidth}{.24\linewidth}}
+  \caption{\textbf{Study 3.} Causal CAA accuracy on 200 within-sentence pairs; dashed line: chance.}
   \label{fig:rq2b}
 \end{figure}
 
-\textbf{RQ2b: discourse-level causality transfers across syntax.}
-The six causal directions attain \SyntaxRange{} paired accuracy on unseen within-sentence relative-clause pairs (Figure~\ref{fig:rq2b}); \SyntaxCountSummary{}. This transfer supports a shared component between explicit cross-sentence causal coherence and implicit within-sentence eliciture, although CAA cannot determine whether that component is uniquely causal.
+\subsection{Results}
 
-\begin{figure}[t]
+Figure~\ref{fig:rq2b} shows \SyntaxRange{} paired accuracy; \SyntaxCountSummary{}. Cross-sentence causal coherence and within-sentence eliciture therefore share a linearly accessible component, although it need not be uniquely causal.
+
+\section{Study 4: Generalization to Naturalistic Scenarios}
+
+We finally test causal representations on matched naturalistic scenarios.
+
+\subsection{Methods}
+
+\textbf{Dataset.} We evaluate 65 self-blinding scenarios per model, with matched White-male, minority-male, and minority-female versions.
+
+\textbf{Analysis.} A unit causal direction fit separately on 1,000 within-sentence pairs projects each scenario's final-token state. We report within-scenario differences from the White-male version with 10,000-sample bootstrap 95\% intervals.
+
+\begin{figure}[H]
   \centering
-  \includegraphics[width=.72\linewidth]{figures/rq3_self_blinding.pdf}
-  \caption{\textbf{RQ3.} Mean unit-CAA projection change from matched White-male sentences (65 scenarios/model); bars show bootstrap 95\% intervals.}
+  \includegraphics[width=.58\linewidth]{figures/rq3_self_blinding.pdf}
+  \caption{\textbf{Study 4.} Mean paired CAA-projection change (65 scenarios/model); bootstrap 95\% intervals.}
   \label{fig:rq3}
 \end{figure}
 
-\textbf{RQ3: demographic substitutions shift causal projections.}
-All six models have positive point estimates for both contrasts (Figure~\ref{fig:rq3}). Minority-female intervals exclude zero for every model; minority-male intervals exclude zero for four of six. Magnitudes differ sharply by model family, from .06--.07 for the minority-female contrast in Llama models to 2.25 in Gemma~2 9B. These shifts show that causal representations extend to naturalistic matched scenarios, but they do not by themselves identify social bias, behavioral consequences, or a causal mechanism inside the network.
+\subsection{Results}
+
+Figure~\ref{fig:rq3} shows positive point estimates for both contrasts in every model. Minority-female intervals exclude zero for all six; minority-male intervals do so for four. Notably, minority-female magnitudes range from .06--.07 in Llama models to 2.25 in Gemma~2 9B. These associations do not establish social bias, downstream behavior, or a causal mechanism.
 
 \section{Discussion and limitations}
 
-Behavioral agreement, linear accessibility, and cross-domain projection answer different questions. RQ1 demonstrates that prompt-based judgments can both inflate and suppress apparent pragmatic competence. RQ2 tests a stronger representational claim: a direction estimated from discourse minimal pairs remains informative after relation or syntax changes. RQ3 then shows why this geometry can matter beyond controlled stimuli, while also demanding restraint in interpretation.
-
-The study is limited in four ways. First, RQ2a is an ID-development analysis with layer selection on the same relation; it is not an OOD benchmark. Second, the plausibility result rests on only 14 development pairs. Third, CAA identifies a linear contrast correlated with labels, not a complete or necessarily causal mechanism; intervention experiments remain necessary. Fourth, self-blinding scenarios cover only 65 templates and matched demographic substitutions, so projection differences cannot establish general social behavior. Larger preregistered test sets, causal interventions, and behavioral validation of the naturalistic effects are the next steps.
+Across four studies, behavioral evidence is measurement-sensitive, whereas causal directions are relation-selective and transferable. However, Study~2 uses ID development sets (only 14 plausibility pairs), CAA is correlational, and 65 scenarios cannot establish general social behavior. OOD tests, causal interventions, and behavioral validation remain necessary.
 
 \bibliographystyle{plainnat}
 \bibliography{paper}
