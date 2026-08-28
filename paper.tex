@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[dblblindworkshop]{neurips_2026}
 \workshoptitle{LPFM}
-
+\usepackage{enumitem}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -38,7 +38,16 @@ Do language models merely behave as if they infer implicit causes, or do they en
 
 Cohen and Kehler call defeasible pragmatic enrichments \emph{conversational elicitures} \citep{cohen-kehler-2021-conversational}. Language models reproduce human-like eliciture judgments and relative-clause preferences \citep{pan-kehler-2025-pragmatic}, but behavioral agreement does not reveal whether they encode the inferred relation. Because linear representations can reveal event-plausibility distinctions obscured by output probabilities \citep{lepori-etal-2026-fantasy}, we use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to study implicit causality.
 
-Study~1 tests whether behavioral evidence is robust to measurement; Study~2 compares causal, temporal, and plausibility directions; Study~3 tests syntactic transfer; and Study~4 tests matched naturalistic scenarios. Behavioral measures disagree, whereas causal directions are discriminative, relation-selective, and informative after both shifts.
+
+We ask three questions: 
+\begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
+\item
+\textbf{RQ1} \textit{Do model behaviors reflect inferences about implicit causal relationships within sentences? }
+\item \textbf{RQ2} \textit{Do LMs form internal representations of implicit causal relationships?}
+\item \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
+\end{itemize}
+Our contribution is...
+
 
 \section{Study 1: Measuring Behavioral Eliciture}
 
@@ -129,7 +138,8 @@ We finally test causal representations on matched naturalistic scenarios.
 
 Figure~\ref{fig:rq3} shows positive point estimates for both contrasts in every model. Minority-female intervals exclude zero for all six; minority-male intervals do so for four. Notably, minority-female magnitudes range from .06--.07 in Llama models to 2.25 in Gemma~2 9B. These associations do not establish social bias, downstream behavior, or a causal mechanism.
 
-\section{Discussion and limitations}
+\section{Related Work}
+\section{Discussion}
 
 Across four studies, behavioral evidence is measurement-sensitive, whereas causal directions are relation-selective and transferable. However, Study~2 uses ID development sets (only 14 plausibility pairs), CAA is correlational, and 65 scenarios cannot establish general social behavior. OOD tests, causal interventions, and behavioral validation remain necessary.
 
