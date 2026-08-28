@@ -2,50 +2,41 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{cohen-kehler-2021-conversational}
 \citation{gemma-team-2024-gemma2}
 \citation{qwen-team-2025-qwen3}
 \citation{meta-2024-llama32}
 \citation{dubey-etal-2024-llama3}
-\citation{pan-kehler-2025-pragmatic}
-\citation{hu-levy-2023-prompting}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background}{1}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Experiments}{1}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Study 1: Measuring Behavioral Eliciture}{1}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces For \textbf  {RQ1}, this experiment compares three measures of causal eliciture in six LMs. Bars show paired accuracy on 150 pairs with Wilson 95\% CIs; the dashed line marks chance. \textbf  {Main takeaway: behavioral conclusions depend strongly on the measure.}}}{1}{figure.1}\protected@file@percent }
-\newlabel{fig:rq1}{{1}{1}{For \textbf {RQ1}, this experiment compares three measures of causal eliciture in six LMs. Bars show paired accuracy on 150 pairs with Wilson 95\% CIs; the dashed line marks chance. \textbf {Main takeaway: behavioral conclusions depend strongly on the measure.}}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Measuring Implicit Causal Inference through Model Behaviors}{1}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Paired accuracy on 150 pairs of implicit causal inference items with 95\% CIs, \textbf  {Models demonstrate implicit causal inference consistently through probability.} Not all models can faithfully report their implicit causal inference through Yes/No and 7-Point Likert rating. The performance of metalinguistic causal inference increases with model scale.}}{1}{figure.1}\protected@file@percent }
+\newlabel{fig:rq1}{{1}{1}{Paired accuracy on 150 pairs of implicit causal inference items with 95\% CIs, \textbf {Models demonstrate implicit causal inference consistently through probability.} Not all models can faithfully report their implicit causal inference through Yes/No and 7-Point Likert rating. The performance of metalinguistic causal inference increases with model scale}{figure.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{1}{section*.1}\protected@file@percent }
 \citation{rimsky-etal-2024-steering}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{2}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Study 2: Relation-Selective Causal Representations}{2}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Methods.}{2}{section*.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces For \textbf  {RQ2a}, this experiment tests whether causal and temporal CAA directions distinguish their own relation and transfer to the other relation. Rows identify the CAA training set, columns identify the in-distribution evaluation set, and cells report paired accuracy; diagonal cells measure same-relation discrimination and off-diagonal cells measure cross-transfer. \textbf  {Main takeaway: strong diagonals and weaker cross-transfer indicate that causal and temporal directions are partly relation-selective.}}}{2}{figure.2}\protected@file@percent }
-\newlabel{fig:rq2-ct}{{2}{2}{For \textbf {RQ2a}, this experiment tests whether causal and temporal CAA directions distinguish their own relation and transfer to the other relation. Rows identify the CAA training set, columns identify the in-distribution evaluation set, and cells report paired accuracy; diagonal cells measure same-relation discrimination and off-diagonal cells measure cross-transfer. \textbf {Main takeaway: strong diagonals and weaker cross-transfer indicate that causal and temporal directions are partly relation-selective.}}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces For \textbf  {RQ2a}, this experiment tests whether causal and plausibility CAA directions distinguish their own relation and transfer to the other relation. Rows identify the CAA training set, columns identify the in-distribution evaluation set, and cells report paired accuracy for each model; plausibility estimates are exploratory because they use only 14 evaluation pairs. \textbf  {Main takeaway: high same-relation accuracy and weaker cross-transfer suggest that causal representations are not reducible to event plausibility.}}}{2}{figure.3}\protected@file@percent }
-\newlabel{fig:rq2-cp}{{3}{2}{For \textbf {RQ2a}, this experiment tests whether causal and plausibility CAA directions distinguish their own relation and transfer to the other relation. Rows identify the CAA training set, columns identify the in-distribution evaluation set, and cells report paired accuracy for each model; plausibility estimates are exploratory because they use only 14 evaluation pairs. \textbf {Main takeaway: high same-relation accuracy and weaker cross-transfer suggest that causal representations are not reducible to event plausibility.}}{figure.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{3}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Study 3: Generalization to Causal OOD}{3}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Methods.}{3}{section*.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces For \textbf  {RQ2b}, this experiment compares causal, temporal, and plausibility CAA directions on the same 150 unseen causal pairs. Bars show paired accuracy with Wilson 95\% CIs; the dashed line marks chance. \textbf  {Main takeaway: the causal direction generalizes most consistently, indicating that its performance is not explained by temporal or plausibility information alone.}}}{3}{figure.4}\protected@file@percent }
-\newlabel{fig:rq2b}{{4}{3}{For \textbf {RQ2b}, this experiment compares causal, temporal, and plausibility CAA directions on the same 150 unseen causal pairs. Bars show paired accuracy with Wilson 95\% CIs; the dashed line marks chance. \textbf {Main takeaway: the causal direction generalizes most consistently, indicating that its performance is not explained by temporal or plausibility information alone.}}{figure.4}{}}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{3}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Study 4: Generalization to Naturalistic Scenarios}{3}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Methods.}{3}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Identifying Internal Representations of Implicit Causality Inference}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cross-transfer paired accuracy between causal and temporal CAA directions. Rows show the CAA training set and columns show the in-distribution evaluation set. \textbf  {Causal and temporal CAA directions are largely relation-selective.} Both directions perform best on their own relation and transfer less consistently to the other relation.}}{2}{figure.2}\protected@file@percent }
+\newlabel{fig:rq2-ct}{{2}{2}{Cross-transfer paired accuracy between causal and temporal CAA directions. Rows show the CAA training set and columns show the in-distribution evaluation set. \textbf {Causal and temporal CAA directions are largely relation-selective.} Both directions perform best on their own relation and transfer less consistently to the other relation}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Cross-transfer paired accuracy between causal and plausibility CAA directions. Rows show the CAA training set and columns show the in-distribution evaluation set. \textbf  {Implicit causality is represented distinctly from event plausibility.} Both directions perform best on their own relation; results on the 14-pair plausibility evaluation set are exploratory.}}{2}{figure.3}\protected@file@percent }
+\newlabel{fig:rq2-cp}{{3}{2}{Cross-transfer paired accuracy between causal and plausibility CAA directions. Rows show the CAA training set and columns show the in-distribution evaluation set. \textbf {Implicit causality is represented distinctly from event plausibility.} Both directions perform best on their own relation; results on the 14-pair plausibility evaluation set are exploratory}{figure.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Testing the Generalization to Within-Sentence Implicit Causal Inference}{2}{subsection.3.3}\protected@file@percent }
 \bibstyle{plainnat}
 \bibdata{paper}
-\bibcite{cohen-kehler-2021-conversational}{{1}{2021}{{Cohen and Kehler}}{{}}}
-\bibcite{dubey-etal-2024-llama3}{{2}{2024}{{Dubey et~al.}}{{}}}
-\bibcite{gemma-team-2024-gemma2}{{3}{2024}{{Gemma Team}}{{}}}
-\bibcite{hu-levy-2023-prompting}{{4}{2023}{{Hu and Levy}}{{}}}
-\bibcite{meta-2024-llama32}{{5}{2024}{{Meta AI}}{{}}}
-\bibcite{pan-kehler-2025-pragmatic}{{6}{2025}{{Pan and Kehler}}{{}}}
-\bibcite{qwen-team-2025-qwen3}{{7}{2025}{{Qwen Team}}{{}}}
-\bibcite{rimsky-etal-2024-steering}{{8}{2024}{{Rimsky et~al.}}{{Rimsky, Gabrieli, Schulz, Tong, Hubinger, and Turner}}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces For \textbf  {RQ3}, this experiment tests whether changing demographic descriptors in 65 otherwise matched adverse-outcome scenarios changes their causal CAA projections. Values are mean paired differences from the White-male condition $\pm $ the bootstrap 95\% CI half-width; positive values indicate greater alignment with the causal direction, and bold entries have CIs that exclude zero. \textbf  {Main takeaway: projections differ reliably for several contrasts, but these associations alone do not demonstrate biased behavior or a causal mechanism.}}}{4}{table.1}\protected@file@percent }
-\newlabel{tab:rq3}{{1}{4}{For \textbf {RQ3}, this experiment tests whether changing demographic descriptors in 65 otherwise matched adverse-outcome scenarios changes their causal CAA projections. Values are mean paired differences from the White-male condition $\pm $ the bootstrap 95\% CI half-width; positive values indicate greater alignment with the causal direction, and bold entries have CIs that exclude zero. \textbf {Main takeaway: projections differ reliably for several contrasts, but these associations alone do not demonstrate biased behavior or a causal mechanism.}}{table.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{4}{section*.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{4}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A}Raw CAA Projection Distributions}{5}{appendix.A}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {RQ3.} Raw CAA projections by matched condition (65 scores/condition/model). Colors and line styles distinguish the three conditions.}}{5}{figure.5}\protected@file@percent }
-\newlabel{fig:rq3-distributions}{{5}{5}{\textbf {RQ3.} Raw CAA projections by matched condition (65 scores/condition/model). Colors and line styles distinguish the three conditions}{figure.5}{}}
-\gdef \@abspage@last{5}
+\bibcite{dubey-etal-2024-llama3}{{1}{2024}{{Dubey et~al.}}{{}}}
+\bibcite{gemma-team-2024-gemma2}{{2}{2024}{{Gemma Team}}{{}}}
+\bibcite{meta-2024-llama32}{{3}{2024}{{Meta AI}}{{}}}
+\bibcite{qwen-team-2025-qwen3}{{4}{2025}{{Qwen Team}}{{}}}
+\bibcite{rimsky-etal-2024-steering}{{5}{2024}{{Rimsky et~al.}}{{Rimsky, Gabrieli, Schulz, Tong, Hubinger, and Turner}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Paired accuracy of causal, temporal, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf  {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Temporal and plausibility CAA directions transfer less consistently across models. The dashed line denotes chance.}}{3}{figure.4}\protected@file@percent }
+\newlabel{fig:rq2b}{{4}{3}{Paired accuracy of causal, temporal, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Temporal and plausibility CAA directions transfer less consistently across models. The dashed line denotes chance}{figure.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Study 4: Generalization to Naturalistic Scenarios}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Mean paired differences in causal CAA projection from the White-male condition across 65 matched scenarios, reported $\pm $ the bootstrap 95\% CI half-width. \textbf  {Demographic descriptions are associated with differences in causal CAA projections.} Positive values indicate greater projection than the White-male condition. Bolded values have CIs that do not include zero.}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:rq3}{{1}{3}{Mean paired differences in causal CAA projection from the White-male condition across 65 matched scenarios, reported $\pm $ the bootstrap 95\% CI half-width. \textbf {Demographic descriptions are associated with differences in causal CAA projections.} Positive values indicate greater projection than the White-male condition. Bolded values have CIs that do not include zero}{table.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{3}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{3}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Raw CAA Projection Distributions}{4}{appendix.A}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf  {The three conditions have substantially overlapping projection distributions in every model.} Colors and line styles distinguish the White-male, minority-male, and minority-female conditions.}}{4}{figure.5}\protected@file@percent }
+\newlabel{fig:rq3-distributions}{{5}{4}{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf {The three conditions have substantially overlapping projection distributions in every model.} Colors and line styles distinguish the White-male, minority-male, and minority-female conditions}{figure.5}{}}
+\gdef \@abspage@last{4}

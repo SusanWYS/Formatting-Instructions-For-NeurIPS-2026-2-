@@ -1,14 +1,9 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[Cohen and Kehler(2021)]{cohen-kehler-2021-conversational}
-Jonathan Cohen and Andrew Kehler.
-\newblock Conversational eliciture.
-\newblock \emph{Philosophers' Imprint}, 21\penalty0 (12):\penalty0 1--26, 2021.
 
 \bibitem[Dubey et~al.(2024)]{dubey-etal-2024-llama3}
 Abhimanyu Dubey et~al.
@@ -22,28 +17,11 @@ Abhimanyu Dubey et~al.
 \newblock \emph{arXiv preprint arXiv:2408.00118}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2408.00118}.
 
-\bibitem[Hu and Levy(2023)]{hu-levy-2023-prompting}
-Jennifer Hu and Roger Levy.
-\newblock Prompting is not a substitute for probability measurements in large
-  language models.
-\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
-  Natural Language Processing}, pages 5040--5060. Association for Computational
-  Linguistics, 2023.
-
 \bibitem[{Meta AI}(2024)]{meta-2024-llama32}
 {Meta AI}.
 \newblock {Llama 3.2} model card.
 \newblock Hugging Face model documentation, 2024.
 \newblock URL \url{https://huggingface.co/meta-llama/Llama-3.2-3B}.
-
-\bibitem[Pan and Kehler(2025)]{pan-kehler-2025-pragmatic}
-Dingyi Pan and Andrew Kehler.
-\newblock Pragmatic competence in {LLM}s: The case of eliciture.
-\newblock In Carolyn~Jane Anderson, Fr{\'e}d{\'e}ric Mailhot, and Grusha
-  Prasad, editors, \emph{Proceedings of the Society for Computation in
-  Linguistics 2025}, pages 388--391. Association for Computational Linguistics,
-  2025.
-\newblock URL \url{https://aclanthology.org/2025.scil-1.39/}.
 
 \bibitem[{Qwen Team}(2025)]{qwen-team-2025-qwen3}
 {Qwen Team}.

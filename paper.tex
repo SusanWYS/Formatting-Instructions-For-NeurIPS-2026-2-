@@ -82,14 +82,14 @@ We next ask whether model activations distinguish causal relationships from othe
 \begin{figure}[H]
   \centering
   \IfFileExists{figures/rq2a_causal_temporal_heatmaps.pdf}{\includegraphics[width=\linewidth]{figures/rq2a_causal_temporal_heatmaps.pdf}}{\rule{\linewidth}{.23\linewidth}}
-  \caption{}
+  \caption{Cross-transfer paired accuracy between causal and temporal CAA directions. Rows show the CAA training set and columns show the in-distribution evaluation set. \textbf{Causal and temporal CAA directions are largely relation-selective.} Both directions perform best on their own relation and transfer less consistently to the other relation.}
   \label{fig:rq2-ct}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \IfFileExists{figures/rq2a_causal_plausibility_heatmaps.pdf}{\includegraphics[width=\linewidth]{figures/rq2a_causal_plausibility_heatmaps.pdf}}{\rule{\linewidth}{.23\linewidth}}
-  \caption{}
+  \caption{Cross-transfer paired accuracy between causal and plausibility CAA directions. Rows show the CAA training set and columns show the in-distribution evaluation set. \textbf{Implicit causality is represented distinctly from event plausibility.} Both directions perform best on their own relation; results on the 14-pair plausibility evaluation set are exploratory.}
   \label{fig:rq2-cp}
 \end{figure}
 
@@ -106,7 +106,7 @@ We now ask whether the learned directions remain informative on unseen causal co
 \begin{figure}[H]
   \centering
   \includegraphics[width=.78\linewidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
-  \caption{}
+  \caption{Paired accuracy of causal, temporal, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Temporal and plausibility CAA directions transfer less consistently across models. The dashed line denotes chance.}
   \label{fig:rq2b}
 \end{figure}
 
@@ -119,7 +119,7 @@ We now ask whether the learned directions remain informative on unseen causal co
 
 \begin{table}[H]
   \centering
-  \caption{}
+  \caption{Mean paired differences in causal CAA projection from the White-male condition across 65 matched scenarios, reported $\pm$ the bootstrap 95\% CI half-width. \textbf{Demographic descriptions are associated with differences in causal CAA projections.} Positive values indicate greater projection than the White-male condition. Bolded values have CIs that do not include zero.}
   \label{tab:rq3}
   \scriptsize
   \setlength{\tabcolsep}{5pt}
@@ -152,7 +152,7 @@ We now ask whether the learned directions remain informative on unseen causal co
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
-  \caption{\textbf{RQ3.} Raw CAA projections by matched condition (65 scores/condition/model). Colors and line styles distinguish the three conditions.}
+  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model.} Colors and line styles distinguish the White-male, minority-male, and minority-female conditions.}
   \label{fig:rq3-distributions}
 \end{figure}
 
