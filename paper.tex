@@ -61,7 +61,7 @@ We vary the response measure in a conceptual replication of Pan and Kehler, find
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\linewidth]{figures/rq1_behavior.pdf}
+  \includegraphics[width=.9\linewidth]{figures/rq1_behavior.pdf}
   \caption{\textbf{RQ1.} Paired accuracy on 150 eliciture pairs. Dashed line: chance. Behavioral conclusions vary substantially with response mapping, particularly for smaller models.}
   \label{fig:rq1}
 \end{figure}
@@ -80,16 +80,16 @@ We compare cross-sentence causal directions with temporal and plausibility direc
 
 \textbf{Analysis.} At every fourth layer and the final layer, CAA averages final-token differences between matched positive and negative texts. We select the earliest layer maximizing mean own-development paired accuracy and ROC--AUC, then apply that frozen direction to every target relation. Matrix diagonals measure within-relation discrimination; off-diagonals measure cross-transfer. This is an ID-development analysis, not an OOD test.
 
-\begin{figure}[t]
+\begin{figure}[H]
   \centering
-  \IfFileExists{figures/rq2a_causal_temporal_heatmaps.pdf}{\includegraphics[width=.9\linewidth]{figures/rq2a_causal_temporal_heatmaps.pdf}}{\rule{.9\linewidth}{.5\linewidth}}
+  \IfFileExists{figures/rq2a_causal_temporal_heatmaps.pdf}{\includegraphics[width=\linewidth]{figures/rq2a_causal_temporal_heatmaps.pdf}}{\rule{\linewidth}{.23\linewidth}}
   \caption{\textbf{RQ2a, causal vs. temporal.} ID-development paired accuracy when each row's CAA direction is evaluated on each column's relation. Each panel is one model; diagonals measure own-relation discrimination and off-diagonals measure cross-transfer.}
   \label{fig:rq2-ct}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[H]
   \centering
-  \IfFileExists{figures/rq2a_causal_plausibility_heatmaps.pdf}{\includegraphics[width=.9\linewidth]{figures/rq2a_causal_plausibility_heatmaps.pdf}}{\rule{.9\linewidth}{.5\linewidth}}
+  \IfFileExists{figures/rq2a_causal_plausibility_heatmaps.pdf}{\includegraphics[width=\linewidth]{figures/rq2a_causal_plausibility_heatmaps.pdf}}{\rule{\linewidth}{.23\linewidth}}
   \caption{\textbf{RQ2a, causal vs. plausibility.} Six-model cross-transfer matrices; plausibility cells ($n=14$ pairs) are exploratory.}
   \label{fig:rq2-cp}
 \end{figure}
@@ -106,16 +106,23 @@ We next test whether cross-sentence causal directions generalize to within-sente
 
 We apply each Study~2 causal direction to 200 held-out within-sentence relative-clause pairs, changing both syntax and discourse unit \citep{rohde-etal-2011-anticipating}. A pair is correct when the critical sentence projects farther along the direction.
 
-\begin{figure}[H]
+\begin{table}[H]
   \centering
-  \IfFileExists{figures/rq2b_syntactic_generalization.pdf}{\includegraphics[width=.58\linewidth]{figures/rq2b_syntactic_generalization.pdf}}{\rule{.58\linewidth}{.24\linewidth}}
-  \caption{\textbf{Study 3.} Causal CAA accuracy on 200 within-sentence pairs; dashed line: chance.}
-  \label{fig:rq2b}
-\end{figure}
+  \caption{\textbf{RQ2b.} Cross-sentence causal CAA paired accuracy on 200 within-sentence pairs.}
+  \label{tab:rq2b}
+  \small
+  \begin{tabular}{lrrrrrr}
+    \toprule
+      & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen 3\\4B} & \shortstack{Qwen 3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
+    \midrule
+    Paired accuracy & .880 & .935 & .750 & .785 & .835 & .805 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \subsection{Results}
 
-Figure~\ref{fig:rq2b} shows \SyntaxRange{} paired accuracy; \SyntaxCountSummary{}. Cross-sentence causal coherence and within-sentence eliciture therefore share a linearly accessible component, although it need not be uniquely causal.
+Table~\ref{tab:rq2b} shows \SyntaxRange{} paired accuracy; \SyntaxCountSummary{}. Cross-sentence causal coherence and within-sentence eliciture therefore share a linearly accessible component, although it need not be uniquely causal.
 
 \section{Study 4: Generalization to Naturalistic Scenarios}
 
@@ -129,8 +136,8 @@ We finally test causal representations on matched naturalistic scenarios.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.58\linewidth]{figures/rq3_self_blinding.pdf}
-  \caption{\textbf{Study 4.} Mean paired CAA-projection change (65 scenarios/model); bootstrap 95\% intervals.}
+  \includegraphics[width=.9\linewidth]{figures/rq3_self_blinding.pdf}
+  \caption{\textbf{RQ3.} Mean paired CAA-projection change (65 scenarios/model); bootstrap 95\% intervals.}
   \label{fig:rq3}
 \end{figure}
 
