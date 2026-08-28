@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  27 AUG 2026 16:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  28 AUG 2026 08:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -322,33 +322,42 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip55
 )
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip56
+\enit@outerparindent=\dimen174
+\enit@toks=\toks25
+\enit@inbox=\box53
+\enit@count@id=\count290
+\enitdp@description=\count291
+)
 (./derived/rq2_results_text.tex)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count290
-\l__pdf_internal_box=\box53
+\l__color_backend_stack_int=\count292
+\l__pdf_internal_box=\box54
 )
 (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -418,17 +427,17 @@ LaTeX Font Info:    ... okay on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count291
-\scratchdimen=\dimen174
-\scratchbox=\box54
-\nofMPsegments=\count292
-\nofMParguments=\count293
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count294
-\MPscratchDim=\dimen175
-\MPnumerator=\count295
-\makeMPintoPDFobject=\count296
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count293
+\scratchdimen=\dimen175
+\scratchbox=\box55
+\nofMPsegments=\count294
+\nofMParguments=\count295
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen176
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -438,19 +447,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 28.
-Package microtype Info: Applying patch `item' on input line 28.
-Package microtype Info: Applying patch `toc' on input line 28.
-Package microtype Info: Applying patch `eqnum' on input line 28.
-Package microtype Info: Applying patch `footnote' on input line 28.
-Package microtype Info: Applying patch `verbatim' on input line 28.
+LaTeX Info: Redefining \microtypecontext on input line 29.
+Package microtype Info: Applying patch `item' on input line 29.
+Package microtype Info: Applying patch `toc' on input line 29.
+Package microtype Info: Applying patch `eqnum' on input line 29.
+Package microtype Info: Applying patch `footnote' on input line 29.
+Package microtype Info: Applying patch `verbatim' on input line 29.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 28.
+LaTeX Info: Redefining \showhyphens on input line 29.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -458,7 +467,7 @@ Package microtype Info: No adjustment of character kerning.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 28.
+Package hyperref Info: Link coloring OFF on input line 29.
  (./paper.out)
 (./paper.out)
 \@outlinefile=\write3
@@ -469,11 +478,11 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 30.
+(Font)              <7> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 30.
+(Font)              <5> on input line 31.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-0.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
@@ -482,7 +491,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 33
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 34
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -498,48 +507,44 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq1_behavior.pdf, id=42, 448.05957pt x 206.5577pt>
+<figures/rq1_behavior.pdf, id=54, 448.05957pt x 206.5577pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
-Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 51.
+Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 58.
 (pdftex.def)             Requested size: 397.48499pt x 183.25267pt.
-<figures/rq2a_causal_temporal_heatmaps.pdf, id=46, 523.86696pt x 301.12451pt>
+<figures/rq2a_causal_temporal_heatmaps.pdf, id=58, 523.86696pt x 301.12451pt>
 File: figures/rq2a_causal_temporal_heatmaps.pdf Graphic file (type pdf)
 <use figures/rq2a_causal_temporal_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_causal_temporal_heatmaps.pdf  used on inp
-ut line 69.
+ut line 76.
 (pdftex.def)             Requested size: 357.73405pt x 205.63495pt.
-<figures/rq2a_causal_plausibility_heatmaps.pdf, id=47, 514.633pt x 301.12451pt>
+<figures/rq2a_causal_plausibility_heatmaps.pdf, id=59, 514.633pt x 301.12451pt>
 
 File: figures/rq2a_causal_plausibility_heatmaps.pdf Graphic file (type pdf)
 <use figures/rq2a_causal_plausibility_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_causal_plausibility_heatmaps.pdf  used on
- input line 76.
+ input line 83.
 (pdftex.def)             Requested size: 357.73405pt x 209.31998pt.
 
 [2 <./figures/rq1_behavior.pdf>]
-<figures/rq2b_syntactic_generalization.pdf, id=71, 372.4471pt x 172.73265pt>
+<figures/rq2b_syntactic_generalization.pdf, id=81, 372.4471pt x 172.73265pt>
 File: figures/rq2b_syntactic_generalization.pdf Graphic file (type pdf)
 <use figures/rq2b_syntactic_generalization.pdf>
 Package pdftex.def Info: figures/rq2b_syntactic_generalization.pdf  used on inp
-ut line 86.
+ut line 93.
 (pdftex.def)             Requested size: 270.28687pt x 125.35579pt.
-
-Underfull \vbox (badness 1881) has occurred while \output is active []
-
- [3 <./figures/rq2a_causal_temporal_heatmaps.pdf> <./figures/rq2a_causal_plausi
-bility_heatmaps.pdf>]
-<figures/rq3_self_blinding.pdf, id=141, 448.05957pt x 205.13869pt>
+<figures/rq3_self_blinding.pdf, id=83, 448.05957pt x 205.13869pt>
 File: figures/rq3_self_blinding.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding.pdf>
-Package pdftex.def Info: figures/rq3_self_blinding.pdf  used on input line 96.
+Package pdftex.def Info: figures/rq3_self_blinding.pdf  used on input line 103.
+
 (pdftex.def)             Requested size: 286.18967pt x 131.03476pt.
- (./paper.bbl
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./figures/rq2b_syntactic_generalization.pdf> <./figures/rq3_self_blinding.
-pdf>])
-[5] (./paper.aux)
+ [3 <./figures/rq2a_causal_temporal_heatmaps.pdf> <./figures/rq2a_causal_plausi
+bility_heatmaps.pdf>] (./paper.bbl [4 <./figures/rq2b_syntactic_generalization.
+pdf> <./figures/rq3_self_blinding.pdf>]) [5] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -548,24 +553,25 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 076DB6DA7130703E825DFE29080AB7A0;438.
  ) 
 Here is how much of TeX's memory you used:
- 12656 strings out of 476106
- 199180 string characters out of 5793933
+ 13014 strings out of 476106
+ 205530 string characters out of 5793933
  1940975 words of memory out of 5000000
- 34305 multiletter control sequences out of 15000+600000
- 590927 words of font info for 168 fonts, out of 8000000 for 9000
+ 34648 multiletter control sequences out of 15000+600000
+ 594576 words of font info for 177 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,8n,79p,1065b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,79p,1065b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
-mes/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (5 pages, 220817 bytes).
+mes/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (5 pages, 229209 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 36922 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 41018 words of extra memory for PDF output out of 42996 (max. 10000000)
 
