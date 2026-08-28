@@ -128,7 +128,7 @@ We finally test causal representations on matched naturalistic scenarios.
 
 \paragraph{Methods.}
 
-\textbf{Dataset.} We evaluate 65 self-blinding scenarios per model in matched White-male, marginalized-male, and marginalized-female versions.
+\textbf{Dataset.} We evaluate 65 self-blinding scenarios per model in matched White-male, minority-male, and minority-female versions.
 
 \textbf{Analysis.} A unit causal direction fit separately on 1,000 within-sentence pairs projects each scenario's final-token state. We report within-scenario differences from the White-male version with 10,000-sample bootstrap 95\% intervals and visualize raw, unnormalized CAA projections.
 
@@ -141,15 +141,15 @@ We finally test causal representations on matched naturalistic scenarios.
     \toprule
       & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen3\\4B} & \shortstack{Qwen3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
     \midrule
-    Marg. male $-$ White male & $.41\mathbin{\pm}.32$ & $1.9\mathbin{\pm}.40$ & $.073\mathbin{\pm}.093$ & $.29\mathbin{\pm}.17$ & $.025\mathbin{\pm}.029$ & $.030\mathbin{\pm}.020$ \\
-    Marg. female $-$ White male & $.57\mathbin{\pm}.32$ & $2.3\mathbin{\pm}.41$ & $.15\mathbin{\pm}.10$ & $.39\mathbin{\pm}.15$ & $.069\mathbin{\pm}.033$ & $.060\mathbin{\pm}.021$ \\
+    Minority male $-$ White male & $.41\mathbin{\pm}.32$ & $1.9\mathbin{\pm}.40$ & $.073\mathbin{\pm}.093$ & $.29\mathbin{\pm}.17$ & $.025\mathbin{\pm}.029$ & $.030\mathbin{\pm}.020$ \\
+    Minority female $-$ White male & $.57\mathbin{\pm}.32$ & $2.3\mathbin{\pm}.41$ & $.15\mathbin{\pm}.10$ & $.39\mathbin{\pm}.15$ & $.069\mathbin{\pm}.033$ & $.060\mathbin{\pm}.021$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \paragraph{Results.}
 
-Table~\ref{tab:rq3} shows positive estimates for both contrasts in every model. Marginalized-female intervals exclude zero for all six; marginalized-male intervals do so for four. However, Appendix Figure~\ref{fig:rq3-distributions} shows substantial distributional overlap. These associations do not establish social bias, behavior, or a causal mechanism.
+Table~\ref{tab:rq3} shows positive estimates for both contrasts in every model. Minority-female intervals exclude zero for all six; minority-male intervals do so for four. However, Appendix Figure~\ref{fig:rq3-distributions} shows substantial distributional overlap. These associations do not establish social bias, behavior, or a causal mechanism.
 
 \section{Discussion}
 

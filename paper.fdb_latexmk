@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1787931343.47777 "paper.aux" "paper.bbl" "paper" 1787931344.23446 0
+["bibtex paper"] 1787933156.09069 "paper.aux" "paper.bbl" "paper" 1787933232.74519 0
   "./paper.bib" 1787922162.89873 3159 9caf527531e34f4a351b117f9c09aa66 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1787931344.03595 5547 d227e031779b9ecad402b52a05c3c112 "pdflatex"
+  "paper.aux" 1787933232.582 5123 8cdbf2b48624651509667aa16d1f478e "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1787931343.5294 "paper.tex" "paper.pdf" "paper" 1787931344.23528 0
+["pdflatex"] 1787933232.08365 "paper.tex" "paper.pdf" "paper" 1787933232.74596 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -113,12 +113,12 @@
   "figures/rq2a_causal_plausibility_heatmaps.pdf" 1787931341.42537 22028 2f89e4c20592cc10bf0314af25ae0c68 ""
   "figures/rq2a_causal_temporal_heatmaps.pdf" 1787931340.7547 22219 0bad6a527e6564c582cb755439482bb4 ""
   "figures/rq2b_causal_ood_caa_accuracy.pdf" 1787931341.92231 13043 8ff6d49910093ffaa26ea92af9ac35f2 ""
-  "figures/rq3_self_blinding_raw_histograms.pdf" 1787931342.30333 15752 07d79e7719f28c3406e03654da14a27e ""
+  "figures/rq3_self_blinding_raw_histograms.pdf" 1787933228.20004 17787 6c745371f985064ecac911eeac3fcf99 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1787931344.03595 5547 d227e031779b9ecad402b52a05c3c112 "pdflatex"
-  "paper.bbl" 1787931343.52026 3149 6f0d7ef8a6eb916a442bcc6cdb939638 "bibtex paper"
-  "paper.out" 1787931344.03687 1644 a43f3c37acb0a3219455df4e3f937d34 "pdflatex"
-  "paper.tex" 1787931330.48888 10316 6fba701a891d35ae3f4b6fd1472defca ""
+  "paper.aux" 1787933232.582 5123 8cdbf2b48624651509667aa16d1f478e "pdflatex"
+  "paper.bbl" 1787933156.13189 1527 e6767da19165fe8947f506291f8100d0 "bibtex paper"
+  "paper.out" 1787933232.58291 1757 076c1e0b68962af36f70151f31ce5a7e "pdflatex"
+  "paper.tex" 1787933223.31588 9016 b3cc66556073a62861c3d5cef99cf052 ""
   (generated)
   "paper.aux"
   "paper.log"
