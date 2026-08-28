@@ -1,0 +1,19 @@
+model,caa_condition,pairwise_accuracy,n_pairs
+gemma2_2b,Causal CAA,0.98,150
+gemma2_2b,Temporal CAA,0.8666666666666667,150
+gemma2_2b,Plausibility CAA,0.6133333333333333,150
+gemma2_9b,Causal CAA,1.0,150
+gemma2_9b,Temporal CAA,0.9466666666666667,150
+gemma2_9b,Plausibility CAA,0.5066666666666667,150
+qwen3_4b,Causal CAA,0.9666666666666667,150
+qwen3_4b,Temporal CAA,0.5666666666666667,150
+qwen3_4b,Plausibility CAA,0.5933333333333334,150
+qwen3_8b,Causal CAA,0.9933333333333333,150
+qwen3_8b,Temporal CAA,0.7066666666666667,150
+qwen3_8b,Plausibility CAA,0.6866666666666666,150
+llama32_3b,Causal CAA,0.9933333333333333,150
+llama32_3b,Temporal CAA,0.7,150
+llama32_3b,Plausibility CAA,0.5666666666666667,150
+llama3_8b,Causal CAA,0.9933333333333333,150
+llama3_8b,Temporal CAA,0.8466666666666667,150
+llama3_8b,Plausibility CAA,0.4066666666666667,150

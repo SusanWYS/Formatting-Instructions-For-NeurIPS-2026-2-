@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -69,11 +69,5 @@ Nina Rimsky, Nick Gabrieli, Julian Schulz, Meg Tong, Evan Hubinger, and
 \newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
   for Computational Linguistics (Volume 1: Long Papers)}, pages 15504--15522.
   Association for Computational Linguistics, 2024.
-
-\bibitem[Rohde et~al.(2011)Rohde, Levy, and
-  Kehler]{rohde-etal-2011-anticipating}
-Hannah Rohde, Roger Levy, and Andrew Kehler.
-\newblock Anticipating explanations in relative clause processing.
-\newblock \emph{Cognition}, 118\penalty0 (3):\penalty0 339--358, 2011.
 
 \end{thebibliography}

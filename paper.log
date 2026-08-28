@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  28 AUG 2026 10:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  28 AUG 2026 10:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -102,10 +102,19 @@ Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 \bframebox=\box51
 LaTeX Info: Redefining \\ on input line 3180.
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip54
+\enit@outerparindent=\dimen154
+\enit@toks=\toks21
+\enit@inbox=\box52
+\enit@count@id=\count273
+\enitdp@description=\count274
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks21
-\inpenc@posthook=\toks22
+\inpenc@prehook=\toks22
+\inpenc@posthook=\toks23
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
@@ -132,49 +141,49 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen154
-\Gin@req@width=\dimen155
+\Gin@req@height=\dimen155
+\Gin@req@width=\dimen156
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen156
-\lightrulewidth=\dimen157
-\cmidrulewidth=\dimen158
-\belowrulesep=\dimen159
-\belowbottomsep=\dimen160
-\aboverulesep=\dimen161
-\abovetopsep=\dimen162
-\cmidrulesep=\dimen163
-\cmidrulekern=\dimen164
-\defaultaddspace=\dimen165
-\@cmidla=\count273
-\@cmidlb=\count274
-\@aboverulesep=\dimen166
-\@belowrulesep=\dimen167
-\@thisruleclass=\count275
-\@lastruleclass=\count276
-\@thisrulewidth=\dimen168
+\heavyrulewidth=\dimen157
+\lightrulewidth=\dimen158
+\cmidrulewidth=\dimen159
+\belowrulesep=\dimen160
+\belowbottomsep=\dimen161
+\aboverulesep=\dimen162
+\abovetopsep=\dimen163
+\cmidrulesep=\dimen164
+\cmidrulekern=\dimen165
+\defaultaddspace=\dimen166
+\@cmidla=\count275
+\@cmidlb=\count276
+\@aboverulesep=\dimen167
+\@belowrulesep=\dimen168
+\@thisruleclass=\count277
+\@lastruleclass=\count278
+\@thisrulewidth=\dimen169
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
-\MT@toks=\toks23
-\MT@tempbox=\box52
-\MT@count=\count277
+\MT@toks=\toks24
+\MT@tempbox=\box53
+\MT@count=\count279
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
 LaTeX Info: Redefining \leftprotrusion on input line 1060.
-\MT@prot@toks=\toks24
+\MT@prot@toks=\toks25
 LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
-\MT@outer@kern=\dimen169
+\MT@outer@kern=\dimen170
 LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
-\MT@listname@count=\count278
+\MT@listname@count=\count280
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 902.
 LaTeX Info: Redefining \lslig on input line 902.
-\MT@outer@space=\skip54
+\MT@outer@space=\skip55
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
@@ -202,11 +211,11 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count279
-\float@exts=\toks25
-\float@box=\box53
-\@float@everytoks=\toks26
-\@floatcapt=\box54
+\c@float@type=\count281
+\float@exts=\toks26
+\float@box=\box54
+\@float@everytoks=\toks27
+\@floatcapt=\box55
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -243,11 +252,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count280
+\c@section@level=\count282
 )
-\@linkdim=\dimen170
-\Hy@linkcounter=\count281
-\Hy@pagecounter=\count282
+\@linkdim=\dimen171
+\Hy@linkcounter=\count283
+\Hy@pagecounter=\count284
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
@@ -257,7 +266,7 @@ Now handling font encoding PD1 ...
 (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count283
+\Hy@SavedSpaceFactor=\count285
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
@@ -271,14 +280,14 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count284
+\c@Hy@tempcnt=\count286
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen171
+\XeTeXLinkMargin=\dimen172
 
 (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -287,9 +296,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count285
-\Field@Width=\dimen172
-\Fld@charsize=\dimen173
+\Fld@menulength=\count287
+\Field@Width=\dimen173
+\Fld@charsize=\dimen174
 Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
@@ -302,9 +311,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count286
-\c@Item=\count287
-\c@Hfootnote=\count288
+\Hy@abspage=\count288
+\c@Item=\count289
+\c@Hfootnote=\count290
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -316,8 +325,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count289
-\c@bookmark@seq@number=\count290
+\Fld@listcount=\count291
+\c@bookmark@seq@number=\count292
 
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
@@ -328,35 +337,35 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip55
+\Hy@SectionHShift=\skip56
 )
 (./derived/rq2_results_text.tex)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count291
-\l__pdf_internal_box=\box55
+\l__color_backend_stack_int=\count293
+\l__pdf_internal_box=\box56
 )
 (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -426,17 +435,17 @@ LaTeX Font Info:    ... okay on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count292
-\scratchdimen=\dimen174
-\scratchbox=\box56
-\nofMPsegments=\count293
-\nofMParguments=\count294
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count295
-\MPscratchDim=\dimen175
-\MPnumerator=\count296
-\makeMPintoPDFobject=\count297
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count294
+\scratchdimen=\dimen175
+\scratchbox=\box57
+\nofMPsegments=\count295
+\nofMParguments=\count296
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count297
+\MPscratchDim=\dimen176
+\MPnumerator=\count298
+\makeMPintoPDFobject=\count299
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -446,19 +455,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 30.
-Package microtype Info: Applying patch `item' on input line 30.
-Package microtype Info: Applying patch `toc' on input line 30.
-Package microtype Info: Applying patch `eqnum' on input line 30.
-Package microtype Info: Applying patch `footnote' on input line 30.
-Package microtype Info: Applying patch `verbatim' on input line 30.
+LaTeX Info: Redefining \microtypecontext on input line 31.
+Package microtype Info: Applying patch `item' on input line 31.
+Package microtype Info: Applying patch `toc' on input line 31.
+Package microtype Info: Applying patch `eqnum' on input line 31.
+Package microtype Info: Applying patch `footnote' on input line 31.
+Package microtype Info: Applying patch `verbatim' on input line 31.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 30.
+LaTeX Info: Redefining \showhyphens on input line 31.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -466,7 +475,7 @@ Package microtype Info: No adjustment of character kerning.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 30.
+Package hyperref Info: Link coloring OFF on input line 31.
  (./paper.out)
 (./paper.out)
 \@outlinefile=\write3
@@ -477,11 +486,11 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 32.
+(Font)              <7> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 32.
+(Font)              <5> on input line 33.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-2.
+3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
@@ -490,7 +499,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 35
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 36
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -500,69 +509,82 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/rq1_behavior.pdf, id=78, 448.27913pt x 135.25565pt>
-File: figures/rq1_behavior.pdf Graphic file (type pdf)
-<use figures/rq1_behavior.pdf>
-Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 55.
-(pdftex.def)             Requested size: 357.73405pt x 107.94255pt.
  [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq2a_causal_temporal_heatmaps.pdf, id=101, 767.16066pt x 171.03851pt>
+<figures/rq1_behavior.pdf, id=97, 448.27913pt x 135.25565pt>
+File: figures/rq1_behavior.pdf Graphic file (type pdf)
+<use figures/rq1_behavior.pdf>
+Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 65.
+(pdftex.def)             Requested size: 357.73405pt x 107.94255pt.
+<figures/rq2a_causal_temporal_heatmaps.pdf, id=99, 767.16066pt x 171.03851pt>
 File: figures/rq2a_causal_temporal_heatmaps.pdf Graphic file (type pdf)
 <use figures/rq2a_causal_temporal_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_causal_temporal_heatmaps.pdf  used on inp
-ut line 76.
+ut line 86.
 (pdftex.def)             Requested size: 397.48499pt x 88.61952pt.
-<figures/rq2a_causal_plausibility_heatmaps.pdf, id=102, 767.16066pt x 171.03851
+<figures/rq2a_causal_plausibility_heatmaps.pdf, id=100, 767.16066pt x 171.03851
 pt>
 File: figures/rq2a_causal_plausibility_heatmaps.pdf Graphic file (type pdf)
 <use figures/rq2a_causal_plausibility_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_causal_plausibility_heatmaps.pdf  used on
- input line 83.
+ input line 93.
 (pdftex.def)             Requested size: 397.48499pt x 88.61952pt.
 
-[2 <./figures/rq1_behavior.pdf> <./figures/rq2a_causal_temporal_heatmaps.pdf> <
-./figures/rq2a_causal_plausibility_heatmaps.pdf>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 105.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 105.
-<figures/rq3_self_blinding.pdf, id=184, 440.13936pt x 133.75314pt>
-File: figures/rq3_self_blinding.pdf Graphic file (type pdf)
-<use figures/rq3_self_blinding.pdf>
-Package pdftex.def Info: figures/rq3_self_blinding.pdf  used on input line 130.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(pdftex.def)             Requested size: 357.73405pt x 108.71292pt.
- [3 <./figures/rq3_self_blinding.pdf>] (./paper.bbl) [4] (./paper.aux)
+ [2 <./figures/rq1_behavior.pdf> <./figures/rq2a_causal_temporal_heatmaps.pdf>]
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=149, 448.27913pt x 135.25565pt>
+File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
+<use figures/rq2b_causal_ood_caa_accuracy.pdf>
+Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
+t line 114.
+(pdftex.def)             Requested size: 357.73405pt x 107.94255pt.
+ [3 <./figures/rq2a_causal_plausibility_heatmaps.pdf> <./figures/rq2b_causal_oo
+d_caa_accuracy.pdf>]
+<figures/rq3_self_blinding_raw_histograms.pdf, id=197, 749.22972pt x 158.55235p
+t>
+File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
+<use figures/rq3_self_blinding_raw_histograms.pdf>
+Package pdftex.def Info: figures/rq3_self_blinding_raw_histograms.pdf  used on 
+input line 154.
+(pdftex.def)             Requested size: 357.73405pt x 75.70265pt.
+ (./paper.bbl) [4 <./figures/rq3_self_blinding_raw_histograms.pdf>]
+(./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 95E8BA7D2F40B549462C61AB802B5EE0;2121.
+(rerunfilecheck)             Checksum: 67B767BB50B2FF09692CC1ACB365F997;2038.
  ) 
 Here is how much of TeX's memory you used:
- 12759 strings out of 476106
- 200919 string characters out of 5793933
- 1939975 words of memory out of 5000000
- 34410 multiletter control sequences out of 15000+600000
- 594669 words of font info for 162 fonts, out of 8000000 for 9000
+ 13118 strings out of 476106
+ 207201 string characters out of 5793933
+ 1942975 words of memory out of 5000000
+ 34733 multiletter control sequences out of 15000+600000
+ 600563 words of font info for 182 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,12n,79p,1002b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,9n,79p,1002b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 182762 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+ri8a.pfb>
+Output written on paper.pdf (4 pages, 254862 bytes).
 PDF statistics:
- 260 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
+ 294 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
  35 named destinations out of 1000 (max. 500000)
- 42117 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 49802 words of extra memory for PDF output out of 51595 (max. 10000000)
 
