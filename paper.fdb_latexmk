@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1787933721.43426 "paper.aux" "paper.bbl" "paper" 1787933722.22785 0
+["bibtex paper"] 1787935003.68952 "paper.aux" "paper.bbl" "paper" 1787935004.4776 0
   "./paper.bib" 1787922162.89873 3159 9caf527531e34f4a351b117f9c09aa66 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1787933722.0161 5123 5534cb81505dbf08fc1a5debdfba64b7 "pdflatex"
+  "paper.aux" 1787935004.26778 8573 ffb4b2ae2e8b22b835dc4bc58f42bc1e "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1787933721.48493 "paper.tex" "paper.pdf" "paper" 1787933722.22867 0
+["pdflatex"] 1787935003.74195 "paper.tex" "paper.pdf" "paper" 1787935004.47843 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -31,9 +31,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1136768653 1332 f817c21a1ba54560425663374f1b651a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1136768653 1336 3125ccb448c1a09074e3aa4a9832f130 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb" 1248133631 32007 e8fa0078355f39467039935974716569 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
@@ -130,10 +128,10 @@
   "figures/rq2b_causal_ood_caa_accuracy.pdf" 1787931341.92231 13043 8ff6d49910093ffaa26ea92af9ac35f2 ""
   "figures/rq3_self_blinding_raw_histograms.pdf" 1787933228.20004 17787 6c745371f985064ecac911eeac3fcf99 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1787933722.0161 5123 5534cb81505dbf08fc1a5debdfba64b7 "pdflatex"
-  "paper.bbl" 1787933721.47452 1527 e6767da19165fe8947f506291f8100d0 "bibtex paper"
-  "paper.out" 1787933722.017 1757 076c1e0b68962af36f70151f31ce5a7e "pdflatex"
-  "paper.tex" 1787933714.56438 9197 a11a53fdca9b65201a59c205390258e4 ""
+  "paper.aux" 1787935004.26778 8573 ffb4b2ae2e8b22b835dc4bc58f42bc1e "pdflatex"
+  "paper.bbl" 1787935003.73018 2674 cc14eed557da460cd0b4a0a15bef9447 "bibtex paper"
+  "paper.out" 1787935004.26883 1757 076c1e0b68962af36f70151f31ce5a7e "pdflatex"
+  "paper.tex" 1787934996.62376 12648 5a1973aff64931a4a39f0159b51339a8 ""
   (generated)
   "paper.aux"
   "paper.log"

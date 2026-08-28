@@ -55,81 +55,89 @@ Our contribution is...
 
 \subsection{Study 1: Measuring Behavioral Eliciture}
 
-We vary the response measure in a conceptual replication of Pan and Kehler, finding substantial measurement dependence.
+An eliciture is a defeasible, unstated connection within an utterance \citep{cohen-kehler-2021-conversational}. We test causal elicitures with three measures.
 
-\textbf{Models.} We evaluate the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3}.
+\textbf{Methods. Models.} We test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
-\textbf{Dataset and analysis.} We evaluate 150 critical/control pairs with yes/no judgments, expected seven-point Likert scores, and the relative probability of the same continuation after \emph{because} versus bare \emph{and}. The last measure uses no metalinguistic prompt. A pair is correct when the critical item receives the stronger causal response, allowing us to compare prompting with probability measurement \citep{hu-levy-2023-prompting}.
+\textbf{Dataset.} We adapt 150 matched within-sentence pairs from \citet{pan-kehler-2025-pragmatic}. Critical items contain a plausible cause; controls replace it with an incidental detail.
+
+\textbf{Measures.} An item's score is (i) its probability of a yes answer, (ii) its expected seven-point rating, or (iii) its continuation probability after \emph{because} relative to bare \emph{and}; the last uses no question \citep{hu-levy-2023-prompting}. Paired accuracy is the proportion of critical items scoring above their controls.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.78\linewidth]{figures/rq1_behavior.pdf}
-  \caption{\textbf{RQ1.} Paired accuracy on 150 eliciture pairs with Wilson 95\% CIs. Dashed line: chance.}
+  \includegraphics[width=.72\linewidth]{figures/rq1_behavior.pdf}
+  \caption{For \textbf{RQ1}, this experiment compares three measures of causal eliciture in six LMs. Bars show paired accuracy on 150 pairs with Wilson 95\% CIs; the dashed line marks chance. \textbf{Main takeaway: behavioral conclusions depend strongly on the measure.}}
   \label{fig:rq1}
 \end{figure}
 
 \paragraph{Results.}
 
-Figure~\ref{fig:rq1} shows that Qwen3 4B/8B reach 1.00 with Likert responses and at least .96 with yes/no, but fall to .79/.76 under probability assignment. Conversely, Gemma~2 2B scores .45/.39 with prompting but .83 with \emph{because} versus \emph{and}. Overall, no interface supports a model-independent conclusion.
+Figure~\ref{fig:rq1} shows that Qwen3 4B/8B reach 1.00 with Likert ratings and at least .96 with yes/no questions, but fall to .79/.76 with the probability measure. Gemma~2 2B shows the reverse pattern: .45/.39 with prompting and .83 with the probability measure. Thus, no single measurement method yields the same conclusion across models.
 
 \subsection{Study 2: Relation-Selective Causal Representations}
 
-We compare cross-sentence causal directions with temporal and plausibility directions, finding strong diagonals and weaker cross-transfer.
+We next ask whether model activations distinguish causal relationships from other relations. If a representation is specific to causality, a causal direction should separate causal pairs well but transfer less reliably to temporal or plausibility pairs.
 
-\textbf{Datasets.} Causal, temporal, and plausibility directions respectively use 384/96, 800/200, and 56/14 train/ID-development pairs.
+\paragraph{Methods.}
 
-\textbf{Analysis.} At every fourth layer and the final layer, CAA averages final-token differences between matched positive and negative texts. We select the earliest layer maximizing mean own-development paired accuracy and ROC--AUC, then apply that frozen direction to every target relation. Matrix diagonals measure within-relation discrimination; off-diagonals measure cross-transfer. This is an ID-development analysis, not an OOD test.
+\textbf{Datasets.} The causal data contain cross-sentence critical/control pairs in which the second sentence does or does not explain the first (384 training and 96 in-distribution evaluation pairs). The temporal data contrast events that are likely or unlikely to occur during a stated activity (800/200 pairs). The plausibility data contrast probable and impossible events (56/14 pairs).
+
+\textbf{CAA directions.} Contrastive Activation Addition (CAA) represents a relation with a direction in a model's activation space \citep{rimsky-etal-2024-steering}. At each tested layer, we subtract the final-token activation of every negative item from that of its matched positive item, then average these differences over the training pairs. A new text receives a scalar score by projection onto this direction; paired accuracy is the proportion of evaluation pairs for which the positive item scores higher.
+
+\textbf{Layer selection and transfer.} We test every fourth layer and the final layer. For each relation, we select the earliest layer that maximizes the mean of same-relation paired accuracy and ROC--AUC, freeze that direction, and evaluate it on every target relation. These are in-distribution evaluation sets used for model selection, not held-out OOD tests.
 
 \begin{figure}[H]
   \centering
   \IfFileExists{figures/rq2a_causal_temporal_heatmaps.pdf}{\includegraphics[width=\linewidth]{figures/rq2a_causal_temporal_heatmaps.pdf}}{\rule{\linewidth}{.23\linewidth}}
-  \caption{\textbf{RQ2a, causal vs. temporal.} ID-development paired accuracy when each row's CAA direction is evaluated on each column's relation. Each panel is one model; diagonals measure own-relation discrimination and off-diagonals measure cross-transfer.}
+  \caption{For \textbf{RQ2a}, this experiment tests whether causal and temporal CAA directions distinguish their own relation and transfer to the other relation. Rows identify the CAA training set, columns identify the in-distribution evaluation set, and cells report paired accuracy; diagonal cells measure same-relation discrimination and off-diagonal cells measure cross-transfer. \textbf{Main takeaway: strong diagonals and weaker cross-transfer indicate that causal and temporal directions are partly relation-selective.}}
   \label{fig:rq2-ct}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \IfFileExists{figures/rq2a_causal_plausibility_heatmaps.pdf}{\includegraphics[width=\linewidth]{figures/rq2a_causal_plausibility_heatmaps.pdf}}{\rule{\linewidth}{.23\linewidth}}
-  \caption{\textbf{RQ2a, causal vs. plausibility.} Six-model cross-transfer matrices; plausibility cells ($n=14$ pairs) are exploratory.}
+  \caption{For \textbf{RQ2a}, this experiment tests whether causal and plausibility CAA directions distinguish their own relation and transfer to the other relation. Rows identify the CAA training set, columns identify the in-distribution evaluation set, and cells report paired accuracy for each model; plausibility estimates are exploratory because they use only 14 evaluation pairs. \textbf{Main takeaway: high same-relation accuracy and weaker cross-transfer suggest that causal representations are not reducible to event plausibility.}}
   \label{fig:rq2-cp}
 \end{figure}
 
 \paragraph{Results.}
 
-Figures~\ref{fig:rq2-ct}--\ref{fig:rq2-cp} show causal self-transfer of \CausalSelfRange{}, temporal self-transfer of .93--.95, and plausibility self-transfer of .93--1.00. However, causal-to-temporal accuracy is .47--.73 and causal-to-plausibility is .36--.71; reverse transfer reaches .34--.67 and .15--.46. The gaps support relation selectivity, while occasional above-chance transfer argues against strict orthogonality.
+Figures~\ref{fig:rq2-ct}--\ref{fig:rq2-cp} show causal same-relation accuracy of \CausalSelfRange{}, temporal accuracy of .93--.95, and plausibility accuracy of .93--1.00. Cross-transfer is lower: causal-to-temporal accuracy is .47--.73 and causal-to-plausibility accuracy is .36--.71; the reverse directions reach .34--.67 and .15--.46. The large diagonal--off-diagonal gaps support relation selectivity, while occasional above-chance transfer shows that the directions are not strictly independent.
 
 \subsection{Study 3: Generalization to Causal OOD}
 
-We next test whether causal directions remain selectively informative on unseen causal scenarios.
+Study~2 measures in-distribution separation. We now ask whether the learned directions remain informative on unseen causal scenarios.
 
-\textbf{Datasets.} Causal and temporal CAAs use 1,000/200 and 800/200 train/development pairs; the plausibility CAA uses 70 probable/impossible pairs with five-fold layer selection. We evaluate every frozen direction on the same 150-pair causal OOD set.
+\paragraph{Methods.}
 
-\textbf{Analysis.} We project each critical/control sentence onto the corresponding direction. A pair is correct when the critical item projects farther than its matched control.
+\textbf{Training and evaluation data.} We fit the causal direction on 1,000 within-sentence critical/control pairs and select its layer on 200 development pairs. The temporal direction uses 800/200 training/development pairs. Because only 70 probable/impossible pairs are available, the plausibility direction uses five-fold layer selection. We then evaluate all three frozen directions, without further fitting, on the same 150 unseen causal critical/control pairs.
+
+\textbf{Analysis.} We project the final-token activation of each sentence onto a direction. A pair is correct when its causally related critical sentence projects farther than its matched control. We report paired accuracy with Wilson 95\% confidence intervals (CIs).
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=.78\linewidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
-  \caption{\textbf{RQ2b.} Paired accuracy on 150 causal OOD pairs with Wilson 95\% CIs. Dashed line: chance.}
+  \caption{For \textbf{RQ2b}, this experiment compares causal, temporal, and plausibility CAA directions on the same 150 unseen causal pairs. Bars show paired accuracy with Wilson 95\% CIs; the dashed line marks chance. \textbf{Main takeaway: the causal direction generalizes most consistently, indicating that its performance is not explained by temporal or plausibility information alone.}}
   \label{fig:rq2b}
 \end{figure}
 
 \paragraph{Results.}
 
-Figure~\ref{fig:rq2b} shows that causal CAA reaches .97--1.00 paired accuracy across models. Temporal CAA varies from .57--.95, whereas plausibility CAA ranges from .41--.69. The causal direction therefore generalizes most consistently to new causal scenarios; transfer from the comparison directions is weaker and model-dependent.
+Figure~\ref{fig:rq2b} shows that the causal direction reaches .97--1.00 paired accuracy across models. The temporal direction varies from .57--.95, whereas the plausibility direction ranges from .41--.69. Thus, causal information generalizes consistently; information carried by the comparison directions is weaker and more model-dependent.
 
 \subsection{Study 4: Generalization to Naturalistic Scenarios}
 
-We finally test causal representations on matched naturalistic scenarios.
+We finally test whether causal projections change when demographic descriptors vary in otherwise matched naturalistic sentences.
 
 \paragraph{Methods.}
 
-\textbf{Dataset.} We evaluate 65 self-blinding scenarios per model in matched White-male, minority-male, and minority-female versions.
+\textbf{Dataset.} We use 65 scenarios describing an adverse decision or outcome. Each scenario has three versions that differ only in demographic wording: White male, minority male, and minority female. Minority descriptors are Black, Hispanic, or Asian, and the same race is used in the two minority versions of each scenario.
 
-\textbf{Analysis.} A unit causal direction fit separately on 1,000 within-sentence pairs projects each scenario's final-token state. We report within-scenario differences from the White-male version with 10,000-sample bootstrap 95\% intervals and visualize raw, unnormalized CAA projections.
+\textbf{Analysis.} For each model, we use the causal direction fit on the 1,000 within-sentence training pairs in Study~3 and normalize it to unit length. We project each scenario's final-token activation onto this direction, then subtract the White-male score from each matched minority score. A positive difference means that the minority version aligns more strongly with the learned causal direction. We report mean differences with 10,000-sample bootstrap 95\% CIs over scenarios.
 
 \begin{table}[H]
   \centering
-  \caption{\textbf{RQ3.} Mean paired unit-CAA change $\pm$ bootstrap 95\% CI half-width (65 scenarios/model).}
+  \caption{For \textbf{RQ3}, this experiment tests whether changing demographic descriptors in 65 otherwise matched adverse-outcome scenarios changes their causal CAA projections. Values are mean paired differences from the White-male condition $\pm$ the bootstrap 95\% CI half-width; positive values indicate greater alignment with the causal direction, and bold entries have CIs that exclude zero. \textbf{Main takeaway: projections differ reliably for several contrasts, but these associations alone do not demonstrate biased behavior or a causal mechanism.}}
   \label{tab:rq3}
   \scriptsize
   \setlength{\tabcolsep}{5pt}
@@ -145,7 +153,7 @@ We finally test causal representations on matched naturalistic scenarios.
 
 \paragraph{Results.}
 
-Table~\ref{tab:rq3} shows positive estimates for both contrasts in every model. Minority-female intervals exclude zero for all six; minority-male intervals do so for four. However, Appendix Figure~\ref{fig:rq3-distributions} shows substantial distributional overlap. These associations do not establish social bias, behavior, or a causal mechanism.
+Table~\ref{tab:rq3} shows positive mean differences for both contrasts in every model. The minority-female CI excludes zero for all six models; the minority-male CI excludes zero for four. Appendix Figure~\ref{fig:rq3-distributions} nevertheless shows substantial overlap among the raw score distributions. The estimates therefore identify representational associations, not evidence of social bias in model behavior or of a causal mechanism.
 
 \section{Discussion}
 
