@@ -56,8 +56,6 @@ Our contribution is...
 
 We vary the response measure in a conceptual replication of Pan and Kehler, finding substantial measurement dependence.
 
-\paragraph{Methods.}
-
 \textbf{Models.} We evaluate the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3}.
 
 \textbf{Dataset and analysis.} We evaluate 150 critical/control pairs with yes/no judgments, expected seven-point Likert scores, and the relative probability of the same continuation after \emph{because} versus bare \emph{and}. The last measure uses no metalinguistic prompt. A pair is correct when the critical item receives the stronger causal response, allowing us to compare prompting with probability measurement \citep{hu-levy-2023-prompting}.
@@ -76,8 +74,6 @@ Figure~\ref{fig:rq1} shows that Qwen3 4B/8B reach 1.00 with Likert responses and
 \subsection{Study 2: Relation-Selective Causal Representations}
 
 We compare cross-sentence causal directions with temporal and plausibility directions, finding strong diagonals and weaker cross-transfer.
-
-\paragraph{Methods.}
 
 \textbf{Datasets.} Causal, temporal, and plausibility directions respectively use 384/96, 800/200, and 56/14 train/ID-development pairs.
 
@@ -104,8 +100,6 @@ Figures~\ref{fig:rq2-ct}--\ref{fig:rq2-cp} show causal self-transfer of \CausalS
 \subsection{Study 3: Generalization to Causal OOD}
 
 We next test whether causal directions remain selectively informative on unseen causal scenarios.
-
-\paragraph{Methods.}
 
 \textbf{Datasets.} Causal and temporal CAAs use 1,000/200 and 800/200 train/development pairs; the plausibility CAA uses 70 probable/impossible pairs with five-fold layer selection. We evaluate every frozen direction on the same 150-pair causal OOD set.
 
