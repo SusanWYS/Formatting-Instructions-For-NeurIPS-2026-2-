@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1788043324.41306 "paper.aux" "paper.bbl" "paper" 1788043325.2331 0
+["bibtex paper"] 1788044505.1157 "paper.aux" "paper.bbl" "paper" 1788044505.94577 0
   "./paper.bib" 1788033348.08963 3433 7098fa9a8dcc203b379d923a90905824 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1788043325.01192 9210 cc812041fdec04ad72f557de9b0c4e64 "pdflatex"
+  "paper.aux" 1788044505.72086 9173 a2aaa3d20e16bb10af14a9923dbee29d "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1788043324.46465 "paper.tex" "paper.pdf" "paper" 1788043325.23401 0
+["pdflatex"] 1788044505.16797 "paper.tex" "paper.pdf" "paper" 1788044505.94662 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -134,10 +134,10 @@
   "figures/rq2b_causal_ood_caa_accuracy.pdf" 1788028156.72683 13205 6f0f5543dbc18dcdd0df3367408a58bf ""
   "figures/rq3_self_blinding_raw_histograms.pdf" 1787933228.20004 17787 6c745371f985064ecac911eeac3fcf99 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1788043325.01192 9210 cc812041fdec04ad72f557de9b0c4e64 "pdflatex"
-  "paper.bbl" 1788043324.45744 2840 fe6c0d13508dd540d9d95996272cc2de "bibtex paper"
-  "paper.out" 1788043325.01295 2103 30941de0e2da9b2b9cbbec0f419dadcf "pdflatex"
-  "paper.tex" 1788043307.94593 17759 6de0f239409b07aff20824ccdd39e851 ""
+  "paper.aux" 1788044505.72086 9173 a2aaa3d20e16bb10af14a9923dbee29d "pdflatex"
+  "paper.bbl" 1788044505.16076 2840 fe6c0d13508dd540d9d95996272cc2de "bibtex paper"
+  "paper.out" 1788044505.72192 2103 30941de0e2da9b2b9cbbec0f419dadcf "pdflatex"
+  "paper.tex" 1788044498.34242 18689 3b39e8df90bc3f428adf792f96327476 ""
   (generated)
   "paper.aux"
   "paper.log"
