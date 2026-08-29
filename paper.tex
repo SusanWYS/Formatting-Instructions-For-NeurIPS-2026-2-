@@ -62,6 +62,8 @@ Our contribution is...
 \textbf{Models.} We test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
 \textbf{Dataset.} 
+how many pairs of examples and in what strurctures -> the sentences demonstrate causality of physical phenomena and world knowledge. 
+show an example here
 
 \textbf{Methods.} 
 
@@ -77,7 +79,7 @@ Our contribution is...
 
 \subsection{Identifying Internal Representations of Implicit Causality Inference}
 
-We next ask whether model activations distinguish causal relationships from other relations. If a representation is specific to causality, a causal direction should separate causal pairs well but transfer less reliably to temporal or plausibility pairs.
+Pragmatic theories state that cross-sentence causal inferences should be much stronger, and are usually non-optional in human communication. This motivates RQ2: Do LMs form internal representations of implicit causal relationships across sentences? Specifically, we want to ask whether model activations distinguish causal relationships from other relations. If a representation is specific to causality, a causal direction should separate causal pairs well but transfer less reliably to temporal or plausibility pairs.
 
 \textbf{Datasets.} 
 
@@ -101,7 +103,7 @@ We next ask whether model activations distinguish causal relationships from othe
 
 \subsection{Testing the Generalization to Within-Sentence Implicit Causal Inference}
 
-We now ask whether the learned directions remain informative on unseen causal constructions within a single sentence (eliciture).
+We now ask whether the learned directions remain informative on unseen causal constructions within a single sentence (eliciture). 
 
 \textbf{Training and evaluation data.}
 
