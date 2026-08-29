@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 18:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -582,22 +582,24 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq1_behavior.pdf, id=71, 441.41977pt x 105.07895pt>
+<figures/rq1_behavior.pdf, id=75, 441.41977pt x 105.07895pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 81.
 (pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
 
-[2 <./figures/rq1_behavior.pdf>]
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=98, 760.23145pt x 236.66
-98pt>
+Underfull \vbox (badness 1596) has occurred while \output is active []
+
+ [2 <./figures/rq1_behavior.pdf>]
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=106, 760.23145pt x 236.6
+698pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 110.
 (pdftex.def)             Requested size: 397.48499pt x 123.74069pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=99, 441.41977pt x 105.07895pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=107, 441.41977pt x 105.07895pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
@@ -648,27 +650,31 @@ t,
  []
 
 [4]
-<figures/rq3_self_blinding_raw_histograms.pdf, id=186, 518.26625pt x 298.29442p
+<figures/rq3_self_blinding_raw_histograms.pdf, id=235, 518.26625pt x 298.29442p
 t>
 File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_raw_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_raw_histograms.pdf  used on 
-input line 223.
+input line 235.
 (pdftex.def)             Requested size: 397.48499pt x 228.78163pt.
- [5 <./figures/rq3_self_blinding_raw_histograms.pdf>] (./paper.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+[6 <./figures/rq3_self_blinding_raw_histograms.pdf>] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: FC066861396203D344B0609595340B26;1846.
+(rerunfilecheck)             Checksum: 30941DE0E2DA9B2B9CBBEC0F419DADCF;2103.
  ) 
 Here is how much of TeX's memory you used:
- 13928 strings out of 476106
- 217197 string characters out of 5793933
+ 13962 strings out of 476106
+ 217548 string characters out of 5793933
  1955975 words of memory out of 5000000
- 35448 multiletter control sequences out of 15000+600000
- 610633 words of font info for 236 fonts, out of 8000000 for 9000
+ 35450 multiletter control sequences out of 15000+600000
+ 612079 words of font info for 254 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  72i,14n,79p,1002b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
@@ -688,10 +694,10 @@ ts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type
 utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (5 pages, 336799 bytes).
+Output written on paper.pdf (6 pages, 340925 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 42 named destinations out of 1000 (max. 500000)
- 56413 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 56421 words of extra memory for PDF output out of 61914 (max. 10000000)
 
