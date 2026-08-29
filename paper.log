@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 13:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 13:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,11 +581,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq1_behavior.pdf, id=67, 448.27913pt x 135.25565pt>
+<figures/rq1_behavior.pdf, id=67, 441.41977pt x 105.07895pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 76.
-(pdftex.def)             Requested size: 286.18967pt x 86.35486pt.
+(pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
 <figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=70, 760.23145pt x 236.66
 98pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
@@ -599,12 +599,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./figures/rq1_behavior.pdf>] (./paper.bbl) [3 <./figures/rq2a_combined_cro
 ss_transfer_heatmaps.pdf>]
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=146, 448.27913pt x 135.25565pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=146, 441.41977pt x 105.07895pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 145.
-(pdftex.def)             Requested size: 310.0378pt x 93.54938pt.
+(pdftex.def)             Requested size: 310.0378pt x 73.80487pt.
 <figures/rq3_self_blinding_raw_histograms.pdf, id=147, 518.26625pt x 298.29442p
 t>
 File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
@@ -645,7 +645,7 @@ live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on paper.pdf (4 pages, 246908 bytes).
+Output written on paper.pdf (4 pages, 246899 bytes).
 PDF statistics:
  279 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
