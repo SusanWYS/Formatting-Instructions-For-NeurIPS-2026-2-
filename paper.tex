@@ -37,10 +37,14 @@ placeholder
 \end{abstract}
 
 \section{Introduction}
+[This is only a skeleton of the intro]
+Much of the world knowledge can be expressed in terms of relations, but oftentimes such relations are graded, implied, and nonliteral. Such kind of implicit inference of event relations is common in human language processing… (cite) Talk about eliciture and why its implied relationships between any two events are non-mandated. (cite)
 
+Previous studies have attempted to show how LMs can build a world model through pragmatic inference… (cite) To the best of our knowledge, Pan \& Kehler is the only work that examines LM’s ability to perform eliciture inference. They demonstrate that LMs not only draw eliciture but also leverage eliciture to guide downstream sentential processing. we aim to extend on their findings by evaluating models of different families and studying the internal representations of implicit causal inference.
 
+The benefits of understanding elicitors in LMs are multifold: 1. whether LMs--trained with distributional objective--demonstrate human-like nonliteral inference in non-mandated setting  2. more comprehensive views into how LMs build an internal world model 3. Potentially understand the implicit bias in LMs, which has implications in safety and alignment
 
-We ask three questions: 
+To these aims, we explore three main questions: 
 \begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
 \item
 \textbf{RQ1} \textit{Do model behaviors reflect inferences about implicit causal relationships within sentences? }
@@ -119,7 +123,7 @@ We now ask whether the learned directions remain informative on unseen causal co
 
 \begin{table}[H]
   \centering
-  \caption{Mean paired differences in causal CAA projection from the white-male condition across 65 matched scenarios, reported $\pm$ 95\% CI. Positive values indicate greater projection than the white-male condition. Bolded values indicate statsitically significant difference from the white-male projection scores. \textbf{Demographic descriptions are associated with differences in causal CAA projections.} Minority females generally have larger projection raw mean scores than minority males along the implicit causal directions.}
+  \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Positive values indicate that a demographic group has a greater mean projection than the white-male condition. Bolded values indicate statsitically significant difference from the white-male projection scores. \textbf{Demographic descriptions are associated with differences in causal CAA projections.} Minority females generally have larger projection raw mean scores than minority males along the implicit causal directions.}
   \label{tab:rq3}
   \scriptsize
   \setlength{\tabcolsep}{5pt}
