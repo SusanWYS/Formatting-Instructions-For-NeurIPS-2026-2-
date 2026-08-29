@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 15:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -587,29 +587,34 @@ File: figures/rq1_behavior.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 76.
 (pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
 
-[2 <./figures/rq1_behavior.pdf>]
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=88, 760.23145pt x 236.66
+Underfull \vbox (badness 1596) has occurred while \output is active []
+
+ [2 <./figures/rq1_behavior.pdf>]
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=89, 760.23145pt x 236.66
 98pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
-d on input line 98.
+d on input line 104.
 (pdftex.def)             Requested size: 397.48499pt x 123.74069pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=89, 441.41977pt x 105.07895pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=90, 441.41977pt x 105.07895pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
-t line 106.
+t line 112.
 (pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
- (./paper.bbl [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figur
-es/rq2b_causal_ood_caa_accuracy.pdf>])
-<figures/rq3_self_blinding_raw_histograms.pdf, id=158, 518.26625pt x 298.29442p
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
+l_ood_caa_accuracy.pdf>] (./paper.bbl)
+<figures/rq3_self_blinding_raw_histograms.pdf, id=151, 518.26625pt x 298.29442p
 t>
 File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_raw_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_raw_histograms.pdf  used on 
-input line 152.
+input line 158.
 (pdftex.def)             Requested size: 397.48499pt x 228.78163pt.
  [4 <./figures/rq3_self_blinding_raw_histograms.pdf>] (./paper.aux)
  ***********
@@ -620,13 +625,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 6BC2EA249FCA74B06D620C071CA02EDF;1651.
  ) 
 Here is how much of TeX's memory you used:
- 13865 strings out of 476106
- 216342 string characters out of 5793933
- 1942975 words of memory out of 5000000
+ 13862 strings out of 476106
+ 216318 string characters out of 5793933
+ 1946975 words of memory out of 5000000
  35421 multiletter control sequences out of 15000+600000
- 606859 words of font info for 218 fonts, out of 8000000 for 9000
+ 606634 words of font info for 216 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,14n,79p,1384b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,14n,79p,1002b,472s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
@@ -641,10 +646,10 @@ live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on paper.pdf (4 pages, 251597 bytes).
+Output written on paper.pdf (4 pages, 252047 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
+ 285 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
  52821 words of extra memory for PDF output out of 61914 (max. 10000000)
 
