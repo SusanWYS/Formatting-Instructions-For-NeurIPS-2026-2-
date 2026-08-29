@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 09:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -586,14 +586,14 @@ File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 76.
 (pdftex.def)             Requested size: 286.18967pt x 86.35486pt.
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=70, 760.23145pt x 227.65
-05pt>
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=70, 760.23145pt x 232.50
+703pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 94.
-(pdftex.def)             Requested size: 397.48499pt x 119.02502pt.
+(pdftex.def)             Requested size: 397.48499pt x 121.56422pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -645,7 +645,7 @@ live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on paper.pdf (4 pages, 254517 bytes).
+Output written on paper.pdf (4 pages, 253360 bytes).
 PDF statistics:
  286 PDF objects out of 1000 (max. 8388607)
  181 compressed objects within 2 object streams
