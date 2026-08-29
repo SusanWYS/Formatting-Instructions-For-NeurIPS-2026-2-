@@ -65,29 +65,35 @@ Our contribution is...
 
 \textbf{Yes/No.} We first present the critical/control sentences as context and then ask, ``Does [modifier content] explain why [outcome]?'' We compute the probabilities of the complete answers \emph{Yes} and \emph{No}, including capitalization variants, and normalize them to obtain $P(\text{Yes})$.
 
-\textbf{7-point Likert.} We first present the critical/control sentences as context and then ask how strongly the modifier explains the outcome on a scale from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). We compute a probability for each of the seven complete answers and use their probability-weighted mean as the model's rating.
+\textbf{7-point Likert.} We present the critical/control sentences as context and then ask how strongly the modifier explains the outcome on a scale from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). We compute a probability for each of the seven complete answers and use their probability-weighted mean as the model's rating.
 
-\textbf{``I don't know why.''} Following \citet{pan-kehler-2025-pragmatic}, we remove the sentence-final period and append \emph{, and I don't know why.} We use the surprisal of this continuation as the score. The intuition is that if the modifier has already supplied an explanation, subsequently claiming \emph{I don't know why.} should be less expected and therefore more surprising. 
+\textbf{Surprisal.} Following \citet{pan-kehler-2025-pragmatic}, we remove the sentence-final period and append \emph{", and I don't know why."} We use the surprisal of this continuation as the score. The intuition is that if the modifier has already supplied an explanation, subsequently claiming \emph{I don't know why} should be less expected and therefore more surprising. 
 
 For all three measures, paired accuracy is the proportion of pairs in which the critical sentence scores strictly above its control; chance is $.5$, ties count as incorrect.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=.72\linewidth]{figures/rq1_behavior.pdf}
-  \caption{Paired accuracy on 150 pairs of implicit causal inference items with 95\% CIs, \textbf{Models demonstrate implicit causal inference most consistently through probability.} Not all models can faithfully report their implicit causal inference through Yes/No and 7-Point Likert rating. The performance of metalinguistic causal inference increases with model size.}
+  \caption{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point likert rating, and the surprisal of the continuation \textit{", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}
   \label{fig:rq1}
 \end{figure}
 
-\paragraph{Results.}
+\paragraph{Results.} As shown in figure 1, models demonstrate implicit causal inference most consistently through surprisals. Not all models can faithfully report their implicit causal inference through Yes/No and 7-Point Likert rating, and the performance of such metalinguistic causal inference increases with model size.
 
 
 \subsection{Identifying Internal Representations of Implicit Causality Inference}
 
-Pragmatic theories state that cross-sentence causal inferences should be much stronger, and are usually non-optional in human communication. This motivates RQ2: Do LMs form internal representations of implicit causal relationships across sentences? Specifically, we want to ask whether model activations distinguish causal relationships from other relations. If a representation is specific to causality, a causal direction should separate causal pairs well but transfer less reliably to temporal or plausibility pairs.
+Given that LMs behaviorally demonstrate implicit causal inference, do LMs form internal representations of implicit causality across sentences? Specifically, we ask two questions: 
+
+\textit{1) Do model activations distinguish implicit causal relationships from other relations?} If a representation is specific to causality, a causal direction should separate causal pairs well but transfer less reliably to temporal or plausibility pairs. 
+
+\textit{2) Could the representations of implicit causality derived from cross-sentence constructions transfer to within-sentence causality (eliciture)?} Within-sentence causal inferences are less strong and more optional compared to cross-sentence causal inferences. We predict that robust representations of implicit causality inference should transfer across syntactic constructions.
 
 \textbf{Datasets.} 
+Temporal dataset
 
-\textbf{CAA directions.} Contrastive Activation Addition (CAA) represents a relation with a direction in a model's activation space \citep{rimsky-etal-2024-steering}. At each tested layer, we subtract the final-token activation of every negative item from that of its matched positive item, then average these differences over the training pairs. An evaluation item receives a scalar score by projection onto this direction of averaged difference; paired accuracy is the proportion of evaluation pairs for which the positive item scores higher.
+
+\textbf{CAA directions.} Contrastive Activation Addition (CAA) represents a relation with a direction in a model's activation space \citep{rimsky-etal-2024-steering}. At each tested layer, we subtract the final-token activation of every control item from that of its matched critical item, then average these differences over the training pairs. An evaluation item receives a scalar score by projection onto this direction of averaged difference; paired accuracy is the proportion of evaluation pairs for which the critical item scores higher.
 
 \begin{figure}[H]
   \centering
@@ -100,7 +106,7 @@ Pragmatic theories state that cross-sentence causal inferences should be much st
 \begin{figure}[H]
   \centering
   \includegraphics[width=.72\linewidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
-  \caption{Paired accuracy of causal, temporal, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Temporal and plausibility CAA directions transfer less consistently to within-sentence implicit causal items. The dashed line denotes chance.}
+  \caption{Paired accuracy of causal, temporal, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Temporal and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}
   \label{fig:rq2b}
 \end{figure}
 \vspace{-6pt}
