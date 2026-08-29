@@ -38,6 +38,7 @@ placeholder
 \end{abstract}
 
 \section{Introduction}
+\label{sec:introduction}
 [This is only a skeleton of the intro]
 Much of the world knowledge can be expressed in terms of relations, but oftentimes such relations are graded, implied, and nonliteral. Such kind of implicit inference of event relations is common in human language processing… (cite) Talk about eliciture and why its implied relationships between any two events are non-mandated. (cite)
 
@@ -55,10 +56,13 @@ To these aims, we explore three main questions:
 Our contribution is...
 
 \section{Background}
+\label{sec:background}
 
 \section{Experiments}
+\label{sec:experiments}
 
 \subsection{Measuring Implicit Causal Inference through Model Behaviors}
+\label{sec:behavior}
 
 \textbf{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -71,6 +75,7 @@ Our contribution is...
 \textbf{Surprisal.} Following \citet{pan-kehler-2025-pragmatic}, we remove the sentence-final period and append \emph{", and I don't know why."} to the end of a tested sentence. We use the surprisal of this continuation as the score. The intuition is that if [modifier/relative clause] has already supplied an explanation, subsequently claiming \emph{I don't know why} should be less expected and therefore more surprising. 
 
 For all three measures, paired accuracy is the proportion of pairs in which the critical sentence scores strictly above its control (by rating or surprisal); chance is $.5$, ties count as incorrect.
+The complete prompts, scoring equations, and a worked critical/control example are given in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 
 \begin{figure}[H]
   \centering
@@ -79,10 +84,11 @@ For all three measures, paired accuracy is the proportion of pairs in which the 
   \label{fig:rq1}
 \end{figure}
 
-\paragraph{Results.} As shown in figure 1, models demonstrate implicit causal inference most consistently through surprisals. Not all models can faithfully report their implicit causal inference through Yes/No and 7-Point Likert rating, and the performance of such metalinguistic causal inference increases with model size.
+\paragraph{Results.} As shown in \autoref{fig:rq1}, models demonstrate implicit causal inference most consistently through surprisals. Not all models can faithfully report their implicit causal inference through Yes/No and 7-Point Likert rating, and the performance of such metalinguistic causal inference increases with model size.
 
 
 \subsection{Identifying Internal Representations of Implicit Causality Inference}
+\label{sec:representations}
 
 Given that LMs behaviorally demonstrate implicit causal inference, do LMs form internal representations of implicit causality? Specifically, we ask two questions: 
 
@@ -92,7 +98,7 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 
 \textbf{Datasets.} We use three datasets of matched critical/control pairs:
 
-1) \emph{Causal}: We extend the implicit causality dataset in Section~3.1 by splitting [person] [modifier/relative clauses][outcome] into two sentences separated by "." or ";". The first sentence describes the outcome, and the second sentence is either an incidental detail or a potential explanation. For example, \emph{Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order} is the critical item; replacing the second sentence with \emph{The Amber Cafe had a copper sign} creates the control. There are however many train/id dev set, followed by however many within-sentence test set already introduced in Section~3.1.
+1) \emph{Causal}: We extend the implicit causality dataset in \autoref{sec:behavior} by splitting [person] [modifier/relative clauses][outcome] into two sentences separated by "." or ";". The first sentence describes the outcome, and the second sentence is either an incidental detail or a potential explanation. For example, \emph{Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order} is the critical item; replacing the second sentence with \emph{The Amber Cafe had a copper sign} creates the control. There are however many train/id dev set, followed by however many within-sentence test set already introduced in \autoref{sec:behavior}.
 
 2) \emph{Occasion}: This dataset tests whether an event is compatible with a typical occasion for a given [person]. The sentences follow the structure of [person] [outcome]. An example critical sentence is \textit{}, whereas the control is \textit{}. This dataset measures occasion compatibility. There are however many train/dev/test set. 
 
@@ -119,6 +125,7 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 \paragraph{Results.}
 
 \subsection{Generalization to Naturalistic Scenarios}
+\label{sec:naturalistic}
 
 \textbf{Dataset.} 
 
@@ -142,6 +149,7 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 
 
 \section{Discussion}
+\label{sec:discussion}
 
 
 \scriptsize
@@ -152,7 +160,64 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 
 \normalsize
 \appendix
+\section{Behavioral Evaluation Details}
+\label{app:behavior-details}
+
+\paragraph{Qualitative example.}
+One item pairs the critical sentence \emph{The executive who falsified quarterly revenue figures was fired} with the control sentence \emph{The executive who wore a blue silk tie was fired}. The outcome is identical across the pair. Only the modifier changes: falsifying revenue figures plausibly explains the firing, whereas wearing a blue tie is incidental.
+
+\paragraph{Yes/No prompt and score.}
+For the critical sentence, the complete prompt is:
+\begin{quote}\small\ttfamily
+Context: The executive who falsified quarterly revenue figures was fired.\\
+Question: Does the fact that the executive falsified quarterly revenue figures explain why the executive was fired? Answer Yes or No:
+\end{quote}
+The control prompt replaces both occurrences of \emph{falsified quarterly revenue figures} with \emph{wore a blue silk tie}. Let $q$ denote a prompt and $a=(a_1,\ldots,a_T)$ a candidate answer token sequence. We compute its complete sequence probability as
+\begin{equation}
+P_\theta(a\mid q)=\exp\!\left(\sum_{t=1}^{T}\log P_\theta(a_t\mid q,a_{<t})\right).
+\label{eq:answer-probability}
+\end{equation}
+We score the leading-space variants \texttt{ yes}, \texttt{ Yes}, and \texttt{ YES}, and the corresponding three variants of \texttt{no}. If $\mathcal{Y}$ and $\mathcal{N}$ are these two sets, the Yes/No score is
+\begin{equation}
+p_{\mathrm{yes}}(q)=
+\frac{\sum_{a\in\mathcal{Y}}P_\theta(a\mid q)}
+{\sum_{a\in\mathcal{Y}\cup\mathcal{N}}P_\theta(a\mid q)}.
+\label{eq:yes-probability}
+\end{equation}
+
+\paragraph{7-point Likert prompt and score.}
+For the same critical sentence, the complete prompt is:
+\begin{quote}\small\ttfamily
+Context: The executive who falsified quarterly revenue figures was fired.\\
+Question: How strongly does the fact that the executive falsified quarterly revenue figures explain why the executive was fired? Answer with one integer from 1 to 7, where 1 means definitely not, 4 means uncertain, and 7 means definitely yes:
+\end{quote}
+We compute the complete sequence probability in \autoref{eq:answer-probability} for each leading-space answer \texttt{ 1}, \ldots, \texttt{ 7}. We normalize over these seven candidates and take their expected value:
+\begin{align}
+\widetilde P_\theta(k\mid q)
+  &=\frac{P_\theta(\texttt{ }k\mid q)}{\sum_{j=1}^{7}P_\theta(\texttt{ }j\mid q)},
+  &r(q)&=\sum_{k=1}^{7}k\,\widetilde P_\theta(k\mid q).
+\label{eq:likert-score}
+\end{align}
+
+\paragraph{Surprisal score.}
+For the critical member of the example pair, we score the continuation after the prefix \emph{The executive who falsified quarterly revenue figures was fired}; the full sequence is \emph{The executive who falsified quarterly revenue figures was fired, and I don't know why.} For continuation tokens $c=(c_1,\ldots,c_M)$ and stimulus prefix $x$, summed continuation surprisal is
+\begin{equation}
+S(c\mid x)=-\sum_{t=1}^{M}\log P_\theta(c_t\mid x,c_{<t}).
+\label{eq:surprisal}
+\end{equation}
+This sum includes every token in \emph{", and I don't know why."}, including punctuation. A larger value means that the continuation is less expected.
+
+\paragraph{Paired accuracy and sampling parameters.}
+For each measure $m$, we compute
+\begin{equation}
+\operatorname{Acc}_{\mathrm{pair}}(m)=\frac{1}{N}\sum_{i=1}^{N}
+\mathbf{1}\!\left[m(x_i^{\mathrm{critical}})>m(x_i^{\mathrm{control}})\right].
+\label{eq:paired-accuracy}
+\end{equation}
+Here $m$ is $p_{\mathrm{yes}}$, $r$, or $S$; ties receive zero credit. Yes/No and Likert responses are not sampled. We score complete candidate sequences directly from the base model's raw logits with temperature 1; top-$p$ and top-$k$ sampling are therefore not applied.
+
 \section{Raw CAA Projection Distributions}
+\label{app:raw-caa}
 
 \begin{figure}[H]
   \centering
