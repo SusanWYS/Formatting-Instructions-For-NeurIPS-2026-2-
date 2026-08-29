@@ -61,11 +61,11 @@ Our contribution is...
 
 \textbf{Models.} In this and all of the following experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
-\textbf{Dataset.} We use 150 manually authored pairs of sentences. In each pair, the modifier or relative clause in the critical sentence provides a plausible cause of that outcome based on physical or everyday world knowledge; in the \emph{control} sentence, it provides an incidental detail. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. This dataset extends the no-context eliciture paradigm of \citet{pan-kehler-2025-pragmatic}, which tests whether an apparently descriptive modifier is nevertheless understood as an explanation.
+\textbf{Dataset.} We use 150 manually authored pairs of sentences. In each pair, the modifier or relative clause in the critical sentence provides a plausible cause of that outcome based on physical or everyday world knowledge; in the \emph{control} sentence, it provides an incidental detail. The dataset generally follows the format of [person] [modifier content] [outcome]. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. This dataset extends the no-context eliciture paradigm of \citet{pan-kehler-2025-pragmatic}, which tests whether an apparently descriptive modifier is nevertheless understood as an explanation.
 
-\textbf{Yes/No.} We first present the critical/control sentences as context and then ask, ``Does [modifier content] explain why [outcome]?'' We compute the probabilities of the complete answers \emph{Yes} and \emph{No}, including capitalization variants, and normalize them to obtain $P(\text{Yes})$.
+\textbf{Yes/No.} We first present the sentences of [person] [modifier content] [outcome] as context and then ask, ``Does [modifier content] explain why [outcome]?'' We compute the probabilities of the complete answers \emph{Yes} and \emph{No}, including capitalization variants, and normalize them to obtain $P(\text{Yes})$.
 
-\textbf{7-point Likert.} We present the critical/control sentences as context and then ask how strongly the modifier explains the outcome on a scale from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). We compute a probability for each of the seven complete answers and use their probability-weighted mean as the model's rating.
+\textbf{7-point Likert.} We present the tested sentences as context and then ask how strongly the [modifier content] explains the [outcome] on a scale from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). We compute a probability for each of the seven complete answers and use their probability-weighted mean as the model's rating.
 
 \textbf{Surprisal.} Following \citet{pan-kehler-2025-pragmatic}, we remove the sentence-final period and append \emph{", and I don't know why."} We use the surprisal of this continuation as the score. The intuition is that if the modifier has already supplied an explanation, subsequently claiming \emph{I don't know why} should be less expected and therefore more surprising. 
 
@@ -83,14 +83,19 @@ For all three measures, paired accuracy is the proportion of pairs in which the 
 
 \subsection{Identifying Internal Representations of Implicit Causality Inference}
 
-Given that LMs behaviorally demonstrate implicit causal inference, do LMs form internal representations of implicit causality across sentences? Specifically, we ask two questions: 
+Given that LMs behaviorally demonstrate implicit causal inference, do LMs form internal representations of implicit causality? Specifically, we ask two questions: 
 
 \textit{1) Do model activations distinguish implicit causal relationships from other relations?} If a representation is specific to causality, a causal direction should separate causal pairs well but transfer less reliably to temporal or plausibility pairs. 
 
-\textit{2) Could the representations of implicit causality derived from cross-sentence constructions transfer to within-sentence causality (eliciture)?} Within-sentence causal inferences are less strong and more optional compared to cross-sentence causal inferences. We predict that robust representations of implicit causality inference should transfer across syntactic constructions.
+\textit{2) If such representations exist, could the representations of cross-sentence implicit causality transfer to within-sentence causality (eliciture)?} Within-sentence causal inferences are less strong and more optional compared to cross-sentence causal inferences. If the representations of implicit causality inference is robutst, it should transfer across syntactic variations.
 
 \textbf{Datasets.} 
-Temporal dataset
+Implicit Causality Dataset: 1) cross-sentence 2) within-sentence -> tell me how many pairs for train/dev/set and provide a pair of qualitative example for cross sentence implicit causality
+
+Temporal dataset: what are the temporal datasets (another form of eliciture but with temporal relationships)?? how many pairs for train/dev? point to a pair of qualitative examples in the appendix
+
+Plausibility dataset: ref to is this fantasy paper. state that we use the probable-impossible pair. point to a pair of qualitative examples in the appendix. 
+
 
 
 \textbf{CAA directions.} Contrastive Activation Addition (CAA) represents a relation with a direction in a model's activation space \citep{rimsky-etal-2024-steering}. At each tested layer, we subtract the final-token activation of every control item from that of its matched critical item, then average these differences over the training pairs. An evaluation item receives a scalar score by projection onto this direction of averaged difference; paired accuracy is the proportion of evaluation pairs for which the critical item scores higher.
