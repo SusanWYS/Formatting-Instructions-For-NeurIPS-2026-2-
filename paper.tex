@@ -61,11 +61,13 @@ Our contribution is...
 
 \textbf{Models.} In this and all of the following experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
-\textbf{Dataset.} 
-how many pairs of examples and in what strurctures -> the sentences demonstrate causality of physical phenomena and world knowledge. 
-show a pair of qualitative examples here!!! (iirc here we use the causal ood items?? is it 150 pairs?)
+\textbf{Dataset.} We use 150 manually authored pairs of sentences: 75 pairs contain a finite relative clause, and 75 contain a reduced, adjectival, or prepositional-phrase modifier. The two sentences in each pair describe the same outcome. In the \emph{critical} sentence, the modifier provides a plausible cause of that outcome based on physical or everyday world knowledge; in the \emph{control} sentence, it provides an incidental detail. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. Neither sentence explicitly marks a causal relation with a word such as \emph{because}. This dataset extends the no-context eliciture paradigm of \citet{pan-kehler-2025-pragmatic}, which tests whether an apparently descriptive modifier is nevertheless understood as an explanation.
 
-\textbf{Methods.} Talk about how yes/no, 7-pt likert, and i don't know why probability are evaluated (cite pan and kehler). One method per paragrpah
+\textbf{Yes/No.} We turn each sentence into an explicit question: ``Does [modifier content] explain why [outcome]?'' Rather than generate one answer, we compute the probabilities of the complete answers \emph{Yes} and \emph{No}, including capitalization variants, and normalize them to obtain $P(\text{Yes})$. This probability-based procedure avoids treating one prompted response as the model's full judgment \citep{hu-levy-2023-prompting}.
+
+\textbf{7-point Likert.} We ask how strongly the modifier explains the outcome on a scale from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). We compute a probability for each of the seven complete answers and use their probability-weighted mean as the model's rating. Thus, an item receives a high score only when the model assigns more probability to the upper end of the scale.
+
+\textbf{``I don't know why.''} Following \citet{pan-kehler-2025-pragmatic}, we remove the sentence-final period and append \emph{, and I don't know why.} We use the surprisal of this continuation---its negative summed log probability---as the score. If the modifier has already supplied an explanation, subsequently claiming not to know why should be less expected and therefore more surprising. For all three measures, paired accuracy is the proportion of pairs in which the critical sentence scores strictly above its control; chance is $.5$, ties count as incorrect, and we report Wilson 95\% confidence intervals.
 
 \begin{figure}[H]
   \centering
@@ -153,6 +155,12 @@ We now ask whether the learned directions remain informative on unseen causal co
 \normalsize
 \clearpage
 \appendix
+\section{Sampling Parameters for Yes/No and 7-Point Likert}
+
+The Yes/No and Likert values in Figure~\ref{fig:rq1} do not use stochastic text generation. We score every token in each permitted answer at temperature 1.0 (i.e., without altering the model probabilities), then normalize only across the permitted answers. Consequently, top-$p$, top-$k$, maximum generation length, and other sampling parameters do not apply. All models are evaluated in \texttt{bfloat16}; the random seed is 42, although these deterministic probability scores do not depend on it.
+
+For Yes/No, we pool the sequence probabilities of \texttt{yes}, \texttt{Yes}, and \texttt{YES}, and likewise pool \texttt{no}, \texttt{No}, and \texttt{NO}, before normalizing across the two classes. For Likert, we normalize the sequence probabilities of the integers 1--7 and report $\sum_{k=1}^{7} kP(k)$. Scoring complete sequences is important because an answer can contain more than one token under a model's tokenizer.
+
 \section{Raw CAA Projection Distributions}
 
 \begin{figure}[H]
