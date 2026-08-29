@@ -89,14 +89,7 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 
 \textit{2) If such representations exist, could the representations of cross-sentence implicit causality transfer to within-sentence causality (eliciture)?} Within-sentence causal inferences are less strong and more optional compared to cross-sentence causal inferences. If the representations of implicit causality inference is robutst, it should transfer across syntactic variations.
 
-\textbf{Datasets.} 
-Implicit Causality Dataset: 1) cross-sentence 2) within-sentence -> tell me how many pairs for train/dev/set and provide a pair of qualitative example for cross sentence implicit causality
-
-Temporal dataset: what are the temporal datasets (another form of eliciture but with temporal relationships)?? how many pairs for train/dev? point to a pair of qualitative examples in the appendix
-
-Plausibility dataset: ref to is this fantasy paper. state that we use the probable-impossible pair. point to a pair of qualitative examples in the appendix. 
-
-
+\textbf{Datasets.} We use three datasets of matched critical/control pairs. The training and in-distribution evaluation sets do not share items. The \emph{causal} dataset contains 384 training and 96 evaluation pairs. In each pair, the second sentence in the critical item explains the first sentence; in the control item, it provides an incidental detail. For example, \emph{Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order} is paired with \emph{Anika avoided the Amber Cafe. The Amber Cafe had a copper sign}. The \emph{temporal} dataset contains 800 training and 200 evaluation pairs. The critical item pairs an occupation with an event that is likely during that occupation, whereas the control pairs the same event with a less compatible occupation (e.g., a lifeguard versus a translator getting a sunburn). This dataset tests occasion compatibility, not temporal order. The \emph{plausibility} dataset contains 56 training and 14 evaluation pairs. The critical item describes a probable event, whereas the control describes a physically impossible event (e.g., baking a cake in an oven versus a freezer) \citep{hu-etal-2025-shades,lepori-etal-2026-fantasy}. For Figure~\ref{fig:rq2b}, we use the 150 within-sentence critical/control pairs from Section~3.1. These pairs are held out from CAA training.
 
 \textbf{CAA directions.} Contrastive Activation Addition (CAA) represents a relation with a direction in a model's activation space \citep{rimsky-etal-2024-steering}. At each tested layer, we subtract the final-token activation of every control item from that of its matched critical item, then average these differences over the training pairs. An evaluation item receives a scalar score by projection onto this direction of averaged difference; paired accuracy is the proportion of evaluation pairs for which the critical item scores higher.
 
@@ -151,7 +144,6 @@ Plausibility dataset: ref to is this fantasy paper. state that we use the probab
 \bibliography{paper}
 
 \normalsize
-\clearpage
 \appendix
 \section{Raw CAA Projection Distributions}
 

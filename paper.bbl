@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,6 +16,21 @@ Abhimanyu Dubey et~al.
 \newblock Gemma 2: Improving open language models at a practical size.
 \newblock \emph{arXiv preprint arXiv:2408.00118}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2408.00118}.
+
+\bibitem[Hu et~al.(2025)Hu, Sosa, and Ullman]{hu-etal-2025-shades}
+Jennifer Hu, Felix Sosa, and Tomer Ullman.
+\newblock Shades of zero: Distinguishing impossibility from inconceivability.
+\newblock \emph{Journal of Memory and Language}, 143:\penalty0 104640, 2025.
+
+\bibitem[Lepori et~al.(2026)Lepori, Hu, Dasgupta, Patel, Serre, and
+  Pavlick]{lepori-etal-2026-fantasy}
+Michael~A. Lepori, Jennifer Hu, Ishita Dasgupta, Roma Patel, Thomas Serre, and
+  Ellie Pavlick.
+\newblock Is this just fantasy? language model representations reflect human
+  judgments of event plausibility.
+\newblock In \emph{The Fourteenth International Conference on Learning
+  Representations}, 2026.
+\newblock URL \url{https://openreview.net/forum?id=Czul60ELOH}.
 
 \bibitem[{Meta AI}(2024)]{meta-2024-llama32}
 {Meta AI}.
