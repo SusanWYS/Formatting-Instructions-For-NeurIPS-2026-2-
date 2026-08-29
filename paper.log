@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  28 AUG 2026 13:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 06:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -575,51 +575,48 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/rq1_behavior.pdf, id=48, 448.27913pt x 135.25565pt>
+<figures/rq1_behavior.pdf, id=48, 459.01395pt x 136.56679pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
-Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 66.
-(pdftex.def)             Requested size: 286.18967pt x 86.35486pt.
+Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 72.
+(pdftex.def)             Requested size: 286.18967pt x 85.14981pt.
  [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
-per-t1.enc} <./figures/rq1_behavior.pdf>]
-<figures/rq2a_causal_temporal_heatmaps.pdf, id=76, 767.16428pt x 181.87903pt>
+per-t1.enc}]
+<figures/rq2a_causal_temporal_heatmaps.pdf, id=66, 767.16428pt x 181.87903pt>
 File: figures/rq2a_causal_temporal_heatmaps.pdf Graphic file (type pdf)
 <use figures/rq2a_causal_temporal_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_causal_temporal_heatmaps.pdf  used on inp
-ut line 84.
+ut line 90.
 (pdftex.def)             Requested size: 397.48499pt x 94.23627pt.
-<figures/rq2a_causal_plausibility_heatmaps.pdf, id=77, 767.16428pt x 181.87903p
+<figures/rq2a_causal_plausibility_heatmaps.pdf, id=67, 767.16428pt x 181.87903p
 t>
 File: figures/rq2a_causal_plausibility_heatmaps.pdf Graphic file (type pdf)
 <use figures/rq2a_causal_plausibility_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_causal_plausibility_heatmaps.pdf  used on
- input line 91.
+ input line 97.
 (pdftex.def)             Requested size: 397.48499pt x 94.23627pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=78, 448.27913pt x 135.25565pt>
+
+[2 <./figures/rq1_behavior.pdf> <./figures/rq2a_causal_temporal_heatmaps.pdf> <
+./figures/rq2a_causal_plausibility_heatmaps.pdf>]
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=270, 448.27913pt x 135.25565pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
-t line 108.
+t line 114.
 (pdftex.def)             Requested size: 310.0378pt x 93.54938pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2 <./figures/rq2a_causal_temporal_heatmaps.pdf> <./figures/rq2a_causal_plausi
-bility_heatmaps.pdf>] (./paper.bbl) [3 <./figures/rq2b_causal_ood_caa_accuracy.
-pdf>]
-<figures/rq3_self_blinding_raw_histograms.pdf, id=267, 518.26625pt x 298.29442p
+ (./paper.bbl) [3 <./figures/rq2b_causal_ood_caa_accuracy.pdf>]
+<figures/rq3_self_blinding_raw_histograms.pdf, id=303, 518.26625pt x 298.29442p
 t>
 File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_raw_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_raw_histograms.pdf  used on 
-input line 154.
+input line 160.
 (pdftex.def)             Requested size: 397.48499pt x 228.78163pt.
-
-[4
+ [4
 
  <./figures/rq3_self_blinding_raw_histograms.pdf>] (./paper.aux)
  ***********
@@ -627,33 +624,32 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 878F56B1825F41D9378FD46F9BBD2CC7;2135.
+(rerunfilecheck)             Checksum: 2F706C9E8E64B2AA41DAF39CF2062FB1;2084.
  ) 
 Here is how much of TeX's memory you used:
- 13792 strings out of 476106
- 215694 string characters out of 5793933
- 1937975 words of memory out of 5000000
- 35418 multiletter control sequences out of 15000+600000
- 601118 words of font info for 170 fonts, out of 8000000 for 9000
+ 13802 strings out of 476106
+ 215787 string characters out of 5793933
+ 1940975 words of memory out of 5000000
+ 35419 multiletter control sequences out of 15000+600000
+ 601508 words of font info for 176 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,14n,79p,1002b,474s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,14n,79p,1002b,469s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 253184 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sft
+t1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/times/utmri8a.pfb>
+Output written on paper.pdf (4 pages, 248424 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 416 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
  50786 words of extra memory for PDF output out of 51595 (max. 10000000)
 
