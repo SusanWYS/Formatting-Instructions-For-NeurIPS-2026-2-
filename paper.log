@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 09:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -586,26 +586,26 @@ File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 76.
 (pdftex.def)             Requested size: 286.18967pt x 86.35486pt.
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=70, 760.23145pt x 232.50
-703pt>
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=70, 760.23145pt x 236.66
+98pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 94.
-(pdftex.def)             Requested size: 397.48499pt x 121.56422pt.
+(pdftex.def)             Requested size: 397.48499pt x 123.74069pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./figures/rq1_behavior.pdf>] (./paper.bbl) [3 <./figures/rq2a_combined_cro
 ss_transfer_heatmaps.pdf>]
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=153, 448.27913pt x 135.25565pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=146, 448.27913pt x 135.25565pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 145.
 (pdftex.def)             Requested size: 310.0378pt x 93.54938pt.
-<figures/rq3_self_blinding_raw_histograms.pdf, id=154, 518.26625pt x 298.29442p
+<figures/rq3_self_blinding_raw_histograms.pdf, id=147, 518.26625pt x 298.29442p
 t>
 File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_raw_histograms.pdf>
@@ -645,10 +645,10 @@ live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on paper.pdf (4 pages, 253360 bytes).
+Output written on paper.pdf (4 pages, 247310 bytes).
 PDF statistics:
- 286 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 279 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
  52829 words of extra memory for PDF output out of 61914 (max. 10000000)
 
