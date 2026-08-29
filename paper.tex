@@ -66,7 +66,7 @@ Our contribution is...
 
 \textbf{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
-\textbf{Dataset.} The dataset tests whether models represent implicit causal relationships. It is comprised of minimal pairs of sentences following the format of [person] [modifier/relative clause] [outcome]. In the critical sentence, [modifier/relative clause] provides a plausible cause of [outcome] based on physical or everyday world knowledge; in the \emph{control} sentence, [modifier/relative clause]  provides an incidental detail. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. We use 150 manually authored pairs of sentences. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}} for qualitative examples.
+\textbf{Dataset.} The dataset tests whether models represent implicit causal relationships. It is comprised of minimal pairs of sentences following the format of [person] [modifier/relative clause] [outcome]. In a critical sentence, [modifier/relative clause] provides a plausible cause of [outcome] based on physical or everyday world knowledge; in a \emph{control} sentence, [modifier/relative clause]  provides an incidental detail. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. We use 150 manually authored pairs of sentences. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}} for qualitative examples.
 
 \textbf{Yes/No.} We first present the sentences of [person] [modifier/relative clause] [outcome] as context and then ask, ``Does [modifier/relative clause] explain why [outcome]?'' We compute the probabilities of the complete answers \emph{Yes} and \emph{No}, including capitalization variants, and normalize them to obtain $P(\text{Yes})$. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}} for an example prompt.
 
@@ -83,7 +83,7 @@ For all three measures, paired accuracy is the proportion of pairs in which the 
   \label{fig:rq1}
 \end{figure}
 
-\paragraph{Results.} As shown in \autoref{fig:rq1}, models demonstrate implicit causal inference most consistently through surprisals. Not all models can faithfully report their implicit causal inference through Yes/No and 7-Point Likert rating, and the performance of such metalinguistic causal inference increases with model size.
+\paragraph{Results.} We present the behavioral evaluation of implicit causal inference in \autoref{fig:rq1}. As shown in the figure, models demonstrate implicit causal inference most consistently through surprisals. Not all models can faithfully report their implicit causal inference through Yes/No and 7-point likert rating, and the performance of such metalinguistic causal inference increases with model size.
 
 
 \subsection{Identifying Internal Representations of Implicit Causality Inference}
@@ -97,7 +97,7 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 
 \textbf{Datasets.} To measure the transferability of implicit causality representations, we use three datasets of matched critical/control pairs:
 
-1) \emph{Causal}: We extend the implicit causality dataset in \autoref{sec:behavior} by splitting [person] [modifier/relative clauses][outcome] into two sentences separated by "." or ";". The first sentence describes the outcome, and the second sentence is either an incidental detail or a potential explanation. For example, \emph{Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order} is a critical item; replacing the second sentence with \emph{The Amber Cafe had a copper sign} creates the control. There are however many train/id dev set, followed by however many within-sentence test set of the within-sentence construction already introduced in \autoref{sec:behavior}.
+1) \emph{Causal}: We extend the implicit causality dataset in \autoref{sec:behavior} by splitting [person] [modifier/relative clauses][outcome] into two sentences (separated by "." or ";"): the first sentence describes the outcome, and the second sentence is either a potential explanation (critical) or an incidental detail (control). For example, \emph{Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order} is a critical item; replacing the second sentence with \emph{The Amber Cafe had a copper sign} creates the control. There are however many train/id dev set, followed by however many within-sentence test set of the within-sentence construction already introduced in \autoref{sec:behavior}.
 
 2) \emph{Occasion}: This dataset tests whether an event is compatible with a typical occasion for a given [person]. The sentences follow the structure of [person] [outcome]. An example critical sentence is \textit{}, whereas the control is \textit{}. This dataset measures occasion compatibility. There are however many train/dev/test set. 
 
