@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  29 AUG 2026 21:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  30 AUG 2026 04:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,16 +601,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq1_behavior.pdf, id=79, 441.41977pt x 105.07895pt>
+<figures/rq1_behavior.pdf, id=93, 441.41977pt x 105.07895pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
-Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 80.
+Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 84.
 (pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
 
-Underfull \vbox (badness 1596) has occurred while \output is active []
-
- [2 <./figures/rq1_behavior.pdf>]
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=108, 760.23145pt x 236.6
+[2 <./figures/rq1_behavior.pdf>]
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=127, 760.23145pt x 236.6
 698pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
@@ -618,49 +616,52 @@ File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 109.
 (pdftex.def)             Requested size: 397.48499pt x 123.74069pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=109, 441.41977pt x 105.07895pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=128, 441.41977pt x 105.07895pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 117.
 (pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
-l_ood_caa_accuracy.pdf>] (./paper.bbl)
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
+l_ood_caa_accuracy.pdf>] (./paper.bbl) [4]
+Underfull \hbox (badness 10000) in paragraph at lines 174--176
 []\T1/cmtt/m/n/9 Context: The executive who falsified quarterly revenue figures
  was
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
+Underfull \hbox (badness 10000) in paragraph at lines 174--176
 \T1/cmtt/m/n/9 Question: Does the fact that the executive falsified quarterly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
+Underfull \hbox (badness 10000) in paragraph at lines 174--176
 \T1/cmtt/m/n/9 revenue figures explain why the executive was fired? Answer Yes 
 or
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 []\T1/cmtt/m/n/9 Context: The executive who falsified quarterly revenue figures
  was
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 \T1/cmtt/m/n/9 Question: How strongly does the fact that the executive falsifie
 d
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 \T1/cmtt/m/n/9 quarterly revenue figures explain why the executive was fired?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 \T1/cmtt/m/n/9 Answer with one integer from 1 to 7, where 1 means definitely no
 t,
  []
@@ -871,12 +872,12 @@ Underfull \hbox (badness 6125) in paragraph at lines 82--82
  []
 
 [6] [7])
-<figures/rq3_self_blinding_raw_histograms.pdf, id=275, 518.26625pt x 298.29442p
+<figures/rq3_self_blinding_raw_histograms.pdf, id=292, 518.26625pt x 298.29442p
 t>
 File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_raw_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_raw_histograms.pdf  used on 
-input line 241.
+input line 243.
 (pdftex.def)             Requested size: 397.48499pt x 228.78163pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -891,13 +892,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 1DA9071FDC53DB578363D1C97159C947;2299.
  ) 
 Here is how much of TeX's memory you used:
- 14187 strings out of 476106
- 220575 string characters out of 5793933
+ 14208 strings out of 476106
+ 221146 string characters out of 5793933
  2022975 words of memory out of 5000000
- 35557 multiletter control sequences out of 15000+600000
- 616822 words of font info for 324 fonts, out of 8000000 for 9000
+ 35571 multiletter control sequences out of 15000+600000
+ 616949 words of font info for 326 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,15n,79p,1158b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,15n,79p,1002b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/
@@ -915,10 +916,10 @@ ts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type
 utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (9 pages, 358602 bytes).
+Output written on paper.pdf (9 pages, 359809 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 266 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
+ 442 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
  56429 words of extra memory for PDF output out of 61914 (max. 10000000)
 

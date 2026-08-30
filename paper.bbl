@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,11 @@ Brian Christian and Matan Mazor.
   sycophancy in large language models, 2026.
 \newblock URL \url{https://arxiv.org/abs/2601.14553}.
 
+\bibitem[Cohen and Kehler(2021)]{cohen-kehler-2021-conversational}
+Jonathan Cohen and Andrew Kehler.
+\newblock Conversational eliciture.
+\newblock \emph{Philosophers' Imprint}, 21\penalty0 (12):\penalty0 1--26, 2021.
+
 \bibitem[Dubey et~al.(2024)]{dubey-etal-2024-llama3}
 Abhimanyu Dubey et~al.
 \newblock The {Llama 3} herd of models.
@@ -22,6 +27,14 @@ Abhimanyu Dubey et~al.
 \newblock Gemma 2: Improving open language models at a practical size.
 \newblock \emph{arXiv preprint arXiv:2408.00118}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2408.00118}.
+
+\bibitem[Hu and Levy(2023)]{hu-levy-2023-prompting}
+Jennifer Hu and Roger Levy.
+\newblock Prompting is not a substitute for probability measurements in large
+  language models.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing}, pages 5040--5060. Association for Computational
+  Linguistics, 2023.
 
 \bibitem[Hu et~al.(2025)Hu, Sosa, and Ullman]{hu-etal-2025-shades}
 Jennifer Hu, Felix Sosa, and Tomer Ullman.
@@ -37,6 +50,16 @@ Michael~A. Lepori, Jennifer Hu, Ishita Dasgupta, Roma Patel, Thomas Serre, and
 \newblock In \emph{The Fourteenth International Conference on Learning
   Representations}, 2026.
 \newblock URL \url{https://openreview.net/forum?id=Czul60ELOH}.
+
+\bibitem[Li et~al.(2021)Li, Nye, and Andreas]{li-etal-2021-implicit}
+Belinda~Z. Li, Maxwell Nye, and Jacob Andreas.
+\newblock Implicit representations of meaning in neural language models.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics and the 11th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)}, pages 1813--1827.
+  Association for Computational Linguistics, 2021.
+\newblock \doi{10.18653/v1/2021.acl-long.143}.
+\newblock URL \url{https://aclanthology.org/2021.acl-long.143/}.
 
 \bibitem[{Meta AI}(2024)]{meta-2024-llama32}
 {Meta AI}.
@@ -67,6 +90,12 @@ Nina Rimsky, Nick Gabrieli, Julian Schulz, Meg Tong, Evan Hubinger, and
 \newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
   for Computational Linguistics (Volume 1: Long Papers)}, pages 15504--15522.
   Association for Computational Linguistics, 2024.
+
+\bibitem[Rohde et~al.(2011)Rohde, Levy, and
+  Kehler]{rohde-etal-2011-anticipating}
+Hannah Rohde, Roger Levy, and Andrew Kehler.
+\newblock Anticipating explanations in relative clause processing.
+\newblock \emph{Cognition}, 118\penalty0 (3):\penalty0 339--358, 2011.
 
 \bibitem[Tamkin et~al.(2023)Tamkin, Askell, Lovitt, Durmus, Joseph, Kravec,
   Nguyen, Kaplan, and Ganguli]{tamkin-etal-2023-discrimination}

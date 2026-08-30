@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1788051824.75987 "paper.aux" "paper.bbl" "paper" 1788051825.60784 0
-  "./paper.bib" 1788048470.60475 4167 39f19bfa86e282ac75643f07422d1158 ""
+["bibtex paper"] 1788078294.96816 "paper.aux" "paper.bbl" "paper" 1788078295.81596 0
+  "./paper.bib" 1788078119.4518 4747 5b911ee2a60f44f5daddeffd6f4c7f14 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1788051825.38677 10028 2c373f171ed7f8d17742e34fa1c3e887 "pdflatex"
+  "paper.aux" 1788078295.60061 10614 890a06af9fc36081b1c5e0990f521e08 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1788051824.81054 "paper.tex" "paper.pdf" "paper" 1788051825.60846 0
+["pdflatex"] 1788078295.01917 "paper.tex" "paper.pdf" "paper" 1788078295.81663 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -136,10 +136,10 @@
   "figures/rq2b_causal_ood_caa_accuracy.pdf" 1788028156.72683 13205 6f0f5543dbc18dcdd0df3367408a58bf ""
   "figures/rq3_self_blinding_raw_histograms.pdf" 1787933228.20004 17787 6c745371f985064ecac911eeac3fcf99 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1788051825.38677 10028 2c373f171ed7f8d17742e34fa1c3e887 "pdflatex"
-  "paper.bbl" 1788051824.80412 3543 e03b1a55ab08921649bf2c483a196903 "bibtex paper"
-  "paper.out" 1788051825.38782 2299 1da9071fdc53db578363d1c97159c947 "pdflatex"
-  "paper.tex" 1788051818.89894 20816 a5d6708fabb58cf036cb8b13b788ca4f ""
+  "paper.aux" 1788078295.60061 10614 890a06af9fc36081b1c5e0990f521e08 "pdflatex"
+  "paper.bbl" 1788078295.01334 4969 fbfaf40eeb77f9b33e4af538b144facc "bibtex paper"
+  "paper.out" 1788078295.60168 2299 1da9071fdc53db578363d1c97159c947 "pdflatex"
+  "paper.tex" 1788078289.44809 19704 060ef89649e77c27e7e55a859040ea23 ""
   (generated)
   "paper.aux"
   "paper.log"
