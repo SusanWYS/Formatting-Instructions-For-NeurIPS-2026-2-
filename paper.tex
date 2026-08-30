@@ -39,21 +39,19 @@ placeholder
 
 \section{Introduction}
 \label{sec:introduction}
-[This is only a skeleton of the intro]
 Much of the world knowledge can be expressed in terms of relations, but oftentimes such relations are graded, implied, and nonliteral. Such kind of implicit inference of event relations is common in human language processing… (cite) Talk about eliciture and why its implied relationships between any two events are non-mandated. (cite)
 
 Previous studies have attempted to show how LMs can build a world model through pragmatic inference… (cite) To the best of our knowledge, Pan \& Kehler is the only work that examines LM’s ability to perform eliciture inference. They demonstrate that LMs not only draw eliciture but also leverage eliciture to guide downstream sentential processing. we aim to extend on their findings by evaluating models of different families and studying the internal representations of implicit causal inference.
 
-The benefits of understanding elicitors in LMs are multifold: 1. whether LMs--trained with distributional objective--demonstrate human-like nonliteral inference in non-mandated setting  2. more comprehensive views into how LMs build an internal world model 3. Potentially understand the implicit bias in LMs, which has implications in safety and alignment
-
-To these aims, we explore three main questions: 
+Building upon Pan \& Kehler's findings, we explore three main questions: 
 \begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
 \item
 \textbf{RQ1} \textit{Do model behaviors reflect inferences about implicit causal relationships within sentences? }
 \item \textbf{RQ2} \textit{Do LMs form internal representations of implicit causal relationships?}
 \item \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
 \end{itemize}
-Our contribution is...
+
+The benefits of understanding elicitors in LMs are multifold: 1. whether LMs--trained with distributional objective--demonstrate human-like nonliteral inference in non-mandated setting  2. more comprehensive views into how LMs build an internal world model 3. Potentially understand the implicit bias in LMs, which has implications in safety and alignment.
 
 \section{Background}
 \label{sec:background}
@@ -97,13 +95,13 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 
 \textbf{Datasets.} To measure the transferability of implicit causality representations, we use three datasets of matched critical/control pairs:
 
-1) \emph{Causal}: This dataset tests whether models represent implicit causal relationships across sentences. We construct 480 pairs in which an outcome is followed by either a potential explanation (critical) or an incidental detail (control), separated by a period. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for an example. For the cross-transfer analysis, we use 384 for CAA training and 96 for in-distribution evaluation. Finally, for out-of-distribution evaluation, we test syntactic generalization on the 150 within-sentence pairs introduced in \autoref{sec:behavior}.
+1) \emph{Causal}: This dataset tests whether models represent implicit causal relationships across sentences. We construct 480 pairs in which an outcome is followed by either a potential explanation (critical) or an incidental detail (control), separated by a period. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for an example. For the cross-transfer analysis, we use 384 for training and 96 for in-distribution evaluation. Finally, for out-of-distribution evaluation, we test syntactic generalization on the 150 within-sentence pairs introduced in \autoref{sec:behavior}.
 
-2) \emph{Occasion}: This dataset tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from [cite Jenn's paper]. It contains 1,200 critical/control pairs: we use 800 for CAA training and 200 for in-distribution evaluation, and reserve 200 for future testing. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for an example.
+2) \emph{Occasion}: This dataset tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from [cite Jenn's paper]. It contains 1,200 critical/control pairs: we use 800 for training and 200 for in-distribution evaluation, and reserve 200 for future testing. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for an example.
 
-3) \emph{Plausibility}: This dataset tests whether models distinguish probable events from physically impossible events. We adapt the probable--impossible pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}. It contains 70 pairs, with 56 for CAA training and 14 for in-distribution evaluation. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for an example.
+3) \emph{Plausibility}: This dataset tests whether models distinguish probable events from physically impossible events. We adapt the probable--impossible pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}. It contains 70 pairs, with 56 for training and 14 for in-distribution evaluation. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for an example.
 
-\textbf{CAA directions.} Contrastive Activation Addition (CAA) represents a relation with a direction in a model's activation space \citep{rimsky-etal-2024-steering}. At each tested layer, we subtract the final-token activation of every control item from that of its matched critical item, then average these differences over the training pairs. An evaluation item receives a scalar score by projection onto this direction of averaged difference; paired accuracy is the proportion of evaluation pairs for which the critical item scores higher.
+\textbf{CAA directions.} We compute Contrastive Activation Addition (CAA) vectors for implicit causality. which represent relations with a direction in a model's activation space \citep{rimsky-etal-2024-steering}. At each tested layer, we subtract the final-token activation of every control item from that of its matched critical item, then average these differences over the training pairs. An evaluation item receives a scalar score by projection onto this direction of averaged difference; paired accuracy is the proportion of evaluation pairs for which the critical item scores higher.
 
 \begin{figure}[H]
   \centering
@@ -122,14 +120,13 @@ Given that LMs behaviorally demonstrate implicit causal inference, do LMs form i
 \vspace{-6pt}
 
 \paragraph{Results.}
-We present the cross-transfer results in \autoref{fig:rq2-transfer}. All three CAA directions reliably distinguish their own in-distribution items, but their performance on the other relation is lower and less consistent. 
-
-The syntactic generalization results are presented in \autoref{fig:rq2b}. The causal information learned from cross-sentence discourse remains available when the causal relationship is conveyed within a sentence.
+We present the cross-transfer results in \autoref{fig:rq2-transfer}. All three CAA directions reliably distinguish their own in-distribution items, but their performance on the other relation is lower and less consistent. The syntactic generalization results are presented in \autoref{fig:rq2b}. The causal information learned from cross-sentence discourse remains available when the causal relationship is conveyed within a sentence. Overall, representations of implicit causality is insensitive to occasional and plausibility relations and can generalize across syntactic structures.
 \subsection{Generalization to Naturalistic Scenarios}
 \label{sec:naturalistic}
 Finally, we ask whether the representations of implicit causality derived from our synthetic dataset could generalize to scenarios with real-world implications. 
-\textbf{Dataset.} 
 
+\textbf{Dataset.} 
+What the data is, what it measures, how we adapt it, and present a pair of qualitative examples. state how many pairs. list all pairs in appendix and refer to them.
 \begin{table}[H]
   \centering
   \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Positive values indicate that a demographic group has a greater mean projection than the white-male condition. Bolded values indicate statsitically significant difference from the white-male projection scores. \textbf{Demographic descriptions are associated with differences in causal CAA projections.} Minority females generally have larger projection raw mean scores than minority males along the implicit causal directions.}
