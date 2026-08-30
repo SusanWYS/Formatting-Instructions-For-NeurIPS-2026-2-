@@ -28,21 +28,21 @@
 \newcommand{\modelname}[1]{\textsc{#1}}
 \input{derived/rq2_results_text}
 
-\title{From Behavior to Representation: Implicit Causality in Language Models}
+\title{placeholder}
 \author{Anonymous Author(s)}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Language users infer causal relationships that are suggested but not entailed. We ask whether language models (LMs) make these inferences and represent them internally. Across six base LMs, continuation surprisal distinguishes 150 causal/control pairs more consistently than direct judgments. Causal Contrastive Activation Addition (CAA) directions are distinct from occasion and event-plausibility directions and reach $.97$--$1.00$ paired accuracy on unseen syntactic forms. On 65 naturalistic decision scenarios, they also vary across demographic conditions. These results provide behavioral and representational evidence for implicit causality in LMs, while showing that verbal reports can understate this ability and that the representations can reflect socially consequential associations.
+placeholder
 \end{abstract}
 
 \section{Introduction}
 \label{sec:introduction}
-Language often leaves relationships between events unstated. For example, \emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification caused the firing without entailing it. Such defeasible inferences are \emph{elicitures} \citep{cohen-kehler-2021-conversational}; recovering them requires world knowledge about how events are related.
+Language often leaves relationships between events unstated. For example, \emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification caused the firing without explicitly stating it. Such defeasible inferences are \emph{elicitures} \citep{cohen-kehler-2021-conversational}. Testing whether LMs draw these inferences would inform us what world knowledge they encode. 
 
-Whether LMs draw these inferences informs what world knowledge they encode. Yet a model may represent a relationship without reporting it under a particular prompt. \citet{pan-kehler-2025-pragmatic} show that LMs infer elicitures and use them during subsequent sentence processing. We extend their behavioral study across model families and test whether implicit causality forms a distinct, reusable internal representation.
+\citet{pan-kehler-2025-pragmatic} show that LMs infer elicitures and use them during subsequent sentence processing. Yet a model may represent a relationship without reporting it under a particular prompt. We extend their behavioral study across model families and test whether implicit causality forms a distinct, reusable internal representation.
 
 Building upon Pan \& Kehler's results, we explore three main questions: 
 \begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
@@ -52,14 +52,14 @@ Building upon Pan \& Kehler's results, we explore three main questions:
 \item \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
 \end{itemize}
 
-We compare direct judgments with a probability-based measure, test whether causal representations are distinct and generalize across syntax, and apply them to naturalistic scenarios with potential real-world consequences.
+The benefits of understanding elicitors in LMs are multifold: 1. more comprehensive views into how LMs build an internal world model 2. knowledge of the cognitive alignment between LMs and humans in nonliteral and non-mandated inference 3. understanding of the implicit bias in LMs, which has implications in safety and alignment.
 
 \section{Background}
 \label{sec:background}
 
-\textbf{Implicit causal inference.} Elicitures can be canceled without contradiction because they are suggested rather than semantically encoded \citep{cohen-kehler-2021-conversational}. Causal elicitures occur within sentences, including explanatory readings of relative clauses \citep{rohde-etal-2011-anticipating}, and across adjacent sentences. Because prompting and probability-based measurements can yield different pictures of model knowledge \citep{hu-levy-2023-prompting}, we use both.
+\textbf{Implicit causal inference.} 
 
-\textbf{Internal representations.} LM activations can encode unstated entities and situations accessible to linear readouts \citep{li-etal-2021-implicit}; activation-space directions also track event-plausibility judgments \citep{lepori-etal-2026-fantasy}. We test whether a causal direction separates causal pairs, transfers across syntax, and remains distinct from other event relations.
+\textbf{Causal Representations.}...
 
 \section{Experiments}
 \label{sec:experiments}
@@ -150,9 +150,7 @@ This dataset tests whether demographic descriptions affect implicit causal inter
 In \autoref{tab:rq3}, minority-female projections exceed White-male projections in all six models. Minority-male differences are positive, with CIs excluding zero in four models. Thus, causal representations remain sensitive to demographic descriptions in naturalistic settings.
 \section{Discussion}
 \label{sec:discussion}
-Across six base LMs, surprisal provides the most consistent behavioral evidence for implicit causality; weaker direct judgments show that failure to report a relationship need not imply its absence. Causal CAA directions transfer across syntax but less consistently across relations, suggesting that causality is not merely general event expectancy. Their sensitivity to demographic descriptions (\autoref{tab:rq3}) identifies an activation-level association, not an explicit judgment that identity causes an outcome.
-
-We study English synthetic stimuli, base models, final-token linear directions, and only 14 plausibility evaluation pairs. Naturalistic distributions overlap (\hyperref[app:raw-caa]{Appendix~\ref*{app:raw-caa}}), and broad demographic labels obscure within-group variation. Future work should compare human judgments, instruction-tuned models, and natural discourse, and intervene on these representations. LMs represent causality beyond what is stated, but conclusions depend on how that representation is measured and where it generalizes.
+placeholder
 
 \scriptsize
 \setlength{\bibsep}{1pt}
