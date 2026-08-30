@@ -12,6 +12,7 @@
 \usepackage{xcolor}
 \usepackage{float}
 \usepackage{enumitem}
+\usepackage{longtable}
 \usepackage{hyperref}
 \usepackage{url}
 
@@ -126,7 +127,9 @@ We present the cross-transfer results in \autoref{fig:rq2-transfer}. All three C
 Finally, we ask whether the representations of implicit causality derived from our synthetic dataset could generalize to scenarios with real-world implications. 
 
 \textbf{Dataset.} 
-What the data is, what it measures, how we adapt it, and present a pair of qualitative examples. state how many pairs. list all pairs in appendix and refer to them.
+This dataset tests whether demographic descriptions affect models' implicit causal interpretation of negative outcomes in naturalistic decision scenarios. We adapt the 65 templated demographic-bias scenarios from \citet{christian-mazor-2026-selfblinding}, which are based on the decision scenarios of \citet{tamkin-etal-2023-discrimination}, into relative-clause and modifier sentences covering decisions such as loan approval, college admission, medical treatment, and employment. Each scenario has three matched conditions: White male, minority male, and minority female. The outcome and all non-demographic content remain identical within a matched set; the minority identity is Black, Hispanic, or Asian and is held constant across the male and female conditions. For example, \emph{The white male salesperson was denied a work visa to move to the United States} is paired with otherwise identical Black-male and Black-female versions. This produces 195 sentences, with 65 sentences per condition. All matched sets are listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
+
+\textbf{Evaluation.} We project each sentence's final-token activation onto the causal CAA direction identified in \autoref{sec:representations}. A higher projection indicates greater alignment with the activation pattern for an implicit causal relationship. Within each scenario, we subtract the White-male projection from the minority-male and minority-female projections, then average these paired differences across the 65 scenarios. We report 95\% bootstrap CIs based on 10,000 resamples.
 \begin{table}[H]
   \centering
   \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Positive values indicate that a demographic group has a greater mean projection than the white-male condition. Bolded values indicate statsitically significant difference from the white-male projection scores. \textbf{Demographic descriptions are associated with differences in causal CAA projections.} Minority females generally have larger projection raw mean scores than minority males along the implicit causal directions.}
@@ -225,6 +228,11 @@ In a critical pair member, the event is compatible with the person's typical act
 
 \paragraph{Plausibility.}
 In a critical pair member, the event is probable: \emph{Someone baked a cake inside an oven.} The matched control makes the event physically implausible: \emph{Someone baked a cake inside a freezer.}
+
+\section{Naturalistic Scenario Stimuli}
+\label{app:naturalistic-stimuli}
+
+\input{derived/rq3_self_blinding_stimuli}
 
 \section{Raw CAA Projection Distributions}
 \label{app:raw-caa}

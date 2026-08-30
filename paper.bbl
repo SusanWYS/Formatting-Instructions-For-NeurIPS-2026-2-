@@ -1,9 +1,15 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Christian and Mazor(2026)]{christian-mazor-2026-selfblinding}
+Brian Christian and Matan Mazor.
+\newblock Self-blinding and counterfactual self-simulation mitigate biases and
+  sycophancy in large language models, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.14553}.
 
 \bibitem[Dubey et~al.(2024)]{dubey-etal-2024-llama3}
 Abhimanyu Dubey et~al.
@@ -61,5 +67,13 @@ Nina Rimsky, Nick Gabrieli, Julian Schulz, Meg Tong, Evan Hubinger, and
 \newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
   for Computational Linguistics (Volume 1: Long Papers)}, pages 15504--15522.
   Association for Computational Linguistics, 2024.
+
+\bibitem[Tamkin et~al.(2023)Tamkin, Askell, Lovitt, Durmus, Joseph, Kravec,
+  Nguyen, Kaplan, and Ganguli]{tamkin-etal-2023-discrimination}
+Alex Tamkin, Amanda Askell, Liane Lovitt, Esin Durmus, Nicholas Joseph, Shauna
+  Kravec, Karina Nguyen, Jared Kaplan, and Deep Ganguli.
+\newblock Evaluating and mitigating discrimination in language model decisions,
+  2023.
+\newblock URL \url{https://arxiv.org/abs/2312.03689}.
 
 \end{thebibliography}
