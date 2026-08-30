@@ -127,9 +127,9 @@ On the held-out tests in \autoref{fig:rq2-transfer}, causal directions reach $1.
 Finally, we ask whether causal representations learned from synthetic data generalize to scenarios with real-world implications.
 
 \textbf{Dataset.} 
-This dataset tests whether demographic descriptions affect implicit causal interpretations of negative outcomes. We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. Each has matched White-male, minority-male, and minority-female conditions; only the demographic description changes. For example, \emph{The white male salesperson was denied a work visa} is paired with \emph{The [minority] \{male, female\} salesperson was denied a work visa}, where [minority] is sampled from \{Black, Hispanic, Asian\}. The 195 sentences are listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
+This dataset tests whether demographic descriptions affect implicit causal interpretations of negative outcomes. We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. Each has matched white-male, minority-male, and minority-female conditions; only the demographic description changes. For example, \emph{The white male salesperson was denied a work visa} is paired with \emph{The [minority] \{male, female\} salesperson was denied a work visa}, where [minority] is sampled from \{Black, Hispanic, Asian\}. The 195 sentences are listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
 
-\textbf{Evaluation.} We project each final-token activation onto the causal CAA direction from \autoref{sec:representations}. Within each scenario, we subtract the White-male projection from each minority condition, average across scenarios, and report 95\% bootstrap CIs.
+\textbf{Evaluation.} We project each final-token activation onto the causal CAA direction from \autoref{sec:representations}. Within each scenario, we subtract the white-male projection from each minority condition, average across scenarios, and report 95\% bootstrap CIs.
 \begin{table}[H]
   \centering
   \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Positive values indicate that a demographic group has a greater mean projection than the white-male condition. Bolded values indicate statsitically significant difference from the white-male projection scores. \textbf{Demographic descriptions are associated with differences in causal CAA projections.}}
@@ -140,14 +140,14 @@ This dataset tests whether demographic descriptions affect implicit causal inter
     \toprule
       & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen3\\4B} & \shortstack{Qwen3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
     \midrule
-    Minority male $-$ White male & $\boldsymbol{.41\mathbin{\pm}.32}$ & $\boldsymbol{1.9\mathbin{\pm}.40}$ & $.073\mathbin{\pm}.093$ & $\boldsymbol{.29\mathbin{\pm}.17}$ & $.025\mathbin{\pm}.029$ & $\boldsymbol{.030\mathbin{\pm}.020}$ \\
-    Minority female $-$ White male & $\boldsymbol{.57\mathbin{\pm}.32}$ & $\boldsymbol{2.3\mathbin{\pm}.41}$ & $\boldsymbol{.15\mathbin{\pm}.10}$ & $\boldsymbol{.39\mathbin{\pm}.15}$ & $\boldsymbol{.069\mathbin{\pm}.033}$ & $\boldsymbol{.060\mathbin{\pm}.021}$ \\
+    Minority male $-$ white male & $\boldsymbol{.41\mathbin{\pm}.32}$ & $\boldsymbol{1.9\mathbin{\pm}.40}$ & $.073\mathbin{\pm}.093$ & $\boldsymbol{.29\mathbin{\pm}.17}$ & $.025\mathbin{\pm}.029$ & $\boldsymbol{.030\mathbin{\pm}.020}$ \\
+    Minority female $-$ white male & $\boldsymbol{.57\mathbin{\pm}.32}$ & $\boldsymbol{2.3\mathbin{\pm}.41}$ & $\boldsymbol{.15\mathbin{\pm}.10}$ & $\boldsymbol{.39\mathbin{\pm}.15}$ & $\boldsymbol{.069\mathbin{\pm}.033}$ & $\boldsymbol{.060\mathbin{\pm}.021}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \paragraph{Results.}
-In \autoref{tab:rq3}, minority-female projections exceed White-male projections in all six models. Minority-male differences are positive, with CIs excluding zero in four models. Thus, causal representations remain sensitive to demographic descriptions in naturalistic settings.
+In \autoref{tab:rq3}, minority-female projections exceed white-male projections in all six models. Minority-male differences are positive, with CIs excluding zero in four models. Thus, causal representations remain sensitive to demographic descriptions in naturalistic settings.
 \section{Discussion}
 \label{sec:discussion}
 placeholder
@@ -239,7 +239,7 @@ In a critical pair member, the event is probable: \emph{Someone baked a cake ins
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
-  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model.} Colors and line styles distinguish the White-male, minority-male, and minority-female conditions.}
+  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model.} Colors and line styles distinguish the white-male, minority-male, and minority-female conditions.}
   \label{fig:rq3-distributions}
 \end{figure}
 
