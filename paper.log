@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  30 AUG 2026 04:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  30 AUG 2026 05:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -606,27 +606,24 @@ File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 84.
 (pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=97, 760.23145pt x 236.66
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=97, 760.60002pt x 236.66
 98pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 109.
-(pdftex.def)             Requested size: 397.48499pt x 123.74069pt.
+(pdftex.def)             Requested size: 397.48499pt x 123.6829pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./figures/rq1_behavior.pdf>]
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=117, 441.41977pt x 105.07895pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=117, 441.2002pt x 106.682pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 117.
-(pdftex.def)             Requested size: 286.18967pt x 68.12732pt.
-
-Underfull \vbox (badness 2134) has occurred while \output is active []
-
+(pdftex.def)             Requested size: 286.18967pt x 69.20085pt.
  [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
 l_ood_caa_accuracy.pdf>] (./paper.bbl) [4]
 Underfull \hbox (badness 10000) in paragraph at lines 172--174
@@ -876,7 +873,7 @@ Underfull \hbox (badness 6125) in paragraph at lines 82--82
  []
 
 [6] [7])
-<figures/rq3_self_blinding_raw_histograms.pdf, id=276, 518.26625pt x 298.29442p
+<figures/rq3_self_blinding_raw_histograms.pdf, id=235, 518.26625pt x 298.29442p
 t>
 File: figures/rq3_self_blinding_raw_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_raw_histograms.pdf>
@@ -897,10 +894,10 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  14179 strings out of 476106
- 220615 string characters out of 5793933
+ 220618 string characters out of 5793933
  2023975 words of memory out of 5000000
  35560 multiletter control sequences out of 15000+600000
- 616014 words of font info for 316 fonts, out of 8000000 for 9000
+ 616112 words of font info for 316 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  72i,15n,79p,1002b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
@@ -920,9 +917,9 @@ ts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type
 utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (9 pages, 355027 bytes).
+Output written on paper.pdf (9 pages, 367620 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
+ 385 PDF objects out of 1000 (max. 8388607)
  269 compressed objects within 3 object streams
  55 named destinations out of 1000 (max. 500000)
  56429 words of extra memory for PDF output out of 61914 (max. 10000000)

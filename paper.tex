@@ -96,18 +96,18 @@ We ask whether model activations distinguish causality from occasion and plausib
 
 \textbf{Datasets.} We use three datasets of matched critical/control pairs:
 
-1) \emph{Causal} tests implicit causality across sentences. In 480 pairs, an outcome is followed by either an explanation (critical) or incidental detail (control): 384 train and 96 in-distribution evaluation. For out-of-distribution evaluation, we use the 150 within-sentence pairs from \autoref{sec:behavior}. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
+1) \emph{Causal} tests implicit causality across sentences. In 480 pairs, an outcome is followed by either an explanation (critical) or incidental detail (control): 384 training, 48 development, and 48 held-out in-distribution test pairs. For out-of-distribution evaluation, we use the 150 within-sentence pairs from \autoref{sec:behavior}. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
 
-2) \emph{Occasion} tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from [cite Jenn's paper]. Of 1,200 pairs, 800 are for training, 200 for in-distribution evaluation, and 200 reserved. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
+2) \emph{Occasion} tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from [cite Jenn's paper]. Of 1,200 pairs, 800 are for training, 200 for development, and 200 for held-out in-distribution testing. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 
-3) \emph{Plausibility} contrasts probable with physically impossible events. We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 56 train and 14 in-distribution evaluation. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
+3) \emph{Plausibility} contrasts probable with physically impossible events. We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 held-out in-distribution test pairs. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 
-\textbf{CAA directions.} CAA represents a relation as a direction in activation space \citep{rimsky-etal-2024-steering}. At each layer, we average the difference between matched critical and control final-token activations. We project evaluation activations onto this direction and report the proportion of pairs in which the critical projection is higher.
+\textbf{CAA directions.} CAA represents a relation as a direction in activation space \citep{rimsky-etal-2024-steering}. At each layer, we average the difference between matched critical and control final-token activations. For each training-direction/evaluation-dataset combination, we select the layer on the development set and report paired accuracy only on the disjoint test set.
 
 \begin{figure}[H]
   \centering
   \IfFileExists{figures/rq2a_combined_cross_transfer_heatmaps.pdf}{\includegraphics[width=\linewidth]{figures/rq2a_combined_cross_transfer_heatmaps.pdf}}{\rule{\linewidth}{.30\linewidth}}
-  \caption{Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the in-distribution evaluation set. \textbf{Causal CAA directions are largely relation-selective and distinct from occasional and plausibility directions.}}
+  \caption{Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the held-out in-distribution test set. \textbf{Causal CAA directions are largely relation-selective and distinct from occasional and plausibility directions.}}
   \label{fig:rq2-transfer}
 \end{figure}
 
@@ -121,7 +121,7 @@ We ask whether model activations distinguish causality from occasion and plausib
 \vspace{-6pt}
 
 \paragraph{Results.}
-In \autoref{fig:rq2-transfer}, each CAA direction reliably distinguishes its own items, whereas cross-relation accuracy is lower and less consistent. In \autoref{fig:rq2b}, cross-sentence causal directions remain accurate on within-sentence causality. Thus, causal information generalizes across syntax without reducing to occasion or plausibility.
+On the held-out tests in \autoref{fig:rq2-transfer}, causal directions reach $1.00$ paired accuracy in every model; occasion directions reach $.90$--$.98$ and plausibility directions $.79$--$.93$ on their own relations. Cross-relation accuracy is lower and more variable ($.27$--$.86$). On the within-sentence items in \autoref{fig:rq2b}, causal directions reach $.91$--$.99$ and outperform the other two directions in every model. Thus, causal information generalizes across syntax without reducing to occasion or plausibility.
 \subsection{Generalization to Naturalistic Scenarios}
 \label{sec:naturalistic}
 Finally, we ask whether causal representations learned from synthetic data generalize to scenarios with real-world implications.
