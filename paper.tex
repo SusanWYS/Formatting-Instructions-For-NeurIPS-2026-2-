@@ -40,9 +40,9 @@ placeholder
 
 \section{Introduction}
 \label{sec:introduction}
-Language often leaves relationships between events unstated. For example, \emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification caused the firing without explicitly stating it. Such defeasible inferences are \emph{elicitures} \citep{cohen-kehler-2021-conversational}. Testing whether LMs draw these inferences would inform us what world knowledge they encode. 
+Language often leaves relationships between events unstated. For example, \emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification caused the firing without explicitly stating it. Such defeasible inferences are \emph{elicitures} \citep{cohen-kehler-2021-conversational}. 
 
-\citet{pan-kehler-2025-pragmatic} show that LMs infer elicitures and use them during subsequent sentence processing. Yet a model may represent a relationship without reporting it under a particular prompt. We extend Pan \& Kehler's  behavioral study across model families and test whether implicit causality forms a distinct, reusable internal representation.
+\citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality from eliciture and use them during subsequent sentence processing. This project extends Pan \& Kehler's behavioral study across model families and test whether implicit causality forms a distinct, reusable internal representation.
 
 We explore three main questions: 
 \begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
@@ -52,7 +52,7 @@ We explore three main questions:
 \item \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
 \end{itemize}
 
-The benefits of understanding elicitures in LMs are multifold: 1. more comprehensive views into how LMs build an internal world model 2. knowledge of the cognitive alignment between LMs and humans in nonliteral and non-mandated inference 3. understanding of the implicit bias in LMs, which has implications in safety and alignment.
+The benefits of understanding elicitures in LMs are multifold: 1. gaining more comprehensive views into how LMs build an internal world model 2. studying the cognitive alignment between LMs and humans in nonliteral and non-mandated inference 3. measuring the implicit bias in LMs through eliciture, which has implications in safety and alignment.
 
 \section{Background}
 \label{sec:background}
@@ -66,10 +66,11 @@ The benefits of understanding elicitures in LMs are multifold: 1. more comprehen
 
 \subsection{Measuring Implicit Causal Inference through Model Behaviors}
 \label{sec:behavior}
+The behavioral experiments are conceptual replications of \citet{pan-kehler-2025-pragmatic}. The high-level goals are to demonstrate that LMs show implicit causal inference through metalinguistic prompting and next-sentence likelihood estimation of contextually relevant texts.
 
 \textbf{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
-\textbf{Dataset.} We use 150 manually authored minimal pairs following [person] [modifier/relative clause] [outcome]. The modifier plausibly causes the outcome in a critical sentence but is incidental in its control. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}} for examples.
+\textbf{Dataset.} We use 150 manually authored minimal pairs of the following structure: [person] [modifier/relative clause] [outcome]. The modifier plausibly causes the outcome in a critical sentence but is incidental in its control. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}} for examples.
 
 \textbf{Yes/No.} After presenting the sentence as context, we ask, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities, including capitalization variants, to obtain $P(\text{Yes})$. The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 
