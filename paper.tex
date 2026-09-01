@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{microtype}
+\usepackage{soul}
 \usepackage[dblblindworkshop]{neurips_2026}
 \workshoptitle{LPFM}
 \usepackage{enumitem}
@@ -35,7 +36,9 @@
 \maketitle
 
 \begin{abstract}
-placeholder
+Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests them \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across six base language models, We find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find a distinct internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from explicit causal relations across sentences to implicit causal relations within a sentence. Finally, this causal signal is stronger for minority identities as subjects to negative social scenarios, especially minority women, than for white men. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
+
+
 \end{abstract}
 
 \section{Introduction}
@@ -52,33 +55,37 @@ We explore three main questions:
 \item \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
 \end{itemize}
 
-The benefits of understanding elicitures in LMs are multifold: 1. gaining more comprehensive views into how LMs build an internal world model 2. studying the cognitive alignment between LMs and humans in nonliteral and non-mandated inference 3. measuring the implicit bias in LMs through eliciture, which has implications in safety and alignment.
+Understanding elicitures in LMs is valuable for several reasons. First, it can provide a more comprehensive view of how LMs construct their internal world models. Second, it offers a way to study cognitive alignment between LMs and humans in nonliteral and non-mandated inference. Third, eliciture provides a lens for measuring implicit biases in LMs, with implications for the development of safer and more aligned models.
 
 \section{Background}
 \label{sec:background}
+\paragraph{Implicit Causal Inference.}
 
-\textbf{Implicit causal inference.} 
+Humans often infer causal relationships that are not explicitly stated. These inferences can be optional and depend on discourse coherence and world knowledge rather than literal entailment \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Such expectations can influence subsequent interpretation and sentence processing \citep{kehler-rohde-2019-prominence}. Most directly, \citet{pan-kehler-2025-pragmatic} show that LMs behaviorally exhibit causal elicitures and use them during subsequent processing. We build on this line of work by testing whether these implicit causal inferences are also reflected in generalizable internal representations.
 
-\textbf{Causal Representations.}...
+\paragraph{LM Representations of Implicit Knowledge.}
+
+Prior work suggests that LM activations encode information that is not always directly reflected in model outputs \citep{burns-etal-2023-discovering}. Internal representations have been identified for factual and relational knowledge \citep{hernandez-etal-2024-linearity,marks-tegmark-2024-geometry}, as well as graded semantic properties such as event plausibility \citep{lepori-etal-2026-fantasy}. In the same spirit, we examine whether implicit causality forms a distinct internal representation, whether it can be separated from related notions such as plausibility and occasion compatibility, and whether it generalizes across linguistic constructions.
+
 
 \section{Experiments}
 \label{sec:experiments}
 
 \subsection{Measuring Implicit Causal Inference through Model Behaviors}
 \label{sec:behavior}
-The behavioral experiments are conceptual replications of \citet{pan-kehler-2025-pragmatic}. The high-level goals are to demonstrate that LMs show implicit causal inference through metalinguistic prompting and next-sentence likelihood estimation of contextually relevant texts.
+We first ask whether implicit causal inferences influence model behavior even when models do not reliably verbalize them. To test this, we compare explicit metalinguistic judgments with a more implicit measure based on the surprisal of subsequent text. Our setup conceptually replicates and extends \citet{pan-kehler-2025-pragmatic}.
 
 \textbf{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
 \textbf{Dataset.} We use 150 manually authored minimal pairs of the following structure: [person] [modifier/relative clause] [outcome]. The modifier plausibly causes the outcome in a critical sentence but is incidental in its control. For example, \emph{The executive who falsified quarterly revenue figures was fired} is paired with \emph{The executive who wore a blue silk tie was fired}. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}} for examples.
 
-\textbf{Yes/No.} After presenting the sentence as context, we ask, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities, including capitalization variants, to obtain $P(\text{Yes})$. The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
+\textbf{Yes/No.} After presenting [person] [modifier/relative clause] [outcome] as context, we ask, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities, including capitalization variants, to obtain $P(\text{Yes})$. The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 
-\textbf{7-point Likert.} After the same context, we ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
+\textbf{7-point Likert.} After presenting [person] [modifier/relative clause] [outcome], we ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 
-\textbf{Surprisal.} Following \citet{pan-kehler-2025-pragmatic}, we append \emph{", and I don't know why."} and score its surprisal. If the modifier supplies an explanation, this continuation should be less expected. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
+\textbf{Surprisal.} Following \citet{pan-kehler-2025-pragmatic}, we append \emph{", and I don't know why."} to the end of [person] [modifier/relative clause] [outcome] and score its surprisal. If the modifier supplies an explanation, this continuation should be less expected. See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 
-For each measure, paired accuracy is the proportion of critical items scoring strictly above their controls; chance is $.5$, and ties are incorrect.
+For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls; chance is $.5$, and ties are incorrect.
 
 \begin{figure}[H]
   \centering
@@ -87,23 +94,24 @@ For each measure, paired accuracy is the proportion of critical items scoring st
   \label{fig:rq1}
 \end{figure}
 
-\paragraph{Results.} In \autoref{fig:rq1}, surprisal identifies implicit causality most consistently. Direct Yes/No and Likert performance varies more across models and generally improves with model size.
+\paragraph{Results.} In \autoref{fig:rq1}, all six models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}: surprisal achieves consistently high paired accuracy across model families. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
 
 
 \subsection{Identifying Internal Representations of Implicit Causality Inference}
 \label{sec:representations}
 
-We ask whether model activations distinguish causality from occasion and plausibility, and whether a direction learned from cross-sentence causality transfers to the weaker, non-mandated causal readings of within-sentence modifiers.
+The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. Therefore, we ask two subsequent questions: 1) is implicit causality selectively represented in LM activation states (i.e., can be distinguished from related inferences such as occasion compatibility and plausibility)? and 2) Can a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences?
 
 \textbf{Datasets.} We use three datasets of matched critical/control pairs:
 
-1) \emph{Causal} tests implicit causality across sentences. In 480 pairs, an outcome is followed by either an explanation (critical) or incidental detail (control): 384 training, 48 development, and 48 held-out in-distribution test pairs. For out-of-distribution evaluation, we use the 150 within-sentence pairs from \autoref{sec:behavior}. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
+1) \emph{Causal} tests implicit causality across sentences. In 480 pairs of cross-sentence inference, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}: 384 training, 48 development, and 48 held-out in-distribution test pairs. For out-of-distribution evaluation, we use the 150 within-sentence pairs from \autoref{sec:behavior}. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
 
-2) \emph{Occasion} tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from [cite Jenn's paper]. Of 1,200 pairs, 800 are for training, 200 for development, and 200 for held-out in-distribution testing. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
+2) \emph{Occasion} tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \hl{[cite Jenn's paper]}. Of 1,200 pairs, 800 are for training, 200 for development, and 200 for held-out in-distribution testing. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 
 3) \emph{Plausibility} contrasts probable with physically impossible events. We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 held-out in-distribution test pairs. See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 
-\textbf{CAA directions.} CAA represents a relation as a direction in activation space \citep{rimsky-etal-2024-steering}. At each layer, we average the difference between matched critical and control final-token activations. For each training-direction/evaluation-dataset combination, we select the layer on the development set and report paired accuracy only on the disjoint test set.
+\textbf{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify activation-space directions associated with each dataset. At each layer, for every matched training pair, we subtract the final-token activation of the control example from that of the critical example and average these differences to obtain a single direction. We then project unseen critical and control examples onto this direction: if the direction captures the target relation, the critical example should receive a higher projection than its matched control. For each training-direction/evaluation-dataset combination, we select the layer with the highest paired accuracy on the development set and report accuracy on the disjoint test set.
+
 
 \begin{figure}[H]
   \centering
@@ -122,18 +130,21 @@ We ask whether model activations distinguish causality from occasion and plausib
 \vspace{-6pt}
 
 \paragraph{Results.}
-On the held-out tests in \autoref{fig:rq2-transfer}, causal directions reach $1.00$ paired accuracy in every model; occasion directions reach $.90$--$.98$ and plausibility directions $.79$--$.93$ on their own relations. Cross-relation accuracy is lower and more variable ($.27$--$.86$). On the within-sentence items in \autoref{fig:rq2b}, causal directions reach $.91$--$.99$ and outperform the other two directions in every model. Thus, causal information generalizes across syntax without reducing to occasion or plausibility.
+The CAA directions are relatively relation-selective: each direction strongly separates its own held-out relation, whereas cross-relation transfer is substantially weaker and more variable (Figure~\ref{fig:rq2-transfer}). This selectivity is not absolute, indicating some shared structure across relations. On the other hand, the causal direction learned from explicit cross-sentence explanations transfers nearly perfectly to unseen within-sentence elicitures, reaching $.91$--$.99$ paired accuracy and outperforming the occasion and plausibility directions in every model (Figure~\ref{fig:rq2b}). Together, these results indicate that models encode a causal signal that generalizes across syntactic constructions and cannot be explained solely by occasion or event plausibility.
+
 \subsection{Generalization to Naturalistic Scenarios}
 \label{sec:naturalistic}
-Finally, we ask whether causal representations learned from synthetic data generalize to scenarios with real-world implications.
+Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects systematic differences in scenarios with potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to a negative outcome.
 
-\textbf{Dataset.} 
-This dataset tests whether demographic descriptions affect implicit causal interpretations of negative outcomes. We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. Each has matched white-male, minority-male, and minority-female conditions; only the demographic description changes. For example, \emph{The white male salesperson was denied a work visa} is paired with \emph{The [minority] \{male, female\} salesperson was denied a work visa}, where [minority] is sampled from \{Black, Hispanic, Asian\}. The 195 sentences are listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
+\textbf{Dataset.}
+We test whether changing a person's demographics changes how strongly the model internally associates that description with adverse outcomes. We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct three matched versions describing a white man, a minority man, or a minority woman, while keeping the occupation and outcome identical. For example, \emph{The white male salesperson was denied a work visa} is compared with \emph{The Black male salesperson was denied a work visa} and \emph{The Black female salesperson was denied a work visa}. Minority identities are sampled from {Black, Hispanic, Asian}. This yields 195 sentences in total, listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
 
-\textbf{Evaluation.} We project each final-token activation onto the causal CAA direction from \autoref{sec:representations}. Within each scenario, we subtract the white-male projection from each minority condition, average across scenarios, and report 95\% bootstrap CIs.
+\textbf{Evaluation.}
+We use the causal CAA direction identified in \autoref{sec:representations} as a measure of how strongly a model activation expresses causal information. For each sentence, we project its final-token activation onto this direction; a higher projection indicates that the activation more strongly resembles the representation associated with causal. Within each scenario, we subtract the minority-male or minority-female projections from the matched white-male projection. We then average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
+
 \begin{table}[H]
   \centering
-  \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Positive values indicate that a demographic group has a greater mean projection than the white-male condition. Bolded values indicate statsitically significant difference from the white-male projection scores. \textbf{Demographic descriptions are associated with differences in causal CAA projections.}}
+  \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Positive values indicate that a demographic group has a greater mean projection than the white-male condition along the causal direction in a negative event. Bolded values indicate statsitically significant difference from the white-male projection scores. \textbf{Demographic descriptions are associated with how strongly LM causally relate a person to a negative outcome.}}
   \label{tab:rq3}
   \scriptsize
   \setlength{\tabcolsep}{5pt}
@@ -148,10 +159,14 @@ This dataset tests whether demographic descriptions affect implicit causal inter
 \end{table}
 
 \paragraph{Results.}
-In \autoref{tab:rq3}, minority-female projections exceed white-male projections in all six models. Minority-male differences are positive, with CIs excluding zero in four models. Thus, causal representations remain sensitive to demographic descriptions in naturalistic settings.
+Changing only the demographic description produces a consistent shift along the causal direction. In all six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male. Minority-female conditions have significantly higher causal projections than matched white-male conditions in every model, while minority-male differences are positive in all models and significant in four. The raw projection distributions nevertheless overlap substantially (Appendix~\ref{fig:rq3-distributions}), indicating a systematic shift in average representation rather than categorical separation. Under the interpretation of the CAA direction established in Section~\ref{sec:representations}, these results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
+
 \section{Discussion}
 \label{sec:discussion}
-placeholder
+
+Our results highlight a distinction between \emph{making} an implicit inference and \emph{reporting} it. Implicit causality consistently shapes models' expectations about what comes next, even when direct judgments of the same relation are unreliable. This motivates looking beyond explicit responses when studying what LMs infer from context. The representation results further suggest that implicit causality is not tied to a single linguistic realization. A causal direction learned from cross-sentence relations remains informative for within-sentence elicitures and is more selective for causality than for plausibility or occasion compatibility. Demographic information also systematically changes activation along the same causal direction: holding the adverse outcome fixed, changing only the demographic description shifts the strength of the causal signal. Implicit causal representations may therefore provide a useful way to study both how LMs encode unstated relations and how contextual information affects those representations.
+
+
 
 \scriptsize
 \setlength{\bibsep}{1pt}
