@@ -72,6 +72,8 @@ Nina Rimsky, Nick Gabrieli, Julian Schulz, Meg Tong, Evan Hubinger, and
 \newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
   for Computational Linguistics (Volume 1: Long Papers)}, pages 15504--15522.
   Association for Computational Linguistics, 2024.
+\newblock \doi{10.18653/v1/2024.acl-long.828}.
+\newblock URL \url{https://aclanthology.org/2024.acl-long.828/}.
 
 \bibitem[Tamkin et~al.(2023)Tamkin, Askell, Lovitt, Durmus, Joseph, Kravec,
   Nguyen, Kaplan, and Ganguli]{tamkin-etal-2023-discrimination}
