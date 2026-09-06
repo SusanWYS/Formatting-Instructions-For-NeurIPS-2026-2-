@@ -1,47 +1,11 @@
-% Source: eliciture/data/stimuli/csv/exp1_nocontext/stimuli_critical.csv
-\subsection{Behavioral Test: Canonical Causal Items}
-\label{app:behavior-examples}
-
-The ten canonical behavioral items contrast a causal-likely condition
-($C_L$) with a causal-unlikely condition ($C_U$). The neutral condition from
-the source dataset is omitted here for compactness.
-
-\begingroup
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
-\toprule
-& $C_L$ (causal-likely) & $C_U$ (causal-unlikely) \\
-\midrule
-\endfirsthead
-\toprule
-& $C_L$ (causal-likely) & $C_U$ (causal-unlikely) \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-1 & A pregnant CEO was fired this morning. & A CEO named Jack was fired this morning. \\
-2 & A student desperate to boost their GPA was caught cheating on an exam. & A student with brown eyes was caught cheating on an exam. \\
-3 & A paper by a stressed graduate student was found to contain fabricated data. & A paper by a scientist from Vermont was found to contain fabricated data. \\
-4 & The guests staying near the elevator tossed and turned all night. & The guests with matching bags tossed and turned all night. \\
-5 & A singer with a full rehearsal schedule got an angry call from their neighbor. & A retired singer got an angry call from their neighbor. \\
-6 & The employee who hated their manager was caught embezzling funds. & An employee in the London office was caught embezzling funds. \\
-7 & A drunk driver lost their license today. & A driver with short hair lost their license today. \\
-8 & A forgery artist received a lawsuit. & A French artist received a lawsuit. \\
-9 & A soccer player who hit a referee received a suspension. & A soccer player who scored two goals received a suspension. \\
-10 & A resident who stopped paying rent was evicted this morning. & A resident on the third floor was evicted this morning. \\
-\end{longtable}
-\addtocounter{table}{-1}
-\endgroup
-
 % Source: eliciture_interp/ood_test.txt
 \subsection{Within-Sentence Causal Items}
 \label{app:within-sentence-examples}
 
-The following ten examples come from the 150-pair within-sentence evaluation
-set. Critical and control members hold the outcome and construction fixed while
-changing whether the modifier plausibly explains the outcome.
+The following ten examples come from the 150-pair within-sentence set used for
+both behavioral evaluation and out-of-distribution CAA evaluation. Critical and
+control members hold the outcome and construction fixed while changing whether
+the modifier plausibly explains the outcome.
 
 \begingroup
 \footnotesize
@@ -68,6 +32,43 @@ changing whether the modifier plausibly explains the outcome.
 8 & The clinic administrator implicated by an audit exposing diverted patient fees resigned. & The clinic administrator seated at a desk beside a narrow window resigned. \\
 9 & The warehouse supervisor who ordered workers to bypass machine safety locks was suspended. & The warehouse supervisor who kept spare gloves in a lower drawer was suspended. \\
 10 & The board member responsible for disclosing confidential board votes was expelled. & The board member taking notes with a black fountain pen was expelled. \\
+\end{longtable}
+\addtocounter{table}{-1}
+\endgroup
+
+% Source: eliciture_interp/rq23_train_dev.txt (two_sentence construction)
+\subsection{Cross-Sentence Causal Items}
+\label{app:cross-sentence-examples}
+
+The following examples span ten semantic domains in the cross-sentence causal
+pool. In each critical member, the second sentence provides a plausible
+explanation for the first; in the control, it provides an incidental detail.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
+\toprule
+& Critical & Control \\
+\midrule
+\endfirsthead
+\toprule
+& Critical & Control \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order. & Anika avoided the Amber Cafe. The Amber Cafe had a copper sign. \\
+2 & Leila recommended The Hazel Horizon. The Hazel Horizon handled multiple viewpoints skillfully. & Leila recommended The Hazel Horizon. The Hazel Horizon had a barcode on the back. \\
+3 & Zara enjoyed the Willow Recital. The Willow Recital revealed details Zara had never noticed before. & Zara enjoyed the Willow Recital. The Willow Recital had three ceiling lamps. \\
+4 & Kira felt calm in the Frost Courtyard. The Frost Courtyard was filled with quiet birdsong. & Kira felt calm in the Frost Courtyard. The Frost Courtyard used beige curtains. \\
+5 & Talia disliked the Saffron Fragrance. The Saffron Fragrance became bitter after a few minutes. & Talia disliked the Saffron Fragrance. The Saffron Fragrance had a wooden shelf. \\
+6 & Imani remembered the Ember Seminar. The Ember Seminar repeated the central idea with a striking example. & Imani remembered the Ember Seminar. The Ember Seminar had a copper sign. \\
+7 & Rosa solved The Pine Vale. The Pine Vale included a contradiction that exposed the trick. & Rosa solved The Pine Vale. The Pine Vale was folded twice. \\
+8 & Fiona understood the Cypress Recipe. The Cypress Recipe stated which steps could be prepared in advance. & Fiona understood the Cypress Recipe. The Cypress Recipe had three ceiling lamps. \\
+9 & Priya learned The Olive Drift. The Olive Drift had a chorus that repeated four times. & Priya learned The Olive Drift. The Olive Drift had a small catalog number. \\
+10 & Elena chose the Cinder Path. The Cinder Path remained dry after the rain. & Elena chose the Cinder Path. The Cinder Path had a wooden shelf. \\
 \end{longtable}
 \addtocounter{table}{-1}
 \endgroup
