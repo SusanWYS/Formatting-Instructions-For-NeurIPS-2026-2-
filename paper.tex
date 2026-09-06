@@ -64,7 +64,7 @@ We manually authored 150 novel minimal pairs (critical/control) with sentences o
 We consider three evaluation methods. Under the \textbf{Yes/No (metalinguistic)} method, we present the sentence and append the question, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities to obtain $P(\text{Yes})$. % The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 Under the \textbf{Likert (metalinguistic)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. % ; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 Finally, under the \textbf{surprisal (implicit)} method, we score the surprisal of \emph{", and I don't know why."} conditioned on the sentence, following \citet{pan-kehler-2025-pragmatic}. If the modifier supplies an explanation, this continuation should be less expected. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. % Chance is $.5$, and ties are incorrect.
+For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for details.
 
 In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -208,9 +208,6 @@ stimuli is shown below.
 
 \section{Behavioral Evaluation Details}
 \label{app:behavior-details}
-
-\paragraph{Qualitative example.}
-One item pairs the critical sentence \emph{The executive who falsified quarterly revenue figures was fired} with the control sentence \emph{The executive who wore a blue silk tie was fired}. The outcome is identical across the pair. Only the modifier changes: falsifying revenue figures plausibly explains the firing, whereas wearing a blue tie is incidental.
 
 \paragraph{Yes/No prompt and score.}
 For the critical sentence, the complete prompt is:
