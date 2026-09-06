@@ -279,7 +279,7 @@ the mean paired activation difference
 For the causal direction, the positive member contains an explanatory
 cross-sentence relation and the negative member replaces the explanation with
 an incidental detail. Directions are computed independently at layers 4, 8,
-12, and so on, with the model's final layer included when it does not fall on
+12, and so on with a stride of 4, and the model's final layer is included when it does not fall on
 this stride. No test examples contribute to direction construction.
 
 \subsection{CAA Evaluation and Layer Selection}
