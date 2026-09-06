@@ -39,18 +39,34 @@ Humans often infer causal relationships that are suggested but never explicitly 
 \section{Introduction}
 \label{sec:introduction}
 
-Language often leaves relationships between events unstated. For example, \emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification caused the firing without explicitly stating it. Such inferences are \emph{elicitures}, which can be optional and depend on discourse coherence and world knowledge rather than literal entailment \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Such expectations can influence subsequent sentence processing \citep{kehler-rohde-2019-prominence}.
+% Language often leaves relationships between events unstated. For example, \emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification caused the firing without explicitly stating it. Such inferences are \emph{elicitures}, which can be optional and depend on discourse coherence and world knowledge rather than literal entailment \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Elicitures can also influence subsequent sentence processing \citep{kehler-rohde-2019-prominence}.
 
-\citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use them during subsequent sentence processing. This project extends Pan \& Kehler's behavioral study by focusing on causal elicitures (in stead of temporal relationships or other discourse relationships) and testing different kinds of syntactic constructions. \jh{also mention our mechanistic analyses?}
+% \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use them during subsequent sentence processing. This project extends Pan \& Kehler's behavioral study by focusing on causal elicitures (in stead of temporal relationships or other discourse relationships) and testing different kinds of syntactic constructions. We also study whether implicit causality forms a distinct, generalizable internal representation.
+
+% We explore three main questions: 
+
+% \textbf{RQ1} \textit{Do model behaviors reflect inferences about implicit causal relationships within sentences? }
+
+% \textbf{RQ2} \textit{Do LMs form internal representations of implicit causal relationships?}
+
+% \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
+
+% Across six language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated. Our results can shed light on how models construct internal world models, how their nonliteral inferences align with human cognition, and whether these representations encode systematic biases with implications for the development of safer and more aligned models.
+
+Language often leaves relationships between events unstated. For example, ``The executive who falsified quarterly revenue figures was fired'' suggests that the falsification \emph{caused} the firing, without explicitly stating so. These optional sentence-internal inferences are known as \emph{elicitures} \citep{cohen-kehler-2021-conversational}. While a susbtantial body of work has investigated whether language models (LMs) capture pragmatic phenomena such as conversational implicatures, elicitures have received less attention, and are potentially derived through different mechanisms. Some theories argue that, in contrast to implicature, elicitures arise due to coherence and world knowledge rather than violation of conversational norms \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Therefore, understanding how LMs represent these implicit causal relationships can shed light on how models construct internal world models---including in scenarios where causal inferences can have real-world impacts.
+
+In a recent study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use them during subsequent sentence processing. This project extends Pan \& Kehler's behavioral study by focusing on causal elicitures (instead of temporal relationships or other discourse relationships) and testing different kinds of syntactic constructions. We also study whether implicit causality forms a distinct, generalizable internal representation.
 
 We explore three main questions: 
-\begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
-\item
+
 \textbf{RQ1} \textit{Do model behaviors reflect inferences about implicit causal relationships within sentences? }
-\item \textbf{RQ2} \textit{Do LMs form internal representations of implicit causal relationships?}
-\item \textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
-\end{itemize}
-Across six language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions in matched scenarios. More broadly, this project provides a way to study how LMs build internal representations of relationships that are inferred rather than stated. It also offers a setting for comparing model and human inference and for examining whether such implicit representations encode systematic biases.
+
+\textbf{RQ2} \textit{Do LMs form internal representations of implicit causal relationships?}
+
+\textbf{RQ3} \textit{If \textbf{RQ2} is true, do representations of implicit causality generalize to naturalistic settings with potential real-world implications?}
+
+Across six language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated. Our results can shed light on how models construct internal world models, how their nonliteral inferences align with human cognition, and whether these representations encode systematic biases with implications for the development of safer and more aligned models.
+
 \section{Experiments}
 \label{sec:experiments}
 
@@ -159,19 +175,20 @@ We use the causal CAA direction identified in \Cref{sec:representations} as a me
   \centering
   \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Bolded values indicate statistically significantly larger projections compared to the white-male. \textbf{Demographic descriptions are associated with how strongly LM causally relate a person to a negative outcome.}}
   \label{tab:rq3}
+  \scriptsize
   \setlength{\tabcolsep}{5pt}
   \begin{tabular}{lrrrrrr}
     \toprule
       & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen3\\4B} & \shortstack{Qwen3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
     \midrule
-    Minor. m $-$ white m & $\boldsymbol{.41\mathbin{\pm}.32}$ & $\boldsymbol{1.9\mathbin{\pm}.40}$ & $.073\mathbin{\pm}.093$ & $\boldsymbol{.29\mathbin{\pm}.17}$ & $.025\mathbin{\pm}.029$ & $\boldsymbol{.030\mathbin{\pm}.020}$ \\
-    Minor. f $-$ white m & $\boldsymbol{.57\mathbin{\pm}.32}$ & $\boldsymbol{2.3\mathbin{\pm}.41}$ & $\boldsymbol{.15\mathbin{\pm}.10}$ & $\boldsymbol{.39\mathbin{\pm}.15}$ & $\boldsymbol{.069\mathbin{\pm}.033}$ & $\boldsymbol{.060\mathbin{\pm}.021}$ \\
+    Minority male $-$ white male & $\boldsymbol{.41\mathbin{\pm}.32}$ & $\boldsymbol{1.9\mathbin{\pm}.40}$ & $.073\mathbin{\pm}.093$ & $\boldsymbol{.29\mathbin{\pm}.17}$ & $.025\mathbin{\pm}.029$ & $\boldsymbol{.030\mathbin{\pm}.020}$ \\
+    Minority female $-$ white male & $\boldsymbol{.57\mathbin{\pm}.32}$ & $\boldsymbol{2.3\mathbin{\pm}.41}$ & $\boldsymbol{.15\mathbin{\pm}.10}$ & $\boldsymbol{.39\mathbin{\pm}.15}$ & $\boldsymbol{.069\mathbin{\pm}.033}$ & $\boldsymbol{.060\mathbin{\pm}.021}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \paragraph{Results.}
-Changing only the demographic description produces a consistent shift along the causal direction. In all six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male (\Cref{tab:rq3}). Minority-female conditions have significantly higher causal projections than the white-male conditions in every model, while minority-male differences are positive in all models. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
+Changing only the demographic description produces a consistent shift along the causal direction. In all six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male (\Cref{tab:rq3}). Minority-female conditions have significantly higher causal projections than the white-male conditions in every model, while minority-male differences are positive in all models. Distributions of raw projection scores are provided in \Cref{fig:rq3-distributions}. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -267,7 +284,7 @@ In a critical pair member, the event is probable: \emph{Someone baked a cake ins
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
-  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model.} Colors and line styles distinguish the white-male, minority-male, and minority-female conditions.}
+  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model even though the projection means show clear trends (\Cref{tab:rq3}).}}
   \label{fig:rq3-distributions}
 \end{figure}
 
