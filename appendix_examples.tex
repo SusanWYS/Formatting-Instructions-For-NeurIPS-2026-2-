@@ -73,43 +73,6 @@ explanation for the first; in the control, it provides an incidental detail.
 \addtocounter{table}{-1}
 \endgroup
 
-% Source: eliciture/data/stimuli/csv/exp1_nocontext/stimuli_critical_temporal.csv
-\subsection{Temporal Items}
-\label{app:temporal-examples}
-
-The ten canonical temporal items contrast an event that is likely to occur
-during the described person's characteristic activity ($C_L$) with a matched
-event that is unlikely to occur during that activity ($C_U$).
-
-\begingroup
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
-\toprule
-& $C_L$ (temporally compatible) & $C_U$ (control) \\
-\midrule
-\endfirsthead
-\toprule
-& $C_L$ (temporally compatible) & $C_U$ (control) \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-1 & A runner was hit by a car last night. & A farmer was hit by a car last night. \\
-2 & A football player broke their ankle last week. & A teacher broke their ankle last week. \\
-3 & A chef accidentally cut themselves with a sharp blade. & A dancer accidentally cut themselves with a sharp blade. \\
-4 & A skier got a concussion. & A pilot got a concussion. \\
-5 & A surfer got a lower back injury. & A flight attendant got a lower back injury. \\
-6 & A tennis player was hit in the head. & A piano player was hit in the head. \\
-7 & A bus driver was caught running a red light. & An excavator was caught running a red light. \\
-8 & A judge was interrupted by a journalist. & An actor was interrupted by a journalist. \\
-9 & A polo player fell off a horse. & A student fell off a horse. \\
-10 & A cyclist was run over by a school bus. & A waiter was run over by a school bus. \\
-\end{longtable}
-\addtocounter{table}{-1}
-\endgroup
-
 % Source: eliciture_interp/stimuli_critical_temporal_enlarged.csv
 \subsection{Occasion Items}
 \label{app:occasion-examples}
@@ -141,6 +104,43 @@ The following are ten pairs of qualitative examples from the occasion dataset.
 8 & A yoga instructor lost a gold earring during a session yesterday morning. & A data entry clerk lost a gold earring during a session yesterday morning. \\
 9 & An archivist got a sharp paper cut on their index finger yesterday. & A soccer coach got a sharp paper cut on their index finger yesterday. \\
 10 & An ice hockey player inhaled freezing air and got throat irritation yesterday morning. & A database administrator inhaled freezing air and got throat irritation yesterday morning. \\
+\end{longtable}
+\addtocounter{table}{-1}
+\endgroup
+
+% Source: Impossible_Features/data/classification/hu_shades/data.csv
+\subsection{Plausibility Items}
+\label{app:plausibility-examples}
+
+The plausibility dataset contrasts probable events with matched physically
+impossible events. The broader source dataset also contains improbable and
+inconceivable conditions, which are not used in the CAA comparison.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
+\toprule
+& Probable & Impossible \\
+\midrule
+\endfirsthead
+\toprule
+& Probable & Impossible \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Someone baked a cake inside an oven. & Someone baked a cake inside a freezer. \\
+2 & Someone boiled water using a kettle. & Someone boiled water using a refrigerator. \\
+3 & Someone broke a coconut using a rock. & Someone broke a coconut using a pillow. \\
+4 & Someone built a house out of brick. & Someone built a house out of gas. \\
+5 & Someone built a bridge out of steel. & Someone built a bridge out of soup. \\
+6 & Someone called a friend using a phone. & Someone called a friend using a sandwich. \\
+7 & Someone carried groceries inside a tote bag. & Someone carried groceries inside a tornado. \\
+8 & Someone carved a statue using a chisel. & Someone carved a statue using a sock. \\
+9 & Someone caught a fish in a lake. & Someone caught a fish in a raindrop. \\
+10 & Someone chilled a drink using ice. & Someone chilled a drink using fire. \\
 \end{longtable}
 \addtocounter{table}{-1}
 \endgroup
