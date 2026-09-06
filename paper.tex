@@ -188,6 +188,37 @@ Our results highlight a distinction between \emph{making} an implicit inference 
 \normalsize
 \clearpage
 \appendix
+
+\section{Dataset Examples}
+\label{app:representation-examples}
+
+\input{appendix_examples}
+
+\subsection{Naturalistic Scenarios: Statistics and Examples}
+\label{app:naturalistic-stimuli}
+\label{app:raw-caa}
+
+The naturalistic evaluation contains 65 scenario templates and 195 sentences:
+one white-male, one minority-male, and one minority-female version of each
+scenario. The templates are balanced across relative-clause (33) and modifier
+(32) constructions. Assigned minority identities are also approximately
+balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of matched
+stimuli is shown below.
+
+\input{derived/rq3_self_blinding_stimuli}
+
+\paragraph{Projection statistics.}
+Figure~\ref{fig:rq3-distributions} shows the raw causal-direction projection
+distributions underlying the paired summary statistics in
+Table~\ref{tab:rq3}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
+  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model even though the projection means show clear trends (\Cref{tab:rq3}).}}
+  \label{fig:rq3-distributions}
+\end{figure}
+
 \section{Behavioral Evaluation Details}
 \label{app:behavior-details}
 
@@ -244,32 +275,61 @@ For each measure $m$, we compute
 \end{equation}
 Here $m$ is $p_{\mathrm{yes}}$, $r$, or $S$; ties receive zero credit. Yes/No and Likert responses are not sampled. We score complete candidate sequences directly from the base model's raw logits with temperature 1; top-$p$ and top-$k$ sampling are therefore not applied.
 
-\section{Examples for the Representation Datasets}
-\label{app:representation-examples}
+\section{CAA Extraction and Evaluation Details}
+\label{app:caa-details}
 
-\paragraph{Causal.}
-In a critical pair member, the second sentence provides a potential explanation: \emph{Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order.} In the matched control, it provides an incidental detail: \emph{Anika avoided the Amber Cafe. The Amber Cafe had a copper sign.}
+\subsection{Causal CAA Direction Extraction}
+\label{app:caa-extraction}
 
-\paragraph{Occasion.}
-In a critical pair member, the event is compatible with the person's typical activity: \emph{A lifeguard got a painful sunburn last Sunday.} The matched control changes only the person to make that connection less expected: \emph{A translator got a painful sunburn last Sunday.}
+For each model and candidate layer $\ell$, we extract the activation at the
+final non-padding token of the raw stimulus text. Let
+$\mathbf{h}^{+}_{i,\ell}$ and $\mathbf{h}^{-}_{i,\ell}$ denote the activations
+for the critical and control members of training pair $i$. The CAA direction is
+the mean paired activation difference
+\begin{equation}
+\mathbf{v}_{\ell}
+=\frac{1}{N}\sum_{i=1}^{N}
+\left(\mathbf{h}^{+}_{i,\ell}-\mathbf{h}^{-}_{i,\ell}\right).
+\label{eq:caa-direction}
+\end{equation}
+For the causal direction, the positive member contains an explanatory
+cross-sentence relation and the negative member replaces the explanation with
+an incidental detail. Directions are computed independently at layers 4, 8,
+12, and so on, with the model's final layer included when it does not fall on
+this stride. No test examples contribute to direction construction.
 
-\paragraph{Plausibility.}
-In a critical pair member, the event is probable: \emph{Someone baked a cake inside an oven.} The matched control makes the event physically implausible: \emph{Someone baked a cake inside a freezer.}
+\subsection{CAA Evaluation and Layer Selection}
+\label{app:caa-evaluation}
 
-\section{Naturalistic Scenario Stimuli}
-\label{app:naturalistic-stimuli}
+We score an unseen stimulus activation $\mathbf{h}_{j,\ell}$ by its projection
+onto the unit-normalized direction:
+\begin{equation}
+s_{j,\ell}
+=\mathbf{h}_{j,\ell}^{\top}
+\frac{\mathbf{v}_{\ell}}{\lVert\mathbf{v}_{\ell}\rVert_2}.
+\label{eq:caa-projection}
+\end{equation}
+For each matched evaluation pair, we calculate
+$d_i=s^{+}_{i,\ell}-s^{-}_{i,\ell}$. Paired accuracy is
+\begin{equation}
+\operatorname{Acc}_{\mathrm{pair}}
+=\frac{1}{N}\sum_{i=1}^{N}
+\left[\mathbf{1}(d_i>0)+\tfrac{1}{2}\mathbf{1}(d_i=0)\right].
+\label{eq:caa-paired-accuracy}
+\end{equation}
 
-\input{derived/rq3_self_blinding_stimuli}
-
-\section{Raw CAA Projection Distributions}
-\label{app:raw-caa}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
-  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model even though the projection means show clear trends (\Cref{tab:rq3}).}}
-  \label{fig:rq3-distributions}
-\end{figure}
+The causal, occasion, and plausibility datasets are partitioned by matched pair
+before activation extraction. Their train/development/test sizes are
+384/48/48, 800/200/200, and 42/14/14 pairs, respectively. For each
+training-direction/evaluation-dataset combination, we select the layer with the
+highest development paired accuracy; exact ties are resolved in favor of the
+earliest layer. We then evaluate that fixed direction and layer once on the
+corresponding disjoint test set. For the 150-pair within-sentence evaluation in
+Figure~\ref{fig:rq2b}, every source direction uses the layer selected on the
+causal development set, so the within-sentence items are never used for layer
+selection. The naturalistic evaluation likewise applies each model's fixed
+causal direction and selected layer, using the unit-normalized projections in
+Equation~\ref{eq:caa-projection} for the paired demographic comparisons.
 
 % The NeurIPS checklist is retained in the template directory and can be
 % completed once workshop submission requirements are finalized.
