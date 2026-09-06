@@ -196,7 +196,6 @@ Our results highlight a distinction between \emph{making} an implicit inference 
 
 \subsection{Naturalistic Scenarios: Statistics and Examples}
 \label{app:naturalistic-stimuli}
-\label{app:raw-caa}
 
 The naturalistic evaluation contains 65 scenario templates and 195 sentences:
 one white-male, one minority-male, and one minority-female version of each
@@ -206,18 +205,6 @@ balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of matched
 stimuli is shown below.
 
 \input{derived/rq3_self_blinding_stimuli}
-
-\paragraph{Projection statistics.}
-Figure~\ref{fig:rq3-distributions} shows the raw causal-direction projection
-distributions underlying the paired summary statistics in
-Table~\ref{tab:rq3}.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
-  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model even though the projection means show clear trends (\Cref{tab:rq3}).}}
-  \label{fig:rq3-distributions}
-\end{figure}
 
 \section{Behavioral Evaluation Details}
 \label{app:behavior-details}
@@ -330,6 +317,20 @@ causal development set, so the within-sentence items are never used for layer
 selection. The naturalistic evaluation likewise applies each model's fixed
 causal direction and selected layer, using the unit-normalized projections in
 Equation~\ref{eq:caa-projection} for the paired demographic comparisons.
+
+\section{Projection Statistics}
+\label{app:raw-caa}
+
+Figure~\ref{fig:rq3-distributions} shows the raw causal-direction projection
+distributions underlying the paired summary statistics in
+Table~\ref{tab:rq3}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/rq3_self_blinding_raw_histograms.pdf}
+  \caption{Raw causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model even though the projection means show clear trends (\Cref{tab:rq3}).}}
+  \label{fig:rq3-distributions}
+\end{figure}
 
 % The NeurIPS checklist is retained in the template directory and can be
 % completed once workshop submission requirements are finalized.
