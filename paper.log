@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  6 SEP 2026 22:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  6 SEP 2026 22:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,30 +664,28 @@ File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 138.
 (pdftex.def)             Requested size: 270.28687pt x 56.77501pt.
-
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
  [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
-l_ood_caa_accuracy.pdf>] [4] (./paper.bbl [5]) [6] (./appendix_examples.tex [7
+l_ood_caa_accuracy.pdf>] (./paper.bbl [4]
+[5]) [6] (./appendix_examples.tex [7
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.81 
-     ]
+l.82 \subsection{Occasion Items}
+                                ]
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.107 \end{longtable}
+l.112 \end{longtable}
                      
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.143 \end{longtable}
+l.148 \end{longtable}
                      ) (./derived/rq3_self_blinding_stimuli.tex
 Underfull \hbox (badness 3942) in paragraph at lines 22--22
 []|\T1/ptm/m/n/7 (+20) kidney trans-
@@ -956,11 +954,11 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 9D5C94F5911F3FA8C45FC08DC8FA3263;3634.
  ) 
 Here is how much of TeX's memory you used:
- 16185 strings out of 476106
- 265202 string characters out of 5793933
+ 16200 strings out of 476106
+ 265331 string characters out of 5793933
  2031975 words of memory out of 5000000
  37494 multiletter control sequences out of 15000+600000
- 611713 words of font info for 338 fonts, out of 8000000 for 9000
+ 612360 words of font info for 348 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  71i,14n,79p,1364b,619s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
@@ -979,7 +977,7 @@ exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on paper.pdf (13 pages, 379969 bytes).
+Output written on paper.pdf (13 pages, 379530 bytes).
 PDF statistics:
  449 PDF objects out of 1000 (max. 8388607)
  366 compressed objects within 4 object streams
