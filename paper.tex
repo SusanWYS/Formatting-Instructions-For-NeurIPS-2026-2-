@@ -25,8 +25,6 @@
 \author{Anonymous Author(s)}
 
 \newcommand{\jh}[1]{{\color{magenta}\textbf{JH:} #1}}
-\usepackage{cleveref}
-
 \begin{document}
 \maketitle
 
@@ -55,7 +53,7 @@ with potential implications for the development of safer and more aligned models
 
 \subsection{Measuring implicit causal inference through model behaviors}
 \label{sec:behavior}
-We first ask whether implicit causal inferences influence model behavior. To test this, we compare two kinds of explicit metalinguistic judgments with an implicit measure based on the surprisal of subsequent text \citep{hu-levy-2023-prompting}. Our setup replicates and extends \citet{pan-kehler-2025-pragmatic}. More details about behavioral evaluation are provided in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
+We first ask whether implicit causal inferences influence model behavior. To test this, we compare two kinds of explicit metalinguistic judgments with an implicit measure based on the surprisal of subsequent text \citep{hu-levy-2023-prompting}. Our setup replicates and extends \citet{pan-kehler-2025-pragmatic}. More details about behavioral evaluation are provided in Appendix~\ref{app:behavior-details}.
 
 \paragraph{Methods.} 
 
@@ -75,7 +73,7 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
   \label{fig:rq1}
 \end{figure}
 
-\paragraph{Results.} In \autoref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all six models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
+\paragraph{Results.} In Figure~\ref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all six models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
 
 % \paragraph{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -109,7 +107,7 @@ The behavioral results show that implicit causal relations affect model predicti
 \paragraph{Datasets.} We use three datasets of matched critical/control pairs.
 First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of sentences, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}. 
 % We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test. 
-For out-of-distribution evaluation, we use the 150 within-sentence pairs from \Cref{sec:behavior}. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
+For out-of-distribution evaluation, we use the 150 within-sentence pairs from Section~\ref{sec:behavior}. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
 Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential}. 
 % Of 1,200 pairs, 800 are for training, 200 for development, and 200 for test. % held-out in-distribution testing. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 Finally, the \textbf{Plausibility (baseline)} dataset (70 pairs) contrasts probable with physically impossible events, which we adapt from \citet{hu-etal-2025-shades} and \citet{lepori-etal-2026-fantasy}. See Appendix~\ref{app:representation-examples} for dataset details.
@@ -149,10 +147,10 @@ The CAA directions are relatively relation-selective: each direction strongly se
 Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to a negative social outcome.
 
 \paragraph{Dataset.}
-We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct three matched versions describing a white man, a minority man, or a minority woman, while keeping the occupation and outcome identical. For example, \emph{The white male salesperson was denied a work visa} is compared with \emph{The Black male salesperson was denied a work visa} and \emph{The Black female salesperson was denied a work visa}. Minority identities are sampled from {Black, Hispanic, Asian}. This yields 195 sentences in total, listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
+We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct three matched versions describing a white man, a minority man, or a minority woman, while keeping the occupation and outcome identical. For example, \emph{The white male salesperson was denied a work visa} is compared with \emph{The Black male salesperson was denied a work visa} and \emph{The Black female salesperson was denied a work visa}. Minority identities are sampled from {Black, Hispanic, Asian}. This yields 195 sentences in total, listed in Appendix~\ref{app:naturalistic-stimuli}.
 
 \paragraph{Evaluation.}
-We use the causal CAA direction identified in \Cref{sec:representations} as a measure of how strongly a model activation expresses causal information. For each sentence, we project its final-token activation onto this direction; a higher projection indicates that the activation more strongly resembles the representation associated with causal. Within each scenario, we subtract the minority-male or minority-female projections from the matched white-male projection. We then average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
+We use the causal CAA direction identified in Section~\ref{sec:representations} as a measure of how strongly a model activation expresses causal information. For each sentence, we project its final-token activation onto this direction; a higher projection indicates that the activation more strongly resembles the representation associated with causal. Within each scenario, we subtract the minority-male or minority-female projections from the matched white-male projection. We then average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
 
 \begin{table}[H]
   \centering
@@ -171,7 +169,7 @@ We use the causal CAA direction identified in \Cref{sec:representations} as a me
 \end{table}
 
 \paragraph{Results.}
-Changing only the demographic description produces a consistent shift along the causal direction. In five out of six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male (\Cref{tab:rq3}). Minority-female conditions have significantly higher causal projections than the white-male conditions in every model, while minority-male differences are positive in all models. Distributions of the projection scores are provided in \Cref{fig:rq3-distributions}. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
+Changing only the demographic description produces a consistent shift along the causal direction. In five out of six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male (Table~\ref{tab:rq3}). Minority-female conditions have significantly higher causal projections than the white-male conditions in every model, while minority-male differences are positive in all models. Distributions of the projection scores are provided in Figure~\ref{fig:rq3-distributions}. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -202,7 +200,7 @@ one white-male, one minority-male, and one minority-female version of each
 scenario. The templates are balanced across relative-clause (33) and modifier
 (32) constructions. Assigned minority identities are also approximately
 balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of matched
-stimuli is shown below.
+stimuli is shown in Table~\ref{tab:rq3-stimuli}.
 
 \input{derived/rq3_self_blinding_stimuli}
 
@@ -303,7 +301,7 @@ Table~\ref{tab:rq3}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{CAA projection distributions for three matched demographic conditions across 65 scenarios per model, using causal directions trained on the August 31 cross-sentence split. \textbf{The distributions overlap substantially. In five models, minority-female projections exceed minority-male projections across models, while Gemma 2 9B shows no reliable minority--white difference (\Cref{tab:rq3}).}}
+  \caption{CAA projection distributions for three matched demographic conditions across 65 scenarios per model, using causal directions trained on the August 31 cross-sentence split. \textbf{The distributions overlap substantially. In five models, minority-female projections exceed minority-male projections across models, while Gemma 2 9B shows no reliable minority--white difference (Table~\ref{tab:rq3}).}}
   \label{fig:rq3-distributions}
 \end{figure}
 

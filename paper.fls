@@ -150,8 +150,6 @@ INPUT ./derived/rq2_results_text.tex
 INPUT ./derived/rq2_results_text.tex
 INPUT ./derived/rq2_results_text.tex
 INPUT derived/rq2_results_text.tex
-INPUT /usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./paper.aux
