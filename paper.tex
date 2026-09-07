@@ -189,12 +189,12 @@ Our results highlight a distinction between \emph{making} an implicit inference 
 \clearpage
 \appendix
 
-\section{Dataset Examples}
+\section{Dataset examples}
 \label{app:representation-examples}
 
 \input{appendix_examples}
 
-\subsection{Naturalistic Scenarios: Statistics and Examples}
+\subsection{Naturalistic scenarios: statistics and examples}
 \label{app:naturalistic-stimuli}
 
 The naturalistic evaluation contains 65 scenario templates and 195 sentences:
@@ -206,7 +206,7 @@ stimuli is shown below.
 
 \input{derived/rq3_self_blinding_stimuli}
 
-\section{Behavioral Evaluation Details}
+\section{Behavioral evaluation details}
 \label{app:behavior-details}
 
 \paragraph{Yes/No prompt and score.}
@@ -252,10 +252,10 @@ For each measure $m$ ($p_{\mathrm{yes}}$, $r$, or $S$), we compute
 \mathbf{1}\!\left[m(x_i^{\mathrm{critical}})>m(x_i^{\mathrm{control}})\right].
 \label{eq:paired-accuracy}
 \end{equation} ties receive zero credit.
-\section{CAA Extraction and Evaluation Details}
+\section{CAA extraction and evaluation details}
 \label{app:caa-details}
 
-\subsection{Causal CAA Direction Extraction}
+\subsection{Causal CAA direction extraction}
 \label{app:caa-extraction}
 
 For each model and candidate layer $\ell$, we extract the activation at the
@@ -273,7 +273,7 @@ Directions are computed independently at layers 4, 8,
 12, and so on with a stride of 4, and the model's final layer is included when it does not fall on
 this stride.
 
-\subsection{CAA Projection and Evaluation}
+\subsection{CAA projection and evaluation}
 \label{app:caa-evaluation}
 
 We score an unseen stimulus activation $\mathbf{h}_{j,\ell}$ by its projection
@@ -293,7 +293,7 @@ $d_i=s^{+}_{i,\ell}-s^{-}_{i,\ell}$. Paired accuracy is
 \label{eq:caa-paired-accuracy}
 \end{equation}
 
-\section{Projection Statistics}
+\section{Projection statistics}
 \label{app:raw-caa}
 
 Figure~\ref{fig:rq3-distributions} shows the unit-normalized causal-direction projection
