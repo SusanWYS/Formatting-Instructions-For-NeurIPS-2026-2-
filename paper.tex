@@ -107,8 +107,7 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
 The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. Therefore, we ask two subsequent questions: 1) Is implicit causality selectively represented in LM activation states? and 2) Can a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences?
 
 \paragraph{Datasets.} We use three datasets of matched critical/control pairs (see \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples).
-First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of sentences, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}. 
-% We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test. 
+First, the main \textbf{Causal} dataset (1,200 pairs) tests implicit causality \emph{across} sentences. We use cross-sentence causality because many theories propose that clauses in discourse must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalize to within-sentence causality (i.e., eliciture). Each pair holds an outcome fixed while preceding it with either a plausible explanation or an incidental detail. We use 1,000 pairs for training and split the remaining 200 evenly between development and held-out testing.
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from \Cref{sec:behavior}. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
 Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential}. 
 % Of 1,200 pairs, 800 are for training, 200 for development, and 200 for test. % held-out in-distribution testing. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
@@ -116,12 +115,6 @@ Finally, the \textbf{Plausibility (baseline)} dataset (70 pairs) contrasts proba
 % . We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 test. % held-out in-distribution test pairs. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 
 
-% \begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
-%     \item \textbf{Causal} tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach also allows us to directly test whether causality representations learned from these discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of sentences, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}. We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test. 
-%     For out-of-distribution evaluation, we use the 150 within-sentence pairs from \Cref{sec:behavior}. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
-%     \item \textbf{Occasion (baseline)} tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential}. Of 1,200 pairs, 800 are for training, 200 for development, and 200 for test. % held-out in-distribution testing. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
-%     \item \textbf{Plausibility (baseline)} contrasts probable with physically impossible events. We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 test. % held-out in-distribution test pairs. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
-% \end{itemize}
 We use \emph{Occasion} and \emph{Plausibility} as baselines because both require world knowledge but do not encode causal relations. Specifically, \emph{Occasion} evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
 \paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify activation-space directions associated with each dataset. At each layer, for every matched training pair, we subtract the final-token activation of the control example from that of the critical example and average these differences to obtain a single direction. We then project unseen critical and control examples onto this direction: if the direction captures the target relation, the critical example should receive a higher projection than its matched control. For each training-direction/evaluation-dataset combination, we select the layer with the highest paired accuracy on the development set and report accuracy on the disjoint test set.
 
@@ -146,13 +139,13 @@ The CAA directions are relatively relation-selective: each direction strongly se
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
-Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects systematic differences in scenarios with potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to a negative social outcome.
+Having identified causal representations that generalize across linguistic constructions, we next examine whether a causal direction learned from the cross-sentence causal training set also reflects systematic differences in scenarios with potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to a negative social outcome.
 
 \paragraph{Dataset.}
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct three matched versions describing a white man, a minority man, or a minority woman, while keeping the occupation and outcome identical. For example, \emph{The white male salesperson was denied a work visa} is compared with \emph{The Black male salesperson was denied a work visa} and \emph{The Black female salesperson was denied a work visa}. Minority identities are sampled from {Black, Hispanic, Asian}. This yields 195 sentences in total, listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
 
 \paragraph{Evaluation.}
-We use the causal CAA direction identified in \Cref{sec:representations} as a measure of how strongly a model activation expresses causal information. For each sentence, we project its final-token activation onto this direction; a higher projection indicates that the activation more strongly resembles the representation associated with causal. Within each scenario, we subtract the minority-male or minority-female projections from the matched white-male projection. We then average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
+We use a causal CAA direction trained on the same 1,000 cross-sentence causal training pairs (\Cref{app:cross-sentence-examples,app:caa-details}) as a measure of how strongly a model activation expresses causal information. For this analysis, the layer is selected using all 200 cross-sentence development pairs. For each sentence, we project its final-token activation onto this direction; a higher projection indicates that the activation more strongly resembles the representation associated with causality. Within each scenario, we subtract the minority-male or minority-female projections from the matched white-male projection. We then average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
 
 \begin{table}[H]
   \centering
@@ -176,7 +169,7 @@ Changing only the demographic description produces a consistent shift along the 
 \section{Discussion}
 \label{sec:discussion}
 
-Our results highlight a distinction between \emph{making} an implicit inference and \emph{reporting} it. Implicit causality consistently shapes models' expectations about what comes next, even when direct judgments of the same relation are unreliable. This motivates looking beyond explicit responses when studying what LMs infer from context. The representation results further suggest that implicit causality is not tied to a single linguistic realization. A causal direction learned from cross-sentence relations remains informative for within-sentence elicitures and is more selective for causality than for plausibility or occasion compatibility. Demographic information also systematically changes activation along the same causal direction: holding the adverse outcome fixed, changing only the demographic description shifts the strength of the causal signal. Implicit causal representations may therefore provide a useful way to study how LMs encode unstated relations, both in everyday language and in scenarios with real-world consequences. % and how contextual information affects those representations.
+Our results highlight a distinction between \emph{making} an implicit inference and \emph{reporting} it. Implicit causality consistently shapes models' expectations about what comes next, even when direct judgments of the same relation are unreliable. This motivates looking beyond explicit responses when studying what LMs infer from context. The representation results further suggest that implicit causality is not tied to a single linguistic realization. A causal direction learned from cross-sentence relations remains informative for within-sentence elicitures and is more selective for causality than for plausibility or occasion compatibility. Demographic information also systematically changes activation along causal directions trained on the same cross-sentence causal dataset: holding the adverse outcome fixed, changing only the demographic description shifts the strength of the causal signal. Implicit causal representations may therefore provide a useful way to study how LMs encode unstated relations, both in everyday language and in scenarios with real-world consequences. % and how contextual information affects those representations.
 
 
 
@@ -302,18 +295,25 @@ $d_i=s^{+}_{i,\ell}-s^{-}_{i,\ell}$. Paired accuracy is
 \label{eq:caa-paired-accuracy}
 \end{equation}
 
-The causal, occasion, and plausibility datasets are partitioned by matched pair
+For the cross-transfer analyses in Figures~\ref{fig:rq2-transfer}--\ref{fig:rq2b},
+the causal, occasion, and plausibility datasets are partitioned by matched pair
 before activation extraction. Their train/development/test sizes are
-384/48/48, 800/200/200, and 42/14/14 pairs, respectively. For each
+1,000/100/100, 800/200/200, and 42/14/14 pairs, respectively. For each
 training-direction/evaluation-dataset combination, we select the layer with the
 highest development paired accuracy; exact ties are resolved in favor of the
 earliest layer. We then evaluate that fixed direction and layer once on the
 corresponding disjoint test set. For the 150-pair within-sentence evaluation in
 Figure~\ref{fig:rq2b}, every source direction uses the layer selected on the
 causal development set, so the within-sentence items are never used for layer
-selection. The naturalistic evaluation likewise applies each model's fixed
-causal direction and selected layer, using the unit-normalized projections in
-Equation~\ref{eq:caa-projection} for the paired demographic comparisons.
+selection.
+
+The naturalistic analysis in Table~\ref{tab:rq3} and
+Figure~\ref{fig:rq3-distributions} uses fixed causal directions trained on the
+same 1,000 cross-sentence causal training pairs illustrated in
+\Cref{app:cross-sentence-examples}, with the layer selected using all 200
+cross-sentence development pairs. The naturalistic stimuli do not contribute to either
+direction extraction or layer selection. We use the unit-normalized projections
+in Equation~\ref{eq:caa-projection} for the paired demographic comparisons.
 
 \section{Projection Statistics}
 \label{app:raw-caa}
