@@ -123,7 +123,7 @@ Finally, the \textbf{Plausibility (baseline)} dataset (70 pairs) contrasts proba
 %     \item \textbf{Plausibility (baseline)} contrasts probable with physically impossible events. We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 test. % held-out in-distribution test pairs. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 % \end{itemize}
 We use \emph{Occasion} and \emph{Plausibility} as baselines because both require world knowledge but do not encode causal relations. Specifically, \emph{Occasion} evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
-\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify activation-space directions associated with each dataset. At each layer, for every matched training pair, we subtract the final-token activation of the control example from that of the critical example and average these differences to obtain a single direction. We then project unseen critical and control examples onto this direction: if the direction captures the target relation, the critical example should receive a higher projection than its matched control. For each training-direction/evaluation-dataset combination, we select the layer with the highest paired accuracy on the development set and report accuracy on the disjoint test set.
+\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify activation-space directions associated with each dataset. At each layer, for every matched training pair, we subtract the final-token activation of the control example from that of the critical example and average these differences to obtain a single direction. We then project unseen critical and control examples onto this direction: if the direction captures the target relation, the critical example should receive a higher projection than its matched control. We always select the layer with the highest paired accuracy on the development set and report accuracy on the disjoint test set.
 
 \begin{figure}[t]
   \centering
@@ -146,7 +146,7 @@ The CAA directions are relatively relation-selective: each direction strongly se
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
-Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects systematic differences in scenarios with potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to a negative social outcome.
+Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to a negative social outcome.
 
 \paragraph{Dataset.}
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct three matched versions describing a white man, a minority man, or a minority woman, while keeping the occupation and outcome identical. For example, \emph{The white male salesperson was denied a work visa} is compared with \emph{The Black male salesperson was denied a work visa} and \emph{The Black female salesperson was denied a work visa}. Minority identities are sampled from {Black, Hispanic, Asian}. This yields 195 sentences in total, listed in \hyperref[app:naturalistic-stimuli]{Appendix~\ref*{app:naturalistic-stimuli}}.
@@ -156,7 +156,7 @@ We use the causal CAA direction identified in \Cref{sec:representations} as a me
 
 \begin{table}[H]
   \centering
-  \caption{Mean paired differences in unit-normalized causal CAA projection across 65 naturalistic scenarios ($\pm$ bootstrap 95\% CI half-width). Bold values have intervals excluding zero. \textbf{Minority-male and minority-female conditions exceed the white-male condition in five of six models; minority-female projections exceed minority-male projections in all six models.}}
+  \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Bold values indicate statistically significantly larger projections compared to the white-male. \textbf{Minority-male and minority-female conditions exceed the white-male condition in five of six models.}}
   \label{tab:rq3}
   \scriptsize
   \setlength{\tabcolsep}{2pt}
@@ -171,7 +171,7 @@ We use the causal CAA direction identified in \Cref{sec:representations} as a me
 \end{table}
 
 \paragraph{Results.}
-Changing only the demographic description produces a consistent shift along the causal direction. In all six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male (\Cref{tab:rq3}). Minority-female conditions have significantly higher causal projections than the white-male conditions in every model, while minority-male differences are positive in all models. Distributions of the projection scores are provided in \Cref{fig:rq3-distributions}. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
+Changing only the demographic description produces a consistent shift along the causal direction. In five out of six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male (\Cref{tab:rq3}). Minority-female conditions have significantly higher causal projections than the white-male conditions in every model, while minority-male differences are positive in all models. Distributions of the projection scores are provided in \Cref{fig:rq3-distributions}. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
 
 \section{Discussion}
 \label{sec:discussion}
