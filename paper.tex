@@ -21,7 +21,7 @@
 \newcommand{\modelname}[1]{\textsc{#1}}
 \input{derived/rq2_results_text}
 
-\title{Language models represent implicit causal relationships}
+\title{Language Models Represent Implicit Causal Relationships}
 \author{Anonymous Author(s)}
 
 \newcommand{\jh}[1]{{\color{magenta}\textbf{JH:} #1}}
@@ -71,7 +71,7 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
 \begin{figure}[t]
   \centering
   \includegraphics[width=.68\linewidth]{figures/rq1_behavior.pdf}
-  \caption{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point likert rating, and the surprisal of the continuation \textit{", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}
+  \caption{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point Likert rating, and the surprisal of the continuation \textit{", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}
   \label{fig:rq1}
 \end{figure}
 
@@ -94,7 +94,7 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
 % \begin{figure}[t]
 %   \centering
 %   \includegraphics[width=.68\linewidth]{figures/rq1_behavior.pdf}
-%   \caption{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point likert rating, and the surprisal of the continuation \textit{", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}
+%   \caption{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point Likert rating, and the surprisal of the continuation \textit{", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}
 %   \label{fig:rq1}
 % \end{figure}
 
@@ -123,7 +123,7 @@ Finally, the \textbf{Plausibility (baseline)} dataset (70 pairs) contrasts proba
 %     \item \textbf{Plausibility (baseline)} contrasts probable with physically impossible events. We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 test. % held-out in-distribution test pairs. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 % \end{itemize}
 We use \emph{Occasion} and \emph{Plausibility} as baselines because both require world knowledge but do not encode causal relations. Specifically, \emph{Occasion} evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
-\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify activation-space directions associated with each dataset. At each layer, for every matched training pair, we subtract the final-token activation of the control example from that of the critical example and average these differences to obtain a single direction. We then project unseen critical and control examples onto this direction: if the direction captures the target relation, the critical example should receive a higher projection than its matched control. We always select the layer with the highest paired accuracy on the development set and report accuracy on the disjoint test set.
+\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify activation-space directions associated with each dataset. At each layer, for every matched training pair, we subtract the final-token activation of the control example from that of the critical example and average these differences to obtain a single direction. We then project unseen critical and control examples onto this direction: if the direction captures the target relation, the critical example should receive a higher projection than its matched control. We always select the layer with the highest paired accuracy on the development set and report accuracy on the disjoint test set. See Appendix~\ref{app:caa-details}.
 
 \begin{figure}[t]
   \centering
@@ -210,17 +210,12 @@ stimuli is shown below.
 \label{app:behavior-details}
 
 \paragraph{Yes/No prompt and score.}
-For the critical sentence, the complete prompt is:
+For the sentences, the complete prompt is:
 \begin{quote}\small\ttfamily
-Context: The executive who falsified quarterly revenue figures was fired.\\
-Question: Does the fact that the executive falsified quarterly revenue figures explain why the executive was fired? Answer Yes or No:
+Context: [person] [modifier/relative clause] [outcome]\\
+Question: Does the fact that ... explain why [outcome]? Answer Yes or No:
 \end{quote}
-The control prompt replaces both occurrences of \emph{falsified quarterly revenue figures} with \emph{wore a blue silk tie}. Let $q$ denote a prompt and $a=(a_1,\ldots,a_T)$ a candidate answer token sequence. We compute its complete sequence probability as
-\begin{equation}
-P_\theta(a\mid q)=\exp\!\left(\sum_{t=1}^{T}\log P_\theta(a_t\mid q,a_{<t})\right).
-\label{eq:answer-probability}
-\end{equation}
-We score the leading-space variants \texttt{ yes}, \texttt{ Yes}, and \texttt{ YES}, and the corresponding three variants of \texttt{no}. If $\mathcal{Y}$ and $\mathcal{N}$ are these two sets, the Yes/No score is
+where in ... we paraphrase  [person] [modifier/relative clause]. Let $q$ denote a prompt. Let $\mathcal{Y}:= \in \{\texttt{ yes}, \texttt{ Yes}, \text{and } \texttt{ YES}\}$ and $\mathcal{N}:= \in \{\texttt{ no}, \texttt{ No}, \text{and } \texttt{ NO}\}$. The Yes/No score is
 \begin{equation}
 p_{\mathrm{yes}}(q)=
 \frac{\sum_{a\in\mathcal{Y}}P_\theta(a\mid q)}
@@ -231,19 +226,19 @@ p_{\mathrm{yes}}(q)=
 \paragraph{7-point Likert prompt and score.}
 For the same critical sentence, the complete prompt is:
 \begin{quote}\small\ttfamily
-Context: The executive who falsified quarterly revenue figures was fired.\\
-Question: How strongly does the fact that the executive falsified quarterly revenue figures explain why the executive was fired? Answer with one integer from 1 to 7, where 1 means definitely not, 4 means uncertain, and 7 means definitely yes:
+Context: [person] [modifier/relative clause] [outcome].\\
+Question: How strongly does the fact that ... explain why [outcome]? Answer with one integer from 1 to 7, where 1 means definitely not, 4 means uncertain, and 7 means definitely yes:
 \end{quote}
-We compute the complete sequence probability in \autoref{eq:answer-probability} for each leading-space answer \texttt{ 1}, \ldots, \texttt{ 7}. We normalize over these seven candidates and take their expected value:
+We compute the complete sequence probability for each leading-space answer $k \in \{\texttt{ 1}, \ldots, \texttt{ 7}\}$. We normalize over these seven candidates and take their expected value:
 \begin{align}
 \widetilde P_\theta(k\mid q)
   &=\frac{P_\theta(\texttt{ }k\mid q)}{\sum_{j=1}^{7}P_\theta(\texttt{ }j\mid q)},
   &r(q)&=\sum_{k=1}^{7}k\,\widetilde P_\theta(k\mid q).
-\label{eq:likert-score}
+\label{eq:Likert-score}
 \end{align}
 
 \paragraph{Surprisal score.}
-For the critical member of the example pair, we score the continuation after the prefix \emph{The executive who falsified quarterly revenue figures was fired}; the full sequence is \emph{The executive who falsified quarterly revenue figures was fired, and I don't know why.} For continuation tokens $c=(c_1,\ldots,c_M)$ and stimulus prefix $x$, summed continuation surprisal is
+For the critical member of the example pair, we score the continuation after the prefix [person] [modifier/relative clause] [outcome]; the full sequence is [person] [modifier/relative clause] [outcome]\emph{, and I don't know why.} For continuation tokens $c=(c_1,\ldots,c_M)$ and stimulus prefix $x$, summed continuation surprisal is
 \begin{equation}
 S(c\mid x)=-\sum_{t=1}^{M}\log P_\theta(c_t\mid x,c_{<t}).
 \label{eq:surprisal}
@@ -251,14 +246,12 @@ S(c\mid x)=-\sum_{t=1}^{M}\log P_\theta(c_t\mid x,c_{<t}).
 This sum includes every token in \emph{", and I don't know why."}, including punctuation. A larger value means that the continuation is less expected.
 
 \paragraph{Paired accuracy and sampling parameters.}
-For each measure $m$, we compute
+For each measure $m$ ($p_{\mathrm{yes}}$, $r$, or $S$), we compute
 \begin{equation}
 \operatorname{Acc}_{\mathrm{pair}}(m)=\frac{1}{N}\sum_{i=1}^{N}
 \mathbf{1}\!\left[m(x_i^{\mathrm{critical}})>m(x_i^{\mathrm{control}})\right].
 \label{eq:paired-accuracy}
-\end{equation}
-Here $m$ is $p_{\mathrm{yes}}$, $r$, or $S$; ties receive zero credit. Yes/No and Likert responses are not sampled. We score complete candidate sequences directly from the base model's raw logits with temperature 1; top-$p$ and top-$k$ sampling are therefore not applied.
-
+\end{equation} ties receive zero credit.
 \section{CAA Extraction and Evaluation Details}
 \label{app:caa-details}
 
@@ -276,13 +269,11 @@ the mean paired activation difference
 \left(\mathbf{h}^{+}_{i,\ell}-\mathbf{h}^{-}_{i,\ell}\right).
 \label{eq:caa-direction}
 \end{equation}
-For the causal direction, the positive member contains an explanatory
-cross-sentence relation and the negative member replaces the explanation with
-an incidental detail. Directions are computed independently at layers 4, 8,
+Directions are computed independently at layers 4, 8,
 12, and so on with a stride of 4, and the model's final layer is included when it does not fall on
-this stride. No test examples contribute to direction construction.
+this stride.
 
-\subsection{CAA Evaluation and Layer Selection}
+\subsection{CAA Projection and Evaluation}
 \label{app:caa-evaluation}
 
 We score an unseen stimulus activation $\mathbf{h}_{j,\ell}$ by its projection
@@ -301,19 +292,6 @@ $d_i=s^{+}_{i,\ell}-s^{-}_{i,\ell}$. Paired accuracy is
 \left[\mathbf{1}(d_i>0)+\tfrac{1}{2}\mathbf{1}(d_i=0)\right].
 \label{eq:caa-paired-accuracy}
 \end{equation}
-
-The causal, occasion, and plausibility datasets are partitioned by matched pair
-before activation extraction. Their train/development/test sizes are
-384/48/48, 800/200/200, and 42/14/14 pairs, respectively. For each
-training-direction/evaluation-dataset combination, we select the layer with the
-highest development paired accuracy; exact ties are resolved in favor of the
-earliest layer. We then evaluate that fixed direction and layer once on the
-corresponding disjoint test set. For the 150-pair within-sentence evaluation in
-Figure~\ref{fig:rq2b}, every source direction uses the layer selected on the
-causal development set, so the within-sentence items are never used for layer
-selection. The naturalistic evaluation likewise applies each model's fixed
-causal direction and selected layer, using the unit-normalized projections in
-Equation~\ref{eq:caa-projection} for the paired demographic comparisons.
 
 \section{Projection Statistics}
 \label{app:raw-caa}
