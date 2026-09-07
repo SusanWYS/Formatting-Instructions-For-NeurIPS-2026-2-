@@ -156,16 +156,16 @@ We use the causal CAA direction identified in \Cref{sec:representations} as a me
 
 \begin{table}[H]
   \centering
-  \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Bolded values indicate statistically significantly larger projections compared to the white-male. \textbf{Demographic descriptions are associated with how strongly LM causally relate a person to a negative outcome.}}
+  \caption{Mean paired differences in unit-normalized causal CAA projection across 65 naturalistic scenarios ($\pm$ bootstrap 95\% CI half-width). Bold values have intervals excluding zero. \textbf{Minority-male and minority-female conditions exceed the white-male condition in five of six models; minority-female projections exceed minority-male projections in all six models.}}
   \label{tab:rq3}
   \scriptsize
-  \setlength{\tabcolsep}{5pt}
+  \setlength{\tabcolsep}{2pt}
   \begin{tabular}{lrrrrrr}
     \toprule
       & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen3\\4B} & \shortstack{Qwen3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
     \midrule
-    Minority male $-$ white male & $\boldsymbol{.41\mathbin{\pm}.32}$ & $\boldsymbol{1.9\mathbin{\pm}.40}$ & $.073\mathbin{\pm}.093$ & $\boldsymbol{.29\mathbin{\pm}.17}$ & $.025\mathbin{\pm}.029$ & $\boldsymbol{.030\mathbin{\pm}.020}$ \\
-    Minority female $-$ white male & $\boldsymbol{.57\mathbin{\pm}.32}$ & $\boldsymbol{2.3\mathbin{\pm}.41}$ & $\boldsymbol{.15\mathbin{\pm}.10}$ & $\boldsymbol{.39\mathbin{\pm}.15}$ & $\boldsymbol{.069\mathbin{\pm}.033}$ & $\boldsymbol{.060\mathbin{\pm}.021}$ \\
+    Minority male $-$ white male & $\boldsymbol{.189\mathbin{\pm}.063}$ & $-.027\mathbin{\pm}.039$ & $\boldsymbol{.106\mathbin{\pm}.017}$ & $\boldsymbol{.071\mathbin{\pm}.011}$ & $\boldsymbol{.022\mathbin{\pm}.003}$ & $\boldsymbol{.010\mathbin{\pm}.002}$ \\
+    Minority female $-$ white male & $\boldsymbol{.278\mathbin{\pm}.081}$ & $.003\mathbin{\pm}.045$ & $\boldsymbol{.155\mathbin{\pm}.017}$ & $\boldsymbol{.120\mathbin{\pm}.013}$ & $\boldsymbol{.038\mathbin{\pm}.004}$ & $\boldsymbol{.014\mathbin{\pm}.002}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -325,7 +325,7 @@ Table~\ref{tab:rq3}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{Unit-normalized causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model. \textbf{The three conditions have substantially overlapping projection distributions in every model even though the projection means show clear trends (\Cref{tab:rq3}).}}
+  \caption{Unit-normalized causal CAA projection distributions for three matched demographic conditions across 65 scenarios per model, using causal directions trained on the August 31 cross-sentence split. \textbf{The distributions overlap substantially; minority-female projections exceed minority-male projections across models, while Gemma 2 9B shows no reliable minority--white difference (\Cref{tab:rq3}).}}
   \label{fig:rq3-distributions}
 \end{figure}
 
