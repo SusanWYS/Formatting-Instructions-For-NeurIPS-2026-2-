@@ -64,7 +64,7 @@ We manually authored 150 novel minimal pairs (critical/control) with sentences o
 We consider three evaluation methods. Under the \textbf{Yes/No (metalinguistic)} method, we present the sentence and append the question, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities to obtain $P(\text{Yes})$. % The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 Under the \textbf{Likert (metalinguistic)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. % ; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 Finally, under the \textbf{surprisal (implicit)} method, we score the surprisal of \emph{", and I don't know why."} conditioned on the sentence, following \citet{pan-kehler-2025-pragmatic}. If the modifier supplies an explanation, this continuation should be less expected. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for details.
+For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref*{app:behavior-details} for details.
 
 In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -106,13 +106,13 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
 
 The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. Therefore, we ask two subsequent questions: 1) Is implicit causality selectively represented in LM activation states? and 2) Can a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences?
 
-\paragraph{Datasets.} We use three datasets of matched critical/control pairs (see \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples).
+\paragraph{Datasets.} We use three datasets of matched critical/control pairs.
 First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of sentences, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}. 
 % We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test. 
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from \Cref{sec:behavior}. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
 Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential}. 
 % Of 1,200 pairs, 800 are for training, 200 for development, and 200 for test. % held-out in-distribution testing. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
-Finally, the \textbf{Plausibility (baseline)} dataset (70 pairs) contrasts probable with physically impossible events, which we adapt from \citet{hu-etal-2025-shades} and \citet{lepori-etal-2026-fantasy}.
+Finally, the \textbf{Plausibility (baseline)} dataset (70 pairs) contrasts probable with physically impossible events, which we adapt from \citet{hu-etal-2025-shades} and \citet{lepori-etal-2026-fantasy}. See Appendix~\ref{app:representation-examples} for dataset details.
 % . We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 test. % held-out in-distribution test pairs. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 
 
