@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  7 SEP 2026 00:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  16 SEP 2026 02:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,15 +644,19 @@ File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 128.
 (pdftex.def)             Requested size: 357.73405pt x 111.31064pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=168, 466.62392pt x 98.01166pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=168, 466.40434pt x 99.61472pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 136.
-(pdftex.def)             Requested size: 270.28687pt x 56.77501pt.
+(pdftex.def)             Requested size: 270.28687pt x 57.73096pt.
  [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
-l_ood_caa_accuracy.pdf>] (./paper.bbl [4]
-[5]) [6] (./appendix_examples.tex [7
+l_ood_caa_accuracy.pdf>]
+Overfull \hbox (6.31306pt too wide) in paragraph at lines 161--170
+ [][] 
+ []
+
+[4] (./paper.bbl [5]) [6] (./appendix_examples.tex [7
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
@@ -673,13 +677,128 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
                    \relax 
 l.149 \end{longtable}
                      ) (./derived/rq3_self_blinding_stimuli.tex
-Underfull \hbox (badness 1406) in paragraph at lines 24--24
-\T1/ptm/m/n/7 (+20) male was de-nied pay-ment for the flood-
+Underfull \hbox (badness 1742) in paragraph at lines 23--23
+[]|\T1/ptm/m/n/7 (+20) The white male schoolteacher
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 24--24
-\T1/ptm/m/n/7 (+20) male was de-nied pay-ment for the flood-
+Underfull \hbox (badness 1286) in paragraph at lines 23--23
+[]|\T1/ptm/m/n/7 (+20) The Asian male schoolteacher
+ []
+
+
+Underfull \hbox (badness 8056) in paragraph at lines 31--31
+[]|\T1/ptm/m/n/7 (+20) The white fe-male restau-rant
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 31--31
+[]|\T1/ptm/m/n/7 (+20) The His-panic male restau-rant
+ []
+
+
+Underfull \hbox (badness 1142) in paragraph at lines 40--40
+[]|\T1/ptm/m/n/7 (+20) The hous-ing ap-pli-cant who is
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 40--40
+\T1/ptm/m/n/7 (+20) white and male was de-nied a
+ []
+
+
+Underfull \hbox (badness 1142) in paragraph at lines 40--40
+[]|\T1/ptm/m/n/7 (+20) The hous-ing ap-pli-cant who is
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 40--40
+\T1/ptm/m/n/7 (+20) panic and male was de-nied a
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 41--41
+\T1/ptm/m/n/7 (+20) re-ceive the Best Doc-u-men-tary
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 41--42
+\T1/ptm/m/n/7 (+20) re-ceive the Best Doc-u-men-tary
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 43--44
+[]|\T1/ptm/m/n/7 (+20) The NFT col-lec-tion sub-mit-ted
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 49--49
+[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 49--49
+[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 49--49
+[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 49--50
+[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+\T1/ptm/m/n/7 (+20) quested by the white male
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+ []
+
+
+Underfull \hbox (badness 3271) in paragraph at lines 59--59
+\T1/ptm/m/n/7 (+20) quested by the white fe-male
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+ []
+
+
+Underfull \hbox (badness 8113) in paragraph at lines 59--59
+\T1/ptm/m/n/7 (+20) quested by the Asian male
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+ []
+
+
+Underfull \hbox (badness 2726) in paragraph at lines 59--60
+\T1/ptm/m/n/7 (+20) quested by the Asian fe-male
+ []
+
+
+Underfull \hbox (badness 3271) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/7 (+20) The His-panic male pet store
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+\T1/ptm/m/n/7 (+20) white fe-male small-business
  []
 
 [8]
@@ -689,29 +808,29 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
                    \relax 
 l.87 \end{longtable}
                      [9] [10])
-Underfull \hbox (badness 10000) in paragraph at lines 213--215
+Underfull \hbox (badness 10000) in paragraph at lines 214--216
 \T1/cmtt/m/n/9 Question: Does the fact that ... explain why [outcome]? Answer
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
 \T1/cmtt/m/n/9 Question: How strongly does the fact that ... explain why
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
 \T1/cmtt/m/n/9 [outcome]? Answer with one integer from 1 to 7, where 1 means
  []
 
 [11]
-<figures/rq3_self_blinding_unit_histograms.pdf, id=328, 519.99371pt x 298.29442
+<figures/rq3_self_blinding_unit_histograms.pdf, id=323, 518.26625pt x 298.29442
 pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 303.
-(pdftex.def)             Requested size: 397.48499pt x 228.02606pt.
- [12 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./paper.aux)
+ input line 304.
+(pdftex.def)             Requested size: 397.48499pt x 228.78163pt.
+ [12] [13 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -720,13 +839,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 652BDF8B83C8B43AAC78C88C68632A4D;3606.
  ) 
 Here is how much of TeX's memory you used:
- 14529 strings out of 476106
- 226539 string characters out of 5793933
- 2010975 words of memory out of 5000000
+ 14525 strings out of 476106
+ 226496 string characters out of 5793933
+ 2047975 words of memory out of 5000000
  35842 multiletter control sequences out of 15000+600000
- 611537 words of font info for 339 fonts, out of 8000000 for 9000
+ 611203 words of font info for 336 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 71i,14n,79p,1364b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,14n,79p,1364b,615s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/
@@ -743,10 +862,10 @@ exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on paper.pdf (12 pages, 374541 bytes).
+Output written on paper.pdf (13 pages, 378627 bytes).
 PDF statistics:
- 439 PDF objects out of 1000 (max. 8388607)
- 357 compressed objects within 4 object streams
- 76 named destinations out of 1000 (max. 500000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
  48285 words of extra memory for PDF output out of 51595 (max. 10000000)
 

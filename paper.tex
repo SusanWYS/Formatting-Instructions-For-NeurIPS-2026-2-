@@ -147,14 +147,14 @@ The CAA directions are relatively relation-selective: each direction strongly se
 Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to a negative social outcome.
 
 \paragraph{Dataset.}
-We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct three matched versions describing a white man, a minority man, or a minority woman, while keeping the occupation and outcome identical. For example, \emph{The white male salesperson was denied a work visa} is compared with \emph{The Black male salesperson was denied a work visa} and \emph{The Black female salesperson was denied a work visa}. Minority identities are sampled from {Black, Hispanic, Asian}. This yields 195 sentences in total, listed in Appendix~\ref{app:naturalistic-stimuli}.
+We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct four matched versions describing a white man, a white woman, a minority man, or a minority woman, while keeping the occupation and outcome identical. For example, \emph{The white male salesperson was denied a work visa} is compared with versions describing a white woman, a Black man, and a Black woman. Minority identities are sampled from {Black, Hispanic, Asian}. This yields 260 sentences in total, listed in Appendix~\ref{app:naturalistic-stimuli}.
 
 \paragraph{Evaluation.}
-We use the causal CAA direction identified in Section~\ref{sec:representations} as a measure of how strongly a model activation expresses causal information. For each sentence, we project its final-token activation onto this direction; a higher projection indicates that the activation more strongly resembles the representation associated with causal. Within each scenario, we subtract the minority-male or minority-female projections from the matched white-male projection. We then average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
+We use the causal CAA direction identified in Section~\ref{sec:representations} as a measure of how strongly a model activation expresses causal information. For each sentence, we project its final-token activation onto this direction; a higher projection indicates that the activation more strongly resembles the representation associated with causal. Within each scenario, we subtract the matched white-male projection from the white-female, minority-male, and minority-female projections. We then average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
 
 \begin{table}[H]
   \centering
-  \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Bold values indicate statistically significantly larger projections compared to the white-male. \textbf{Minority-male and minority-female projections exceed the white-male projection in five of six models.}}
+  \caption{Mean paired differences in causal CAA projection in naturalistic causal scenarios. Bold values have 95\% bootstrap CIs that exclude zero. \textbf{The direction and size of demographic contrasts vary across models.}}
   \label{tab:rq3}
   \scriptsize
   \setlength{\tabcolsep}{2pt}
@@ -162,14 +162,15 @@ We use the causal CAA direction identified in Section~\ref{sec:representations} 
     \toprule
       & \shortstack{Gemma 2\\2B} & \shortstack{Gemma 2\\9B} & \shortstack{Qwen3\\4B} & \shortstack{Qwen3\\8B} & \shortstack{Llama 3.2\\3B} & \shortstack{Llama 3\\8B} \\
     \midrule
-    Minority male $-$ white male & $\boldsymbol{.189\mathbin{\pm}.063}$ & $-.027\mathbin{\pm}.039$ & $\boldsymbol{.106\mathbin{\pm}.017}$ & $\boldsymbol{.071\mathbin{\pm}.011}$ & $\boldsymbol{.022\mathbin{\pm}.003}$ & $\boldsymbol{.010\mathbin{\pm}.002}$ \\
-    Minority female $-$ white male & $\boldsymbol{.278\mathbin{\pm}.081}$ & $.003\mathbin{\pm}.045$ & $\boldsymbol{.155\mathbin{\pm}.017}$ & $\boldsymbol{.120\mathbin{\pm}.013}$ & $\boldsymbol{.038\mathbin{\pm}.004}$ & $\boldsymbol{.014\mathbin{\pm}.002}$ \\
+    White female $-$ white male & $\boldsymbol{-.132\mathbin{\pm}.041}$ & $\boldsymbol{-.459\mathbin{\pm}.145}$ & $\boldsymbol{.068\mathbin{\pm}.034}$ & $\boldsymbol{.186\mathbin{\pm}.085}$ & $\boldsymbol{-.040\mathbin{\pm}.013}$ & $\boldsymbol{-.010\mathbin{\pm}.004}$ \\
+    Minority male $-$ white male & $\boldsymbol{.204\mathbin{\pm}.116}$ & $.032\mathbin{\pm}.241$ & $.033\mathbin{\pm}.071$ & $\boldsymbol{.364\mathbin{\pm}.128}$ & $\boldsymbol{-.031\mathbin{\pm}.029}$ & $-.007\mathbin{\pm}.013$ \\
+    Minority female $-$ white male & $\boldsymbol{.344\mathbin{\pm}.121}$ & $-.199\mathbin{\pm}.278$ & $\boldsymbol{.113\mathbin{\pm}.072}$ & $\boldsymbol{.554\mathbin{\pm}.134}$ & $.013\mathbin{\pm}.029$ & $.002\mathbin{\pm}.012$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \paragraph{Results.}
-Changing only the demographic description produces a consistent shift along the causal direction. In five out of six models, mean projections follow the same ordering: minority female $>$ minority male $>$ white male (Table~\ref{tab:rq3}). Minority-female conditions have significantly higher causal projections than the white-male conditions in every model, while minority-male differences are positive in all models. Distributions of the projection scores are provided in Figure~\ref{fig:rq3-distributions}. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can systematically alter how models internally represent the causes of negative outcomes.
+Changing only the demographic description shifts projections along the causal direction, but the direction and magnitude of these shifts vary across models (Table~\ref{tab:rq3}). Minority-female projections are significantly higher than white-male projections in three models, while the remaining models show no reliable difference. White-female contrasts are significant in every model but differ in direction. Distributions of the projection scores are provided in Figure~\ref{fig:rq3-distributions}. We emphasize that the causal direction was learned via descriptions of commonplace events, without any explicit references to race or gender. These results suggest that demographic information can alter how models internally represent the causes of negative outcomes, although the pattern is not consistent across model families.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -301,7 +302,7 @@ Table~\ref{tab:rq3}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{CAA projection distributions for three matched demographic conditions across 65 scenarios per model, using causal directions trained on the August 31 cross-sentence split. \textbf{The distributions overlap substantially. In five models, minority-female projections exceed minority-male projections across models, while Gemma 2 9B shows no reliable minority--white difference (Table~\ref{tab:rq3}).}}
+  \caption{CAA projection distributions for four matched demographic conditions across 65 scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired demographic contrasts vary across models (Table~\ref{tab:rq3}).}}
   \label{fig:rq3-distributions}
 \end{figure}
 
