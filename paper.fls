@@ -234,11 +234,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT ./paper.bbl
 INPUT ./paper.bbl
 INPUT paper.bbl
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT ./appendix_examples.tex
 INPUT ./appendix_examples.tex
 INPUT ./appendix_examples.tex

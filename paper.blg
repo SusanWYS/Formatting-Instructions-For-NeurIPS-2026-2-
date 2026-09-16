@@ -6,43 +6,43 @@ Database file #1: paper.bib
 Warning--empty journal in hu-rubiofernandez-2026-referential
 You've used 20 entries,
             2773 wiz_defined-function locations,
-            710 strings with 9254 characters,
-and the built_in function-call counts, 10423 in all, are:
-= -- 944
-> -- 639
+            716 strings with 9405 characters,
+and the built_in function-call counts, 10524 in all, are:
+= -- 954
+> -- 671
 < -- 17
-+ -- 214
-- -- 194
-* -- 808
-:= -- 1590
-add.period$ -- 81
++ -- 223
+- -- 203
+* -- 833
+:= -- 1623
+add.period$ -- 83
 call.type$ -- 20
 change.case$ -- 117
 chr.to.int$ -- 20
 cite$ -- 41
-duplicate$ -- 470
-empty$ -- 808
-format.name$ -- 225
-if$ -- 2232
+duplicate$ -- 461
+empty$ -- 788
+format.name$ -- 235
+if$ -- 2243
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 18
-newline$ -- 123
-num.names$ -- 88
-pop$ -- 259
+missing$ -- 17
+newline$ -- 125
+num.names$ -- 92
+pop$ -- 256
 preamble$ -- 1
 purify$ -- 99
 quote$ -- 0
-skip$ -- 394
+skip$ -- 392
 stack$ -- 0
-substring$ -- 331
-swap$ -- 90
+substring$ -- 313
+swap$ -- 89
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 210
 warning$ -- 1
-while$ -- 87
+while$ -- 88
 width$ -- 0
-write$ -- 294
+write$ -- 301
 (There was 1 warning)

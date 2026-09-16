@@ -16,17 +16,17 @@ Jonathan Cohen and Andrew Kehler.
 \newblock Conversational eliciture.
 \newblock \emph{Philosophers' Imprint}, 21\penalty0 (12):\penalty0 1--26, 2021.
 
-\bibitem[Dubey et~al.(2024)]{dubey-etal-2024-llama3}
-Abhimanyu Dubey et~al.
-\newblock The {Llama 3} herd of models.
-\newblock \emph{arXiv preprint arXiv:2407.21783}, 2024.
-\newblock URL \url{https://arxiv.org/abs/2407.21783}.
-
 \bibitem[{Gemma Team}(2024)]{gemma-team-2024-gemma2}
 {Gemma Team}.
 \newblock Gemma 2: Improving open language models at a practical size.
 \newblock \emph{arXiv preprint arXiv:2408.00118}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2408.00118}.
+
+\bibitem[Grattafiori et~al.(2024)]{dubey-etal-2024-llama3}
+Aaron Grattafiori et~al.
+\newblock The {Llama 3} herd of models.
+\newblock \emph{arXiv preprint arXiv:2407.21783}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2407.21783}.
 
 \bibitem[Hobbs(1990)]{hobbs_literature_1990}
 Jerry~R. Hobbs.
@@ -37,9 +37,12 @@ Jerry~R. Hobbs.
 Jennifer Hu and Roger Levy.
 \newblock Prompting is not a substitute for probability measurements in large
   language models.
-\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
-  Natural Language Processing}, pages 5040--5060. Association for Computational
-  Linguistics, 2023.
+\newblock In Houda Bouamor, Juan Pino, and Kalika Bali, editors,
+  \emph{Proceedings of the 2023 Conference on Empirical Methods in Natural
+  Language Processing}, pages 5040--5060, Singapore, December 2023. Association
+  for Computational Linguistics.
+\newblock \doi{10.18653/v1/2023.emnlp-main.306}.
+\newblock URL \url{https://aclanthology.org/2023.emnlp-main.306/}.
 
 \bibitem[Hu and Rubio-Fern\'andez(2026)]{hu-rubiofernandez-2026-referential}
 Jennifer Hu and Paula Rubio-Fern\'andez.
@@ -50,8 +53,9 @@ Jennifer Hu and Paula Rubio-Fern\'andez.
 
 \bibitem[Hu et~al.(2025)Hu, Sosa, and Ullman]{hu-etal-2025-shades}
 Jennifer Hu, Felix Sosa, and Tomer Ullman.
-\newblock Shades of zero: Distinguishing impossibility from inconceivability.
-\newblock \emph{Journal of Memory and Language}, 143:\penalty0 104640, 2025.
+\newblock Shades of zero: Distinguishing impossibility from inconceivability,
+  2025.
+\newblock URL \url{https://arxiv.org/abs/2502.20469}.
 
 \bibitem[Jeretic et~al.(2020)Jeretic, Warstadt, Bhooshan, and
   Williams]{jeretic-etal-2020-natural}
@@ -70,15 +74,14 @@ Andrew Kehler.
 \newblock \emph{Coherence, {Reference}, and the {Theory} of {Grammar}}.
 \newblock CSLI Publications, 2002.
 
-\bibitem[Lepori et~al.(2026)Lepori, Hu, Dasgupta, Patel, Serre, and
+\bibitem[Lepori et~al.(2025)Lepori, Hu, Dasgupta, Patel, Serre, and
   Pavlick]{lepori-etal-2026-fantasy}
 Michael~A. Lepori, Jennifer Hu, Ishita Dasgupta, Roma Patel, Thomas Serre, and
   Ellie Pavlick.
 \newblock Is this just fantasy? language model representations reflect human
   judgments of event plausibility.
-\newblock In \emph{The Fourteenth International Conference on Learning
-  Representations}, 2026.
-\newblock URL \url{https://openreview.net/forum?id=Czul60ELOH}.
+\newblock \emph{ArXiv}, abs/2507.12553, 2025.
+\newblock URL \url{https://api.semanticscholar.org/CorpusID:280253686}.
 
 \bibitem[Li et~al.(2021)Li, Schuster, and Degen]{li-etal-2021-predicting}
 Elissa Li, Sebastian Schuster, and Judith Degen.
@@ -89,8 +92,8 @@ Elissa Li, Sebastian Schuster, and Judith Degen.
   446--450, Online, February 2021. Association for Computational Linguistics.
 \newblock URL \url{https://aclanthology.org/2021.scil-1.54/}.
 
-\bibitem[{Meta AI}(2024)]{meta-2024-llama32}
-{Meta AI}.
+\bibitem[{Meta Llama}(2024)]{meta-2024-llama32}
+{Meta Llama}.
 \newblock {Llama 3.2} model card.
 \newblock Hugging Face model documentation, 2024.
 \newblock URL \url{https://huggingface.co/meta-llama/Llama-3.2-3B}.
@@ -100,24 +103,19 @@ Dingyi Pan and Andrew Kehler.
 \newblock Pragmatic competence in {LLM}s: The case of eliciture.
 \newblock In Carolyn~Jane Anderson, Fr{\'e}d{\'e}ric Mailhot, and Grusha
   Prasad, editors, \emph{Proceedings of the Society for Computation in
-  Linguistics 2025}, pages 388--391. Association for Computational Linguistics,
-  2025.
+  Linguistics 2025}, pages 388--391, Eugene, Oregon, July 2025. Association for
+  Computational Linguistics.
 \newblock URL \url{https://aclanthology.org/2025.scil-1.39/}.
-
-\bibitem[{Qwen Team}(2025)]{qwen-team-2025-qwen3}
-{Qwen Team}.
-\newblock {Qwen3} technical report.
-\newblock \emph{arXiv preprint arXiv:2505.09388}, 2025.
-\newblock URL \url{https://arxiv.org/abs/2505.09388}.
 
 \bibitem[Rimsky et~al.(2024)Rimsky, Gabrieli, Schulz, Tong, Hubinger, and
   Turner]{rimsky-etal-2024-steering}
 Nina Rimsky, Nick Gabrieli, Julian Schulz, Meg Tong, Evan Hubinger, and
-  Alexander~Matt Turner.
-\newblock Steering {Llama 2} via contrastive activation addition.
-\newblock In \emph{Proceedings of the 62nd Annual Meeting of the Association
-  for Computational Linguistics (Volume 1: Long Papers)}, pages 15504--15522.
-  Association for Computational Linguistics, 2024.
+  Alexander Turner.
+\newblock Steering llama 2 via contrastive activation addition.
+\newblock In Lun-Wei Ku, Andre Martins, and Vivek Srikumar, editors,
+  \emph{Proceedings of the 62nd Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)}, pages 15504--15522,
+  Bangkok, Thailand, August 2024. Association for Computational Linguistics.
 \newblock \doi{10.18653/v1/2024.acl-long.828}.
 \newblock URL \url{https://aclanthology.org/2024.acl-long.828/}.
 
@@ -154,5 +152,11 @@ Alex Tamkin, Amanda Askell, Liane Lovitt, Esin Durmus, Nicholas Joseph, Shauna
 \newblock Evaluating and mitigating discrimination in language model decisions,
   2023.
 \newblock URL \url{https://arxiv.org/abs/2312.03689}.
+
+\bibitem[Yang et~al.(2025)]{qwen-team-2025-qwen3}
+An~Yang et~al.
+\newblock {Qwen3} technical report.
+\newblock \emph{arXiv preprint arXiv:2505.09388}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.09388}.
 
 \end{thebibliography}

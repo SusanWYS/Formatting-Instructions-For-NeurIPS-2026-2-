@@ -2,7 +2,7 @@
 \usepackage{microtype}
 \usepackage{soul}
 \usepackage[dblblindworkshop]{neurips_2026}
-\workshoptitle{LPFM}
+\workshoptitle{LP4FM}
 \usepackage{enumitem}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -29,7 +29,7 @@
 \maketitle
 
 \begin{abstract}
-Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across six language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from explicit causal relations across sentences to implicit causal relations within a sentence. Moreover, this representation may support causal readings in scenarios with real-world consequences: causal signal is stronger for minority identities as subjects to negative social scenarios, especially minority women, than for white men. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
+Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across six language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
 
 
 \end{abstract}
@@ -41,11 +41,11 @@ Language often leaves relationships between events unstated. For example, ``The 
 
 Here, we explore three main research questions. \textbf{RQ1:} \textit{Do LM behaviors reflect inferences about implicit causal relationships within sentences?} \textbf{RQ2:} \textit{Do LMs form internal representations of implicit causal relationships?} And if so, \textbf{RQ3:} \textit{Do representations of implicit causality generalize to settings with potential real-world implications?}
 
-In a related study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use it during subsequent sentence processing (akin to our RQ1). This project extends Pan \& Kehler's behavioral study by %focusing on causal elicitures (instead of temporal relationships or other discourse relationships) and 
+In a related study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use it during subsequent sentence processing (akin to our RQ1). This project extends Pan \& Kehler's behavioral study by %focusing on causal elicitures (instead of temporal relationships or other discourse relationships) and
 testing different syntactic constructions. Furthermore, we also study whether implicit causality forms a distinct, generalizable internal representation (RQ2), and whether this representation underlies inferences about demographic information and social biases (RQ3).
 
-Across six language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated, 
-% Our results can shed light on how models construct internal world models, how their nonliteral inferences align with human cognition, and whether these representations encode systematic biases with 
+Across six language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated,
+% Our results can shed light on how models construct internal world models, how their nonliteral inferences align with human cognition, and whether these representations encode systematic biases with
 with potential implications for the development of safer and more aligned models.
 
 \section{Experiments}
@@ -55,14 +55,14 @@ with potential implications for the development of safer and more aligned models
 \label{sec:behavior}
 We first ask whether implicit causal inferences influence model behavior. To test this, we compare two kinds of explicit metalinguistic judgments with an implicit measure based on the surprisal of subsequent text \citep{hu-levy-2023-prompting}. Our setup replicates and extends \citet{pan-kehler-2025-pragmatic}. More details about behavioral evaluation are provided in Appendix~\ref{app:behavior-details}.
 
-\paragraph{Methods.} 
+\paragraph{Methods.}
 
-We manually authored 150 novel minimal pairs (critical/control) with sentences of the following structure: \textbf{[person] [modifier/relative clause] [outcome]}. The modifier plausibly causes the outcome in a critical sentence (e.g., \emph{The executive who falsified quarterly revenue figures was fired}) but is incidental in its control (e.g., \emph{The executive who wore a blue silk tie was fired}). 
+We manually authored 150 novel minimal pairs (critical/control) with sentences of the following structure: \textbf{[person] [modifier/relative clause] [outcome]}. The modifier plausibly causes the outcome in a critical sentence (e.g., \emph{The executive who falsified quarterly revenue figures was fired}) but is incidental in its control (e.g., \emph{The executive who wore a blue silk tie was fired}).
 
 We consider three evaluation methods. Under the \textbf{Yes/No (metalinguistic)} method, we present the sentence and append the question, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities to obtain $P(\text{Yes})$. % The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 Under the \textbf{Likert (metalinguistic)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. % ; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 Finally, under the \textbf{surprisal (implicit)} method, we score the surprisal of \emph{", and I don't know why."} conditioned on the sentence, following \citet{pan-kehler-2025-pragmatic}. If the modifier supplies an explanation, this continuation should be less expected. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref*{app:behavior-details} for details.
+For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for implementation details.
 
 In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -105,17 +105,17 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
 The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. Therefore, we ask two subsequent questions: 1) Is implicit causality selectively represented in LM activation states? and 2) Can a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences?
 
 \paragraph{Datasets.} We use three datasets of matched critical/control pairs.
-First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of sentences, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}. 
-% We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test. 
+First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}.
+% We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test.
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from Section~\ref{sec:behavior}. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
-Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential}. 
+Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential}.
 % Of 1,200 pairs, 800 are for training, 200 for development, and 200 for test. % held-out in-distribution testing. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 Finally, the \textbf{Plausibility (baseline)} dataset (70 pairs) contrasts probable with physically impossible events, which we adapt from \citet{hu-etal-2025-shades} and \citet{lepori-etal-2026-fantasy}. See Appendix~\ref{app:representation-examples} for dataset details.
 % . We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 test. % held-out in-distribution test pairs. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 
 
 % \begin{itemize}[label=, noitemsep, topsep=0pt, leftmargin=*]
-%     \item \textbf{Causal} tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach also allows us to directly test whether causality representations learned from these discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of sentences, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}. We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test. 
+%     \item \textbf{Causal} tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach also allows us to directly test whether causality representations learned from these discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of sentences, an \emph{outcome sentence} is followed by either an \emph{explanation or incidental detail sentence}. We constructed 480 pairs: 384 training, 48 development, and 48 test. %held-out in-distribution test.
 %     For out-of-distribution evaluation, we use the 150 within-sentence pairs from \Cref{sec:behavior}. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}} for examples.
 %     \item \textbf{Occasion (baseline)} tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential}. Of 1,200 pairs, 800 are for training, 200 for development, and 200 for test. % held-out in-distribution testing. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
 %     \item \textbf{Plausibility (baseline)} contrasts probable with physically impossible events. We adapt 70 pairs from \citet{hu-etal-2025-shades}, following \citet{lepori-etal-2026-fantasy}: 42 training, 14 development, and 14 test. % held-out in-distribution test pairs. % See \hyperref[app:representation-examples]{Appendix~\ref*{app:representation-examples}}.
@@ -214,7 +214,7 @@ For the sentences, the complete prompt is:
 Context: [person] [modifier/relative clause] [outcome]\\
 Question: Does the fact that ... explain why [outcome]? Answer Yes or No:
 \end{quote}
-where in ... we paraphrase  [person] [modifier/relative clause]. Let $q$ denote a prompt. Let $\mathcal{Y}:= \in \{\texttt{ yes}, \texttt{ Yes}, \text{and } \texttt{ YES}\}$ and $\mathcal{N}:= \in \{\texttt{ no}, \texttt{ No}, \text{and } \texttt{ NO}\}$. The Yes/No score is
+where in ... we paraphrase  [person] [modifier/relative clause]. Let $q$ denote a prompt. Let $\mathcal{Y}:=  \{\texttt{ yes}, \texttt{ Yes}, \text{and } \texttt{ YES}\}$ and $\mathcal{N}:= \{\texttt{ no}, \texttt{ No}, \text{and } \texttt{ NO}\}$. The Yes/No score is
 \begin{equation}
 p_{\mathrm{yes}}(q)=
 \frac{\sum_{a\in\mathcal{Y}}P_\theta(a\mid q)}
@@ -291,7 +291,7 @@ $d_i=s^{+}_{i,\ell}-s^{-}_{i,\ell}$. Paired accuracy is
 \left[\mathbf{1}(d_i>0)+\tfrac{1}{2}\mathbf{1}(d_i=0)\right].
 \label{eq:caa-paired-accuracy}
 \end{equation}
-
+We select the layer used for test-time CAA projection by taking the layer with the highest paired accuracy on the developmental set among layers 4, 8, 12, etc.
 \section{Projection statistics}
 \label{app:raw-caa}
 
