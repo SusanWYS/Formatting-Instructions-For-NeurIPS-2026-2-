@@ -29,7 +29,7 @@
 \maketitle
 
 \begin{abstract}
-Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across six language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive and negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
+Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across six language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive, negative, and neutral social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
 
 
 \end{abstract}
@@ -144,7 +144,7 @@ The CAA directions are relatively relation-selective: each direction strongly se
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
-Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive and negative social outcomes.
+Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive, negative, and neutral social outcomes.
 
 \paragraph{Dataset.}
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive, negative, and neutral outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman. For example, \emph{The white male salesperson was denied a work visa} has demographic variants, a positive counterpart in which the visa was granted, and a neutral counterpart in which its status was reviewed. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 780 sentences.
@@ -244,8 +244,8 @@ Our results highlight a distinction between \emph{making} an implicit inference 
 \subsection{Naturalistic scenarios: statistics and examples}
 \label{app:naturalistic-stimuli}
 
-The naturalistic evaluation contains 65 scenario templates and 520 sentences:
-one white-male, one white-female, one minority-male, and one minority-female version of each positive and negative outcome.
+The naturalistic evaluation contains 65 scenario templates and 780 sentences:
+one white-male, one white-female, one minority-male, and one minority-female version of each positive, negative, and neutral outcome.
 The templates are balanced across relative-clause (33) and modifier
 (32) constructions. Assigned minority identities are also approximately
 balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of matched
