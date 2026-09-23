@@ -67,12 +67,12 @@ For all tasks, we report paired accuracy, which is the proportion of critical it
 
 In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
-\begin{figure}[t]
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=\linewidth]{figures/rq1_behavior.pdf}
+  \includegraphics[width=0.8\textwidth]{figures/rq1_behavior.pdf}
   \caption{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point Likert rating, and the surprisal of the continuation \textit{", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}
   \label{fig:rq1}
-\end{figure}
+\end{figure*}
 
 \paragraph{Results.} In Figure~\ref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all six models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
 
@@ -134,7 +134,7 @@ We use \emph{Occasion} and \emph{Plausibility} as baselines because both require
 % \vspace{-6pt}
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
+  \includegraphics[width=0.8\textwidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
   \caption{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}
   \label{fig:rq2b}
 \end{figure*}
