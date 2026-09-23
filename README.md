@@ -1,21 +1,22 @@
-# Paper templates
+# ACL paper branch
 
-This repository contains two self-contained versions of the paper:
+This branch adapts the complete workshop paper to the official *ACL review
+template from [`acl-org/acl-style-files`](https://github.com/acl-org/acl-style-files)
+(source commit `d5adc823ff0f80f98c80405ca0ab66c68e684409`).
 
-- `arr/acl_latex.tex` uses the ARR/ACL review format.
-- `workshop/acl_latex.tex` uses the NeurIPS 2026 double-blind workshop format.
+The NeurIPS workshop source remains unchanged on the `main` branch. The ACL
+version uses `paper.tex` as its main document and includes all existing paper
+sections, figures, tables, references, and appendices.
 
 ## Overleaf
 
-Upload the repository (or either subfolder) to Overleaf, then choose the corresponding `acl_latex.tex` file as the **Main document** in the Overleaf project settings. Use pdfLaTeX for both versions.
-
-Each subfolder includes its own style files, bibliography, sections, figures, tables, and appendix. The NeurIPS version also includes the required checklist.
+Upload this branch to Overleaf, choose `paper.tex` as the **Main document**, and
+use pdfLaTeX.
 
 ## Local compilation
 
-From this repository's root, run one of:
+From the repository root, run:
 
 ```bash
-latexmk -cd -pdf arr/acl_latex.tex
-latexmk -cd -pdf workshop/acl_latex.tex
+latexmk -pdf paper.tex
 ```
