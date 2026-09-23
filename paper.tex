@@ -133,7 +133,7 @@ We use \emph{Occasion} and \emph{Plausibility} as baselines because both require
 % \vspace{-6pt}
 \begin{figure}[t]
   \centering
-  \includegraphics[width=.68\linewidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
+  \includegraphics[width=\linewidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
   \caption{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}
   \label{fig:rq2b}
 \end{figure}
@@ -147,7 +147,7 @@ The CAA directions are relatively relation-selective: each direction strongly se
 Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive and negative social outcomes.
 
 \paragraph{Dataset.}
-We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman. For example, \emph{The white male salesperson was denied a work visa} has demographic variants and positive counterparts in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 520 sentences.
+We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive, negative, and neutral outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman. For example, \emph{The white male salesperson was denied a work visa} has demographic variants, a positive counterpart in which the visa was granted, and a neutral counterpart in which its status was reviewed. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 780 sentences.
 
 \paragraph{Evaluation.}
 We project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Within each scenario and outcome, we subtract the white-male score from the matched white-female, minority-male, and minority-female scores. We average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
@@ -195,8 +195,30 @@ We project each sentence's final-token activation onto the causal CAA direction 
   \vspace{-3pt}
 \end{table}
 
+\begin{table}[H]
+  \vspace{-3pt}
+  \centering
+  \caption{Neutral outcomes: mean difference from white male $\pm$ 95\% CI. Bold CIs exclude zero. \textbf{Minority-female scores are higher in five models.}}
+  \label{tab:naturalistic-neutral}
+  \renewcommand{\arraystretch}{.88}
+  \resizebox{.58\linewidth}{!}{%
+  \begin{tabular}{lrrr}
+    \toprule
+    Model & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
+    \midrule
+    Gemma 2 2B & $-.007\mathbin{\pm}.038$ & $\boldsymbol{.303\mathbin{\pm}.096}$ & $\boldsymbol{.521\mathbin{\pm}.100}$ \\
+    Gemma 2 9B & $.044\mathbin{\pm}.123$ & $\boldsymbol{.713\mathbin{\pm}.276}$ & $\boldsymbol{.631\mathbin{\pm}.324}$ \\
+    Qwen3 4B & $.015\mathbin{\pm}.035$ & $.023\mathbin{\pm}.081$ & $\boldsymbol{.106\mathbin{\pm}.081}$ \\
+    Qwen3 8B & $\boldsymbol{.110\mathbin{\pm}.074}$ & $\boldsymbol{.179\mathbin{\pm}.116}$ & $\boldsymbol{.274\mathbin{\pm}.132}$ \\
+    Llama 3.2 3B & $-.009\mathbin{\pm}.012$ & $-.0005\mathbin{\pm}.031$ & $.032\mathbin{\pm}.032$ \\
+    Llama 3 8B & $.001\mathbin{\pm}.005$ & $\boldsymbol{.014\mathbin{\pm}.010}$ & $\boldsymbol{.026\mathbin{\pm}.010}$ \\
+    \bottomrule
+  \end{tabular}}
+  \vspace{-3pt}
+\end{table}
+
 \paragraph{Results.}
-Demographic descriptions shift causal projections differently across models and outcomes (Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-positive}). For negative outcomes, minority-female scores are significantly higher than white-male scores in three models, while white-female contrasts differ in direction. For positive outcomes, minority-female scores are higher in all six models and minority-male scores in three. Figure~\ref{fig:rq3-distributions} shows the negative-outcome distributions. Although learned without references to race or gender, the causal direction is sensitive to demographic information.
+Demographic descriptions shift causal projections differently across models and outcomes (Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-neutral}). For negative outcomes, minority-female scores are significantly higher than white-male scores in three models, while white-female contrasts differ in direction. For positive outcomes, minority-female scores are higher in all six models and minority-male scores in three. For neutral outcomes, minority-female scores are higher in five models, minority-male scores are higher in four, and the white-female contrast differs only in Qwen3 8B. Figure~\ref{fig:rq3-distributions} shows the negative-outcome distributions. Although learned without references to race or gender, the causal direction is sensitive to demographic information.
 
 \section{Discussion}
 \label{sec:discussion}
