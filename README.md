@@ -1,21 +1,22 @@
-# Paper templates
+# Paper formats
 
-This repository contains two self-contained versions of the paper:
+This repository contains the paper in two formats:
 
-- `arr/acl_latex.tex` uses the ARR/ACL review format.
-- `workshop/acl_latex.tex` uses the NeurIPS 2026 double-blind workshop format.
+- `paper.tex` uses the NeurIPS 2026 double-blind workshop format.
+- `acl/acl_latex.tex` uses the official ACL review format.
 
 ## Overleaf
 
-Upload the repository (or either subfolder) to Overleaf, then choose the corresponding `acl_latex.tex` file as the **Main document** in the Overleaf project settings. Use pdfLaTeX for both versions.
-
-Each subfolder includes its own style files, bibliography, sections, figures, tables, and appendix. The NeurIPS version also includes the required checklist.
+To switch formats in the same Overleaf project, open **Menu**, change **Main
+document**, and select either `paper.tex` or `acl/acl_latex.tex`. Use pdfLaTeX
+for both versions. The two entry points share the bibliography, figures, and
+generated results so these assets stay synchronized.
 
 ## Local compilation
 
-From this repository's root, run one of:
+From the repository root, run either:
 
 ```bash
-latexmk -cd -pdf arr/acl_latex.tex
-latexmk -cd -pdf workshop/acl_latex.tex
+latexmk -pdf paper.tex
+latexmk -pdf acl/acl_latex.tex
 ```

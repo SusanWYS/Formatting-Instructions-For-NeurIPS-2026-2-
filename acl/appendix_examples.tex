@@ -1,0 +1,151 @@
+% Source: eliciture_interp/ood_test.txt
+\subsection{Within-sentence causal items}
+\label{app:within-sentence-examples}
+
+The following ten examples come from the 150-pair within-sentence set used for
+both behavioral evaluation and out-of-distribution CAA evaluation. Critical and
+control members hold the outcome and construction fixed while changing whether
+the modifier plausibly explains the outcome.
+
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
+\caption{Examples from the within-sentence causal dataset.}
+\label{tab:within-sentence-examples}\\
+\toprule
+& Critical & Control \\
+\midrule
+\endfirsthead
+\toprule
+& Critical & Control \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & The executive who falsified quarterly revenue figures was fired. & The executive who wore a blue silk tie was fired. \\
+2 & The contractor repeatedly failing mandatory safety inspections lost the municipal contract. & The contractor carrying a blue clipboard with a metal clip lost the municipal contract. \\
+3 & The department manager who altered employee performance records was demoted. & The department manager whose office was beside the west stairwell was demoted. \\
+4 & The security officer implicated in disabling cameras to conceal a theft was dismissed. & The security officer shown in a square badge photograph was dismissed. \\
+5 & The procurement director who accepted kickbacks from a supplier was removed. & The procurement director who commuted on the early morning train was removed. \\
+6 & The accountant caught backdating tax records after an audit began was formally disciplined. & The accountant drinking coffee from a ceramic mug was formally disciplined. \\
+7 & The supplier that bribed an official on the selection committee was barred from future bids. & The supplier whose brochure was printed on matte paper was barred from future bids. \\
+8 & The clinic administrator implicated by an audit exposing diverted patient fees resigned. & The clinic administrator seated at a desk beside a narrow window resigned. \\
+9 & The warehouse supervisor who ordered workers to bypass machine safety locks was suspended. & The warehouse supervisor who kept spare gloves in a lower drawer was suspended. \\
+10 & The board member responsible for disclosing confidential board votes was expelled. & The board member taking notes with a black fountain pen was expelled. \\
+\end{longtable}
+\endgroup
+
+% Source: eliciture_interp/rq23_train_dev.txt (two_sentence construction;
+% examples restricted to the frozen 384-pair causal training split)
+\subsection{Cross-sentence causal items}
+\label{app:cross-sentence-examples}
+
+The following examples are drawn from the cross-sentence causal training set
+used to extract the causal CAA directions. We partition 480 two-sentence pairs into 384/48/48 matched pairs
+for training, development, and testing.
+In each critical item, the first sentence plausibly explains the second sentence; in the control, the first sentence provides an incidental detail.
+
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
+\caption{Examples from the cross-sentence causal dataset.}
+\label{tab:cross-sentence-examples}\\
+\toprule
+& Critical & Control \\
+\midrule
+\endfirsthead
+\toprule
+& Critical & Control \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Anika avoided the Amber Cafe. The Amber Cafe repeatedly mixed up Anika's allergy order. & Anika avoided the Amber Cafe. The Amber Cafe had a copper sign. \\
+2 & Becca revisited the Azure Gallery. The Azure Gallery had restored its most important mural. & Becca revisited the Azure Gallery. The Azure Gallery used beige curtains. \\
+3 & Cora enjoyed the Bramble Recital. The Bramble Recital paired familiar pieces with surprising new work. & Cora enjoyed the Bramble Recital. The Bramble Recital displayed a paper banner. \\
+4 & Cora felt calm in the Bramble Courtyard. The Bramble Courtyard remained peaceful even at midday. & Cora felt calm in the Bramble Courtyard. The Bramble Courtyard displayed a paper banner. \\
+5 & Cora bought the bramble-seed loaf. The bramble-seed loaf contained the herbs Cora liked. & Cora bought the bramble-seed loaf. The bramble-seed loaf was tied with string. \\
+6 & Anika ordered the amber herb soup. Anika wanted something warm after walking in the rain. & Anika ordered the amber herb soup. The amber herb soup came in a white bowl. \\
+7 & Anika visited the Amber Grove. The Amber Grove was hosting a rare bird migration. & Anika visited the Amber Grove. The Amber Grove had a copper sign. \\
+8 & Becca watered Azure the fern. Azure the fern had not been watered for more than a week. & Becca watered Azure the fern. Azure the fern had three long fronds. \\
+9 & Becca opened the window in the Azure Room. The Azure Room filled with smoke from burnt toast. & Becca opened the window in the Azure Room. The Azure Room used beige curtains. \\
+10 & Becca wore the Azure cardigan. The building had no heat that morning. & Becca wore the Azure cardigan. The Azure cardigan had two pockets. \\
+\end{longtable}
+\endgroup
+
+% Source: eliciture_interp/stimuli_critical_temporal_enlarged.csv
+\subsection{Occasion items}
+\label{app:occasion-examples}
+
+We partition 1,200 occasion pairs into 800/200/200 matched pairs for training,
+development, and testing. We show ten pairs below as qualitative examples.
+
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
+\caption{Examples from the occasion dataset.}
+\label{tab:occasion-examples}\\
+\toprule
+& Critical (Occasion-compatible) & Control \\
+\midrule
+\endfirsthead
+\toprule
+& Critical (Occasion-compatible) & Control \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & A lifeguard got a painful sunburn last Sunday. & A translator got a painful sunburn last Sunday. \\
+2 & A hiker got their boots completely covered in thick mud yesterday. & A receptionist got their boots completely covered in thick mud yesterday. \\
+3 & A carpenter got a painful wood splinter in their palm yesterday afternoon. & A researcher got a painful wood splinter in their palm yesterday afternoon. \\
+4 & A barista spilled hot coffee all over their lap during the shift. & A security guard spilled hot coffee all over their lap during the shift. \\
+5 & A gymnast sprained their knee during a session yesterday. & A proofreader sprained their knee during a session yesterday. \\
+6 & A calligrapher got black ink stains all over their shirt yesterday. & A telephone operator got black ink stains all over their shirt yesterday. \\
+7 & A prep cook smelled strongly of chopped onions yesterday evening. & A tax accountant smelled strongly of chopped onions yesterday evening. \\
+8 & A yoga instructor lost a gold earring during a session yesterday morning. & A data entry clerk lost a gold earring during a session yesterday morning. \\
+9 & An archivist got a sharp paper cut on their index finger yesterday. & A soccer coach got a sharp paper cut on their index finger yesterday. \\
+10 & An ice hockey player inhaled freezing air and got throat irritation yesterday morning. & A database administrator inhaled freezing air and got throat irritation yesterday morning. \\
+\end{longtable}
+\endgroup
+
+% Source: Impossible_Features/data/classification/hu_shades/data.csv
+\subsection{Plausibility items}
+\label{app:plausibility-examples}
+
+The plausibility dataset contrasts probable events with matched physically
+impossible events adapted from \citet{hu-etal-2025-shades} and
+\citet{lepori-etal-2026-fantasy}. We partition its 70 pairs into 42/14/14
+matched pairs for training, development, and testing, and show ten qualitative
+examples below.
+
+\begingroup
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
+\caption{Examples from the plausibility dataset.}
+\label{tab:plausibility-examples}\\
+\toprule
+& Critical (Probable) & Control (Impossible) \\
+\midrule
+\endfirsthead
+\toprule
+& Critical (Probable) & Control (Impossible) \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Someone baked a cake inside an oven. & Someone baked a cake inside a freezer. \\
+2 & Someone boiled water using a kettle. & Someone boiled water using a refrigerator. \\
+3 & Someone broke a coconut using a rock. & Someone broke a coconut using a pillow. \\
+4 & Someone built a house out of brick. & Someone built a house out of gas. \\
+5 & Someone built a bridge out of steel. & Someone built a bridge out of soup. \\
+6 & Someone called a friend using a phone. & Someone called a friend using a sandwich. \\
+7 & Someone carried groceries inside a tote bag. & Someone carried groceries inside a tornado. \\
+8 & Someone carved a statue using a chisel. & Someone carved a statue using a sock. \\
+9 & Someone caught a fish in a lake. & Someone caught a fish in a raindrop. \\
+10 & Someone chilled a drink using ice. & Someone chilled a drink using fire. \\
+\end{longtable}
+\endgroup
