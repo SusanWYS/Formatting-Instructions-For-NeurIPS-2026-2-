@@ -147,10 +147,10 @@ The CAA directions are relatively relation-selective: each direction strongly se
 Having identified a causal direction that generalizes across linguistic constructions, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive and negative social outcomes.
 
 \paragraph{Dataset.}
-We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman. For example, \emph{The white male salesperson was denied a work visa} has demographic variants and a positive counterpart in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 520 sentences.
+We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions---a white man, a white woman, a minority man, or a minority woman---and a race/gender-agnostic baseline. For example, \emph{The white male salesperson was denied a work visa} is paired with \emph{The salesperson was denied a work visa}; each has a positive counterpart in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-We project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Within each scenario and outcome, we subtract the white-male score from the matched white-female, minority-male, and minority-female scores. We average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
+We project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Within each scenario and outcome, we subtract the race/gender-agnostic score from each of the four demographic scores. We average these paired differences across the 65 scenarios and report 95\% bootstrap confidence intervals.
 
 \begin{table}[H]
   \vspace{-3pt}
@@ -158,37 +158,37 @@ We project each sentence's final-token activation onto the causal CAA direction 
   \renewcommand{\arraystretch}{.88}
   \begin{minipage}[t]{.49\linewidth}
     \centering
-    \caption{Negative outcomes: mean difference from white male $\pm$ 95\% CI. Bold CIs exclude zero. \textbf{Contrasts vary by model.}}
+    \caption{Negative outcomes: mean difference from the race/gender-agnostic baseline $\pm$ 95\% CI. Bold CIs exclude zero. \textbf{Significant contrasts are uniformly negative but vary across models and conditions.}}
     \label{tab:naturalistic-negative}
     \resizebox{\linewidth}{!}{%
-    \begin{tabular}{lrrr}
+    \begin{tabular}{lrrrr}
       \toprule
-      Model & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
+      Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
       \midrule
-      Gemma 2 2B & $\boldsymbol{-.132\mathbin{\pm}.041}$ & $\boldsymbol{.204\mathbin{\pm}.116}$ & $\boldsymbol{.344\mathbin{\pm}.121}$ \\
-      Gemma 2 9B & $\boldsymbol{-.459\mathbin{\pm}.145}$ & $.032\mathbin{\pm}.241$ & $-.199\mathbin{\pm}.278$ \\
-      Qwen3 4B & $\boldsymbol{.068\mathbin{\pm}.034}$ & $.033\mathbin{\pm}.071$ & $\boldsymbol{.113\mathbin{\pm}.072}$ \\
-      Qwen3 8B & $\boldsymbol{.186\mathbin{\pm}.085}$ & $\boldsymbol{.364\mathbin{\pm}.128}$ & $\boldsymbol{.554\mathbin{\pm}.134}$ \\
-      Llama 3.2 3B & $\boldsymbol{-.040\mathbin{\pm}.013}$ & $\boldsymbol{-.031\mathbin{\pm}.029}$ & $.013\mathbin{\pm}.029$ \\
-      Llama 3 8B & $\boldsymbol{-.010\mathbin{\pm}.004}$ & $-.007\mathbin{\pm}.013$ & $.002\mathbin{\pm}.012$ \\
+      Gemma 2 2B & $\boldsymbol{-.51\mathbin{\pm}.22}$ & $\boldsymbol{-.65\mathbin{\pm}.20}$ & $\boldsymbol{-.31\mathbin{\pm}.24}$ & $-.17\mathbin{\pm}.22$ \\
+      Gemma 2 9B & $-.31\mathbin{\pm}.66$ & $\boldsymbol{-.77\mathbin{\pm}.66}$ & $-.27\mathbin{\pm}.70$ & $-.51\mathbin{\pm}.68$ \\
+      Qwen3 4B & $-.16\mathbin{\pm}.16$ & $-.09\mathbin{\pm}.15$ & $-.13\mathbin{\pm}.16$ & $-.05\mathbin{\pm}.16$ \\
+      Qwen3 8B & $\boldsymbol{-.59\mathbin{\pm}.30}$ & $\boldsymbol{-.40\mathbin{\pm}.29}$ & $-.22\mathbin{\pm}.30$ & $-.03\mathbin{\pm}.31$ \\
+      Llama 3.2 3B & $.032\mathbin{\pm}.053$ & $-.008\mathbin{\pm}.049$ & $.001\mathbin{\pm}.053$ & $.044\mathbin{\pm}.052$ \\
+      Llama 3 8B & $\boldsymbol{-.040\mathbin{\pm}.023}$ & $\boldsymbol{-.050\mathbin{\pm}.023}$ & $\boldsymbol{-.047\mathbin{\pm}.024}$ & $\boldsymbol{-.038\mathbin{\pm}.023}$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}\hfill
   \begin{minipage}[t]{.49\linewidth}
     \centering
-    \caption{Positive outcomes: mean difference from white male $\pm$ 95\% CI. Bold CIs exclude zero. \textbf{Minority-female scores are consistently higher.}}
+    \caption{Positive outcomes: mean difference from the race/gender-agnostic baseline $\pm$ 95\% CI. Bold CIs exclude zero. \textbf{Significant contrasts are uniformly negative but vary across models and conditions.}}
     \label{tab:naturalistic-positive}
     \resizebox{\linewidth}{!}{%
-    \begin{tabular}{lrrr}
+    \begin{tabular}{lrrrr}
       \toprule
-      Model & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
+      Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
       \midrule
-      Gemma 2 2B & $\boldsymbol{-.068\mathbin{\pm}.040}$ & $\boldsymbol{.433\mathbin{\pm}.121}$ & $\boldsymbol{.676\mathbin{\pm}.125}$ \\
-      Gemma 2 9B & $-.054\mathbin{\pm}.143$ & $\boldsymbol{.515\mathbin{\pm}.273}$ & $\boldsymbol{.570\mathbin{\pm}.323}$ \\
-      Qwen3 4B & $\boldsymbol{.083\mathbin{\pm}.032}$ & $.024\mathbin{\pm}.066$ & $\boldsymbol{.113\mathbin{\pm}.069}$ \\
-      Qwen3 8B & $\boldsymbol{.197\mathbin{\pm}.082}$ & $\boldsymbol{.203\mathbin{\pm}.129}$ & $\boldsymbol{.429\mathbin{\pm}.164}$ \\
-      Llama 3.2 3B & $-.002\mathbin{\pm}.015$ & $.002\mathbin{\pm}.034$ & $\boldsymbol{.058\mathbin{\pm}.033}$ \\
-      Llama 3 8B & $.000\mathbin{\pm}.005$ & $.007\mathbin{\pm}.013$ & $\boldsymbol{.026\mathbin{\pm}.012}$ \\
+      Gemma 2 2B & $\boldsymbol{-.90\mathbin{\pm}.21}$ & $\boldsymbol{-.97\mathbin{\pm}.21}$ & $\boldsymbol{-.47\mathbin{\pm}.23}$ & $\boldsymbol{-.22\mathbin{\pm}.22}$ \\
+      Gemma 2 9B & $\boldsymbol{-2.25\mathbin{\pm}.62}$ & $\boldsymbol{-2.30\mathbin{\pm}.60}$ & $\boldsymbol{-1.73\mathbin{\pm}.70}$ & $\boldsymbol{-1.68\mathbin{\pm}.68}$ \\
+      Qwen3 4B & $-.15\mathbin{\pm}.15$ & $-.07\mathbin{\pm}.14$ & $-.13\mathbin{\pm}.15$ & $-.04\mathbin{\pm}.15$ \\
+      Qwen3 8B & $\boldsymbol{-.69\mathbin{\pm}.33}$ & $\boldsymbol{-.50\mathbin{\pm}.34}$ & $\boldsymbol{-.49\mathbin{\pm}.34}$ & $-.26\mathbin{\pm}.36$ \\
+      Llama 3.2 3B & $-.062\mathbin{\pm}.065$ & $-.064\mathbin{\pm}.065$ & $-.060\mathbin{\pm}.067$ & $-.004\mathbin{\pm}.067$ \\
+      Llama 3 8B & $\boldsymbol{-.038\mathbin{\pm}.024}$ & $\boldsymbol{-.037\mathbin{\pm}.024}$ & $\boldsymbol{-.030\mathbin{\pm}.026}$ & $-.012\mathbin{\pm}.025$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}
@@ -196,7 +196,7 @@ We project each sentence's final-token activation onto the causal CAA direction 
 \end{table}
 
 \paragraph{Results.}
-Demographic descriptions shift causal projections differently across models and outcomes (Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-positive}). For negative outcomes, minority-female scores are significantly higher than white-male scores in three models, while white-female contrasts differ in direction. For positive outcomes, minority-female scores are higher in all six models and minority-male scores in three. Figure~\ref{fig:rq3-distributions} shows the negative-outcome distributions. Although learned without references to race or gender, the causal direction is sensitive to demographic information.
+Demographic descriptions shift causal projections differently across models and outcomes (Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-positive}). All significant differences from the race/gender-agnostic baseline are negative. For each outcome, four models show at least one significant contrast, whereas Qwen3 4B and Llama 3.2 3B show none. Figure~\ref{fig:rq3-distributions} shows the negative-outcome distributions. Although learned without references to race or gender, the causal direction is sensitive to demographic information.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -222,12 +222,12 @@ Our results highlight a distinction between \emph{making} an implicit inference 
 \subsection{Naturalistic scenarios: statistics and examples}
 \label{app:naturalistic-stimuli}
 
-The naturalistic evaluation contains 65 scenario templates and 520 sentences:
-one white-male, one white-female, one minority-male, and one minority-female version of each positive and negative outcome.
+The naturalistic evaluation contains 65 scenario templates and 650 sentences:
+one race/gender-agnostic, one white-male, one white-female, one minority-male, and one minority-female version of each positive and negative outcome.
 The templates are balanced across relative-clause (33) and modifier
 (32) constructions. Assigned minority identities are also approximately
 balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of matched
-stimuli is shown in Table~\ref{tab:rq3-stimuli}.
+demographic stimuli is shown in Table~\ref{tab:rq3-stimuli}; the agnostic baseline removes the race and gender markers while preserving the remaining wording.
 
 \input{derived/rq3_self_blinding_stimuli}
 
@@ -328,7 +328,7 @@ Table~\ref{tab:naturalistic-negative}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired demographic contrasts vary across models (Table~\ref{tab:naturalistic-negative}).}}
+  \caption{CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref{tab:naturalistic-negative}).}}
   \label{fig:rq3-distributions}
 \end{figure}
 
