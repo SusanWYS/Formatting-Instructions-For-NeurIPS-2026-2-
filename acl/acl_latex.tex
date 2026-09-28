@@ -155,22 +155,34 @@ We use two complementary measures. First, we project each sentence's final-token
 
 \begin{table*}[t]
   \centering
-  \caption{Six-model aggregate differences from the matched race/gender-agnostic baseline $\pm$ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}
-  \label{tab:naturalistic-aggregate}
-  \begin{tabular}{llrrrr}
+  \caption{Six-model aggregate differences from the matched race/gender-agnostic baseline for positive outcomes, reported as the mean $\pm$ 95\% scenario-bootstrap CI. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{Projection differences are inconsistent, whereas Likert ratings are lower for three of the four demographic descriptions.}}
+  \label{tab:naturalistic-positive-aggregate}
+  \begin{tabular}{lrrrr}
     \toprule
-    Measure & Outcome & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
+    Measure & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
     \midrule
-    CAA projection & Negative & $\boldsymbol{.40\mathbin{\pm}.29}$ & $\boldsymbol{.33\mathbin{\pm}.29}$ & $\boldsymbol{.50\mathbin{\pm}.31}$ & $\boldsymbol{.54\mathbin{\pm}.30}$ \\
-    CAA projection & Positive & $-.06\mathbin{\pm}.29$ & $-.03\mathbin{\pm}.30$ & $.14\mathbin{\pm}.31$ & $.26\mathbin{\pm}.30$ \\
-    Likert rating & Negative & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.11\mathbin{\pm}.04}$ \\
-    Likert rating & Positive & $\boldsymbol{-.11\mathbin{\pm}.07}$ & $\boldsymbol{-.09\mathbin{\pm}.07}$ & $\boldsymbol{-.14\mathbin{\pm}.08}$ & $-.06\mathbin{\pm}.07$ \\
+    CAA projection & $-.06\mathbin{\pm}.29$ & $-.03\mathbin{\pm}.30$ & $.14\mathbin{\pm}.31$ & $.26\mathbin{\pm}.30$ \\
+    Likert rating & $\boldsymbol{-.11\mathbin{\pm}.07}$ & $\boldsymbol{-.09\mathbin{\pm}.07}$ & $\boldsymbol{-.14\mathbin{\pm}.08}$ & $-.06\mathbin{\pm}.07$ \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+  \centering
+  \caption{Six-model aggregate differences from the matched race/gender-agnostic baseline for negative outcomes, reported as the mean $\pm$ 95\% scenario-bootstrap CI. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{All four demographic descriptions increase both causal projections and Likert ratings relative to the agnostic baseline.}}
+  \label{tab:naturalistic-negative-aggregate}
+  \begin{tabular}{lrrrr}
+    \toprule
+    Measure & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
+    \midrule
+    CAA projection & $\boldsymbol{.40\mathbin{\pm}.29}$ & $\boldsymbol{.33\mathbin{\pm}.29}$ & $\boldsymbol{.50\mathbin{\pm}.31}$ & $\boldsymbol{.54\mathbin{\pm}.30}$ \\
+    Likert rating & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.11\mathbin{\pm}.04}$ \\
     \bottomrule
   \end{tabular}
 \end{table*}
 
 \paragraph{Results.}
-Across the six tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Table~\ref{tab:naturalistic-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero for three. The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}): for example, the negative-outcome projection differences reverse direction for Gemma~2 2B, and the positive-outcome Likert pattern is especially strong for Qwen3 4B. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model. A two-way bootstrap over both models and scenarios leaves only the negative-outcome minority-female CAA contrast above zero.
+Across the six tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Table~\ref{tab:naturalistic-negative-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero for three (Table~\ref{tab:naturalistic-positive-aggregate}). The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}): for example, the negative-outcome projection differences reverse direction for Gemma~2 2B, and the positive-outcome Likert pattern is especially strong for Qwen3 4B. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model. A two-way bootstrap over both models and scenarios leaves only the negative-outcome minority-female CAA contrast above zero.
 
 \section{Discussion}
 \label{sec:discussion}
