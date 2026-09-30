@@ -155,11 +155,11 @@ For a causal CAA direction $v_l$ at the layer $l$ selected in Section~\ref{sec:r
 \end{equation}
 We intervene at every token position while scoring the fixed continuation token by token and report the change in mean surprisal per continuation token, $\Delta S=S_{\mathrm{intervened}}-S_{\mathrm{baseline}}$. For each model, we tune $\alpha$ on the 48 cross-sentence development items. On control items, we search the nonnegative coefficients 0, .25, .5, 1, 1.5, 2, 2.5, 3, 4, and 5 to maximize $\Delta S$. On the matched critical items, we search the corresponding nonpositive coefficients to minimize $\Delta S$. Including zero allows the procedure to select no intervention when no coefficient has the predicted effect. We freeze the selected coefficient and evaluate it on the 48 disjoint cross-sentence test items and the 150 within-sentence items from Section~\ref{sec:behavior}. Confidence intervals bootstrap evaluation items. Because we use raw, unnormalized CAA directions, coefficient magnitudes are interpreted within, rather than across, models.
 
-\begin{table*}[t]
+\begin{table}[t]
   \centering
   \small
-  \setlength{\tabcolsep}{4pt}
-  \caption{Mean per-token surprisal change with 95\% bootstrap CIs on within-sentence items after adding the causal direction to control contexts or subtracting it from critical contexts. The $\alpha$ columns show the coefficients selected on the development set. Positive changes are predicted for addition and negative changes for subtraction; bold CIs exclude zero. \textbf{The predicted intervention effect transfers to within-sentence items in four models under addition and five models under subtraction.}}
+  \setlength{\tabcolsep}{3pt}
+  \caption{Mean per-token surprisal change $\pm$ the 95\% bootstrap CI half-width on within-sentence items after adding the causal direction to control contexts or subtracting it from critical contexts. The $\alpha$ columns show the coefficients selected on the development set. Positive changes are predicted for addition and negative changes for subtraction; bold CIs exclude zero. \textbf{The predicted intervention effect transfers to within-sentence items in four models under addition and five models under subtraction.}}
   \label{tab:intervention}
   \begin{tabular}{lrrrr}
     \toprule
@@ -167,15 +167,15 @@ We intervene at every token position while scoring the fixed continuation token 
     \cmidrule(lr){2-3}\cmidrule(lr){4-5}
       & $\alpha$ & $\Delta$ surprisal & $\alpha$ & $\Delta$ surprisal \\
     \midrule
-    Gemma~2 2B & $-5$ & $\boldsymbol{-.12\;[-.13,-.10]}$ & $5$ & $\boldsymbol{.08\;[.06,.10]}$ \\
-    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\;[-.20,-.16]}$ & $5$ & $\boldsymbol{.05\;[.02,.07]}$ \\
-    Qwen3 4B & $0$ & $.00$ & $0$ & $.00$ \\
-    Qwen3 8B & $-5$ & $\boldsymbol{-.38\;[-.42,-.34]}$ & $0$ & $.00$ \\
-    Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\;[-.07,-.05]}$ & $5$ & $\boldsymbol{.72\;[.69,.75]}$ \\
-    Llama~3 8B & $-5$ & $\boldsymbol{-.34\;[-.37,-.32]}$ & $5$ & $\boldsymbol{.10\;[.07,.12]}$ \\
+    Gemma~2 2B & $-5$ & $\boldsymbol{-.12\mathbin{\pm}.02}$ & $5$ & $\boldsymbol{.08\mathbin{\pm}.02}$ \\
+    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $5$ & $\boldsymbol{.05\mathbin{\pm}.03}$ \\
+    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $0$ & $.00\mathbin{\pm}.00$ \\
+    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $0$ & $.00\mathbin{\pm}.00$ \\
+    Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ \\
+    Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $5$ & $\boldsymbol{.10\mathbin{\pm}.03}$ \\
     \bottomrule
   \end{tabular}
-\end{table*}
+\end{table}
 
 \paragraph{Results.}
 On within-sentence items, adding the causal direction increases surprisal reliably in four models, while subtracting it decreases surprisal reliably in five (Table~\ref{tab:intervention}). Both Qwen models select $\alpha=0$ for addition because every positive coefficient moves development-set surprisal in the opposite direction; Qwen3 4B also selects no intervention for subtraction. The intervention is therefore behaviorally consequential in most models, although its effect is neither universal nor symmetric. Several coefficients lie at the edge of the search range and should be interpreted as the best tested value rather than the true optimum.
