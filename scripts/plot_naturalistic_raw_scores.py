@@ -216,14 +216,13 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         )
         axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
         axis.spines[["top", "right"]].set_visible(False)
-        axis.set_ylabel("Unit CAA projection" if metric == "CAA projection"
-                        else "Expected Likert rating")
+        axis.set_ylabel("CAA" if metric == "CAA projection" else "Likert")
 
     axes[-1].set_xticks(x, CONDITION_LABELS)
     axes[-1].set_xlabel("Demographic condition")
     baseline_handle = Line2D(
         [0], [0], color="black", linestyle="--", linewidth=0.8,
-        label="Incidental-detail baseline",
+        label="Gender/Race agnostic baseline",
     )
     figure.legend(
         handles=[baseline_handle],

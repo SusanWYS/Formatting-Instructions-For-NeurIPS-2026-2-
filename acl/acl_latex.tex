@@ -159,26 +159,24 @@ We intervene at every token position while scoring the fixed continuation token 
   \centering
   \small
   \setlength{\tabcolsep}{4pt}
-  \caption{Mean per-token surprisal change with 95\% bootstrap CIs after adding the causal direction to control contexts or subtracting it from critical contexts. Positive changes are predicted for addition and negative changes for subtraction; bold CIs exclude zero. A coefficient of zero indicates that no tested intervention improved the development objective. \textbf{The predicted intervention effect transfers to within-sentence items in four models under addition and five models under subtraction.}}
+  \caption{Mean per-token surprisal change with 95\% bootstrap CIs on within-sentence items after adding the causal direction to control contexts or subtracting it from critical contexts. Positive changes are predicted for addition and negative changes for subtraction; bold CIs exclude zero. \textbf{The predicted intervention effect transfers to within-sentence items in four models under addition and five models under subtraction.}}
   \label{tab:intervention}
-  \begin{tabular}{lrrrrrr}
+  \begin{tabular}{lrr}
     \toprule
-      & \multicolumn{3}{c}{Add to control contexts} & \multicolumn{3}{c}{Subtract from critical contexts} \\
-    \cmidrule(lr){2-4}\cmidrule(lr){5-7}
-    Model & $\alpha$ & Cross-sentence & Within-sentence & $\alpha$ & Cross-sentence & Within-sentence \\
+      & Add to control contexts & Subtract from critical contexts \\
     \midrule
-    Gemma~2 2B & $5$ & $\boldsymbol{.18\;[.14,.21]}$ & $\boldsymbol{.08\;[.06,.10]}$ & $-5$ & $\boldsymbol{-.13\;[-.17,-.10]}$ & $\boldsymbol{-.12\;[-.13,-.10]}$ \\
-    Gemma~2 9B & $5$ & $.01\;[-.03,.05]$ & $\boldsymbol{.05\;[.02,.07]}$ & $-4$ & $\boldsymbol{-.07\;[-.10,-.03]}$ & $\boldsymbol{-.18\;[-.20,-.16]}$ \\
-    Qwen3 4B & $0$ & $.00$ & $.00$ & $0$ & $.00$ & $.00$ \\
-    Qwen3 8B & $0$ & $.00$ & $.00$ & $-5$ & $\boldsymbol{-.26\;[-.35,-.18]}$ & $\boldsymbol{-.38\;[-.42,-.34]}$ \\
-    Llama~3.2 3B & $5$ & $\boldsymbol{.74\;[.68,.80]}$ & $\boldsymbol{.72\;[.69,.75]}$ & $-1$ & $-.01\;[-.04,.01]$ & $\boldsymbol{-.06\;[-.07,-.05]}$ \\
-    Llama~3 8B & $5$ & $\boldsymbol{.11\;[.07,.15]}$ & $\boldsymbol{.10\;[.07,.12]}$ & $-5$ & $\boldsymbol{-.21\;[-.27,-.16]}$ & $\boldsymbol{-.34\;[-.37,-.32]}$ \\
+    Gemma~2 2B & $\boldsymbol{.08\;[.06,.10]}$ & $\boldsymbol{-.12\;[-.13,-.10]}$ \\
+    Gemma~2 9B & $\boldsymbol{.05\;[.02,.07]}$ & $\boldsymbol{-.18\;[-.20,-.16]}$ \\
+    Qwen3 4B & $.00$ & $.00$ \\
+    Qwen3 8B & $.00$ & $\boldsymbol{-.38\;[-.42,-.34]}$ \\
+    Llama~3.2 3B & $\boldsymbol{.72\;[.69,.75]}$ & $\boldsymbol{-.06\;[-.07,-.05]}$ \\
+    Llama~3 8B & $\boldsymbol{.10\;[.07,.12]}$ & $\boldsymbol{-.34\;[-.37,-.32]}$ \\
     \bottomrule
   \end{tabular}
 \end{table*}
 
 \paragraph{Results.}
-Adding the causal direction increases held-out cross-sentence surprisal reliably in three models and within-sentence surprisal in four models (Table~\ref{tab:intervention}). Both Qwen models select $\alpha=0$ for addition because every positive coefficient moves development-set surprisal in the opposite direction. Subtracting the direction produces a reliable held-out decrease in four models cross-sentence and five models within-sentence; only Qwen3 4B selects no intervention. The intervention is therefore behaviorally consequential in most models and transfers across sentence structures, although its effect is neither universal nor symmetric. Several coefficients lie at the edge of the search range and should be interpreted as the best tested value rather than the true optimum.
+On within-sentence items, adding the causal direction increases surprisal reliably in four models, while subtracting it decreases surprisal reliably in five (Table~\ref{tab:intervention}). Both Qwen models select $\alpha=0$ for addition because every positive coefficient moves development-set surprisal in the opposite direction; Qwen3 4B also selects no intervention for subtraction. The intervention is therefore behaviorally consequential in most models, although its effect is neither universal nor symmetric. Several coefficients lie at the edge of the search range and should be interpreted as the best tested value rather than the true optimum.
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
@@ -193,14 +191,14 @@ We use two complementary measures. First, we project each sentence's final-token
 \begin{figure}[t]
   \centering
   \includegraphics[width=.4\textwidth]{figures/naturalistic_positive_raw_scores_six_model.pdf}
-  \caption{Raw causal projection scores (top) and expected Likert ratings (bottom) for positive outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed line in each panel marks its matched incidental-detail baseline. \textbf{Demographic conditions remain close to the incidental-detail baseline in projection but receive lower explicit causal ratings.}}
+  \caption{Raw causal projection scores (top) and expected Likert ratings (bottom) for positive outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed line in each panel marks its matched gender/race-agnostic baseline. \textbf{Demographic conditions remain close to the gender/race-agnostic baseline in projection but receive lower explicit causal ratings.}}
   \label{fig:naturalistic-positive-aggregate}
 \end{figure}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=.4\textwidth]{figures/naturalistic_negative_raw_scores_six_model.pdf}
-  \caption{Raw causal projection scores (top) and expected Likert ratings (bottom) for negative outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed line in each panel marks its matched incidental-detail baseline. \textbf{All four demographic conditions exceed the incidental-detail baseline in both measures.}}
+  \caption{Raw causal projection scores (top) and expected Likert ratings (bottom) for negative outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed line in each panel marks its matched gender/race-agnostic baseline. \textbf{All four demographic conditions exceed the gender/race-agnostic baseline in both measures.}}
   \label{fig:naturalistic-negative-aggregate}
 \end{figure}
 
