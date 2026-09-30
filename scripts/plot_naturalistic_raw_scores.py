@@ -168,7 +168,9 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         "negative": ("#B94A48", "#F08080"),
     }
     projection_color, likert_color = palette[outcome]
-    figure, axes = plt.subplots(2, 1, figsize=(5.9, 4.4), sharex=True)
+    # Figure 3 uses a 7.6 x 1.05 inch canvas for one panel.  This canvas
+    # preserves the same wide, shallow panel footprint while stacking two.
+    figure, axes = plt.subplots(2, 1, figsize=(7.6, 3.0), sharex=True)
     x = np.arange(len(CONDITIONS))
 
     for axis, metric, color in zip(
@@ -184,12 +186,20 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         yerr = np.vstack((means - ci_low, ci_high - means))
         baseline = lookup(summary, metric, outcome, BASELINE)["mean"]
 
+        displayed_min = min(ci_low.min(), baseline)
+        displayed_max = max(ci_high.max(), baseline)
+        displayed_range = displayed_max - displayed_min
+        if displayed_range == 0:
+            displayed_range = max(abs(displayed_min), 1.0)
+        y_min = displayed_min - 0.10 * displayed_range
+        y_max = displayed_max + 0.10 * displayed_range
+
         if metric == "Likert rating":
             axis.bar(
                 x,
-                means - 1.0,
+                means - y_min,
                 width=0.62,
-                bottom=1.0,
+                bottom=y_min,
                 color=color,
                 edgecolor="black",
                 linewidth=0.5,
@@ -198,13 +208,13 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
                 error_kw={"elinewidth": 1.0, "capthick": 1.0},
                 zorder=3,
             )
-            axis.set_ylim(1, 4)
             axis.set_ylabel("Expected Likert rating")
         else:
             axis.bar(
                 x,
-                means,
+                means - y_min,
                 width=0.62,
+                bottom=y_min,
                 color=color,
                 edgecolor="black",
                 linewidth=0.5,
@@ -213,9 +223,9 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
                 error_kw={"elinewidth": 1.0, "capthick": 1.0},
                 zorder=3,
             )
-            lower = min(ci_low.min(), baseline)
-            axis.set_ylim(np.floor((lower - 0.25) * 2) / 2, 0)
             axis.set_ylabel("Unit CAA projection")
+
+        axis.set_ylim(y_min, y_max)
 
         axis.axhline(
             baseline,
@@ -227,19 +237,25 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         axis.grid(axis="y", color="#D9D9D9", linewidth=0.6, zorder=0)
         axis.spines[["top", "right"]].set_visible(False)
         axis.tick_params(labelsize=9)
-        legend_line = Line2D(
-            [0],
-            [0],
-            color="black",
-            linestyle=(0, (5, 3)),
-            linewidth=1.3,
-            label="Incidental-detail baseline",
-        )
-        axis.legend(handles=[legend_line], frameon=False, loc="lower right", fontsize=8.5)
 
     axes[-1].set_xticks(x, CONDITION_LABELS)
     axes[-1].set_xlabel("Demographic condition")
-    figure.subplots_adjust(left=0.14, right=0.985, bottom=0.15, top=0.985, hspace=0.18)
+    legend_line = Line2D(
+        [0],
+        [0],
+        color="black",
+        linestyle=(0, (5, 3)),
+        linewidth=1.3,
+        label="Incidental-detail baseline",
+    )
+    figure.legend(
+        handles=[legend_line],
+        frameon=False,
+        loc="upper center",
+        bbox_to_anchor=(0.5, 0.995),
+        fontsize=9,
+    )
+    figure.subplots_adjust(left=0.11, right=0.985, bottom=0.17, top=0.91, hspace=0.44)
     output_dir.mkdir(parents=True, exist_ok=True)
     stem = f"naturalistic_{outcome}_raw_scores_six_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
