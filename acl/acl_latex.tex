@@ -13,6 +13,7 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage{placeins}
 \usepackage{enumitem}
 \usepackage{array}
 \usepackage{longtable}
@@ -187,38 +188,26 @@ Having identified a causal direction that generalizes across linguistic construc
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions---a white man, a white woman, a minority man, or a minority woman---and a race/gender-agnostic baseline. To control for length, the baseline replaces the demographic description with a manually reviewed incidental detail that does not suggest the outcome. For example, \emph{The white male salesperson was denied a work visa to move to the United States} is compared with \emph{The salesperson at the consulate was denied a work visa to move to the United States}; each has a positive counterpart in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each scenario and outcome, we subtract the race/gender-agnostic score from each demographic score. For the model aggregate, we give each model equal weight by first averaging the six differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the six tested models as fixed. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
+We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Figures~\ref{fig:naturalistic-positive-aggregate} and~\ref{fig:naturalistic-negative-aggregate} show the raw scores for each condition. We give each model equal weight by first averaging the six scores within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the six tested models as fixed. Unit-vector projection coordinates are model-specific, so their six-model average is a descriptive summary of this fixed model set. Per-model demographic-minus-baseline differences are reported in Appendix~\ref{app:naturalistic-model-results}.
 
-\begin{table*}[t]
+\begin{figure*}[t]
   \centering
-  \caption{Six-model aggregate differences from the matched race/gender-agnostic baseline for positive outcomes, reported as the mean $\pm$ 95\% scenario-bootstrap CI. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{Projection differences are inconsistent, whereas Likert ratings are lower for three of the four demographic descriptions.}}
-  \label{tab:naturalistic-positive-aggregate}
-  \begin{tabular}{lrrrr}
-    \toprule
-    Measure & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
-    \midrule
-    CAA projection & $-.06\mathbin{\pm}.29$ & $-.03\mathbin{\pm}.30$ & $.14\mathbin{\pm}.31$ & $.26\mathbin{\pm}.30$ \\
-    Likert rating & $\boldsymbol{-.11\mathbin{\pm}.07}$ & $\boldsymbol{-.09\mathbin{\pm}.07}$ & $\boldsymbol{-.14\mathbin{\pm}.08}$ & $-.06\mathbin{\pm}.07$ \\
-    \bottomrule
-  \end{tabular}
-\end{table*}
+  \includegraphics[width=.72\textwidth]{figures/naturalistic_positive_raw_scores_six_model.pdf}
+  \caption{Raw causal projection scores (top) and expected Likert ratings (bottom) for positive outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed line marks the matched incidental-detail baseline. Projection uses the unit-normalized causal CAA direction, and Likert ratings range from 1 to 7. \textbf{Demographic conditions remain close to the incidental-detail baseline in projection but receive lower explicit causal ratings.}}
+  \label{fig:naturalistic-positive-aggregate}
+\end{figure*}
 
-\begin{table*}[t]
+\begin{figure*}[t]
   \centering
-  \caption{Six-model aggregate differences from the matched race/gender-agnostic baseline for negative outcomes, reported as the mean $\pm$ 95\% scenario-bootstrap CI. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{All four demographic descriptions increase both causal projections and Likert ratings relative to the agnostic baseline.}}
-  \label{tab:naturalistic-negative-aggregate}
-  \begin{tabular}{lrrrr}
-    \toprule
-    Measure & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
-    \midrule
-    CAA projection & $\boldsymbol{.40\mathbin{\pm}.29}$ & $\boldsymbol{.33\mathbin{\pm}.29}$ & $\boldsymbol{.50\mathbin{\pm}.31}$ & $\boldsymbol{.54\mathbin{\pm}.30}$ \\
-    Likert rating & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.11\mathbin{\pm}.04}$ \\
-    \bottomrule
-  \end{tabular}
-\end{table*}
+  \includegraphics[width=.72\textwidth]{figures/naturalistic_negative_raw_scores_six_model.pdf}
+  \caption{Raw causal projection scores (top) and expected Likert ratings (bottom) for negative outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed line marks the matched incidental-detail baseline. Projection uses the unit-normalized causal CAA direction, and Likert ratings range from 1 to 7. \textbf{All four demographic conditions exceed the incidental-detail baseline in both measures.}}
+  \label{fig:naturalistic-negative-aggregate}
+\end{figure*}
 
 \paragraph{Results.}
-Across the six tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Table~\ref{tab:naturalistic-negative-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero for three (Table~\ref{tab:naturalistic-positive-aggregate}). The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}): for example, the negative-outcome projection differences reverse direction for Gemma~2 2B, and the positive-outcome Likert pattern is especially strong for Qwen3 4B. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model. A two-way bootstrap over both models and scenarios leaves only the negative-outcome minority-female CAA contrast above zero.
+Across the six tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Figure~\ref{fig:naturalistic-negative-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero for three (Figure~\ref{fig:naturalistic-positive-aggregate}). The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}): for example, the negative-outcome projection differences reverse direction for Gemma~2 2B, and the positive-outcome Likert pattern is especially strong for Qwen3 4B. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model. A two-way bootstrap over both models and scenarios leaves only the negative-outcome minority-female CAA contrast above zero.
+
+\FloatBarrier
 
 \section{Discussion}
 \label{sec:discussion}
