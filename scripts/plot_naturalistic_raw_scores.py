@@ -263,7 +263,7 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         )
         axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
         axis.spines[["top", "right"]].set_visible(False)
-        axis.set_ylabel("CAA" if metric == "CAA projection" else "Likert")
+        axis.set_ylabel(r"$\Delta$ CAA" if metric == "CAA projection" else r"$\Delta$ Likert")
 
     axes[-1].set_xticks(x, CONDITION_LABELS)
     axes[-1].set_xlabel("Demographic condition")
