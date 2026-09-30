@@ -8,7 +8,6 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 
@@ -169,18 +168,22 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         "negative": ("#B94A48", "#F08080"),
     }
     projection_color, likert_color = palette[outcome]
-    # Figure 3 uses a 7.6-inch-wide canvas.  This single-panel canvas is half
-    # that width; the paper includes it at half Figure 3's displayed width.
-    figure, projection_axis = plt.subplots(figsize=(3.8, 1.9))
-    likert_axis = projection_axis.twinx()
+    # Use the same Matplotlib typography as Figure 3.  The canvas and LaTeX
+    # inclusion widths are both approximately half those of Figure 3.
+    figure, axes = plt.subplots(2, 1, figsize=(3.24, 3.1), sharex=True)
     x = np.arange(len(CONDITIONS))
 
-    metric_values = {}
-    for metric in ("CAA projection", "Likert rating"):
+    for axis, metric, color in zip(
+        axes,
+        ("CAA projection", "Likert rating"),
+        (projection_color, likert_color),
+        strict=True,
+    ):
         rows = [lookup(summary, metric, outcome, condition) for condition in CONDITIONS]
         means = np.array([row["mean"] for row in rows])
         ci_low = np.array([row["ci_low"] for row in rows])
         ci_high = np.array([row["ci_high"] for row in rows])
+        yerr = np.vstack((means - ci_low, ci_high - means))
         baseline = lookup(summary, metric, outcome, BASELINE)["mean"]
         displayed_min = min(ci_low.min(), baseline)
         displayed_max = max(ci_high.max(), baseline)
@@ -189,90 +192,46 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
             displayed_range = max(abs(displayed_min), 1.0)
         y_min = displayed_min - 0.10 * displayed_range
         y_max = displayed_max + 0.10 * displayed_range
-        metric_values[metric] = {
-            "means": means,
-            "yerr": np.vstack((means - ci_low, ci_high - means)),
-            "baseline": baseline,
-            "ylim": (y_min, y_max),
-        }
 
-    width = 0.34
-    projection = metric_values["CAA projection"]
-    likert = metric_values["Likert rating"]
-    projection_axis.bar(
-        x - width / 2,
-        projection["means"] - projection["ylim"][0],
-        width=width,
-        bottom=projection["ylim"][0],
-        color=projection_color,
-        edgecolor="black",
-        linewidth=0.45,
-        yerr=projection["yerr"],
-        capsize=2,
-        error_kw={"elinewidth": 0.8, "capthick": 0.8},
-        zorder=3,
-    )
-    likert_axis.bar(
-        x + width / 2,
-        likert["means"] - likert["ylim"][0],
-        width=width,
-        bottom=likert["ylim"][0],
-        color=likert_color,
-        edgecolor="black",
-        linewidth=0.45,
-        yerr=likert["yerr"],
-        capsize=2,
-        error_kw={"elinewidth": 0.8, "capthick": 0.8},
-        zorder=3,
-    )
-    projection_axis.set_ylim(*projection["ylim"])
-    likert_axis.set_ylim(*likert["ylim"])
-    projection_axis.axhline(
-        projection["baseline"],
-        color=projection_color,
-        linestyle=(0, (4, 2.5)),
-        linewidth=1.1,
-        zorder=4,
-    )
-    likert_axis.axhline(
-        likert["baseline"],
-        color=likert_color,
-        linestyle=(0, (4, 2.5)),
-        linewidth=1.1,
-        zorder=4,
-    )
+        axis.bar(
+            x,
+            means - y_min,
+            width=0.62,
+            bottom=y_min,
+            color=color,
+            edgecolor="black",
+            linewidth=0.5,
+            yerr=yerr,
+            capsize=1.8,
+            error_kw={"elinewidth": 0.7, "capthick": 0.7},
+            zorder=3,
+        )
+        axis.set_ylim(y_min, y_max)
+        axis.axhline(
+            baseline,
+            color="black",
+            linestyle="--",
+            linewidth=0.8,
+            zorder=4,
+        )
+        axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
+        axis.spines[["top", "right"]].set_visible(False)
+        axis.set_ylabel("Unit CAA projection" if metric == "CAA projection"
+                        else "Expected Likert rating")
 
-    projection_axis.set_ylabel("CAA projection", fontsize=8)
-    likert_axis.set_ylabel("Likert rating", fontsize=8)
-    projection_axis.set_xticks(x, CONDITION_LABELS)
-    projection_axis.set_xlabel("Demographic condition", fontsize=8)
-    projection_axis.grid(axis="y", color="#D9D9D9", linewidth=0.5, zorder=0)
-    projection_axis.spines["top"].set_visible(False)
-    likert_axis.spines["top"].set_visible(False)
-    projection_axis.tick_params(labelsize=7.5)
-    likert_axis.tick_params(labelsize=7.5)
-
-    legend_handles = [
-        Patch(facecolor=projection_color, edgecolor="black", linewidth=0.45,
-              label="CAA projection"),
-        Patch(facecolor=likert_color, edgecolor="black", linewidth=0.45,
-              label="Likert rating"),
-        Line2D([0], [0], color=projection_color, linestyle=(0, (4, 2.5)),
-               linewidth=1.1, label="Incidental (CAA)"),
-        Line2D([0], [0], color=likert_color, linestyle=(0, (4, 2.5)),
-               linewidth=1.1, label="Incidental (Likert)"),
-    ]
+    axes[-1].set_xticks(x, CONDITION_LABELS)
+    axes[-1].set_xlabel("Demographic condition")
+    baseline_handle = Line2D(
+        [0], [0], color="black", linestyle="--", linewidth=0.8,
+        label="Incidental-detail baseline",
+    )
     figure.legend(
-        handles=legend_handles,
+        handles=[baseline_handle],
         frameon=False,
         loc="upper center",
-        bbox_to_anchor=(0.5, 1.0),
-        fontsize=6.7,
-        ncol=2,
-        columnspacing=0.9,
-        handlelength=1.8,
+        bbox_to_anchor=(0.5, 0.995),
     )
-    figure.subplots_adjust(left=0.16, right=0.84, bottom=0.27, top=0.73)
+    figure.subplots_adjust(left=0.19, right=0.985, bottom=0.17, top=0.90, hspace=0.68)
     output_dir.mkdir(parents=True, exist_ok=True)
     stem = f"naturalistic_{outcome}_raw_scores_six_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
