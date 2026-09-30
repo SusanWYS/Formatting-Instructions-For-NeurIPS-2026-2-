@@ -7,7 +7,6 @@ import argparse
 from pathlib import Path
 
 import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
 import numpy as np
 import pandas as pd
 
@@ -151,6 +150,56 @@ def summarize(scores: pd.DataFrame, repetitions: int) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def summarize_paired_differences(
+    scores: pd.DataFrame, repetitions: int
+) -> pd.DataFrame:
+    """Summarize demographic-minus-agnostic differences by scenario."""
+    scenario_means = (
+        scores.groupby(
+            ["metric", "outcome", "condition", "decision_question_id"],
+            observed=True,
+        )["score"]
+        .mean()
+        .reset_index()
+    )
+    baseline = (
+        scenario_means[scenario_means["condition"] == BASELINE]
+        .drop(columns="condition")
+        .rename(columns={"score": "baseline_score"})
+    )
+    differences = scenario_means[scenario_means["condition"].isin(CONDITIONS)].merge(
+        baseline,
+        on=["metric", "outcome", "decision_question_id"],
+        how="left",
+        validate="many_to_one",
+    )
+    if differences["baseline_score"].isna().any():
+        raise ValueError("Missing matched race/gender-agnostic baseline")
+    differences["difference"] = differences["score"] - differences["baseline_score"]
+
+    rng = np.random.default_rng(20260930)
+    rows = []
+    for (metric, outcome, condition), group in differences.groupby(
+        ["metric", "outcome", "condition"], sort=False, observed=True
+    ):
+        values = group.sort_values("decision_question_id")["difference"].to_numpy()
+        samples = rng.choice(values, size=(repetitions, len(values)), replace=True).mean(axis=1)
+        low, high = np.quantile(samples, [0.025, 0.975])
+        rows.append(
+            {
+                "metric": metric,
+                "outcome": outcome,
+                "condition": condition,
+                "mean": values.mean(),
+                "ci_low": low,
+                "ci_high": high,
+                "n_scenarios": len(values),
+                "n_models": len(MODELS),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> pd.Series:
     row = summary[
         (summary["metric"] == metric)
@@ -170,7 +219,7 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
     projection_color, likert_color = palette[outcome]
     # Use the same Matplotlib typography as Figure 3.  The canvas and LaTeX
     # inclusion widths are both approximately half those of Figure 3.
-    figure, axes = plt.subplots(2, 1, figsize=(3.24, 3.1), sharex=True)
+    figure, axes = plt.subplots(2, 1, figsize=(3.24, 2.5), sharex=True)
     x = np.arange(len(CONDITIONS))
 
     for axis, metric, color in zip(
@@ -184,9 +233,8 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         ci_low = np.array([row["ci_low"] for row in rows])
         ci_high = np.array([row["ci_high"] for row in rows])
         yerr = np.vstack((means - ci_low, ci_high - means))
-        baseline = lookup(summary, metric, outcome, BASELINE)["mean"]
-        displayed_min = min(ci_low.min(), baseline)
-        displayed_max = max(ci_high.max(), baseline)
+        displayed_min = min(ci_low.min(), 0.0)
+        displayed_max = max(ci_high.max(), 0.0)
         displayed_range = displayed_max - displayed_min
         if displayed_range == 0:
             displayed_range = max(abs(displayed_min), 1.0)
@@ -195,9 +243,8 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
 
         axis.bar(
             x,
-            means - y_min,
+            means,
             width=0.62,
-            bottom=y_min,
             color=color,
             edgecolor="black",
             linewidth=0.5,
@@ -208,7 +255,7 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         )
         axis.set_ylim(y_min, y_max)
         axis.axhline(
-            baseline,
+            0.0,
             color="black",
             linestyle="--",
             linewidth=0.8,
@@ -220,17 +267,7 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
 
     axes[-1].set_xticks(x, CONDITION_LABELS)
     axes[-1].set_xlabel("Demographic condition")
-    baseline_handle = Line2D(
-        [0], [0], color="black", linestyle="--", linewidth=0.8,
-        label="Gender/Race agnostic baseline",
-    )
-    figure.legend(
-        handles=[baseline_handle],
-        frameon=False,
-        loc="upper center",
-        bbox_to_anchor=(0.5, 0.995),
-    )
-    figure.subplots_adjust(left=0.19, right=0.985, bottom=0.17, top=0.90, hspace=0.68)
+    figure.subplots_adjust(left=0.19, right=0.985, bottom=0.19, top=0.98, hspace=0.22)
     output_dir.mkdir(parents=True, exist_ok=True)
     stem = f"naturalistic_{outcome}_raw_scores_six_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
@@ -245,12 +282,13 @@ def main() -> None:
     scores = pd.concat([projection, likert], ignore_index=True)
     validate(scores)
     summary = summarize(scores, args.bootstrap_repetitions)
+    difference_summary = summarize_paired_differences(scores, args.bootstrap_repetitions)
     args.summary_csv.parent.mkdir(parents=True, exist_ok=True)
     summary.sort_values(["outcome", "metric", "condition"]).to_csv(
         args.summary_csv, index=False
     )
     for outcome in ("positive", "negative"):
-        plot_outcome(summary, outcome, args.output_dir)
+        plot_outcome(difference_summary, outcome, args.output_dir)
 
 
 if __name__ == "__main__":
