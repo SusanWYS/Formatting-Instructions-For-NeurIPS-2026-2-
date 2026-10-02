@@ -16,6 +16,7 @@
 \citation{qwen-team-2025-qwen3}
 \citation{meta-2024-llama32}
 \citation{dubey-etal-2024-llama3}
+\citation{team-olmo-2025-olmo3}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point Likert rating, and the surprisal of the continuation \textit  {", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}}{2}{figure.1}\protected@file@percent }
 \newlabel{fig:rq1}{{1}{2}{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point Likert rating, and the surprisal of the continuation \textit {", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences}{figure.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Experiments}{2}{section.2}\protected@file@percent }
@@ -45,8 +46,8 @@
 \newlabel{sec:naturalistic}{{2.3}{4}{Implicit representations of causality in real-world scenarios}{subsection.2.3}{}}
 \@writefile{toc}{\contentsline {paragraph}{Dataset.}{4}{section*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Evaluation.}{4}{section*.7}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Six-model aggregate differences from the matched race/gender-agnostic baseline $\pm $ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf  {Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}}{4}{table.1}\protected@file@percent }
-\newlabel{tab:naturalistic-aggregate}{{1}{4}{Six-model aggregate differences from the matched race/gender-agnostic baseline $\pm $ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf {Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Eight-model aggregate differences from the matched race/gender-agnostic baseline $\pm $ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf  {Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:naturalistic-aggregate}{{1}{4}{Eight-model aggregate differences from the matched race/gender-agnostic baseline $\pm $ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf {Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}{table.1}{}}
 \@writefile{toc}{\contentsline {paragraph}{Results.}{4}{section*.8}\protected@file@percent }
 \bibstyle{plainnat}
 \bibdata{paper}
@@ -71,7 +72,8 @@
 \bibcite{ruis2023goldilocks}{{17}{2023}{{Ruis et~al.}}{{Ruis, Khan, Biderman, Hooker, Rocktäschel, and Grefenstette}}}
 \bibcite{schuster-etal-2020-harnessing}{{18}{2020}{{Schuster et~al.}}{{Schuster, Chen, and Degen}}}
 \bibcite{tamkin-etal-2023-discrimination}{{19}{2023}{{Tamkin et~al.}}{{Tamkin, Askell, Lovitt, Durmus, Joseph, Kravec, Nguyen, Kaplan, and Ganguli}}}
-\bibcite{qwen-team-2025-qwen3}{{20}{2025}{{Yang et~al.}}{{}}}
+\bibcite{team-olmo-2025-olmo3}{{20}{2025}{{{Team OLMo} et~al.}}{{{Team OLMo}, Ettinger, Bertsch, Kuehl, Graham, Heineman, Groeneveld, Brahman, Timbers, Ivison, Morrison, Poznanski, Lo, Soldaini, Jordan, Chen, Noukhovitch, Lambert, Walsh, Dasigi, Berry, Malik, Shah, Arora, Gupta, Anderson, Xiao, Murray, Romero, Graf, Asai, Bhagia, Wettig, Liu, Rangapur, Anastasiades, Huang, Schwenk, Trivedi, Magnusson, Lochner, Liu, Miranda, Sap, Morgan, Schmitz, Guerquin, Wilson, Huff, Le~Bras, Xin, Shao, Skjonsberg, Shen, Li, Wilde, Pyatkin, Merrill, Chang, Gu, Zeng, Sabharwal, Zettlemoyer, Koh, Farhadi, Smith, and Hajishirzi}}}
+\bibcite{qwen-team-2025-qwen3}{{21}{2025}{{Yang et~al.}}{{}}}
 \gdef \LT@i {\LT@entry 
     {4}{12.00002pt}\LT@entry 
     {1}{182.89436pt}\LT@entry 
@@ -111,35 +113,45 @@
 \newlabel{tab:rq3-stimuli}{{2}{9}{All 65 matched naturalistic scenarios. Each row holds the outcome and non-demographic content constant across the four demographic conditions}{table.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {B}Naturalistic per-model results}{11}{appendix.B}\protected@file@percent }
 \newlabel{app:naturalistic-model-results}{{B}{11}{Naturalistic per-model results}{appendix.B}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf  {Five models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}}{12}{table.3}\protected@file@percent }
-\newlabel{tab:naturalistic-negative}{{3}{12}{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf {Five models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}{table.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf  {Only Gemma~2 2B has nonzero contrasts, both for white descriptions.}}}{12}{table.4}\protected@file@percent }
-\newlabel{tab:naturalistic-positive}{{4}{12}{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf {Only Gemma~2 2B has nonzero contrasts, both for white descriptions.}}{table.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf  {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}}{12}{table.3}\protected@file@percent }
+\newlabel{tab:naturalistic-negative}{{3}{12}{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf  {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}}{12}{table.4}\protected@file@percent }
+\newlabel{tab:naturalistic-positive}{{4}{12}{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}{table.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf  {The aggregate increase is largest and most consistent in Qwen3 8B.}}}{12}{table.5}\protected@file@percent }
 \newlabel{tab:naturalistic-likert-negative}{{5}{12}{Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf {The aggregate increase is largest and most consistent in Qwen3 8B.}}{table.5}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf  {The aggregate decrease is driven primarily by Qwen3 4B.}}}{12}{table.6}\protected@file@percent }
 \newlabel{tab:naturalistic-likert-positive}{{6}{12}{Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf {The aggregate decrease is driven primarily by Qwen3 4B.}}{table.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Behavioral evaluation details}{12}{appendix.C}\protected@file@percent }
-\newlabel{app:behavior-details}{{C}{12}{Behavioral evaluation details}{appendix.C}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Norm-matched random-vector baselines}{12}{appendix.C}\protected@file@percent }
+\newlabel{app:random-baselines}{{C}{12}{Norm-matched random-vector baselines}{appendix.C}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf  {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}}{12}{table.7}\protected@file@percent }
+\newlabel{tab:random-vector-accuracy}{{7}{12}{Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}{table.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Behavioral evaluation details}{12}{appendix.D}\protected@file@percent }
+\newlabel{app:behavior-details}{{D}{12}{Behavioral evaluation details}{appendix.D}{}}
 \@writefile{toc}{\contentsline {paragraph}{Yes/No prompt and score.}{12}{section*.10}\protected@file@percent }
-\newlabel{eq:yes-probability}{{1}{12}{Yes/No prompt and score}{equation.C.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{7-point Likert prompt and score.}{12}{section*.11}\protected@file@percent }
-\newlabel{eq:Likert-score}{{2}{12}{7-point Likert prompt and score}{equation.C.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Surprisal score.}{12}{section*.12}\protected@file@percent }
-\newlabel{eq:surprisal}{{3}{12}{Surprisal score}{equation.C.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Paired accuracy and sampling parameters.}{13}{section*.13}\protected@file@percent }
-\newlabel{eq:paired-accuracy}{{4}{13}{Paired accuracy and sampling parameters}{equation.C.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D}CAA extraction and evaluation details}{13}{appendix.D}\protected@file@percent }
-\newlabel{app:caa-details}{{D}{13}{CAA extraction and evaluation details}{appendix.D}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.1}Causal CAA direction extraction}{13}{subsection.D.1}\protected@file@percent }
-\newlabel{app:caa-extraction}{{D.1}{13}{Causal CAA direction extraction}{subsection.D.1}{}}
-\newlabel{eq:caa-direction}{{5}{13}{Causal CAA direction extraction}{equation.D.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.2}CAA projection and evaluation}{13}{subsection.D.2}\protected@file@percent }
-\newlabel{app:caa-evaluation}{{D.2}{13}{CAA projection and evaluation}{subsection.D.2}{}}
-\newlabel{eq:caa-projection}{{6}{13}{CAA projection and evaluation}{equation.D.6}{}}
-\newlabel{eq:caa-paired-accuracy}{{7}{13}{CAA projection and evaluation}{equation.D.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Projection statistics}{13}{appendix.E}\protected@file@percent }
-\newlabel{app:raw-caa}{{E}{13}{Projection statistics}{appendix.E}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf  {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}}{14}{figure.4}\protected@file@percent }
-\newlabel{fig:rq3-distributions}{{4}{14}{CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}{figure.4}{}}
-\gdef \@abspage@last{14}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Random-direction intervention controls. Each random direction is norm-matched to the learned causal CAA at the same layer and receives its own development-set-selected $\alpha $. Entries are means $\pm $ standard deviations across ten directions.}}{13}{table.8}\protected@file@percent }
+\newlabel{tab:random-vector-intervention}{{8}{13}{Random-direction intervention controls. Each random direction is norm-matched to the learned causal CAA at the same layer and receives its own development-set-selected $\alpha $. Entries are means $\pm $ standard deviations across ten directions}{table.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{13}{table.9}\protected@file@percent }
+\newlabel{tab:random-vector-naturalistic-negative}{{9}{13}{Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{13}{table.10}\protected@file@percent }
+\newlabel{tab:random-vector-naturalistic-positive}{{10}{13}{Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.10}{}}
+\newlabel{eq:yes-probability}{{1}{14}{Yes/No prompt and score}{equation.D.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{7-point Likert prompt and score.}{14}{section*.11}\protected@file@percent }
+\newlabel{eq:Likert-score}{{2}{14}{7-point Likert prompt and score}{equation.D.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Surprisal score.}{14}{section*.12}\protected@file@percent }
+\newlabel{eq:surprisal}{{3}{14}{Surprisal score}{equation.D.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Paired accuracy and sampling parameters.}{14}{section*.13}\protected@file@percent }
+\newlabel{eq:paired-accuracy}{{4}{14}{Paired accuracy and sampling parameters}{equation.D.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}CAA extraction and evaluation details}{14}{appendix.E}\protected@file@percent }
+\newlabel{app:caa-details}{{E}{14}{CAA extraction and evaluation details}{appendix.E}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E.1}Causal CAA direction extraction}{14}{subsection.E.1}\protected@file@percent }
+\newlabel{app:caa-extraction}{{E.1}{14}{Causal CAA direction extraction}{subsection.E.1}{}}
+\newlabel{eq:caa-direction}{{5}{14}{Causal CAA direction extraction}{equation.E.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E.2}CAA projection and evaluation}{14}{subsection.E.2}\protected@file@percent }
+\newlabel{app:caa-evaluation}{{E.2}{14}{CAA projection and evaluation}{subsection.E.2}{}}
+\newlabel{eq:caa-projection}{{6}{14}{CAA projection and evaluation}{equation.E.6}{}}
+\newlabel{eq:caa-paired-accuracy}{{7}{14}{CAA projection and evaluation}{equation.E.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Projection statistics}{15}{appendix.F}\protected@file@percent }
+\newlabel{app:raw-caa}{{F}{15}{Projection statistics}{appendix.F}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf  {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}}{15}{figure.4}\protected@file@percent }
+\newlabel{fig:rq3-distributions}{{4}{15}{CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}{figure.4}{}}
+\gdef \@abspage@last{15}

@@ -31,7 +31,7 @@
 \maketitle
 
 \begin{abstract}
-Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across six language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive and negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
+Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across eight language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive and negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
 
 
 \end{abstract}
@@ -46,7 +46,7 @@ Here, we explore three main research questions. \textbf{RQ1:} \textit{Do LM beha
 In a related study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use it during subsequent sentence processing (akin to our RQ1). This project extends Pan \& Kehler's behavioral study by %focusing on causal elicitures (instead of temporal relationships or other discourse relationships) and
 testing different syntactic constructions. Furthermore, we study whether implicit causality forms an internal representation that is distinct from occasion compatibility and plausibility (RQ2), and whether this representation generalizes across syntactic constructions (RQ3). We separately examine whether the same representation varies with demographic information in naturalistic social scenarios.
 
-Across six language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated,
+Across eight language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated,
 % Our results can shed light on how models construct internal world models, how their nonliteral inferences align with human cognition, and whether these representations encode systematic biases with
 with potential implications for the development of safer and more aligned models.
 
@@ -66,7 +66,7 @@ Under the \textbf{Likert (metalinguistic)} method, we present the sentence and a
 Finally, under the \textbf{surprisal (implicit)} method, we score the surprisal of \emph{", and I don't know why."} conditioned on the sentence, following \citet{pan-kehler-2025-pragmatic}. If the modifier supplies an explanation, this continuation should be less expected. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for implementation details.
 
-In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
+In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}, and OLMo~3 7B \citep{team-olmo-2025-olmo3} base checkpoints.
 
 \begin{figure*}[t]
   \centering
@@ -75,7 +75,7 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
   \label{fig:rq1}
 \end{figure*}
 
-\paragraph{Results.} In Figure~\ref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all six models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
+\paragraph{Results.} In Figure~\ref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all eight models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
 
 % \paragraph{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -142,7 +142,7 @@ We use \emph{Occasion} and \emph{Plausibility} as baselines because both require
 % \vspace{-6pt}
 
 \paragraph{Results.}
-The CAA directions are relatively relation-selective: each direction strongly separates its own held-out relation, whereas cross-relation transfer is substantially weaker and more variable (Figure~\ref{fig:rq2-transfer}). This selectivity is not absolute, indicating some shared structure across relations. On the other hand, the causal direction learned from explicit cross-sentence explanations transfers nearly perfectly to unseen within-sentence elicitures, outperforming the occasion and plausibility directions in every model (Figure~\ref{fig:rq2b}). These results indicate that models encode a causal signal that generalizes across syntactic constructions and cannot be explained solely by occasion or event plausibility.
+The CAA directions are relatively relation-selective: each direction strongly separates its own held-out relation, whereas cross-relation transfer is substantially weaker and more variable (Figure~\ref{fig:rq2-transfer}). This selectivity is not absolute, indicating some shared structure across relations. On the other hand, the causal direction learned from explicit cross-sentence explanations transfers strongly to unseen within-sentence elicitures, outperforming the occasion and plausibility directions in every model (Figure~\ref{fig:rq2b}). Norm-matched random directions average near chance on these evaluations (Appendix~\ref{app:random-baselines}). These results indicate that models encode a causal signal that generalizes across syntactic constructions and cannot be explained solely by occasion or event plausibility.
 
 \subsection{Intervening on implicit causal representations}
 \label{sec:intervention}
@@ -159,7 +159,7 @@ We intervene at every token position while scoring the fixed continuation token 
   \centering
   \small
   \setlength{\tabcolsep}{3pt}
-  \caption{Mean per-token surprisal change $\pm$ the 95\% bootstrap CI half-width on within-sentence items after adding the causal direction to control contexts or subtracting it from critical contexts. The $\alpha$ columns show the coefficients selected on the development set. Positive changes are predicted for addition and negative changes for subtraction; bold CIs exclude zero. \textbf{The predicted intervention effect transfers to within-sentence items in four models under addition and five models under subtraction.}}
+  \caption{Mean per-token surprisal change $\pm$ the 95\% bootstrap CI half-width on within-sentence items after adding the causal direction to control contexts or subtracting it from critical contexts. The $\alpha$ columns show the coefficients selected on the development set. Positive changes are predicted for addition and negative changes for subtraction; bold CIs exclude zero. \textbf{The predicted intervention effect transfers to within-sentence items in five models under addition and six models under subtraction.}}
   \label{tab:intervention}
   \begin{tabular}{lrrrr}
     \toprule
@@ -173,12 +173,14 @@ We intervene at every token position while scoring the fixed continuation token 
     Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $0$ & $.00\mathbin{\pm}.00$ \\
     Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ \\
     Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $5$ & $\boldsymbol{.10\mathbin{\pm}.03}$ \\
+    Llama~3.1 70B & $-2.5$ & $\boldsymbol{-.05\mathbin{\pm}.02}$ & $0$ & $.00\mathbin{\pm}.00$ \\
+    OLMo~3 7B & $-2.5$ & $\boldsymbol{.11\mathbin{\pm}.03}$ & $5$ & $\boldsymbol{.78\mathbin{\pm}.08}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \paragraph{Results.}
-On within-sentence items, adding the causal direction increases surprisal reliably in four models, while subtracting it decreases surprisal reliably in five (Table~\ref{tab:intervention}). Both Qwen models select $\alpha=0$ for addition because every positive coefficient moves development-set surprisal in the opposite direction; Qwen3 4B also selects no intervention for subtraction. The intervention is therefore behaviorally consequential in most models, although its effect is neither universal nor symmetric. Several coefficients lie at the edge of the search range and should be interpreted as the best tested value rather than the true optimum.
+On within-sentence items, adding the causal direction increases surprisal reliably in five models, while subtracting it decreases surprisal reliably in six (Table~\ref{tab:intervention}). Both Qwen models and Llama~3.1 70B select $\alpha=0$ for addition because every positive coefficient moves development-set surprisal in the opposite direction; Qwen3 4B also selects no intervention for subtraction. OLMo~3 selects a negative coefficient with the predicted effect on cross-sentence test items, but its effect reverses on the within-sentence items reported in Table~\ref{tab:intervention}. The intervention is therefore behaviorally consequential in most models, although its effect is neither universal nor symmetric. Several coefficients lie at the edge of the search range and should be interpreted as the best tested value rather than the true optimum. Independently tuning $\alpha$ also gives some norm-matched random directions substantial effects (Appendix~\ref{app:random-baselines}), so intervention magnitude alone does not establish causal specificity.
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
@@ -188,24 +190,24 @@ Having identified a causal direction that generalizes across linguistic construc
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions---a white man, a white woman, a minority man, or a minority woman---and a race/gender-agnostic baseline. To control for length, the baseline replaces the demographic description with a manually reviewed incidental detail that does not suggest the outcome. For example, \emph{The white male salesperson was denied a work visa to move to the United States} is compared with \emph{The salesperson at the consulate was denied a work visa to move to the United States}; each has a positive counterpart in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each model and scenario, we subtract the matched gender/race-agnostic score from each demographic score. We give each model equal weight by averaging the six differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the six tested models as fixed. Unit-vector projection coordinates are model-specific, so their six-model average is a descriptive summary of this fixed model set. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
+We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each model and scenario, we subtract the matched gender/race-agnostic score from each demographic score. We give each model equal weight by averaging the eight differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the eight tested models as fixed. Unit-vector projection coordinates are model-specific, so their eight-model average is a descriptive summary of this fixed model set. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=.4\textwidth]{figures/naturalistic_positive_raw_scores_six_model.pdf}
-  \caption{Differences from the matched gender/race-agnostic baseline in causal projection (top) and expected Likert rating (bottom) for positive outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{Projection differences are inconsistent, whereas explicit causal ratings are lower for all four demographic conditions.}}
+  \caption{Differences from the matched gender/race-agnostic baseline in causal projection (top) and expected Likert rating (bottom) for positive outcomes. Bars show equal-weight means across eight models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{Projection differences are inconsistent, whereas explicit causal ratings are lower for all four demographic conditions.}}
   \label{fig:naturalistic-positive-aggregate}
 \end{figure}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=.4\textwidth]{figures/naturalistic_negative_raw_scores_six_model.pdf}
-  \caption{Differences from the matched gender/race-agnostic baseline in causal projection (top) and expected Likert rating (bottom) for negative outcomes. Bars show equal-weight means across six models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{All four demographic conditions exceed the baseline in both measures.}}
+  \caption{Differences from the matched gender/race-agnostic baseline in causal projection (top) and expected Likert rating (bottom) for negative outcomes. Bars show equal-weight means across eight models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{All four demographic conditions exceed the baseline in both measures.}}
   \label{fig:naturalistic-negative-aggregate}
 \end{figure}
 
 \paragraph{Results.}
-Across the six tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Figure~\ref{fig:naturalistic-negative-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero for three (Figure~\ref{fig:naturalistic-positive-aggregate}). The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}): for example, the negative-outcome projection differences reverse direction for Gemma~2 2B, and the positive-outcome Likert pattern is especially strong for Qwen3 4B. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model. A two-way bootstrap over both models and scenarios leaves only the negative-outcome minority-female CAA contrast above zero.
+Across the eight tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Figure~\ref{fig:naturalistic-negative-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero for two (Figure~\ref{fig:naturalistic-positive-aggregate}). The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}): for example, the negative-outcome projection differences reverse direction for Gemma~2 2B, whereas OLMo~3 shows positive Likert differences for both outcome types. Norm-matched random-direction contrasts are reported in Appendix~\ref{app:random-baselines}. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model.
 
 \FloatBarrier
 
@@ -215,7 +217,7 @@ Across the six tested models, demographic descriptions receive higher causal pro
 Our results highlight a distinction between \emph{making} an implicit inference and \emph{reporting} it. Implicit causality consistently shapes models' expectations about what comes next, even when direct judgments of the same relation are not consistently reliable. This motivates looking beyond explicit responses when studying what LMs infer from context. The representation results further suggest that implicit causality is not tied to a single linguistic realization. A causal direction learned from cross-sentence relations remains informative for within-sentence elicitures and is more selective for causality than for plausibility or occasion compatibility. Intervening along this direction changes model expectations in most models, providing evidence that the representation is behaviorally consequential rather than only correlational. Demographic information can also change activation along the same causal direction: holding the social outcome fixed, changing only the demographic description shifts the strength of the causal signal in some models and conditions. Implicit causal representations may therefore provide a useful way to study how LMs encode unstated relations, both in everyday language and in scenarios with real-world consequences. % and how contextual information affects those representations.
 
 \section*{Limitations}
-Our experiments cover six English-language base models and a controlled set of synthetic or adapted stimuli. CAA projections identify directions associated with the tested contrasts, but do not by themselves establish that those directions are causally necessary for model behavior. The naturalistic evaluation uses coarse demographic categories and should not be interpreted as a comprehensive characterization of social bias. Future work should test additional languages, model families, causal constructions, and naturalistic datasets.
+Our experiments cover eight English-language base models and a controlled set of synthetic or adapted stimuli. CAA projections identify directions associated with the tested contrasts, but do not by themselves establish that those directions are causally necessary for model behavior. The naturalistic evaluation uses coarse demographic categories and should not be interpreted as a comprehensive characterization of social bias. Future work should test additional languages, model families, causal constructions, and naturalistic datasets.
 
 
 % \scriptsize
@@ -251,7 +253,7 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
 
 \begin{table}[htbp]
   \centering
-  \caption{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf{Five models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}
+  \caption{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf{Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}
   \label{tab:naturalistic-negative}
   \begin{tabular}{lrrrr}
     \toprule
@@ -263,13 +265,15 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
     Qwen3 8B & $.14\mathbin{\pm}.36$ & $.33\mathbin{\pm}.37$ & $\boldsymbol{.51\mathbin{\pm}.39}$ & $\boldsymbol{.70\mathbin{\pm}.40}$ \\
     Llama 3.2 3B & $\boldsymbol{.118\mathbin{\pm}.067}$ & $\boldsymbol{.078\mathbin{\pm}.067}$ & $\boldsymbol{.087\mathbin{\pm}.069}$ & $\boldsymbol{.131\mathbin{\pm}.068}$ \\
     Llama 3 8B & $.004\mathbin{\pm}.028$ & $-.007\mathbin{\pm}.030$ & $-.004\mathbin{\pm}.031$ & $.006\mathbin{\pm}.032$ \\
+    Llama 3.1 70B & $\boldsymbol{.093\mathbin{\pm}.036}$ & $\boldsymbol{.095\mathbin{\pm}.036}$ & $\boldsymbol{.080\mathbin{\pm}.037}$ & $\boldsymbol{.099\mathbin{\pm}.036}$ \\
+    OLMo 3 7B & $.006\mathbin{\pm}.074$ & $-.020\mathbin{\pm}.071$ & $-.041\mathbin{\pm}.078$ & $-.008\mathbin{\pm}.076$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \begin{table}[htbp]
   \centering
-  \caption{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf{Only Gemma~2 2B has nonzero contrasts, both for white descriptions.}}
+  \caption{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf{Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}
   \label{tab:naturalistic-positive}
   \begin{tabular}{lrrrr}
     \toprule
@@ -281,6 +285,8 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
     Qwen3 8B & $-.11\mathbin{\pm}.36$ & $.08\mathbin{\pm}.37$ & $.09\mathbin{\pm}.40$ & $.31\mathbin{\pm}.41$ \\
     Llama 3.2 3B & $-.028\mathbin{\pm}.087$ & $-.030\mathbin{\pm}.090$ & $-.027\mathbin{\pm}.089$ & $.030\mathbin{\pm}.089$ \\
     Llama 3 8B & $-.007\mathbin{\pm}.031$ & $-.007\mathbin{\pm}.032$ & $.000\mathbin{\pm}.032$ & $.018\mathbin{\pm}.033$ \\
+    Llama 3.1 70B & $\boldsymbol{.062\mathbin{\pm}.037}$ & $\boldsymbol{.058\mathbin{\pm}.036}$ & $\boldsymbol{.052\mathbin{\pm}.040}$ & $\boldsymbol{.072\mathbin{\pm}.038}$ \\
+    OLMo 3 7B & $-.010\mathbin{\pm}.083$ & $-.031\mathbin{\pm}.085$ & $-.046\mathbin{\pm}.085$ & $-.002\mathbin{\pm}.083$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -299,6 +305,8 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
     Qwen3 8B & $\boldsymbol{.20\mathbin{\pm}.09}$ & $\boldsymbol{.21\mathbin{\pm}.09}$ & $\boldsymbol{.30\mathbin{\pm}.10}$ & $\boldsymbol{.42\mathbin{\pm}.10}$ \\
     Llama 3.2 3B & $.04\mathbin{\pm}.07$ & $-.02\mathbin{\pm}.08$ & $-.05\mathbin{\pm}.08$ & $-.06\mathbin{\pm}.08$ \\
     Llama 3 8B & $-.04\mathbin{\pm}.13$ & $.00\mathbin{\pm}.13$ & $-.07\mathbin{\pm}.12$ & $.00\mathbin{\pm}.12$ \\
+    Llama 3.1 70B & $.06\mathbin{\pm}.08$ & $\boldsymbol{.08\mathbin{\pm}.08}$ & $\boldsymbol{.10\mathbin{\pm}.07}$ & $\boldsymbol{.10\mathbin{\pm}.07}$ \\
+    OLMo 3 7B & $\boldsymbol{.18\mathbin{\pm}.07}$ & $\boldsymbol{.20\mathbin{\pm}.07}$ & $\boldsymbol{.18\mathbin{\pm}.08}$ & $\boldsymbol{.22\mathbin{\pm}.07}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -317,9 +325,13 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
     Qwen3 8B & $.07\mathbin{\pm}.15$ & $-.06\mathbin{\pm}.15$ & $\boldsymbol{-.17\mathbin{\pm}.16}$ & $-.04\mathbin{\pm}.16$ \\
     Llama 3.2 3B & $.06\mathbin{\pm}.11$ & $.04\mathbin{\pm}.12$ & $.02\mathbin{\pm}.13$ & $.04\mathbin{\pm}.13$ \\
     Llama 3 8B & $\boldsymbol{-.21\mathbin{\pm}.16}$ & $-.09\mathbin{\pm}.18$ & $-.12\mathbin{\pm}.17$ & $.00\mathbin{\pm}.17$ \\
+    Llama 3.1 70B & $.06\mathbin{\pm}.10$ & $.04\mathbin{\pm}.09$ & $\boldsymbol{-.10\mathbin{\pm}.09}$ & $\boldsymbol{-.09\mathbin{\pm}.08}$ \\
+    OLMo 3 7B & $.06\mathbin{\pm}.07$ & $\boldsymbol{.14\mathbin{\pm}.07}$ & $\boldsymbol{.12\mathbin{\pm}.07}$ & $\boldsymbol{.16\mathbin{\pm}.06}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
+
+\input{acl/derived/random_vector_baselines}
 
 \clearpage
 \twocolumn

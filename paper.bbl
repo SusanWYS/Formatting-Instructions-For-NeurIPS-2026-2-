@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -152,6 +152,32 @@ Alex Tamkin, Amanda Askell, Liane Lovitt, Esin Durmus, Nicholas Joseph, Shauna
 \newblock Evaluating and mitigating discrimination in language model decisions,
   2023.
 \newblock URL \url{https://arxiv.org/abs/2312.03689}.
+
+\bibitem[{Team OLMo} et~al.(2025){Team OLMo}, Ettinger, Bertsch, Kuehl, Graham,
+  Heineman, Groeneveld, Brahman, Timbers, Ivison, Morrison, Poznanski, Lo,
+  Soldaini, Jordan, Chen, Noukhovitch, Lambert, Walsh, Dasigi, Berry, Malik,
+  Shah, Arora, Gupta, Anderson, Xiao, Murray, Romero, Graf, Asai, Bhagia,
+  Wettig, Liu, Rangapur, Anastasiades, Huang, Schwenk, Trivedi, Magnusson,
+  Lochner, Liu, Miranda, Sap, Morgan, Schmitz, Guerquin, Wilson, Huff, Le~Bras,
+  Xin, Shao, Skjonsberg, Shen, Li, Wilde, Pyatkin, Merrill, Chang, Gu, Zeng,
+  Sabharwal, Zettlemoyer, Koh, Farhadi, Smith, and
+  Hajishirzi]{team-olmo-2025-olmo3}
+{Team OLMo}, Allyson Ettinger, Amanda Bertsch, Bailey Kuehl, David Graham,
+  David Heineman, Dirk Groeneveld, Faeze Brahman, Finbarr Timbers, Hamish
+  Ivison, Jacob Morrison, Jake Poznanski, Kyle Lo, Luca Soldaini, Matt Jordan,
+  Mayee Chen, Michael Noukhovitch, Nathan Lambert, Pete Walsh, Pradeep Dasigi,
+  Robert Berry, Saumya Malik, Saurabh Shah, Shane Arora, Shashank Gupta, Taira
+  Anderson, Teng Xiao, Tyler Murray, Tyler Romero, Victoria Graf, Akari Asai,
+  Akshita Bhagia, Alexander Wettig, Alisa Liu, Aman Rangapur, Chloe
+  Anastasiades, Costa Huang, Dustin Schwenk, Harsh Trivedi, Ian Magnusson,
+  Jaron Lochner, Jiacheng Liu, Lester James~V. Miranda, Maarten Sap, Malia
+  Morgan, Michael Schmitz, Michal Guerquin, Michael Wilson, Regan Huff, Ronan
+  Le~Bras, Rui Xin, Rulin Shao, Sam Skjonsberg, Shannon~Zejiang Shen,
+  Shuyue~Stella Li, Tucker Wilde, Valentina Pyatkin, Will Merrill, Yapei Chang,
+  Yuling Gu, Zhiyuan Zeng, Ashish Sabharwal, Luke Zettlemoyer, Pang~Wei Koh,
+  Ali Farhadi, Noah~A. Smith, and Hannaneh Hajishirzi.
+\newblock {OLMo} 3, 2025.
+\newblock URL \url{https://arxiv.org/abs/2512.13961}.
 
 \bibitem[Yang et~al.(2025)]{qwen-team-2025-qwen3}
 An~Yang et~al.

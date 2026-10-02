@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot six-model aggregate scores for the naturalistic evaluation."""
+"""Plot eight-model aggregate scores for the naturalistic evaluation."""
 
 from __future__ import annotations
 
@@ -18,6 +18,8 @@ MODELS = (
     "qwen3_8b",
     "llama32_3b",
     "llama3_8b",
+    "llama31_70b",
+    "olmo3_7b",
 )
 CONDITIONS = (
     "white_male",
@@ -52,6 +54,11 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("derived/naturalistic_raw_scores_six_model.csv"),
     )
+    parser.add_argument(
+        "--difference-summary-csv",
+        type=Path,
+        default=Path("derived/naturalistic_difference_scores_eight_model.csv"),
+    )
     parser.add_argument("--bootstrap-repetitions", type=int, default=10_000)
     return parser.parse_args()
 
@@ -68,6 +75,23 @@ def read_projection_scores(analysis_repo: Path, pipeline_repo: Path) -> pd.DataF
     )
     frames: list[pd.DataFrame] = []
     for model in MODELS:
+        if model in {"olmo3_7b", "llama31_70b"}:
+            extended = (
+                analysis_repo / "results/extended_paper_models_2026-10-02"
+            )
+            demographic = pd.read_csv(
+                extended
+                / f"naturalistic_demographic_projection/models/{model}/projection_scores.csv"
+            )
+            demographic["model_key"] = model
+            frames.append(demographic)
+            baseline = pd.read_csv(
+                extended
+                / f"naturalistic_agnostic_projection/models/{model}/projection_scores.csv"
+            )
+            baseline["model_key"] = model
+            frames.append(baseline)
+            continue
         negative = pd.read_csv(negative_root / model / "projection_scores.csv")
         negative["outcome"] = "negative"
         negative["model_key"] = model
@@ -92,7 +116,16 @@ def read_likert_scores(analysis_repo: Path) -> pd.DataFrame:
     root = analysis_repo / "results/self_blinding_naturalistic_likert_2026-09-28/models"
     frames: list[pd.DataFrame] = []
     for model in MODELS:
-        frame = pd.read_csv(root / model / "likert_scores.csv")
+        if model in {"olmo3_7b", "llama31_70b"}:
+            path = (
+                analysis_repo
+                / "results/extended_paper_models_2026-10-02/naturalistic_likert/models"
+                / model
+                / "likert_scores.csv"
+            )
+        else:
+            path = root / model / "likert_scores.csv"
+        frame = pd.read_csv(path)
         frame["model_key"] = model
         frames.append(frame)
     scores = pd.concat(frames, ignore_index=True)
@@ -109,7 +142,9 @@ def validate(scores: pd.DataFrame) -> None:
     expected = len(MODELS)
     counts = scores.groupby(keys[:-1], observed=True)["model_key"].nunique()
     if not (counts == expected).all():
-        raise ValueError("Every metric/outcome/condition/scenario must contain six models")
+        raise ValueError(
+            f"Every metric/outcome/condition/scenario must contain {expected} models"
+        )
     scenario_counts = scores.groupby(
         ["metric", "outcome", "condition"], observed=True
     )["decision_question_id"].nunique()
@@ -269,6 +304,8 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
     axes[-1].set_xlabel("Demographic condition")
     figure.subplots_adjust(left=0.19, right=0.985, bottom=0.19, top=0.98, hspace=0.22)
     output_dir.mkdir(parents=True, exist_ok=True)
+    # Preserve the established asset name so both manuscript formats continue
+    # to resolve the same figure without duplicating binary files.
     stem = f"naturalistic_{outcome}_raw_scores_six_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
     figure.savefig(output_dir / f"{stem}.png", dpi=300, bbox_inches="tight", pad_inches=0.015)
@@ -286,6 +323,10 @@ def main() -> None:
     args.summary_csv.parent.mkdir(parents=True, exist_ok=True)
     summary.sort_values(["outcome", "metric", "condition"]).to_csv(
         args.summary_csv, index=False
+    )
+    args.difference_summary_csv.parent.mkdir(parents=True, exist_ok=True)
+    difference_summary.sort_values(["outcome", "metric", "condition"]).to_csv(
+        args.difference_summary_csv, index=False
     )
     for outcome in ("positive", "negative"):
         plot_outcome(difference_summary, outcome, args.output_dir)
