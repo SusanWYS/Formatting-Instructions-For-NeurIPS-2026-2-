@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1790926250.36551 "paper.aux" "paper.bbl" "paper" 1790926251.30108 0
+["bibtex paper"] 1790930576.34037 "paper.aux" "paper.bbl" "paper" 1790930577.26749 0
   "./paper.bib" 1790924583.67988 13438 597b467b45993c0374808a8443f51099 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1790926251.10397 19590 6b2aa8ffbf8df340896121f973101841 "pdflatex"
+  "paper.aux" 1790930577.05104 18937 8ff6df1b10ee35553ca89b090db6a5bd "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1790926250.42296 "paper.tex" "paper.pdf" "paper" 1790926251.30174 0
+["pdflatex"] 1790930576.39632 "paper.tex" "paper.pdf" "paper" 1790930577.26808 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -139,18 +139,18 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771962468.9046 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771961255 6831120 7a8920521b2023ff229f2e01d990437d ""
   "appendix_examples.tex" 1790179834.45233 9102 ada7d93eff3704659866c2ee96768b93 ""
-  "derived/random_vector_baselines.tex" 1790926242.16066 7158 d6b849b2cf1d032151eb8f3cc0c920c2 ""
-  "derived/rq2_results_text.tex" 1790925742.54963 1064 3705a083481d40a08deaa16c090667d9 ""
+  "derived/random_vector_baselines.tex" 1790930385.70091 6683 80eeef015fd7cf1b4ec4f320ca509280 ""
+  "derived/rq2_results_text.tex" 1790928533.28912 1041 2ac15ff266018befac90e48219f54469 ""
   "derived/rq3_self_blinding_stimuli.tex" 1790175149.82933 23822 8f96ff3cee7d93d6af6b2283c184f96e ""
-  "figures/rq1_behavior.pdf" 1790925671.9311 15571 ca6583e25e6a9fc97e62b5c92bb300d5 ""
-  "figures/rq2a_combined_cross_transfer_heatmaps.pdf" 1790925672.48869 22757 5b305acd19d5bc0b31b96e703eaa5d24 ""
-  "figures/rq2b_causal_ood_caa_accuracy.pdf" 1790925672.99678 14813 189514b90bc2fd0950d4687f964f8dac ""
-  "figures/rq3_self_blinding_unit_histograms.pdf" 1790925673.49442 17334 e15673eac1f1bcb5c54e12c7a54480a9 ""
+  "figures/rq1_behavior.pdf" 1790927783.02934 15565 f6fcf3fdd6470034907250484ce480a9 ""
+  "figures/rq2a_combined_cross_transfer_heatmaps.pdf" 1790927783.55704 34705 f67a4bbed598bc04a166801fc4af3aad ""
+  "figures/rq2b_causal_ood_caa_accuracy.pdf" 1790927784.0974 14901 ec997e0a3f2519dcad60e734fb0efa95 ""
+  "figures/rq3_self_blinding_unit_histograms.pdf" 1790927784.58572 39398 0a0422277c08cb252a673dddb1b22399 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1790926251.10397 19590 6b2aa8ffbf8df340896121f973101841 "pdflatex"
-  "paper.bbl" 1790926250.41595 9284 8935b0c8af5afe6a532fe334272a98c7 "bibtex paper"
-  "paper.out" 1790926251.10538 4038 75e9b088e0caa06ad92fc28ed24cc670 "pdflatex"
-  "paper.tex" 1790925846.64477 38651 c4d2eb1c7891580f69c839b96691b1ff ""
+  "paper.aux" 1790930577.05104 18937 8ff6df1b10ee35553ca89b090db6a5bd "pdflatex"
+  "paper.bbl" 1790930576.38991 7536 b4f524af3dd55e9d9d39c64f71d1fe89 "bibtex paper"
+  "paper.out" 1790930577.05235 4038 75e9b088e0caa06ad92fc28ed24cc670 "pdflatex"
+  "paper.tex" 1790929556.03536 37982 6011e0af23758eace4f960cd4e0964dd ""
   (generated)
   "paper.aux"
   "paper.log"

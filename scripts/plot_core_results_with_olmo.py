@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate core paper figures after adding OLMo 3 and Llama 3.1 70B."""
+"""Regenerate the seven-model core paper figures."""
 
 from __future__ import annotations
 
@@ -20,7 +20,6 @@ MODELS = (
     "llama32_3b",
     "llama3_8b",
     "llama31_70b",
-    "olmo3_7b",
 )
 LABELS = {
     "gemma2_2b": "Gemma 2\n2B",
@@ -29,7 +28,6 @@ LABELS = {
     "qwen3_8b": "Qwen3\n8B",
     "llama32_3b": "Llama 3.2\n3B",
     "llama3_8b": "Llama 3\n8B",
-    "olmo3_7b": "OLMo 3\n7B",
     "llama31_70b": "Llama 3.1\n70B",
 }
 
@@ -129,7 +127,7 @@ def plot_rq1(table: pd.DataFrame, output: Path) -> None:
 
 
 def result_dir(args: argparse.Namespace, model: str) -> Path:
-    if model in {"olmo3_7b", "llama31_70b"}:
+    if model == "llama31_70b":
         return (
             args.analysis_repo
             / "results/extended_paper_models_2026-10-02/fixed_caa_evaluation/models"
@@ -153,7 +151,7 @@ def plot_heatmaps(transfer: pd.DataFrame, output: Path, derived: Path) -> None:
         (("causal", "occasion"), ("Caus.", "Occas."), "Occasion–Causal", "rq2a_causal_occasion_cells.csv"),
         (("causal", "plausibility"), ("Caus.", "Plaus."), "Plausibility–Causal", "rq2a_causal_plausibility_cells.csv"),
     )
-    figure, axes = plt.subplots(2, len(MODELS), figsize=(12.0, 3.38))
+    figure, axes = plt.subplots(2, len(MODELS), figsize=(10.7, 3.38))
     norm = TwoSlopeNorm(vmin=0.0, vcenter=0.5, vmax=1.0)
     image = None
     for row_index, (domains, labels, title, filename) in enumerate(comparisons):
@@ -312,6 +310,8 @@ def plot_projection_distributions(args: argparse.Namespace, output: Path) -> Non
             )
         axis.set_title(LABELS[model].replace("\n", " "), fontsize=10)
         axis.tick_params(labelsize=8, length=2.5, pad=1.5)
+    for axis in axes.flat[len(MODELS):]:
+        axis.axis("off")
     figure.supylabel("Count", fontsize=9, x=0.015)
     figure.supxlabel("Unit-normalized CAA projection", fontsize=9, y=0.035)
     handles, legend_labels = axes.flat[0].get_legend_handles_labels()

@@ -20,6 +20,3 @@ llama3_8b,Plausibility CAA,0.6866666666666666,150,12,macro_source_dev
 llama31_70b,Causal CAA,0.9933333333333332,150,16,causal_dev
 llama31_70b,Occasion CAA,0.68,150,36,occasion_dev
 llama31_70b,Plausibility CAA,0.66,150,8,macro_source_dev
-olmo3_7b,Causal CAA,0.8333333333333334,150,12,causal_dev
-olmo3_7b,Occasion CAA,0.7866666666666666,150,28,occasion_dev
-olmo3_7b,Plausibility CAA,0.6266666666666667,150,20,macro_source_dev

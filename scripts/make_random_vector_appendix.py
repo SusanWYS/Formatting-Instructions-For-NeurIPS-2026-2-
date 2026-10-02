@@ -17,7 +17,6 @@ MODELS = (
     "llama32_3b",
     "llama3_8b",
     "llama31_70b",
-    "olmo3_7b",
 )
 LABELS = {
     "gemma2_2b": "Gemma~2 2B",
@@ -26,7 +25,6 @@ LABELS = {
     "qwen3_8b": "Qwen3 8B",
     "llama32_3b": "Llama~3.2 3B",
     "llama3_8b": "Llama~3 8B",
-    "olmo3_7b": "OLMo~3 7B",
     "llama31_70b": "Llama~3.1 70B",
 }
 TARGETS = ("causal", "occasion", "plausibility", "syntax_ood")
@@ -54,7 +52,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def fixed_result_dir(args: argparse.Namespace, model: str) -> Path:
-    if model in {"olmo3_7b", "llama31_70b"}:
+    if model == "llama31_70b":
         return (
             args.analysis_repo
             / "results/extended_paper_models_2026-10-02/fixed_caa_evaluation/models"
@@ -87,7 +85,10 @@ def learned_accuracies(args: argparse.Namespace) -> pd.DataFrame:
 
 
 def load_random_results(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    root = args.analysis_repo / "results/causal_random_vector_baselines_2026-10-02/models"
+    root = (
+        args.analysis_repo
+        / "results/causal_random_vector_baselines_symmetric_alpha_2026-10-02/models"
+    )
     accuracy_frames = []
     intervention_frames = []
     naturalistic_frames = []
@@ -249,8 +250,8 @@ def main() -> None:
             "selected layer and rescale each direction to exactly match the learned causal "
             "direction's norm. We reuse the same seeded directions for paired-accuracy, "
             "intervention, and naturalistic evaluations. For interventions, we tune $\\alpha$ "
-            "separately for every random direction on the same development items used for the "
-            "learned direction; no test result enters selection."
+            "separately for every random direction over the same symmetric grid and on the same "
+            "development items used for the learned direction; no test result enters selection."
         ),
         *accuracy_table(combined),
         *intervention_table(intervention),

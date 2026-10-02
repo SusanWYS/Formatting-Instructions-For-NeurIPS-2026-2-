@@ -29,7 +29,7 @@
 \maketitle
 
 \begin{abstract}
-Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across eight language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive and negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
+Humans often infer causal relationships that are suggested but never explicitly stated. For example, “Melissa detests the children who are arrogant and rude” suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across seven language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive and negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
 
 
 \end{abstract}
@@ -44,7 +44,7 @@ Here, we explore three main research questions. \textbf{RQ1:} \textit{Do LM beha
 In a related study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use it during subsequent sentence processing (akin to our RQ1). This project extends Pan \& Kehler's behavioral study by %focusing on causal elicitures (instead of temporal relationships or other discourse relationships) and
 testing different syntactic constructions. Furthermore, we study whether implicit causality forms an internal representation that is distinct from occasion compatibility and plausibility (RQ2), and whether this representation generalizes across syntactic constructions (RQ3). We separately examine whether the same representation varies with demographic information in naturalistic social scenarios.
 
-Across eight language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated,
+Across seven language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated,
 % Our results can shed light on how models construct internal world models, how their nonliteral inferences align with human cognition, and whether these representations encode systematic biases with
 with potential implications for the development of safer and more aligned models.
 
@@ -64,7 +64,7 @@ Under the \textbf{Likert (metalinguistic)} method, we present the sentence and a
 Finally, under the \textbf{surprisal (implicit)} method, we score the surprisal of \emph{", and I don't know why."} conditioned on the sentence, following \citet{pan-kehler-2025-pragmatic}. If the modifier supplies an explanation, this continuation should be less expected. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for implementation details.
 
-In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}, and OLMo~3 7B \citep{team-olmo-2025-olmo3} base checkpoints.
+In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3} base checkpoints.
 
 \begin{figure}[t]
   \centering
@@ -73,7 +73,7 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
   \label{fig:rq1}
 \end{figure}
 
-\paragraph{Results.} In Figure~\ref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all eight models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
+\paragraph{Results.} In Figure~\ref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all seven models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
 
 % \paragraph{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -150,30 +150,30 @@ Having identified a causal direction that generalizes across linguistic construc
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions---a white man, a white woman, a minority man, or a minority woman---and a race/gender-agnostic baseline. To control for length, the baseline replaces the demographic description with a manually reviewed incidental detail that does not suggest the outcome. For example, \emph{The white male salesperson was denied a work visa to move to the United States} is compared with \emph{The salesperson at the consulate was denied a work visa to move to the United States}; each has a positive counterpart in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each scenario and outcome, we subtract the race/gender-agnostic score from each demographic score. For the model aggregate, we give each model equal weight by first averaging the eight differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the eight tested models as fixed. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
+We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each scenario and outcome, we subtract the race/gender-agnostic score from each demographic score. For the model aggregate, we give each model equal weight by first averaging the seven differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the seven tested models as fixed. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
 
 \begin{table}[H]
   \vspace{-3pt}
   \centering
   \renewcommand{\arraystretch}{.88}
-  \caption{Eight-model aggregate differences from the matched race/gender-agnostic baseline $\pm$ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}
+  \caption{Seven-model aggregate differences from the matched race/gender-agnostic baseline $\pm$ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}
   \label{tab:naturalistic-aggregate}
   \resizebox{.92\linewidth}{!}{%
   \begin{tabular}{llrrrr}
     \toprule
     Measure & Outcome & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
     \midrule
-    CAA projection & Negative & $\boldsymbol{.31\mathbin{\pm}.23}$ & $\boldsymbol{.26\mathbin{\pm}.23}$ & $\boldsymbol{.38\mathbin{\pm}.24}$ & $\boldsymbol{.41\mathbin{\pm}.24}$ \\
-    CAA projection & Positive & $-.04\mathbin{\pm}.22$ & $-.02\mathbin{\pm}.23$ & $.11\mathbin{\pm}.24$ & $.20\mathbin{\pm}.24$ \\
-    Likert rating & Negative & $\boldsymbol{.07\mathbin{\pm}.04}$ & $\boldsymbol{.08\mathbin{\pm}.03}$ & $\boldsymbol{.08\mathbin{\pm}.04}$ & $\boldsymbol{.12\mathbin{\pm}.04}$ \\
-    Likert rating & Positive & $\boldsymbol{-.07\mathbin{\pm}.06}$ & $-.05\mathbin{\pm}.06$ & $\boldsymbol{-.10\mathbin{\pm}.06}$ & $-.04\mathbin{\pm}.06$ \\
+    CAA projection & Negative & $\boldsymbol{.36\mathbin{\pm}.25}$ & $\boldsymbol{.30\mathbin{\pm}.25}$ & $\boldsymbol{.44\mathbin{\pm}.26}$ & $\boldsymbol{.47\mathbin{\pm}.26}$ \\
+    CAA projection & Positive & $-.04\mathbin{\pm}.25$ & $-.02\mathbin{\pm}.25$ & $.13\mathbin{\pm}.27$ & $.23\mathbin{\pm}.26$ \\
+    Likert rating & Negative & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.11\mathbin{\pm}.04}$ \\
+    Likert rating & Positive & $\boldsymbol{-.09\mathbin{\pm}.07}$ & $\boldsymbol{-.07\mathbin{\pm}.07}$ & $\boldsymbol{-.14\mathbin{\pm}.07}$ & $\boldsymbol{-.07\mathbin{\pm}.07}$ \\
     \bottomrule
   \end{tabular}}
   \vspace{-3pt}
 \end{table}
 
 \paragraph{Results.}
-Across the eight tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Table~\ref{tab:naturalistic-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero for two. The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}): for example, the negative-outcome projection differences reverse direction for Gemma~2 2B, whereas OLMo~3 shows positive Likert differences for both outcome types. Norm-matched random-direction contrasts are reported in Appendix~\ref{app:random-baselines}. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model.
+Across the seven tested models, demographic descriptions receive higher causal projections and higher explicit causal ratings than the agnostic baseline for negative outcomes (Table~\ref{tab:naturalistic-aggregate}). For positive outcomes, aggregate projections are less consistent, while Likert differences are negative for all four descriptions and exclude zero. The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}); for example, the negative-outcome projection differences reverse direction for Gemma~2 2B. Norm-matched random-direction contrasts are reported in Appendix~\ref{app:random-baselines}. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -232,7 +232,6 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
       Llama 3.2 3B & $\boldsymbol{.118\mathbin{\pm}.067}$ & $\boldsymbol{.078\mathbin{\pm}.067}$ & $\boldsymbol{.087\mathbin{\pm}.069}$ & $\boldsymbol{.131\mathbin{\pm}.068}$ \\
       Llama 3 8B & $.004\mathbin{\pm}.028$ & $-.007\mathbin{\pm}.030$ & $-.004\mathbin{\pm}.031$ & $.006\mathbin{\pm}.032$ \\
       Llama 3.1 70B & $\boldsymbol{.093\mathbin{\pm}.036}$ & $\boldsymbol{.095\mathbin{\pm}.036}$ & $\boldsymbol{.080\mathbin{\pm}.037}$ & $\boldsymbol{.099\mathbin{\pm}.036}$ \\
-      OLMo 3 7B & $.006\mathbin{\pm}.074$ & $-.020\mathbin{\pm}.071$ & $-.041\mathbin{\pm}.078$ & $-.008\mathbin{\pm}.076$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}\hfill
@@ -252,7 +251,6 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
       Llama 3.2 3B & $-.028\mathbin{\pm}.087$ & $-.030\mathbin{\pm}.090$ & $-.027\mathbin{\pm}.089$ & $.030\mathbin{\pm}.089$ \\
       Llama 3 8B & $-.007\mathbin{\pm}.031$ & $-.007\mathbin{\pm}.032$ & $.000\mathbin{\pm}.032$ & $.018\mathbin{\pm}.033$ \\
       Llama 3.1 70B & $\boldsymbol{.062\mathbin{\pm}.037}$ & $\boldsymbol{.058\mathbin{\pm}.036}$ & $\boldsymbol{.052\mathbin{\pm}.040}$ & $\boldsymbol{.072\mathbin{\pm}.038}$ \\
-      OLMo 3 7B & $-.010\mathbin{\pm}.083$ & $-.031\mathbin{\pm}.085$ & $-.046\mathbin{\pm}.085$ & $-.002\mathbin{\pm}.083$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}
@@ -277,7 +275,6 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
       Llama 3.2 3B & $.04\mathbin{\pm}.07$ & $-.02\mathbin{\pm}.08$ & $-.05\mathbin{\pm}.08$ & $-.06\mathbin{\pm}.08$ \\
       Llama 3 8B & $-.04\mathbin{\pm}.13$ & $.00\mathbin{\pm}.13$ & $-.07\mathbin{\pm}.12$ & $.00\mathbin{\pm}.12$ \\
       Llama 3.1 70B & $.06\mathbin{\pm}.08$ & $\boldsymbol{.08\mathbin{\pm}.08}$ & $\boldsymbol{.10\mathbin{\pm}.07}$ & $\boldsymbol{.10\mathbin{\pm}.07}$ \\
-      OLMo 3 7B & $\boldsymbol{.18\mathbin{\pm}.07}$ & $\boldsymbol{.20\mathbin{\pm}.07}$ & $\boldsymbol{.18\mathbin{\pm}.08}$ & $\boldsymbol{.22\mathbin{\pm}.07}$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}\hfill
@@ -297,7 +294,6 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
       Llama 3.2 3B & $.06\mathbin{\pm}.11$ & $.04\mathbin{\pm}.12$ & $.02\mathbin{\pm}.13$ & $.04\mathbin{\pm}.13$ \\
       Llama 3 8B & $\boldsymbol{-.21\mathbin{\pm}.16}$ & $-.09\mathbin{\pm}.18$ & $-.12\mathbin{\pm}.17$ & $.00\mathbin{\pm}.17$ \\
       Llama 3.1 70B & $.06\mathbin{\pm}.10$ & $.04\mathbin{\pm}.09$ & $\boldsymbol{-.10\mathbin{\pm}.09}$ & $\boldsymbol{-.09\mathbin{\pm}.08}$ \\
-      OLMo 3 7B & $.06\mathbin{\pm}.07$ & $\boldsymbol{.14\mathbin{\pm}.07}$ & $\boldsymbol{.12\mathbin{\pm}.07}$ & $\boldsymbol{.16\mathbin{\pm}.06}$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}

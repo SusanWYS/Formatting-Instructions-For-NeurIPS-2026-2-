@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot eight-model aggregate scores for the naturalistic evaluation."""
+"""Plot seven-model aggregate scores for the naturalistic evaluation."""
 
 from __future__ import annotations
 
@@ -19,7 +19,6 @@ MODELS = (
     "llama32_3b",
     "llama3_8b",
     "llama31_70b",
-    "olmo3_7b",
 )
 CONDITIONS = (
     "white_male",
@@ -57,7 +56,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--difference-summary-csv",
         type=Path,
-        default=Path("derived/naturalistic_difference_scores_eight_model.csv"),
+        default=Path("derived/naturalistic_difference_scores_seven_model.csv"),
     )
     parser.add_argument("--bootstrap-repetitions", type=int, default=10_000)
     return parser.parse_args()
@@ -75,7 +74,7 @@ def read_projection_scores(analysis_repo: Path, pipeline_repo: Path) -> pd.DataF
     )
     frames: list[pd.DataFrame] = []
     for model in MODELS:
-        if model in {"olmo3_7b", "llama31_70b"}:
+        if model == "llama31_70b":
             extended = (
                 analysis_repo / "results/extended_paper_models_2026-10-02"
             )
@@ -116,7 +115,7 @@ def read_likert_scores(analysis_repo: Path) -> pd.DataFrame:
     root = analysis_repo / "results/self_blinding_naturalistic_likert_2026-09-28/models"
     frames: list[pd.DataFrame] = []
     for model in MODELS:
-        if model in {"olmo3_7b", "llama31_70b"}:
+        if model == "llama31_70b":
             path = (
                 analysis_repo
                 / "results/extended_paper_models_2026-10-02/naturalistic_likert/models"
