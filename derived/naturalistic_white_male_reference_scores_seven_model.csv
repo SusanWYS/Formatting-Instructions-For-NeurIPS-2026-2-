@@ -1,0 +1,17 @@
+metric,score_units,outcome,condition,reference_condition,mean,ci_low,ci_high,n_scenarios,n_models
+CAA projection,causal_training_gap,negative,minority_female,white_male,0.02198781028322736,0.012429438755828713,0.031493511136605805,65,7
+CAA projection,causal_training_gap,negative,minority_male,white_male,0.005926357964225771,-0.004474673688214639,0.016346698652285316,65,7
+CAA projection,causal_training_gap,negative,race_gender_agnostic,white_male,-0.040670628989540845,-0.0769268057003495,-0.004598253878886305,65,7
+CAA projection,causal_training_gap,negative,white_female,white_male,-0.006294576675862853,-0.010177426933902152,-0.0025756574288378275,65,7
+Likert rating,Likert points,negative,minority_female,white_male,0.05420877070391266,0.03765579909626033,0.07061612513386062,65,7
+Likert rating,Likert points,negative,minority_male,white_male,0.01285452632944451,-0.004842746313656573,0.03118813728101952,65,7
+Likert rating,Likert points,negative,race_gender_agnostic,white_male,-0.05109883597264664,-0.09029227497923947,-0.012110020835764738,65,7
+Likert rating,Likert points,negative,white_female,white_male,0.006947134183294225,-0.0014873169573328938,0.015784577815834405,65,7
+CAA projection,causal_training_gap,positive,minority_female,white_male,0.04213751332890236,0.03259613702513919,0.051397456901679066,65,7
+CAA projection,causal_training_gap,positive,minority_male,white_male,0.01763560928384683,0.007507810453783549,0.027437621008356675,65,7
+CAA projection,causal_training_gap,positive,race_gender_agnostic,white_male,0.008333927059749374,-0.029641740122489917,0.044986500179448115,65,7
+CAA projection,causal_training_gap,positive,white_female,white_male,0.0035877404755445415,5.692770251053882e-05,0.006996123991126636,65,7
+Likert rating,Likert points,positive,minority_female,white_male,0.018869195734334394,-0.012000571444239173,0.04910448115467665,65,7
+Likert rating,Likert points,positive,minority_male,white_male,-0.05025201553139304,-0.0776393947057075,-0.022215121436625955,65,7
+Likert rating,Likert points,positive,race_gender_agnostic,white_male,0.0866949414129534,0.01951598425097886,0.15595476000497194,65,7
+Likert rating,Likert points,positive,white_female,white_male,0.012163458904461504,-0.0020407320453670733,0.026295147307401793,65,7

@@ -26,8 +26,12 @@ CONDITIONS = (
     "minority_male",
     "minority_female",
 )
-CONDITION_LABELS = (
-    "White\nmale",
+PLOT_CONDITIONS = (
+    "white_female",
+    "minority_male",
+    "minority_female",
+)
+PLOT_CONDITION_LABELS = (
     "White\nfemale",
     "Minority\nmale",
     "Minority\nfemale",
@@ -62,6 +66,11 @@ def parse_args() -> argparse.Namespace:
         "--per-model-difference-csv",
         type=Path,
         default=Path("derived/naturalistic_difference_scores_per_model.csv"),
+    )
+    parser.add_argument(
+        "--white-male-reference-csv",
+        type=Path,
+        default=Path("derived/naturalistic_white_male_reference_scores_seven_model.csv"),
     )
     parser.add_argument(
         "--calibration-csv",
@@ -303,6 +312,62 @@ def summarize_per_model_differences(
     return pd.DataFrame(rows)
 
 
+def summarize_white_male_reference(
+    scores: pd.DataFrame, repetitions: int
+) -> pd.DataFrame:
+    """Summarize each plotted condition relative to matched white-male items."""
+    scenario_means = (
+        scores.groupby(
+            ["metric", "outcome", "condition", "decision_question_id"],
+            observed=True,
+        )["score"]
+        .mean()
+        .reset_index()
+    )
+    reference = (
+        scenario_means[scenario_means["condition"] == "white_male"]
+        .drop(columns="condition")
+        .rename(columns={"score": "white_male_score"})
+    )
+    contrasts = scenario_means[
+        scenario_means["condition"].isin((*PLOT_CONDITIONS, BASELINE))
+    ].merge(
+        reference,
+        on=["metric", "outcome", "decision_question_id"],
+        how="left",
+        validate="many_to_one",
+    )
+    if contrasts["white_male_score"].isna().any():
+        raise ValueError("Missing matched white-male reference")
+    contrasts["difference"] = contrasts["score"] - contrasts["white_male_score"]
+
+    rng = np.random.default_rng(20261004)
+    rows = []
+    for (metric, outcome, condition), group in contrasts.groupby(
+        ["metric", "outcome", "condition"], sort=False, observed=True
+    ):
+        values = group.sort_values("decision_question_id")["difference"].to_numpy()
+        samples = rng.choice(values, size=(repetitions, len(values)), replace=True).mean(axis=1)
+        low, high = np.quantile(samples, [0.025, 0.975])
+        rows.append(
+            {
+                "metric": metric,
+                "score_units": (
+                    "causal_training_gap" if metric == "CAA projection" else "Likert points"
+                ),
+                "outcome": outcome,
+                "condition": condition,
+                "reference_condition": "white_male",
+                "mean": values.mean(),
+                "ci_low": low,
+                "ci_high": high,
+                "n_scenarios": len(values),
+                "n_models": len(MODELS),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> pd.Series:
     row = summary[
         (summary["metric"] == metric)
@@ -323,7 +388,7 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
     # Use the same Matplotlib typography as Figure 3.  The canvas and LaTeX
     # inclusion widths are both approximately half those of Figure 3.
     figure, axes = plt.subplots(2, 1, figsize=(3.24, 2.5), sharex=True)
-    x = np.arange(len(CONDITIONS))
+    x = np.arange(len(PLOT_CONDITIONS))
 
     for axis, metric, color in zip(
         axes,
@@ -331,13 +396,14 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         (projection_color, likert_color),
         strict=True,
     ):
-        rows = [lookup(summary, metric, outcome, condition) for condition in CONDITIONS]
+        rows = [lookup(summary, metric, outcome, condition) for condition in PLOT_CONDITIONS]
+        incidental = lookup(summary, metric, outcome, BASELINE)
         means = np.array([row["mean"] for row in rows])
         ci_low = np.array([row["ci_low"] for row in rows])
         ci_high = np.array([row["ci_high"] for row in rows])
         yerr = np.vstack((means - ci_low, ci_high - means))
-        displayed_min = min(ci_low.min(), 0.0)
-        displayed_max = max(ci_high.max(), 0.0)
+        displayed_min = min(ci_low.min(), float(incidental["ci_low"]), 0.0)
+        displayed_max = max(ci_high.max(), float(incidental["ci_high"]), 0.0)
         displayed_range = displayed_max - displayed_min
         if displayed_range == 0:
             displayed_range = max(abs(displayed_min), 1.0)
@@ -359,18 +425,35 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         axis.set_ylim(y_min, y_max)
         axis.axhline(
             0.0,
+            color="#777777",
+            linestyle="-",
+            linewidth=0.6,
+            zorder=2,
+        )
+        axis.axhline(
+            float(incidental["mean"]),
             color="black",
             linestyle="--",
-            linewidth=0.8,
+            linewidth=0.9,
+            label="Incidental details",
             zorder=4,
         )
         axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
         axis.spines[["top", "right"]].set_visible(False)
         axis.set_ylabel(r"$\Delta$ CAA" if metric == "CAA projection" else r"$\Delta$ Likert")
 
-    axes[-1].set_xticks(x, CONDITION_LABELS)
+    axes[-1].set_xticks(x, PLOT_CONDITION_LABELS)
     axes[-1].set_xlabel("Demographic condition")
-    figure.subplots_adjust(left=0.19, right=0.985, bottom=0.19, top=0.98, hspace=0.22)
+    handles, labels = axes[0].get_legend_handles_labels()
+    figure.legend(
+        handles,
+        labels,
+        loc="upper center",
+        bbox_to_anchor=(0.59, 1.005),
+        frameon=False,
+        fontsize=8.5,
+    )
+    figure.subplots_adjust(left=0.19, right=0.985, bottom=0.19, top=0.91, hspace=0.22)
     output_dir.mkdir(parents=True, exist_ok=True)
     # Preserve the established asset name so both manuscript formats continue
     # to resolve the same figure without duplicating binary files.
@@ -391,6 +474,9 @@ def main() -> None:
     summary = summarize(scores, args.bootstrap_repetitions)
     difference_summary = summarize_paired_differences(scores, args.bootstrap_repetitions)
     per_model = summarize_per_model_differences(scores, args.bootstrap_repetitions)
+    white_male_reference = summarize_white_male_reference(
+        scores, args.bootstrap_repetitions
+    )
     args.summary_csv.parent.mkdir(parents=True, exist_ok=True)
     summary.sort_values(["outcome", "metric", "condition"]).to_csv(
         args.summary_csv, index=False
@@ -403,8 +489,12 @@ def main() -> None:
     per_model.sort_values(["outcome", "metric", "model", "condition"]).to_csv(
         args.per_model_difference_csv, index=False
     )
+    args.white_male_reference_csv.parent.mkdir(parents=True, exist_ok=True)
+    white_male_reference.sort_values(["outcome", "metric", "condition"]).to_csv(
+        args.white_male_reference_csv, index=False
+    )
     for outcome in ("positive", "negative"):
-        plot_outcome(difference_summary, outcome, args.output_dir)
+        plot_outcome(white_male_reference, outcome, args.output_dir)
 
 
 if __name__ == "__main__":
