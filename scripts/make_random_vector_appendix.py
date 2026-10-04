@@ -172,40 +172,6 @@ def accuracy_table(combined: pd.DataFrame) -> list[str]:
     return lines
 
 
-def intervention_table(frame: pd.DataFrame) -> list[str]:
-    lines = [
-        r"\begin{table}[htbp]",
-        r"\centering",
-        r"\small",
-        r"\caption{Random-direction intervention controls. Each random direction is norm-matched to the learned causal CAA at the same layer and receives its own development-set-selected $\alpha$. Entries are means $\pm$ standard deviations across ten directions.}",
-        r"\label{tab:random-vector-intervention}",
-        r"\begin{tabular}{lrrrr}",
-        r"\toprule",
-        r"& \multicolumn{2}{c}{Critical} & \multicolumn{2}{c}{Control} \\",
-        r"\cmidrule(lr){2-3}\cmidrule(lr){4-5}",
-        r"Model & $\alpha$ & $\Delta$ surprisal & $\alpha$ & $\Delta$ surprisal \\",
-        r"\midrule",
-    ]
-    for model in MODELS:
-        critical = frame[frame.model.eq(model) & frame.condition.eq("critical")].iloc[0]
-        control = frame[frame.model.eq(model) & frame.condition.eq("control")].iloc[0]
-        values = (
-            cell(float(critical.random_vector_mean_alpha), float(critical.random_vector_sd_alpha)),
-            cell(
-                float(critical.random_vector_mean_delta_surprisal),
-                float(critical.random_vector_sd_delta_surprisal),
-            ),
-            cell(float(control.random_vector_mean_alpha), float(control.random_vector_sd_alpha)),
-            cell(
-                float(control.random_vector_mean_delta_surprisal),
-                float(control.random_vector_sd_delta_surprisal),
-            ),
-        )
-        lines.append(f"{LABELS[model]} & " + " & ".join(values) + r" \\")
-    lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}"])
-    return lines
-
-
 def naturalistic_table(frame: pd.DataFrame, outcome: str) -> list[str]:
     readable = "negative" if outcome == "negative" else "positive"
     label = f"tab:random-vector-naturalistic-{outcome}"
@@ -273,7 +239,6 @@ def main() -> None:
             "critical-minus-control training gap, matching the learned-direction calibration."
         ),
         *accuracy_table(combined),
-        *intervention_table(intervention),
         *naturalistic_table(naturalistic, "negative"),
         *naturalistic_table(naturalistic, "positive"),
     ]

@@ -155,31 +155,22 @@ For a causal CAA direction $v_l$ at the layer $l$ selected in Section~\ref{sec:r
 \end{equation}
 We intervene at every token position while scoring the fixed continuation token by token and report the change in mean surprisal per continuation token, $\Delta S=S_{\mathrm{intervened}}-S_{\mathrm{baseline}}$. For each model and condition, we tune $\alpha$ on the 48 cross-sentence development items. For critical contexts, we search $\alpha\in\{0,-.25,-.5,-1,-1.5,-2,-2.5,-3,-4,-5\}$ and select the value that minimizes $\Delta S$. For control contexts, we search the corresponding nonnegative values and select the value that maximizes $\Delta S$. Including zero allows the procedure to select no intervention when no coefficient has the predicted effect. We freeze the selected coefficient and evaluate it on the 48 disjoint cross-sentence test items and the 150 within-sentence items from Section~\ref{sec:behavior}. Confidence intervals bootstrap evaluation items. Because we use raw, unnormalized CAA directions, coefficient magnitudes are interpreted within, rather than across, models.
 
-\begin{table}[t]
+\begin{figure}[t]
   \centering
-  \small
-  \setlength{\tabcolsep}{3pt}
-  \caption{Mean per-token surprisal change $\pm$ the 95\% bootstrap CI half-width on within-sentence items after intervening along the causal direction. The $\alpha$ columns show the coefficients selected on the development set. Positive changes are predicted for control contexts and negative changes for critical contexts; bold CIs exclude zero. \textbf{Critical-context effects transfer in the predicted direction for six models, whereas control-context effects do so in four.}}
-  \label{tab:intervention}
-  \begin{tabular}{lrrrr}
-    \toprule
-      & \multicolumn{2}{c}{Critical} & \multicolumn{2}{c}{Control} \\
-    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-      & $\alpha$ & $\Delta$ surprisal & $\alpha$ & $\Delta$ surprisal \\
-    \midrule
-    Gemma~2 2B & $-5$ & $\boldsymbol{-.12\mathbin{\pm}.02}$ & $5$ & $\boldsymbol{.08\mathbin{\pm}.02}$ \\
-    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $5$ & $\boldsymbol{.05\mathbin{\pm}.02}$ \\
-    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $0$ & $.00\mathbin{\pm}.00$ \\
-    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $0$ & $.00\mathbin{\pm}.00$ \\
-    Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ \\
-    Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $5$ & $\boldsymbol{.10\mathbin{\pm}.02}$ \\
-    Llama~3.1 70B & $-2.5$ & $\boldsymbol{-.05\mathbin{\pm}.02}$ & $0$ & $.00\mathbin{\pm}.00$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+  \includegraphics[width=\columnwidth]{figures/intervention_control_learned_random.pdf}
+  \caption{Mean per-token surprisal change on 150 within-sentence control contexts after adding the derived causal vector or norm-matched random vectors. Derived-vector whiskers show 95\% bootstrap CIs over items; random-vector whiskers show one standard deviation across ten directions. Annotations give the selected $\alpha$ for the derived vector and the mean selected $\bar{\alpha}$ across random directions. Positive changes are predicted. \textbf{The derived vector raises surprisal in four models, but independently tuned random vectors can also produce sizable changes.}}
+  \label{fig:intervention-control}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/intervention_critical_learned_random.pdf}
+  \caption{Mean per-token surprisal change on 150 within-sentence critical contexts after subtracting the derived causal vector or norm-matched random vectors. Derived-vector whiskers show 95\% bootstrap CIs over items; random-vector whiskers show one standard deviation across ten directions. Annotations give the selected $\alpha$ for the derived vector and the mean selected $\bar{\alpha}$ across random directions. Negative changes are predicted. \textbf{The derived vector lowers surprisal in six models, although tuned random vectors often yield effects in the same direction.}}
+  \label{fig:intervention-critical}
+\end{figure}
 
 \paragraph{Results.}
-On within-sentence items, the intervention lowers surprisal for critical contexts in six models and raises it for control contexts in four (Table~\ref{tab:intervention}). Qwen3 4B selects no intervention in either condition; Qwen3 8B and Llama~3.1 70B also select zero for control contexts. Thus, the direction has the predicted behavioral effect in most, but not all, models and conditions. Most nonzero coefficients lie at or near the edge of the search range and should be interpreted as the best tested value rather than the true optimum. Independently tuning $\alpha$ also gives some norm-matched random directions substantial effects (Appendix~\ref{app:random-baselines}), so intervention magnitude alone does not establish causal specificity.
+On within-sentence items, the intervention lowers surprisal for critical contexts in six models and raises it for control contexts in four (Figures~\ref{fig:intervention-control} and~\ref{fig:intervention-critical}). Qwen3 4B selects no intervention in either condition; Qwen3 8B and Llama~3.1 70B also select zero for control contexts. Thus, the direction has the predicted behavioral effect in most, but not all, models and conditions. Most nonzero coefficients lie at or near the edge of the search range and should be interpreted as the best tested value rather than the true optimum. Independently tuning $\alpha$ also gives some norm-matched random directions substantial effects, so intervention magnitude alone does not establish causal specificity. Additional random-direction results are reported in Appendix~\ref{app:random-baselines}.
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
