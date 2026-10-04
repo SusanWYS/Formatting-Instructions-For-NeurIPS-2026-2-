@@ -410,17 +410,21 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
         y_min = displayed_min - 0.10 * displayed_range
         y_max = displayed_max + 0.10 * displayed_range
 
-        axis.bar(
+        axis.errorbar(
             x,
             means,
-            width=0.62,
-            color=color,
-            edgecolor="black",
-            linewidth=0.5,
             yerr=yerr,
-            capsize=1.8,
-            error_kw={"elinewidth": 0.7, "capthick": 0.7},
-            zorder=3,
+            fmt="o",
+            markersize=5.0,
+            markerfacecolor=color,
+            markeredgecolor="black",
+            markeredgewidth=0.55,
+            ecolor=color,
+            elinewidth=1.0,
+            capsize=2.5,
+            capthick=1.0,
+            linestyle="none",
+            zorder=4,
         )
         axis.set_ylim(y_min, y_max)
         axis.axhline(
