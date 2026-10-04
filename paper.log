@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  2 OCT 2026 04:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  4 OCT 2026 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -629,33 +629,30 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq1_behavior.pdf, id=135, 466.40434pt x 99.61472pt>
+<figures/rq1_behavior.pdf, id=135, 466.62392pt x 98.01166pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 71.
-(pdftex.def)             Requested size: 270.28687pt x 57.73096pt.
+(pdftex.def)             Requested size: 270.28687pt x 56.77501pt.
 
 [2 <./figures/rq1_behavior.pdf>]
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=182, 771.72195pt x 236.6
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=182, 771.39064pt x 236.6
 698pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 128.
-(pdftex.def)             Requested size: 357.73405pt x 109.70723pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=183, 466.40434pt x 99.61472pt>
+(pdftex.def)             Requested size: 357.73405pt x 109.7578pt.
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=183, 466.62392pt x 98.01166pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 136.
-(pdftex.def)             Requested size: 397.48499pt x 84.89937pt.
+(pdftex.def)             Requested size: 397.48499pt x 83.49425pt.
  [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
-l_ood_caa_accuracy.pdf>]
-Underfull \vbox (badness 2088) has occurred while \output is active []
-
- [4]
-(./paper.bbl [5]) [6] (./appendix_examples.tex [7
+l_ood_caa_accuracy.pdf>] [4] (./paper.bbl
+[5]) [6] (./appendix_examples.tex [7
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
@@ -815,10 +812,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--312
 \T1/cmtt/m/n/9 Question: Does the fact that ... explain why [outcome]? Answer
  []
 
-
-Underfull \vbox (badness 1565) has occurred while \output is active []
-
- [12]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 324--326
 \T1/cmtt/m/n/9 Question: How strongly does the fact that ... explain why
  []
@@ -837,7 +831,7 @@ pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 400.
+ input line 407.
 (pdftex.def)             Requested size: 397.48499pt x 171.07837pt.
 
 [14] [15 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./paper.aux)
@@ -849,11 +843,11 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 75E9B088E0CAA06AD92FC28ED24CC670;4038.
  ) 
 Here is how much of TeX's memory you used:
- 14607 strings out of 476106
- 227925 string characters out of 5793933
+ 14604 strings out of 476106
+ 227904 string characters out of 5793933
  2047975 words of memory out of 5000000
  35883 multiletter control sequences out of 15000+600000
- 615910 words of font info for 357 fonts, out of 8000000 for 9000
+ 615786 words of font info for 355 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  71i,17n,79p,1277b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
@@ -873,7 +867,7 @@ type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (15 pages, 416565 bytes).
+Output written on paper.pdf (15 pages, 382901 bytes).
 PDF statistics:
  507 PDF objects out of 1000 (max. 8388607)
  403 compressed objects within 5 object streams

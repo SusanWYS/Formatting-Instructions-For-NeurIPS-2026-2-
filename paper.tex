@@ -150,21 +150,21 @@ Having identified a causal direction that generalizes across linguistic construc
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions---a white man, a white woman, a minority man, or a minority woman---and a race/gender-agnostic baseline. To control for length, the baseline replaces the demographic description with a manually reviewed incidental detail that does not suggest the outcome. For example, \emph{The white male salesperson was denied a work visa to move to the United States} is compared with \emph{The salesperson at the consulate was denied a work visa to move to the United States}; each has a positive counterpart in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each scenario and outcome, we subtract the race/gender-agnostic score from each demographic score. For the model aggregate, we give each model equal weight by first averaging the seven differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the seven tested models as fixed. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
+We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. To place models on a common descriptive scale, we divide each model's projections by its mean critical-minus-control projection gap on the 384 causal training pairs. Thus, one normalized unit equals that model's average training contrast. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each scenario and outcome, we subtract the race/gender-agnostic score from each demographic score. For the model aggregate, we give each model equal weight by first averaging the seven differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the seven tested models as fixed. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
 
 \begin{table}[H]
   \vspace{-3pt}
   \centering
   \renewcommand{\arraystretch}{.88}
-  \caption{Seven-model aggregate differences from the matched race/gender-agnostic baseline $\pm$ 95\% scenario-bootstrap CIs. Projection uses the unit-normalized causal CAA direction; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}
+  \caption{Seven-model aggregate differences from the matched race/gender-agnostic baseline $\pm$ 95\% scenario-bootstrap CIs. CAA projections are divided by each model's causal training gap; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf{Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}
   \label{tab:naturalistic-aggregate}
   \resizebox{.92\linewidth}{!}{%
   \begin{tabular}{llrrrr}
     \toprule
     Measure & Outcome & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
     \midrule
-    CAA projection & Negative & $\boldsymbol{.36\mathbin{\pm}.25}$ & $\boldsymbol{.30\mathbin{\pm}.25}$ & $\boldsymbol{.44\mathbin{\pm}.26}$ & $\boldsymbol{.47\mathbin{\pm}.26}$ \\
-    CAA projection & Positive & $-.04\mathbin{\pm}.25$ & $-.02\mathbin{\pm}.25$ & $.13\mathbin{\pm}.27$ & $.23\mathbin{\pm}.26$ \\
+    CAA projection & Negative & $\boldsymbol{.041\mathbin{\pm}.036}$ & $.034\mathbin{\pm}.037$ & $\boldsymbol{.047\mathbin{\pm}.038}$ & $\boldsymbol{.063\mathbin{\pm}.038}$ \\
+    CAA projection & Positive & $-.008\mathbin{\pm}.038$ & $-.005\mathbin{\pm}.038$ & $.009\mathbin{\pm}.040$ & $.034\mathbin{\pm}.040$ \\
     Likert rating & Negative & $\boldsymbol{.05\mathbin{\pm}.04}$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.11\mathbin{\pm}.04}$ \\
     Likert rating & Positive & $\boldsymbol{-.09\mathbin{\pm}.07}$ & $\boldsymbol{-.07\mathbin{\pm}.07}$ & $\boldsymbol{-.14\mathbin{\pm}.07}$ & $\boldsymbol{-.07\mathbin{\pm}.07}$ \\
     \bottomrule
@@ -211,7 +211,7 @@ demographic stimuli is shown in Table~\ref{tab:rq3-stimuli}; the agnostic baseli
 \section{Naturalistic per-model results}
 \label{app:naturalistic-model-results}
 
-Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} report each model separately. Each cell is the mean demographic-minus-agnostic difference across 65 matched scenarios $\pm$ a 95\% scenario-bootstrap CI.
+Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} report each model separately. Each cell is the mean demographic-minus-agnostic difference across 65 matched scenarios $\pm$ a 95\% scenario-bootstrap CI. CAA differences are reported in model-specific causal-training-gap units.
 
 \begin{table}[H]
   \centering
@@ -225,13 +225,13 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
       \toprule
       Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
       \midrule
-      Gemma 2 2B & $\boldsymbol{-.30\mathbin{\pm}.27}$ & $\boldsymbol{-.43\mathbin{\pm}.27}$ & $-.09\mathbin{\pm}.27$ & $.05\mathbin{\pm}.28$ \\
-      Gemma 2 9B & $\boldsymbol{2.3\mathbin{\pm}1.1}$ & $\boldsymbol{1.8\mathbin{\pm}1.1}$ & $\boldsymbol{2.3\mathbin{\pm}1.1}$ & $\boldsymbol{2.1\mathbin{\pm}1.1}$ \\
-      Qwen3 4B & $.17\mathbin{\pm}.18$ & $\boldsymbol{.24\mathbin{\pm}.17}$ & $\boldsymbol{.21\mathbin{\pm}.19}$ & $\boldsymbol{.29\mathbin{\pm}.19}$ \\
-      Qwen3 8B & $.14\mathbin{\pm}.36$ & $.33\mathbin{\pm}.37$ & $\boldsymbol{.51\mathbin{\pm}.39}$ & $\boldsymbol{.70\mathbin{\pm}.40}$ \\
-      Llama 3.2 3B & $\boldsymbol{.118\mathbin{\pm}.067}$ & $\boldsymbol{.078\mathbin{\pm}.067}$ & $\boldsymbol{.087\mathbin{\pm}.069}$ & $\boldsymbol{.131\mathbin{\pm}.068}$ \\
-      Llama 3 8B & $.004\mathbin{\pm}.028$ & $-.007\mathbin{\pm}.030$ & $-.004\mathbin{\pm}.031$ & $.006\mathbin{\pm}.032$ \\
-      Llama 3.1 70B & $\boldsymbol{.093\mathbin{\pm}.036}$ & $\boldsymbol{.095\mathbin{\pm}.036}$ & $\boldsymbol{.080\mathbin{\pm}.037}$ & $\boldsymbol{.099\mathbin{\pm}.036}$ \\
+      Gemma 2 2B & $\boldsymbol{-.045\mathbin{\pm}.041}$ & $\boldsymbol{-.065\mathbin{\pm}.041}$ & $-.014\mathbin{\pm}.041$ & $.007\mathbin{\pm}.043$ \\
+      Gemma 2 9B & $\boldsymbol{.106\mathbin{\pm}.050}$ & $\boldsymbol{.084\mathbin{\pm}.050}$ & $\boldsymbol{.108\mathbin{\pm}.051}$ & $\boldsymbol{.097\mathbin{\pm}.053}$ \\
+      Qwen3 4B & $.037\mathbin{\pm}.038$ & $\boldsymbol{.051\mathbin{\pm}.036}$ & $\boldsymbol{.044\mathbin{\pm}.039}$ & $\boldsymbol{.061\mathbin{\pm}.040}$ \\
+      Qwen3 8B & $.018\mathbin{\pm}.045$ & $.042\mathbin{\pm}.047$ & $\boldsymbol{.064\mathbin{\pm}.049}$ & $\boldsymbol{.088\mathbin{\pm}.050}$ \\
+      Llama 3.2 3B & $\boldsymbol{.075\mathbin{\pm}.044}$ & $\boldsymbol{.050\mathbin{\pm}.042}$ & $\boldsymbol{.056\mathbin{\pm}.045}$ & $\boldsymbol{.083\mathbin{\pm}.043}$ \\
+      Llama 3 8B & $.006\mathbin{\pm}.047$ & $-.011\mathbin{\pm}.049$ & $-.006\mathbin{\pm}.050$ & $.010\mathbin{\pm}.052$ \\
+      Llama 3.1 70B & $\boldsymbol{.087\mathbin{\pm}.033}$ & $\boldsymbol{.089\mathbin{\pm}.034}$ & $\boldsymbol{.075\mathbin{\pm}.034}$ & $\boldsymbol{.093\mathbin{\pm}.034}$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}\hfill
@@ -244,13 +244,13 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
       \toprule
       Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
       \midrule
-      Gemma 2 2B & $\boldsymbol{-.65\mathbin{\pm}.31}$ & $\boldsymbol{-.71\mathbin{\pm}.32}$ & $-.21\mathbin{\pm}.32$ & $.03\mathbin{\pm}.33$ \\
-      Gemma 2 9B & $.44\mathbin{\pm}1.0$ & $.38\mathbin{\pm}1.1$ & $.95\mathbin{\pm}1.1$ & $1.0\mathbin{\pm}1.1$ \\
-      Qwen3 4B & $.02\mathbin{\pm}.20$ & $.11\mathbin{\pm}.19$ & $.05\mathbin{\pm}.19$ & $.14\mathbin{\pm}.19$ \\
-      Qwen3 8B & $-.11\mathbin{\pm}.36$ & $.08\mathbin{\pm}.37$ & $.09\mathbin{\pm}.40$ & $.31\mathbin{\pm}.41$ \\
-      Llama 3.2 3B & $-.028\mathbin{\pm}.087$ & $-.030\mathbin{\pm}.090$ & $-.027\mathbin{\pm}.089$ & $.030\mathbin{\pm}.089$ \\
-      Llama 3 8B & $-.007\mathbin{\pm}.031$ & $-.007\mathbin{\pm}.032$ & $.000\mathbin{\pm}.032$ & $.018\mathbin{\pm}.033$ \\
-      Llama 3.1 70B & $\boldsymbol{.062\mathbin{\pm}.037}$ & $\boldsymbol{.058\mathbin{\pm}.036}$ & $\boldsymbol{.052\mathbin{\pm}.040}$ & $\boldsymbol{.072\mathbin{\pm}.038}$ \\
+      Gemma 2 2B & $\boldsymbol{-.098\mathbin{\pm}.048}$ & $\boldsymbol{-.108\mathbin{\pm}.048}$ & $-.032\mathbin{\pm}.050$ & $.005\mathbin{\pm}.049$ \\
+      Gemma 2 9B & $.021\mathbin{\pm}.048$ & $.018\mathbin{\pm}.049$ & $.045\mathbin{\pm}.052$ & $.047\mathbin{\pm}.050$ \\
+      Qwen3 4B & $.005\mathbin{\pm}.042$ & $.022\mathbin{\pm}.040$ & $.010\mathbin{\pm}.041$ & $.029\mathbin{\pm}.041$ \\
+      Qwen3 8B & $-.014\mathbin{\pm}.046$ & $.010\mathbin{\pm}.047$ & $.011\mathbin{\pm}.049$ & $.040\mathbin{\pm}.052$ \\
+      Llama 3.2 3B & $-.018\mathbin{\pm}.055$ & $-.019\mathbin{\pm}.057$ & $-.017\mathbin{\pm}.057$ & $.019\mathbin{\pm}.056$ \\
+      Llama 3 8B & $-.012\mathbin{\pm}.049$ & $-.011\mathbin{\pm}.051$ & $-.000\mathbin{\pm}.054$ & $.030\mathbin{\pm}.054$ \\
+      Llama 3.1 70B & $\boldsymbol{.059\mathbin{\pm}.034}$ & $\boldsymbol{.055\mathbin{\pm}.033}$ & $\boldsymbol{.049\mathbin{\pm}.037}$ & $\boldsymbol{.067\mathbin{\pm}.035}$ \\
       \bottomrule
     \end{tabular}}
   \end{minipage}
@@ -379,6 +379,13 @@ s_{j,\ell}
 \frac{\mathbf{v}_{\ell}}{\lVert\mathbf{v}_{\ell}\rVert_2}.
 \label{eq:caa-projection}
 \end{equation}
+For cross-model naturalistic summaries, we use
+$\widetilde{s}_{j,\ell}=s_{j,\ell}/g_m$, where
+$g_m=\operatorname{mean}_{i}(s^+_{i,\ell}-s^-_{i,\ell})$ over the 384 causal
+training pairs for model $m$. Because $\mathbf{v}_{\ell}$ is their mean
+activation difference, $g_m=\lVert\mathbf{v}_{\ell}\rVert_2$. Random-direction
+naturalistic controls use the same learned-direction $g_m$ rather than a
+random-direction-specific denominator.
 For each matched evaluation pair, we calculate
 $d_i=s^{+}_{i,\ell}-s^{-}_{i,\ell}$. Paired accuracy is
 \begin{equation}
@@ -391,14 +398,14 @@ We select the layer used for test-time CAA projection by taking the layer with t
 \section{Projection statistics}
 \label{app:raw-caa}
 
-Figure~\ref{fig:rq3-distributions} shows the unit-normalized causal-direction projection
+Figure~\ref{fig:rq3-distributions} shows the causal-direction projection normalized by each model's causal training gap
 distributions underlying the paired summary statistics in
 Table~\ref{tab:naturalistic-negative}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref{tab:naturalistic-negative}).}}
+  \caption{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref{tab:naturalistic-negative}).}}
   \label{fig:rq3-distributions}
 \end{figure}
 

@@ -286,6 +286,15 @@ def plot_projection_distributions(args: argparse.Namespace, output: Path) -> Non
         )
         frames.append(extended[extended.outcome.eq("negative")])
     frame = pd.concat(frames, ignore_index=True)
+    calibration = pd.read_csv(
+        args.paper_repo / "derived/causal_train_projection_gaps.csv"
+    )[["model", "critical_minus_control_train_gap"]]
+    frame = frame.merge(calibration, on="model", how="left", validate="many_to_one")
+    if frame.critical_minus_control_train_gap.isna().any():
+        raise ValueError("Missing causal-training calibration gap")
+    frame["calibrated_projection"] = (
+        frame.unit_vector_projection / frame.critical_minus_control_train_gap
+    )
     conditions = ("white_male", "white_female", "minority_male", "minority_female")
     labels = ("White male", "White female", "Minority male", "Minority female")
     colors = ("#555555", "#D8A03D", "#2A6F97", "#B23A48")
@@ -293,12 +302,12 @@ def plot_projection_distributions(args: argparse.Namespace, output: Path) -> Non
     figure, axes = plt.subplots(2, 4, figsize=(9.4, 4.2))
     for axis, model in zip(axes.flat, MODELS, strict=False):
         local = frame[frame.model.eq(model)]
-        values = local.unit_vector_projection.to_numpy(dtype=float)
+        values = local.calibrated_projection.to_numpy(dtype=float)
         bins = np.linspace(values.min(), values.max(), 12)
         for condition, label, color, linestyle in zip(
             conditions, labels, colors, linestyles, strict=True
         ):
-            scores = local.loc[local.condition.eq(condition), "unit_vector_projection"]
+            scores = local.loc[local.condition.eq(condition), "calibrated_projection"]
             axis.hist(
                 scores,
                 bins=bins,
@@ -313,7 +322,7 @@ def plot_projection_distributions(args: argparse.Namespace, output: Path) -> Non
     for axis in axes.flat[len(MODELS):]:
         axis.axis("off")
     figure.supylabel("Count", fontsize=9, x=0.015)
-    figure.supxlabel("Unit-normalized CAA projection", fontsize=9, y=0.035)
+    figure.supxlabel("CAA projection (training-gap units)", fontsize=9, y=0.035)
     handles, legend_labels = axes.flat[0].get_legend_handles_labels()
     figure.legend(
         handles,

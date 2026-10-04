@@ -58,11 +58,23 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("derived/naturalistic_difference_scores_seven_model.csv"),
     )
+    parser.add_argument(
+        "--per-model-difference-csv",
+        type=Path,
+        default=Path("derived/naturalistic_difference_scores_per_model.csv"),
+    )
+    parser.add_argument(
+        "--calibration-csv",
+        type=Path,
+        default=Path("derived/causal_train_projection_gaps.csv"),
+    )
     parser.add_argument("--bootstrap-repetitions", type=int, default=10_000)
     return parser.parse_args()
 
 
-def read_projection_scores(analysis_repo: Path, pipeline_repo: Path) -> pd.DataFrame:
+def read_projection_scores(
+    analysis_repo: Path, pipeline_repo: Path, calibration_csv: Path
+) -> pd.DataFrame:
     negative_root = pipeline_repo / "results/rq3_naturalistic/models"
     positive_root = (
         analysis_repo
@@ -106,8 +118,18 @@ def read_projection_scores(analysis_repo: Path, pipeline_repo: Path) -> pd.DataF
 
     scores = pd.concat(frames, ignore_index=True)
     scores = scores[scores["condition"].isin((*CONDITIONS, BASELINE))].copy()
+    calibration = pd.read_csv(calibration_csv)[
+        ["model", "critical_minus_control_train_gap"]
+    ].rename(columns={"model": "model_key"})
+    scores = scores.merge(calibration, on="model_key", how="left", validate="many_to_one")
+    if scores["critical_minus_control_train_gap"].isna().any():
+        raise ValueError("Missing causal-training calibration gap")
     scores["metric"] = "CAA projection"
-    scores["score"] = scores["unit_vector_projection"]
+    scores["raw_unit_vector_projection"] = scores["unit_vector_projection"]
+    scores["score"] = (
+        scores["unit_vector_projection"]
+        / scores["critical_minus_control_train_gap"]
+    )
     return scores
 
 
@@ -172,6 +194,9 @@ def summarize(scores: pd.DataFrame, repetitions: int) -> pd.DataFrame:
         rows.append(
             {
                 "metric": metric,
+                "score_units": (
+                    "causal_training_gap" if metric == "CAA projection" else "Likert points"
+                ),
                 "outcome": outcome,
                 "condition": condition,
                 "mean": values.mean(),
@@ -222,6 +247,9 @@ def summarize_paired_differences(
         rows.append(
             {
                 "metric": metric,
+                "score_units": (
+                    "causal_training_gap" if metric == "CAA projection" else "Likert points"
+                ),
                 "outcome": outcome,
                 "condition": condition,
                 "mean": values.mean(),
@@ -229,6 +257,47 @@ def summarize_paired_differences(
                 "ci_high": high,
                 "n_scenarios": len(values),
                 "n_models": len(MODELS),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def summarize_per_model_differences(
+    scores: pd.DataFrame, repetitions: int
+) -> pd.DataFrame:
+    baseline = (
+        scores[scores["condition"] == BASELINE][
+            ["metric", "outcome", "decision_question_id", "model_key", "score"]
+        ]
+        .rename(columns={"score": "baseline_score"})
+    )
+    differences = scores[scores["condition"].isin(CONDITIONS)].merge(
+        baseline,
+        on=["metric", "outcome", "decision_question_id", "model_key"],
+        how="left",
+        validate="many_to_one",
+    )
+    differences["difference"] = differences["score"] - differences["baseline_score"]
+    rng = np.random.default_rng(20261004)
+    rows = []
+    for keys, group in differences.groupby(
+        ["metric", "outcome", "condition", "model_key"],
+        sort=False,
+        observed=True,
+    ):
+        values = group.sort_values("decision_question_id")["difference"].to_numpy()
+        samples = rng.choice(values, size=(repetitions, len(values)), replace=True).mean(axis=1)
+        low, high = np.quantile(samples, [0.025, 0.975])
+        rows.append(
+            {
+                "metric": keys[0],
+                "score_units": (
+                    "causal_training_gap" if keys[0] == "CAA projection" else "Likert points"
+                ),
+                "outcome": keys[1], "condition": keys[2],
+                "model": keys[3], "mean": values.mean(), "ci_low": low,
+                "ci_high": high, "ci_half_width": (high - low) / 2,
+                "n_scenarios": len(values),
             }
         )
     return pd.DataFrame(rows)
@@ -313,12 +382,15 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
 
 def main() -> None:
     args = parse_args()
-    projection = read_projection_scores(args.analysis_repo, args.paper_pipeline_repo)
+    projection = read_projection_scores(
+        args.analysis_repo, args.paper_pipeline_repo, args.calibration_csv
+    )
     likert = read_likert_scores(args.analysis_repo)
     scores = pd.concat([projection, likert], ignore_index=True)
     validate(scores)
     summary = summarize(scores, args.bootstrap_repetitions)
     difference_summary = summarize_paired_differences(scores, args.bootstrap_repetitions)
+    per_model = summarize_per_model_differences(scores, args.bootstrap_repetitions)
     args.summary_csv.parent.mkdir(parents=True, exist_ok=True)
     summary.sort_values(["outcome", "metric", "condition"]).to_csv(
         args.summary_csv, index=False
@@ -326,6 +398,10 @@ def main() -> None:
     args.difference_summary_csv.parent.mkdir(parents=True, exist_ok=True)
     difference_summary.sort_values(["outcome", "metric", "condition"]).to_csv(
         args.difference_summary_csv, index=False
+    )
+    args.per_model_difference_csv.parent.mkdir(parents=True, exist_ok=True)
+    per_model.sort_values(["outcome", "metric", "model", "condition"]).to_csv(
+        args.per_model_difference_csv, index=False
     )
     for outcome in ("positive", "negative"):
         plot_outcome(difference_summary, outcome, args.output_dir)

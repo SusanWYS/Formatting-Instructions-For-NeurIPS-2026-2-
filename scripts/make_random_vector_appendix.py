@@ -87,7 +87,7 @@ def learned_accuracies(args: argparse.Namespace) -> pd.DataFrame:
 def load_random_results(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     root = (
         args.analysis_repo
-        / "results/causal_random_vector_baselines_symmetric_alpha_2026-10-02/models"
+        / "results/causal_random_vector_baselines_one_sided_alpha_2026-10-04/models"
     )
     accuracy_frames = []
     intervention_frames = []
@@ -116,6 +116,22 @@ def load_random_results(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.Data
         pd.concat(intervention_frames, ignore_index=True),
         pd.concat(naturalistic_frames, ignore_index=True),
     )
+
+
+def normalize_naturalistic(args: argparse.Namespace, frame: pd.DataFrame) -> pd.DataFrame:
+    calibration = pd.read_csv(
+        args.paper_repo / "derived/causal_train_projection_gaps.csv"
+    )[["model", "critical_minus_control_train_gap"]]
+    result = frame.merge(calibration, on="model", how="left", validate="many_to_one")
+    if result.critical_minus_control_train_gap.isna().any():
+        raise ValueError("Missing learned-CAA calibration gap for random baseline")
+    for column in (
+        "random_vector_mean_delta_caa", "random_vector_sd_delta_caa",
+        "random_vector_min_delta_caa", "random_vector_max_delta_caa",
+    ):
+        result[column] = result[column] / result.critical_minus_control_train_gap
+    result["score_units"] = "learned_causal_training_gap"
+    return result
 
 
 def cell(mean: float, sd: float) -> str:
@@ -226,6 +242,7 @@ def naturalistic_table(frame: pd.DataFrame, outcome: str) -> list[str]:
 def main() -> None:
     args = parse_args()
     accuracy, intervention, naturalistic = load_random_results(args)
+    naturalistic = normalize_naturalistic(args, naturalistic)
     learned = learned_accuracies(args)
     combined = learned.merge(
         accuracy,
@@ -250,8 +267,10 @@ def main() -> None:
             "selected layer and rescale each direction to exactly match the learned causal "
             "direction's norm. We reuse the same seeded directions for paired-accuracy, "
             "intervention, and naturalistic evaluations. For interventions, we tune $\\alpha$ "
-            "separately for every random direction over the same symmetric grid and on the same "
+            "separately for every random direction over the same one-sided grid and on the same "
             "development items used for the learned direction; no test result enters selection."
+            " Naturalistic random-direction projections are divided by that model's learned-CAA "
+            "critical-minus-control training gap, matching the learned-direction calibration."
         ),
         *accuracy_table(combined),
         *intervention_table(intervention),

@@ -1,0 +1,8 @@
+model,selected_layer,n_train_pairs,critical_minus_control_train_gap,raw_caa_vector_norm,gap_identity,normalization
+gemma2_2b,8,384,6.589586635551754,6.589586635551754,||mean(h_critical-h_control)||_2,unit_projection / critical_minus_control_train_gap
+gemma2_9b,16,384,21.235814036581772,21.235814036581772,||mean(h_critical-h_control)||_2,unit_projection / critical_minus_control_train_gap
+qwen3_4b,16,384,4.716979182448441,4.716979182448441,||mean(h_critical-h_control)||_2,unit_projection / critical_minus_control_train_gap
+qwen3_8b,16,384,7.9205125686662745,7.9205125686662745,||mean(h_critical-h_control)||_2,unit_projection / critical_minus_control_train_gap
+llama32_3b,12,384,1.56828129420493,1.56828129420493,||mean(h_critical-h_control)||_2,unit_projection / critical_minus_control_train_gap
+llama3_8b,8,384,0.6167081279936133,0.6167081279936133,||mean(h_critical-h_control)||_2,unit_projection / critical_minus_control_train_gap
+llama31_70b,16,384,1.0653274162040307,1.0653274162040307,||mean(h_critical-h_control)||_2,unit_projection / critical_minus_control_train_gap

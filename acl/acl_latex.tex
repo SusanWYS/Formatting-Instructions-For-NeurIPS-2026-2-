@@ -153,20 +153,13 @@ For a causal CAA direction $v_l$ at the layer $l$ selected in Section~\ref{sec:r
 \begin{equation}
     h'_{l,t}=h_{l,t}+\alpha v_l.
 \end{equation}
-We intervene at every token position while scoring the fixed continuation token by token and report the change in mean surprisal per continuation token, $\Delta S=S_{\mathrm{intervened}}-S_{\mathrm{baseline}}$. For each model and condition, we tune $\alpha$ on the 48 cross-sentence development items over the symmetric grid
-\[
-\begin{aligned}
-\alpha\in\{&0,\pm.25,\pm.5,\pm1,\pm1.5,\\
-             &\pm2,\pm2.5,\pm3,\pm4,\pm5\}.
-\end{aligned}
-\]
-We select the coefficient that maximizes $\Delta S$ for control items and minimizes it for critical items, allowing either sign in both conditions. Including zero allows the procedure to select no intervention when no coefficient has the predicted effect. We freeze the selected coefficient and evaluate it on the 48 disjoint cross-sentence test items and the 150 within-sentence items from Section~\ref{sec:behavior}. Confidence intervals bootstrap evaluation items. Because we use raw, unnormalized CAA directions, coefficient magnitudes are interpreted within, rather than across, models.
+We intervene at every token position while scoring the fixed continuation token by token and report the change in mean surprisal per continuation token, $\Delta S=S_{\mathrm{intervened}}-S_{\mathrm{baseline}}$. For each model and condition, we tune $\alpha$ on the 48 cross-sentence development items. For critical contexts, we search $\alpha\in\{0,-.25,-.5,-1,-1.5,-2,-2.5,-3,-4,-5\}$ and select the value that minimizes $\Delta S$. For control contexts, we search the corresponding nonnegative values and select the value that maximizes $\Delta S$. Including zero allows the procedure to select no intervention when no coefficient has the predicted effect. We freeze the selected coefficient and evaluate it on the 48 disjoint cross-sentence test items and the 150 within-sentence items from Section~\ref{sec:behavior}. Confidence intervals bootstrap evaluation items. Because we use raw, unnormalized CAA directions, coefficient magnitudes are interpreted within, rather than across, models.
 
 \begin{table}[t]
   \centering
   \small
   \setlength{\tabcolsep}{3pt}
-  \caption{Mean per-token surprisal change $\pm$ the 95\% bootstrap CI half-width on within-sentence items after intervening along the causal direction. The $\alpha$ columns show the coefficients selected on the development set. Positive changes are predicted for control contexts and negative changes for critical contexts; bold CIs exclude zero. \textbf{Critical-context effects transfer in the predicted direction for all seven models, whereas control-context effects do so in five.}}
+  \caption{Mean per-token surprisal change $\pm$ the 95\% bootstrap CI half-width on within-sentence items after intervening along the causal direction. The $\alpha$ columns show the coefficients selected on the development set. Positive changes are predicted for control contexts and negative changes for critical contexts; bold CIs exclude zero. \textbf{Critical-context effects transfer in the predicted direction for six models, whereas control-context effects do so in four.}}
   \label{tab:intervention}
   \begin{tabular}{lrrrr}
     \toprule
@@ -175,18 +168,18 @@ We select the coefficient that maximizes $\Delta S$ for control items and minimi
       & $\alpha$ & $\Delta$ surprisal & $\alpha$ & $\Delta$ surprisal \\
     \midrule
     Gemma~2 2B & $-5$ & $\boldsymbol{-.12\mathbin{\pm}.02}$ & $5$ & $\boldsymbol{.08\mathbin{\pm}.02}$ \\
-    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $-5$ & $\boldsymbol{-.04\mathbin{\pm}.02}$ \\
-    Qwen3 4B & $5$ & $\boldsymbol{-.06\mathbin{\pm}.03}$ & $-4$ & $\boldsymbol{.25\mathbin{\pm}.05}$ \\
-    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $-2.5$ & $\boldsymbol{-.09\mathbin{\pm}.03}$ \\
+    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $5$ & $\boldsymbol{.05\mathbin{\pm}.02}$ \\
+    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $0$ & $.00\mathbin{\pm}.00$ \\
+    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $0$ & $.00\mathbin{\pm}.00$ \\
     Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ \\
     Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $5$ & $\boldsymbol{.10\mathbin{\pm}.02}$ \\
-    Llama~3.1 70B & $5$ & $\boldsymbol{-.20\mathbin{\pm}.03}$ & $-5$ & $\boldsymbol{.49\mathbin{\pm}.05}$ \\
+    Llama~3.1 70B & $-2.5$ & $\boldsymbol{-.05\mathbin{\pm}.02}$ & $0$ & $.00\mathbin{\pm}.00$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \paragraph{Results.}
-On within-sentence items, the intervention lowers surprisal for critical contexts in all seven models and raises it for control contexts in five (Table~\ref{tab:intervention}). The control-context effect reverses for Gemma~2 9B and Qwen3 8B. Coefficient signs also vary: Qwen3 4B and Llama~3.1 70B select positive coefficients for critical contexts and negative coefficients for controls, opposite the pattern selected by most other models. The intervention is therefore behaviorally consequential but is not a uniform, context-independent steering effect. Most selected coefficients lie at or near the edge of the search range and should be interpreted as the best tested value rather than the true optimum. Independently tuning $\alpha$ also gives some norm-matched random directions substantial effects (Appendix~\ref{app:random-baselines}), so intervention magnitude alone does not establish causal specificity.
+On within-sentence items, the intervention lowers surprisal for critical contexts in six models and raises it for control contexts in four (Table~\ref{tab:intervention}). Qwen3 4B selects no intervention in either condition; Qwen3 8B and Llama~3.1 70B also select zero for control contexts. Thus, the direction has the predicted behavioral effect in most, but not all, models and conditions. Most nonzero coefficients lie at or near the edge of the search range and should be interpreted as the best tested value rather than the true optimum. Independently tuning $\alpha$ also gives some norm-matched random directions substantial effects (Appendix~\ref{app:random-baselines}), so intervention magnitude alone does not establish causal specificity.
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
@@ -196,19 +189,19 @@ Having identified a causal direction that generalizes across linguistic construc
 We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions---a white man, a white woman, a minority man, or a minority woman---and a race/gender-agnostic baseline. To control for length, the baseline replaces the demographic description with a manually reviewed incidental detail that does not suggest the outcome. For example, \emph{The white male salesperson was denied a work visa to move to the United States} is compared with \emph{The salesperson at the consulate was denied a work visa to move to the United States}; each has a positive counterpart in which the visa was granted. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each model and scenario, we subtract the matched gender/race-agnostic score from each demographic score. We give each model equal weight by averaging the seven differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the seven tested models as fixed. Unit-vector projection coordinates are model-specific, so their seven-model average is a descriptive summary of this fixed model set. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
+We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}; higher scores indicate stronger causal representations. To place models on a common descriptive scale, we divide each model's projections by its mean critical-minus-control projection gap on the 384 causal training pairs. Thus, one normalized unit equals that model's average training contrast. Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. For the agnostic baseline, the question instead names its scenario-specific incidental detail. Within each model and scenario, we subtract the matched gender/race-agnostic score from each demographic score. We give each model equal weight by averaging the seven differences within a scenario and then averaging across the 65 scenarios; 95\% CIs bootstrap scenarios and treat the seven tested models as fixed. Per-model results are reported in Appendix~\ref{app:naturalistic-model-results}.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=.4\textwidth]{figures/naturalistic_positive_raw_scores_six_model.pdf}
-  \caption{Differences from the matched gender/race-agnostic baseline in causal projection (top) and expected Likert rating (bottom) for positive outcomes. Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{Projection differences are inconsistent, whereas explicit causal ratings are lower for all four demographic conditions.}}
+  \caption{Differences from the matched gender/race-agnostic baseline in training-gap-normalized causal projection (top) and expected Likert rating (bottom) for positive outcomes. Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{Projection differences are inconsistent, whereas explicit causal ratings are lower for all four demographic conditions.}}
   \label{fig:naturalistic-positive-aggregate}
 \end{figure}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=.4\textwidth]{figures/naturalistic_negative_raw_scores_six_model.pdf}
-  \caption{Differences from the matched gender/race-agnostic baseline in causal projection (top) and expected Likert rating (bottom) for negative outcomes. Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{All four demographic conditions exceed the baseline in both measures.}}
+  \caption{Differences from the matched gender/race-agnostic baseline in training-gap-normalized causal projection (top) and expected Likert rating (bottom) for negative outcomes. Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; the dashed zero line indicates no difference from the baseline. \textbf{All four demographic conditions exceed the baseline in both measures on average.}}
   \label{fig:naturalistic-negative-aggregate}
 \end{figure}
 
@@ -255,7 +248,7 @@ demographic stimuli is shown in Table~\ref{tab:rq3-stimuli}; the agnostic baseli
 \section{Naturalistic per-model results}
 \label{app:naturalistic-model-results}
 
-Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} report each model separately. Each cell is the mean demographic-minus-agnostic difference across 65 matched scenarios $\pm$ a 95\% scenario-bootstrap CI.
+Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} report each model separately. Each cell is the mean demographic-minus-agnostic difference across 65 matched scenarios $\pm$ a 95\% scenario-bootstrap CI. CAA differences are reported in model-specific causal-training-gap units.
 
 \begin{table}[htbp]
   \centering
@@ -265,13 +258,13 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
     \toprule
     Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
     \midrule
-    Gemma 2 2B & $\boldsymbol{-.30\mathbin{\pm}.27}$ & $\boldsymbol{-.43\mathbin{\pm}.27}$ & $-.09\mathbin{\pm}.27$ & $.05\mathbin{\pm}.28$ \\
-    Gemma 2 9B & $\boldsymbol{2.3\mathbin{\pm}1.1}$ & $\boldsymbol{1.8\mathbin{\pm}1.1}$ & $\boldsymbol{2.3\mathbin{\pm}1.1}$ & $\boldsymbol{2.1\mathbin{\pm}1.1}$ \\
-    Qwen3 4B & $.17\mathbin{\pm}.18$ & $\boldsymbol{.24\mathbin{\pm}.17}$ & $\boldsymbol{.21\mathbin{\pm}.19}$ & $\boldsymbol{.29\mathbin{\pm}.19}$ \\
-    Qwen3 8B & $.14\mathbin{\pm}.36$ & $.33\mathbin{\pm}.37$ & $\boldsymbol{.51\mathbin{\pm}.39}$ & $\boldsymbol{.70\mathbin{\pm}.40}$ \\
-    Llama 3.2 3B & $\boldsymbol{.118\mathbin{\pm}.067}$ & $\boldsymbol{.078\mathbin{\pm}.067}$ & $\boldsymbol{.087\mathbin{\pm}.069}$ & $\boldsymbol{.131\mathbin{\pm}.068}$ \\
-    Llama 3 8B & $.004\mathbin{\pm}.028$ & $-.007\mathbin{\pm}.030$ & $-.004\mathbin{\pm}.031$ & $.006\mathbin{\pm}.032$ \\
-    Llama 3.1 70B & $\boldsymbol{.093\mathbin{\pm}.036}$ & $\boldsymbol{.095\mathbin{\pm}.036}$ & $\boldsymbol{.080\mathbin{\pm}.037}$ & $\boldsymbol{.099\mathbin{\pm}.036}$ \\
+    Gemma 2 2B & $\boldsymbol{-.045\mathbin{\pm}.041}$ & $\boldsymbol{-.065\mathbin{\pm}.041}$ & $-.014\mathbin{\pm}.041$ & $.007\mathbin{\pm}.043$ \\
+    Gemma 2 9B & $\boldsymbol{.106\mathbin{\pm}.050}$ & $\boldsymbol{.084\mathbin{\pm}.050}$ & $\boldsymbol{.108\mathbin{\pm}.051}$ & $\boldsymbol{.097\mathbin{\pm}.053}$ \\
+    Qwen3 4B & $.037\mathbin{\pm}.038$ & $\boldsymbol{.051\mathbin{\pm}.036}$ & $\boldsymbol{.044\mathbin{\pm}.039}$ & $\boldsymbol{.061\mathbin{\pm}.040}$ \\
+    Qwen3 8B & $.018\mathbin{\pm}.045$ & $.042\mathbin{\pm}.047$ & $\boldsymbol{.064\mathbin{\pm}.049}$ & $\boldsymbol{.088\mathbin{\pm}.050}$ \\
+    Llama 3.2 3B & $\boldsymbol{.075\mathbin{\pm}.044}$ & $\boldsymbol{.050\mathbin{\pm}.042}$ & $\boldsymbol{.056\mathbin{\pm}.045}$ & $\boldsymbol{.083\mathbin{\pm}.043}$ \\
+    Llama 3 8B & $.006\mathbin{\pm}.047$ & $-.011\mathbin{\pm}.049$ & $-.006\mathbin{\pm}.050$ & $.010\mathbin{\pm}.052$ \\
+    Llama 3.1 70B & $\boldsymbol{.087\mathbin{\pm}.033}$ & $\boldsymbol{.089\mathbin{\pm}.034}$ & $\boldsymbol{.075\mathbin{\pm}.034}$ & $\boldsymbol{.093\mathbin{\pm}.034}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -284,13 +277,13 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
     \toprule
     Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
     \midrule
-    Gemma 2 2B & $\boldsymbol{-.65\mathbin{\pm}.31}$ & $\boldsymbol{-.71\mathbin{\pm}.32}$ & $-.21\mathbin{\pm}.32$ & $.03\mathbin{\pm}.33$ \\
-    Gemma 2 9B & $.44\mathbin{\pm}1.0$ & $.38\mathbin{\pm}1.1$ & $.95\mathbin{\pm}1.1$ & $1.0\mathbin{\pm}1.1$ \\
-    Qwen3 4B & $.02\mathbin{\pm}.20$ & $.11\mathbin{\pm}.19$ & $.05\mathbin{\pm}.19$ & $.14\mathbin{\pm}.19$ \\
-    Qwen3 8B & $-.11\mathbin{\pm}.36$ & $.08\mathbin{\pm}.37$ & $.09\mathbin{\pm}.40$ & $.31\mathbin{\pm}.41$ \\
-    Llama 3.2 3B & $-.028\mathbin{\pm}.087$ & $-.030\mathbin{\pm}.090$ & $-.027\mathbin{\pm}.089$ & $.030\mathbin{\pm}.089$ \\
-    Llama 3 8B & $-.007\mathbin{\pm}.031$ & $-.007\mathbin{\pm}.032$ & $.000\mathbin{\pm}.032$ & $.018\mathbin{\pm}.033$ \\
-    Llama 3.1 70B & $\boldsymbol{.062\mathbin{\pm}.037}$ & $\boldsymbol{.058\mathbin{\pm}.036}$ & $\boldsymbol{.052\mathbin{\pm}.040}$ & $\boldsymbol{.072\mathbin{\pm}.038}$ \\
+    Gemma 2 2B & $\boldsymbol{-.098\mathbin{\pm}.048}$ & $\boldsymbol{-.108\mathbin{\pm}.048}$ & $-.032\mathbin{\pm}.050$ & $.005\mathbin{\pm}.049$ \\
+    Gemma 2 9B & $.021\mathbin{\pm}.048$ & $.018\mathbin{\pm}.049$ & $.045\mathbin{\pm}.052$ & $.047\mathbin{\pm}.050$ \\
+    Qwen3 4B & $.005\mathbin{\pm}.042$ & $.022\mathbin{\pm}.040$ & $.010\mathbin{\pm}.041$ & $.029\mathbin{\pm}.041$ \\
+    Qwen3 8B & $-.014\mathbin{\pm}.046$ & $.010\mathbin{\pm}.047$ & $.011\mathbin{\pm}.049$ & $.040\mathbin{\pm}.052$ \\
+    Llama 3.2 3B & $-.018\mathbin{\pm}.055$ & $-.019\mathbin{\pm}.057$ & $-.017\mathbin{\pm}.057$ & $.019\mathbin{\pm}.056$ \\
+    Llama 3 8B & $-.012\mathbin{\pm}.049$ & $-.011\mathbin{\pm}.051$ & $-.000\mathbin{\pm}.054$ & $.030\mathbin{\pm}.054$ \\
+    Llama 3.1 70B & $\boldsymbol{.059\mathbin{\pm}.034}$ & $\boldsymbol{.055\mathbin{\pm}.033}$ & $\boldsymbol{.049\mathbin{\pm}.037}$ & $\boldsymbol{.067\mathbin{\pm}.035}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -420,6 +413,13 @@ s_{j,\ell}
 \frac{\mathbf{v}_{\ell}}{\lVert\mathbf{v}_{\ell}\rVert_2}.
 \label{eq:caa-projection}
 \end{equation}
+For cross-model naturalistic summaries, we use
+$\widetilde{s}_{j,\ell}=s_{j,\ell}/g_m$, where
+$g_m=\operatorname{mean}_{i}(s^+_{i,\ell}-s^-_{i,\ell})$ over the 384 causal
+training pairs for model $m$. Because $\mathbf{v}_{\ell}$ is their mean
+activation difference, $g_m=\lVert\mathbf{v}_{\ell}\rVert_2$. Random-direction
+naturalistic controls use the same learned-direction $g_m$ rather than a
+random-direction-specific denominator.
 For each matched evaluation pair, we calculate
 $d_i=s^{+}_{i,\ell}-s^{-}_{i,\ell}$. Paired accuracy is
 \begin{equation}
@@ -432,14 +432,14 @@ We select the layer used for test-time CAA projection by taking the layer with t
 \section{Projection statistics}
 \label{app:raw-caa}
 
-Figure~\ref{fig:rq3-distributions} shows the unit-normalized causal-direction projection
+Figure~\ref{fig:rq3-distributions} shows the causal-direction projection normalized by each model's causal training gap
 distributions underlying the paired summary statistics in
 Table~\ref{tab:naturalistic-negative}.
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref{tab:naturalistic-negative}).}}
+  \caption{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref{tab:naturalistic-negative}).}}
   \label{fig:rq3-distributions}
 \end{figure*}
 
