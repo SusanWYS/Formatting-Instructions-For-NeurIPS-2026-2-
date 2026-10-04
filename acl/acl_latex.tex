@@ -21,8 +21,6 @@
 
 \newcommand{\caa}{CAA}
 \newcommand{\modelname}[1]{\textsc{#1}}
-\definecolor{randomsig}{HTML}{B45309}
-\newcommand{\rsig}[1]{\textcolor{randomsig}{#1}}
 \input{derived/rq2_results_text}
 
 \title{Language Models Represent Implicit Causal Relationships}
@@ -157,51 +155,49 @@ For a causal CAA direction $v_l$ at the layer $l$ selected in Section~\ref{sec:r
 \end{equation}
 We intervene at every token position while scoring the fixed continuation token by token and report the change in mean surprisal per continuation token, $\Delta S=S_{\mathrm{intervened}}-S_{\mathrm{baseline}}$. For each model and condition, we tune $\alpha$ on the 48 cross-sentence development items. For critical contexts, we search $\alpha\in\{0,-.25,-.5,-1,-1.5,-2,-2.5,-3,-4,-5\}$ and select the value that minimizes $\Delta S$. For control contexts, we search the corresponding nonnegative values and select the value that maximizes $\Delta S$. Including zero allows the procedure to select no intervention when no coefficient has the predicted effect. We freeze the selected coefficient and evaluate it on the 48 disjoint cross-sentence test items and the 150 within-sentence items from Section~\ref{sec:behavior}. Confidence intervals bootstrap evaluation items. Because we use raw, unnormalized CAA directions, coefficient magnitudes are interpreted within, rather than across, models.
 
-\begin{table}[t]
+\begin{table*}[t]
   \centering
-  \scriptsize
-  \setlength{\tabcolsep}{2.5pt}
-  \caption{Mean per-token surprisal change on 150 within-sentence critical contexts after subtracting the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector CIs exclude zero; orange random-vector changes are significant under two-sided one-sample $t$-tests across directions ($p<.05$). Negative changes are predicted. \textbf{The derived vector lowers surprisal in six models, although tuned random vectors often yield effects in the same direction.}}
+  \small
+  \caption{Mean per-token surprisal change on 150 within-sentence critical contexts after subtracting the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector changes have CIs that exclude zero; bold random-vector changes are significant under two-sided one-sample $t$-tests across directions ($p<.05$). Negative changes are predicted. \textbf{The derived vector lowers surprisal in six models, although tuned random vectors often yield effects in the same direction.}}
   \label{tab:intervention-critical}
-  \begin{tabular}{lrrrr}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
     \toprule
       & \multicolumn{2}{c}{Derived causal vector} & \multicolumn{2}{c}{Random vectors} \\
     \cmidrule(lr){2-3}\cmidrule(lr){4-5}
     Model & $\alpha$ & $\Delta$ surprisal & $\bar{\alpha}$ & $\Delta$ surprisal \\
     \midrule
-    Gemma~2 2B & $-5$ & $\boldsymbol{-.12\mathbin{\pm}.02}$ & $-3.90\mathbin{\pm}2.08$ & \rsig{$-.05\mathbin{\pm}.04$} \\
-    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $-5.00\mathbin{\pm}.00$ & \rsig{$-.16\mathbin{\pm}.06$} \\
-    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $-2.70\mathbin{\pm}2.36$ & \rsig{$-.06\mathbin{\pm}.06$} \\
-    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $-3.00\mathbin{\pm}2.58$ & \rsig{$-.13\mathbin{\pm}.15$} \\
-    Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $-3.50\mathbin{\pm}2.42$ & \rsig{$-.14\mathbin{\pm}.15$} \\
-    Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $-3.30\mathbin{\pm}2.36$ & \rsig{$-.06\mathbin{\pm}.08$} \\
-    Llama~3.1 70B & $-2.5$ & $\boldsymbol{-.05\mathbin{\pm}.02}$ & $-4.80\mathbin{\pm}.42$ & \rsig{$-.10\mathbin{\pm}.05$} \\
+    Gemma~2 2B & $-5$ & $\boldsymbol{-.12\mathbin{\pm}.02}$ & $-3.90\mathbin{\pm}2.08$ & $\boldsymbol{-.05\mathbin{\pm}.04}$ \\
+    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $-5.00\mathbin{\pm}.00$ & $\boldsymbol{-.16\mathbin{\pm}.06}$ \\
+    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $-2.70\mathbin{\pm}2.36$ & $\boldsymbol{-.06\mathbin{\pm}.06}$ \\
+    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $-3.00\mathbin{\pm}2.58$ & $\boldsymbol{-.13\mathbin{\pm}.15}$ \\
+    Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $-3.50\mathbin{\pm}2.42$ & $\boldsymbol{-.14\mathbin{\pm}.15}$ \\
+    Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $-3.30\mathbin{\pm}2.36$ & $\boldsymbol{-.06\mathbin{\pm}.08}$ \\
+    Llama~3.1 70B & $-2.5$ & $\boldsymbol{-.05\mathbin{\pm}.02}$ & $-4.80\mathbin{\pm}.42$ & $\boldsymbol{-.10\mathbin{\pm}.05}$ \\
     \bottomrule
-  \end{tabular}
-\end{table}
+  \end{tabular*}
+\end{table*}
 
-\begin{table}[t]
+\begin{table*}[t]
   \centering
-  \scriptsize
-  \setlength{\tabcolsep}{2.5pt}
-  \caption{Mean per-token surprisal change on 150 within-sentence control contexts after adding the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector CIs exclude zero; orange random-vector changes are significant under two-sided one-sample $t$-tests across directions ($p<.05$). Positive changes are predicted. \textbf{The derived vector raises surprisal in four models, but independently tuned random vectors can also produce sizable changes.}}
+  \small
+  \caption{Mean per-token surprisal change on 150 within-sentence control contexts after adding the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector changes have CIs that exclude zero; bold random-vector changes are significant under two-sided one-sample $t$-tests across directions ($p<.05$). Positive changes are predicted. \textbf{The derived vector raises surprisal in four models, but independently tuned random vectors can also produce sizable changes.}}
   \label{tab:intervention-control}
-  \begin{tabular}{lrrrr}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
     \toprule
       & \multicolumn{2}{c}{Derived causal vector} & \multicolumn{2}{c}{Random vectors} \\
     \cmidrule(lr){2-3}\cmidrule(lr){4-5}
     Model & $\alpha$ & $\Delta$ surprisal & $\bar{\alpha}$ & $\Delta$ surprisal \\
     \midrule
-    Gemma~2 2B & $5$ & $\boldsymbol{.08\mathbin{\pm}.02}$ & $3.52\mathbin{\pm}2.38$ & \rsig{$.03\mathbin{\pm}.03$} \\
+    Gemma~2 2B & $5$ & $\boldsymbol{.08\mathbin{\pm}.02}$ & $3.52\mathbin{\pm}2.38$ & $\boldsymbol{.03\mathbin{\pm}.03}$ \\
     Gemma~2 9B & $5$ & $\boldsymbol{.05\mathbin{\pm}.02}$ & $3.60\mathbin{\pm}2.27$ & $.01\mathbin{\pm}.05$ \\
-    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $2.70\mathbin{\pm}2.41$ & \rsig{$.06\mathbin{\pm}.07$} \\
+    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $2.70\mathbin{\pm}2.41$ & $\boldsymbol{.06\mathbin{\pm}.07}$ \\
     Qwen3 8B & $0$ & $.00\mathbin{\pm}.00$ & $1.95\mathbin{\pm}2.43$ & $.02\mathbin{\pm}.03$ \\
-    Llama~3.2 3B & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ & $3.50\mathbin{\pm}2.42$ & \rsig{$.18\mathbin{\pm}.21$} \\
+    Llama~3.2 3B & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ & $3.50\mathbin{\pm}2.42$ & $\boldsymbol{.18\mathbin{\pm}.21}$ \\
     Llama~3 8B & $5$ & $\boldsymbol{.10\mathbin{\pm}.02}$ & $.45\mathbin{\pm}.96$ & $-.00\mathbin{\pm}.01$ \\
     Llama~3.1 70B & $0$ & $.00\mathbin{\pm}.00$ & $1.68\mathbin{\pm}2.13$ & $.02\mathbin{\pm}.07$ \\
     \bottomrule
-  \end{tabular}
-\end{table}
+  \end{tabular*}
+\end{table*}
 
 \paragraph{Results.}
 On within-sentence items, the intervention lowers surprisal for critical contexts in six models and raises it for control contexts in four (Tables~\ref{tab:intervention-critical} and~\ref{tab:intervention-control}). Qwen3 4B selects no intervention in either condition; Qwen3 8B and Llama~3.1 70B also select zero for control contexts. Thus, the direction has the predicted behavioral effect in most, but not all, models and conditions. Most nonzero coefficients lie at or near the edge of the search range and should be interpreted as the best tested value rather than the true optimum. Independently tuning $\alpha$ also gives some norm-matched random directions substantial effects, so intervention magnitude alone does not establish causal specificity. Additional random-direction results are reported in Appendix~\ref{app:random-baselines}.
