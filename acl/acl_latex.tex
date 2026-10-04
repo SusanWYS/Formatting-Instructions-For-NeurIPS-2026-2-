@@ -21,6 +21,8 @@
 
 \newcommand{\caa}{CAA}
 \newcommand{\modelname}[1]{\textsc{#1}}
+\definecolor{randomsig}{HTML}{B45309}
+\newcommand{\rsig}[1]{\textcolor{randomsig}{#1}}
 \input{derived/rq2_results_text}
 
 \title{Language Models Represent Implicit Causal Relationships}
@@ -159,7 +161,7 @@ We intervene at every token position while scoring the fixed continuation token 
   \centering
   \scriptsize
   \setlength{\tabcolsep}{2.5pt}
-  \caption{Mean per-token surprisal change on 150 within-sentence critical contexts after subtracting the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector CIs exclude zero. Negative changes are predicted. \textbf{The derived vector lowers surprisal in six models, although tuned random vectors often yield effects in the same direction.}}
+  \caption{Mean per-token surprisal change on 150 within-sentence critical contexts after subtracting the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector CIs exclude zero; orange random-vector changes are significant under two-sided one-sample $t$-tests across directions ($p<.05$). Negative changes are predicted. \textbf{The derived vector lowers surprisal in six models, although tuned random vectors often yield effects in the same direction.}}
   \label{tab:intervention-critical}
   \begin{tabular}{lrrrr}
     \toprule
@@ -167,13 +169,13 @@ We intervene at every token position while scoring the fixed continuation token 
     \cmidrule(lr){2-3}\cmidrule(lr){4-5}
     Model & $\alpha$ & $\Delta$ surprisal & $\bar{\alpha}$ & $\Delta$ surprisal \\
     \midrule
-    Gemma~2 2B & $-5$ & $\boldsymbol{-.12\mathbin{\pm}.02}$ & $-3.90\mathbin{\pm}2.08$ & $-.05\mathbin{\pm}.04$ \\
-    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $-5.00\mathbin{\pm}.00$ & $-.16\mathbin{\pm}.06$ \\
-    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $-2.70\mathbin{\pm}2.36$ & $-.06\mathbin{\pm}.06$ \\
-    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $-3.00\mathbin{\pm}2.58$ & $-.13\mathbin{\pm}.15$ \\
-    Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $-3.50\mathbin{\pm}2.42$ & $-.14\mathbin{\pm}.15$ \\
-    Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $-3.30\mathbin{\pm}2.36$ & $-.06\mathbin{\pm}.08$ \\
-    Llama~3.1 70B & $-2.5$ & $\boldsymbol{-.05\mathbin{\pm}.02}$ & $-4.80\mathbin{\pm}.42$ & $-.10\mathbin{\pm}.05$ \\
+    Gemma~2 2B & $-5$ & $\boldsymbol{-.12\mathbin{\pm}.02}$ & $-3.90\mathbin{\pm}2.08$ & \rsig{$-.05\mathbin{\pm}.04$} \\
+    Gemma~2 9B & $-4$ & $\boldsymbol{-.18\mathbin{\pm}.02}$ & $-5.00\mathbin{\pm}.00$ & \rsig{$-.16\mathbin{\pm}.06$} \\
+    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $-2.70\mathbin{\pm}2.36$ & \rsig{$-.06\mathbin{\pm}.06$} \\
+    Qwen3 8B & $-5$ & $\boldsymbol{-.38\mathbin{\pm}.04}$ & $-3.00\mathbin{\pm}2.58$ & \rsig{$-.13\mathbin{\pm}.15$} \\
+    Llama~3.2 3B & $-1$ & $\boldsymbol{-.06\mathbin{\pm}.01}$ & $-3.50\mathbin{\pm}2.42$ & \rsig{$-.14\mathbin{\pm}.15$} \\
+    Llama~3 8B & $-5$ & $\boldsymbol{-.34\mathbin{\pm}.03}$ & $-3.30\mathbin{\pm}2.36$ & \rsig{$-.06\mathbin{\pm}.08$} \\
+    Llama~3.1 70B & $-2.5$ & $\boldsymbol{-.05\mathbin{\pm}.02}$ & $-4.80\mathbin{\pm}.42$ & \rsig{$-.10\mathbin{\pm}.05$} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -182,7 +184,7 @@ We intervene at every token position while scoring the fixed continuation token 
   \centering
   \scriptsize
   \setlength{\tabcolsep}{2.5pt}
-  \caption{Mean per-token surprisal change on 150 within-sentence control contexts after adding the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector CIs exclude zero. Positive changes are predicted. \textbf{The derived vector raises surprisal in four models, but independently tuned random vectors can also produce sizable changes.}}
+  \caption{Mean per-token surprisal change on 150 within-sentence control contexts after adding the derived causal vector or norm-matched random vectors. Derived-vector changes are reported with 95\% bootstrap CI half-widths over items; random-vector entries are means $\pm$ standard deviations across ten independently tuned directions. Bold derived-vector CIs exclude zero; orange random-vector changes are significant under two-sided one-sample $t$-tests across directions ($p<.05$). Positive changes are predicted. \textbf{The derived vector raises surprisal in four models, but independently tuned random vectors can also produce sizable changes.}}
   \label{tab:intervention-control}
   \begin{tabular}{lrrrr}
     \toprule
@@ -190,11 +192,11 @@ We intervene at every token position while scoring the fixed continuation token 
     \cmidrule(lr){2-3}\cmidrule(lr){4-5}
     Model & $\alpha$ & $\Delta$ surprisal & $\bar{\alpha}$ & $\Delta$ surprisal \\
     \midrule
-    Gemma~2 2B & $5$ & $\boldsymbol{.08\mathbin{\pm}.02}$ & $3.52\mathbin{\pm}2.38$ & $.03\mathbin{\pm}.03$ \\
+    Gemma~2 2B & $5$ & $\boldsymbol{.08\mathbin{\pm}.02}$ & $3.52\mathbin{\pm}2.38$ & \rsig{$.03\mathbin{\pm}.03$} \\
     Gemma~2 9B & $5$ & $\boldsymbol{.05\mathbin{\pm}.02}$ & $3.60\mathbin{\pm}2.27$ & $.01\mathbin{\pm}.05$ \\
-    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $2.70\mathbin{\pm}2.41$ & $.06\mathbin{\pm}.07$ \\
+    Qwen3 4B & $0$ & $.00\mathbin{\pm}.00$ & $2.70\mathbin{\pm}2.41$ & \rsig{$.06\mathbin{\pm}.07$} \\
     Qwen3 8B & $0$ & $.00\mathbin{\pm}.00$ & $1.95\mathbin{\pm}2.43$ & $.02\mathbin{\pm}.03$ \\
-    Llama~3.2 3B & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ & $3.50\mathbin{\pm}2.42$ & $.18\mathbin{\pm}.21$ \\
+    Llama~3.2 3B & $5$ & $\boldsymbol{.72\mathbin{\pm}.03}$ & $3.50\mathbin{\pm}2.42$ & \rsig{$.18\mathbin{\pm}.21$} \\
     Llama~3 8B & $5$ & $\boldsymbol{.10\mathbin{\pm}.02}$ & $.45\mathbin{\pm}.96$ & $-.00\mathbin{\pm}.01$ \\
     Llama~3.1 70B & $0$ & $.00\mathbin{\pm}.00$ & $1.68\mathbin{\pm}2.13$ & $.02\mathbin{\pm}.07$ \\
     \bottomrule
