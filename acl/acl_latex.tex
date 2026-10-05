@@ -55,15 +55,15 @@ with potential implications for the development of safer and more aligned models
 
 \subsection{Measuring implicit causal inference through model behaviors}
 \label{sec:behavior}
-We first ask whether implicit causal inferences influence model behavior. To test this, we compare two kinds of explicit metalinguistic judgments with an implicit measure based on the surprisal of subsequent text \citep{hu-levy-2023-prompting}. Our setup replicates and extends \citet{pan-kehler-2025-pragmatic}. More details about behavioral evaluation are provided in Appendix~\ref{app:behavior-details}.
+We first ask whether implicit causal inferences influence model behavior. To test this, we compare two kinds of explicit metalinguistic judgments with two implicit measures based on the surprisal of subsequent text \citep{hu-levy-2023-prompting}. Our setup replicates and extends \citet{pan-kehler-2025-pragmatic}. More details about behavioral evaluation are provided in Appendix~\ref{app:behavior-details}.
 
 \paragraph{Methods.}
 
 We manually authored 150 novel minimal pairs (critical/control) with sentences of the following structure: \textbf{[person] [modifier/relative clause] [outcome]}. The modifier plausibly causes the outcome in a critical sentence (e.g., \emph{The executive who falsified quarterly revenue figures was fired}) but is incidental in its control (e.g., \emph{The executive who wore a blue silk tie was fired}).
 
-We consider three evaluation methods. Under the \textbf{Yes/No (metalinguistic)} method, we present the sentence and append the question, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities to obtain $P(\text{Yes})$. % The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-Under the \textbf{Likert (metalinguistic)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. % ; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-Finally, under the \textbf{surprisal (implicit)} method, we score the surprisal of \emph{", and I don't know why."} conditioned on the sentence, following \citet{pan-kehler-2025-pragmatic}. If the modifier supplies an explanation, this continuation should be less expected. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
+We consider four evaluation methods. Under the \textbf{Yes/No (explicit)} method, we present the sentence and append the question, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities to obtain $P(\text{Yes})$. % The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
+Under the \textbf{7-point Likert (explicit)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. % ; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
+Under the \textbf{IDK Why (surprisal)} method, we score the surprisal of \emph{", and I don't know why."} conditioned on the sentence, following \citet{pan-kehler-2025-pragmatic}. If the modifier supplies an explanation, this continuation should be less expected. Under the \textbf{Because-And (surprisal)} method, we reconstruct each item without the original context as an outcome followed by the modifier, joined by either \emph{because} or \emph{and}. We score the same modifier tokens, including the final period, in both sentences and subtract their mean log probabilities under \emph{and} from those under \emph{because}. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
 For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for implementation details.
 
 In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3} base checkpoints.
@@ -71,11 +71,11 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/rq1_behavior.pdf}
-  \caption{Paired accuracy of model judgments on implicit causal inference items, comparing Yes/No prompting, 7-point Likert rating, and the surprisal of the continuation \textit{", and I don't know why."} Higher accuracy indicates better performance in implicit causality inferences.}
+  \caption{Paired accuracy on implicit causal inference items using two explicit judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf{Both surprisal-based measures distinguish critical from control items consistently across models.}}
   \label{fig:rq1}
 \end{figure*}
 
-\paragraph{Results.} In Figure~\ref{fig:rq1}, surprisal (green bars) achieves consistently high paired accuracy across model families: all seven models exhibit implicit causal inference in their continuation probabilities of \emph{", and I don't know why."}. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, whether a model appears to recognize an implicit causal relation depends strongly on how the inference is elicited: causal information can robustly affect next-token expectations even when the model does not reliably report the same inference metalinguistically.
+\paragraph{Results.} Figure~\ref{fig:rq1} shows that both surprisal measures achieve consistently high paired accuracy across model families. Accuracy ranges from 87.3\% to 96.7\% for IDK Why and from 82.7\% to 92.0\% for Because-And. In contrast, explicit Yes/No and Likert judgments vary substantially, ranging from below chance to near ceiling. Thus, causal information reliably affects models' expectations about subsequent text even when the models do not report the same inference consistently through explicit judgments.
 
 % \paragraph{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -385,7 +385,7 @@ r(q)&=\sum_{k=1}^{7}k\,\widetilde P_\theta(k\mid q).
 \label{eq:Likert-score}
 \end{align}
 
-\paragraph{Surprisal score.}
+\paragraph{IDK Why surprisal score.}
 For the critical member of the example pair, we score the continuation after the prefix [person] [modifier/relative clause] [outcome]; the full sequence is [person] [modifier/relative clause] [outcome]\emph{, and I don't know why.} For continuation tokens $c=(c_1,\ldots,c_M)$ and stimulus prefix $x$, summed continuation surprisal is
 \begin{equation}
 S(c\mid x)=-\sum_{t=1}^{M}\log P_\theta(c_t\mid x,c_{<t}).
@@ -393,8 +393,23 @@ S(c\mid x)=-\sum_{t=1}^{M}\log P_\theta(c_t\mid x,c_{<t}).
 \end{equation}
 This sum includes every token in \emph{", and I don't know why."}, including punctuation. A larger value means that the continuation is less expected.
 
+\paragraph{Because-And surprisal score.}
+For each item, we reconstruct two sentence-only versions from the outcome event $E$ and modifier content $F$: \emph{$E$ because $F$} and \emph{$E$, and $F$}, each ending in a period. For example, the critical item becomes \emph{The executive was fired because the executive falsified quarterly revenue figures.} versus \emph{The executive was fired, and the executive falsified quarterly revenue figures.} We score the identical tokens of $F$, including the final period, after each connective. For target tokens $f=(f_1,\ldots,f_M)$, the score is
+\begin{equation}
+\begin{aligned}
+\ell_{\mathrm{because},t}
+  &=\log P_\theta(f_t\mid E\ \text{because},f_{<t}),\\
+\ell_{\mathrm{and},t}
+  &=\log P_\theta(f_t\mid E\text{, and},f_{<t}),\\
+B(E,F)&=\frac{1}{M}\sum_{t=1}^{M}
+  \left(\ell_{\mathrm{because},t}-\ell_{\mathrm{and},t}\right).
+\end{aligned}
+\label{eq:because-and}
+\end{equation}
+A larger value means that the model favors a causal relation between the events over simple conjunction.
+
 \paragraph{Paired accuracy and sampling parameters.}
-For each measure $m$ ($p_{\mathrm{yes}}$, $r$, or $S$), we compute
+For each measure $m$ ($p_{\mathrm{yes}}$, $r$, $S$, or $B$), we compute
 \begin{equation}
 \begin{aligned}
 \operatorname{Acc}_{\mathrm{pair}}(m)

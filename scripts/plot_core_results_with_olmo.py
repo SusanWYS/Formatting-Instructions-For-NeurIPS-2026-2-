@@ -73,39 +73,55 @@ def wilson_interval(accuracy: float, n: int, z: float = 1.96) -> tuple[float, fl
 
 def load_rq1(args: argparse.Namespace) -> pd.DataFrame:
     prior = pd.read_csv(args.paper_repo / "derived/rq1_behavior_pairwise_accuracy.csv")
-    prior = prior[prior.model.isin(MODELS[:6])].set_index("model")
-    extended = args.analysis_repo / "results/extended_paper_models_2026-10-02"
-    all_probability = pd.read_csv(extended / "rq1_probability/cross_model_metrics.csv")
-    for model in MODELS[6:]:
-        probability = all_probability[all_probability.model.eq(model)].set_index("measure")
-        surprisal = pd.read_csv(
-            extended / f"rq1_surprisal/models/{model}/summary_metrics.csv"
-        )
-        surprisal = surprisal[
-            surprisal.scope.eq("all")
-            & surprisal.construction.eq("all")
-            & surprisal.measure.eq("ignorance_surprisal_sum")
-        ].iloc[0]
-        prior.loc[model] = {
-            "Yes/No": float(probability.loc["yesno_probability", "pairwise_accuracy"]),
-            "7-Point Likert": float(probability.loc["likert_expected", "pairwise_accuracy"]),
-            "Surprisal": float(surprisal.pairwise_accuracy),
+    prior = prior.rename(
+        columns={
+            "Yes/No": "Yes/No (Explicit)",
+            "7-Point Likert": "7-Point Likert (Explicit)",
+            "Surprisal": "IDK Why (Surprisal)",
         }
-    return prior.loc[list(MODELS)].reset_index()
+    ).set_index("model")
+
+    revised = pd.read_csv(
+        args.analysis_repo
+        / "results/behavioral_connective_sentence_only_period_2026-10-04"
+        / "cross_model_summary.csv"
+    )
+    revised = revised[
+        revised.scope.eq("all")
+        & revised.construction.eq("all")
+        & revised.measure.eq("connective_lp_mean_diff")
+    ].set_index("model")
+    prior["Because-And (Surprisal)"] = revised["pairwise_accuracy"]
+
+    columns = (
+        "Yes/No (Explicit)",
+        "7-Point Likert (Explicit)",
+        "IDK Why (Surprisal)",
+        "Because-And (Surprisal)",
+    )
+    missing = set(MODELS).difference(prior.index)
+    if missing:
+        raise ValueError(f"Missing RQ1 results for models: {sorted(missing)}")
+    return prior.loc[list(MODELS), list(columns)].reset_index()
 
 
 def plot_rq1(table: pd.DataFrame, output: Path) -> None:
     figure, axis = plt.subplots(figsize=(7.6, 1.05))
     x = np.arange(len(table))
-    width = 0.22
-    columns = ("Yes/No", "7-Point Likert", "Surprisal")
-    colors = ("#3B6FB6", "#D97A32", "#4F9D69")
+    width = 0.18
+    columns = (
+        "Yes/No (Explicit)",
+        "7-Point Likert (Explicit)",
+        "IDK Why (Surprisal)",
+        "Because-And (Surprisal)",
+    )
+    colors = ("#3B6FB6", "#D97A32", "#4F9D69", "#8A63A8")
     for offset, (column, color) in enumerate(zip(columns, colors, strict=True)):
         means = table[column].to_numpy(dtype=float)
         intervals = np.asarray([wilson_interval(value, 150) for value in means])
         errors = np.vstack((means - intervals[:, 0], intervals[:, 1] - means))
         axis.bar(
-            x + (offset - 1) * width,
+            x + (offset - 1.5) * width,
             means,
             width,
             label=column,
@@ -120,7 +136,16 @@ def plot_rq1(table: pd.DataFrame, output: Path) -> None:
     axis.set_ylim(0.3, 1.03)
     axis.set_ylabel("Paired accuracy")
     axis.set_xticks(x, [LABELS[model] for model in table.model])
-    axis.legend(ncol=4, loc="upper center", bbox_to_anchor=(0.5, 1.27), frameon=False)
+    axis.legend(
+        ncol=5,
+        loc="upper center",
+        bbox_to_anchor=(0.5, 1.27),
+        frameon=False,
+        fontsize=7.3,
+        columnspacing=0.9,
+        handlelength=1.4,
+        handletextpad=0.4,
+    )
     axis.grid(axis="y", color="#dddddd", linewidth=0.5)
     axis.set_axisbelow(True)
     save_figure(figure, output / "rq1_behavior")
