@@ -153,7 +153,7 @@ For a causal CAA direction $v_l$ at the layer $l$ selected in Section~\ref{sec:r
 \begin{equation}
     h'_{l,t}=h_{l,t}+\alpha v_l.
 \end{equation}
-We intervene at every token position while scoring the fixed continuation token by token and report the change in mean surprisal per continuation token, $\Delta S=S_{\mathrm{intervened}}-S_{\mathrm{baseline}}$. For each model and condition, we tune $\alpha$ on the 48 cross-sentence development items. For critical contexts, we search $\alpha\in\{0,-.25,-.5,-1,-1.5,-2,-2.5,-3,-4,-5\}$ and select the value that minimizes $\Delta S$. For control contexts, we search the corresponding nonnegative values and select the value that maximizes $\Delta S$. Including zero allows the procedure to select no intervention when no coefficient has the predicted effect. We freeze the selected coefficient and evaluate it on the 48 disjoint cross-sentence test items and the 150 within-sentence items from Section~\ref{sec:behavior}. Confidence intervals bootstrap evaluation items. Because we use raw, unnormalized CAA directions, coefficient magnitudes are interpreted within, rather than across, models.
+We intervene at every token position while scoring the fixed continuation token by token and report the change in mean surprisal per continuation token, $\Delta S=S_{\mathrm{intervened}}-S_{\mathrm{baseline}}$. For each model and condition, we tune $\alpha$ on the 48 cross-sentence development items. For critical contexts, we search $\alpha\in\{0,-.25,-.5,-1,-1.5,-2,-2.5,-3,-4,-5\}$ and select the value that minimizes $\Delta S$. For control contexts, we search the corresponding nonnegative values and select the value that maximizes $\Delta S$. Including zero allows the procedure to select no intervention when no coefficient has the predicted effect. We freeze the selected coefficient and evaluate it on the 48 disjoint cross-sentence test items and the 150 within-sentence items from Section~\ref{sec:behavior}. Confidence intervals bootstrap evaluation items. Because we use raw, unnormalized CAA directions, coefficient magnitudes are interpreted within, rather than across, models. We additionally test whether a common intervention magnitude changes causal discrimination itself. For every learned and random direction, we fix $|\alpha|=5$, subtract the direction from critical contexts, add it to their controls, and measure the change in paired accuracy on the 150 within-sentence pairs relative to no intervention.
 
 \begin{table*}[t]
   \centering
@@ -199,8 +199,29 @@ We intervene at every token position while scoring the fixed continuation token 
   \end{tabular*}
 \end{table*}
 
+\begin{table}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \caption{Change in paired accuracy after fixed-magnitude interventions ($|\alpha|=5$), in percentage points $\pm$ 95\% CI half-widths. The causal-direction CI bootstraps the 150 item pairs; the random-direction CI uses a nested bootstrap over ten norm-matched directions and item pairs. Bold CIs exclude zero. Negative changes are predicted. \textbf{The causal intervention substantially reduces paired accuracy in five models, but increases it in Qwen3 4B and Llama~3.1 70B.}}
+  \label{tab:intervention-paired-accuracy}
+  \begin{tabular}{lrr}
+    \toprule
+    Model & \shortstack{Derived causal\\vector} & \shortstack{Random\\vectors} \\
+    \midrule
+    Gemma~2 2B & $\boldsymbol{-20.7\mathbin{\pm}6.7}$ & $\boldsymbol{-6.3\mathbin{\pm}3.4}$ \\
+    Gemma~2 9B & $\boldsymbol{-22.7\mathbin{\pm}6.7}$ & $\boldsymbol{-9.5\mathbin{\pm}4.2}$ \\
+    Qwen3 4B & $+3.3\mathbin{\pm}5.7$ & $-6.7\mathbin{\pm}7.7$ \\
+    Qwen3 8B & $\boldsymbol{-46.7\mathbin{\pm}8.0}$ & $\boldsymbol{-7.5\mathbin{\pm}6.6}$ \\
+    Llama~3.2 3B & $\boldsymbol{-69.3\mathbin{\pm}7.3}$ & $\boldsymbol{-30.7\mathbin{\pm}23.4}$ \\
+    Llama~3 8B & $\boldsymbol{-34.7\mathbin{\pm}8.0}$ & $-1.7\mathbin{\pm}3.0$ \\
+    Llama~3.1 70B & $\boldsymbol{+5.3\mathbin{\pm}3.7}$ & $+0.9\mathbin{\pm}3.1$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \paragraph{Results.}
-On within-sentence items, the intervention lowers surprisal for critical contexts in six models and raises it for control contexts in four (Tables~\ref{tab:intervention-critical} and~\ref{tab:intervention-control}). Qwen3 4B selects no intervention in either condition; Qwen3 8B and Llama~3.1 70B also select zero for control contexts. Thus, the direction has the predicted behavioral effect in most, but not all, models and conditions. Most nonzero coefficients lie at or near the edge of the search range and should be interpreted as the best tested value rather than the true optimum. Independently tuning $\alpha$ also gives some norm-matched random directions substantial effects, so intervention magnitude alone does not establish causal specificity. Additional random-direction results are reported in Appendix~\ref{app:random-baselines}.
+On within-sentence items, the intervention lowers surprisal for critical contexts in six models and raises it for control contexts in four (Tables~\ref{tab:intervention-critical} and~\ref{tab:intervention-control}). Qwen3 4B selects no intervention in either condition; Qwen3 8B and Llama~3.1 70B also select zero for control contexts. Thus, the direction has the predicted behavioral effect in most, but not all, models and conditions. Most nonzero coefficients lie at or near the edge of the search range and should be interpreted as the best tested value rather than the true optimum. With a common magnitude of five, the derived direction reduces paired accuracy by 20.7--69.3 percentage points in five models, but increases it slightly in Qwen3 4B and Llama~3.1 70B (Table~\ref{tab:intervention-paired-accuracy}). Independently tuned or fixed-magnitude random directions can also produce substantial effects, so intervention magnitude alone does not establish causal specificity. Additional random-direction results are reported in Appendix~\ref{app:random-baselines}.
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
