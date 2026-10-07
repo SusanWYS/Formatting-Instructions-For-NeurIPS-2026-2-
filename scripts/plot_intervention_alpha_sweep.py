@@ -192,7 +192,7 @@ def main() -> None:
             axis.tick_params(axis="y", labelleft=False)
 
     figure.supxlabel(r"Intervention magnitude $|\alpha|$", y=0.025)
-    figure.supylabel(r"$\Delta$ paired accuracy (percentage points)", x=0.012)
+    figure.supylabel(r"$\Delta$ paired accuracy (%)", x=0.012)
     handles = (
         Line2D(
             [0],
