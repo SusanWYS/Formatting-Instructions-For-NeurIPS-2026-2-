@@ -465,7 +465,11 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
         )
         axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
         axis.spines[["top", "right"]].set_visible(False)
-        axis.set_ylabel(r"$\Delta$ CAA" if metric == "CAA projection" else r"$\Delta$ Likert")
+        axis.set_ylabel(
+            r"$\Delta$ CAA (vs. white male)"
+            if metric == "CAA projection"
+            else r"$\Delta$ Likert (vs. white male)"
+        )
         axis.set_title(metric, fontweight="normal", pad=3.0)
         axis.set_xticks(x, PLOT_CONDITION_LABELS)
         axis.set_xlabel("Demographic condition")
