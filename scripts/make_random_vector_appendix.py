@@ -84,24 +84,21 @@ def learned_accuracies(args: argparse.Namespace) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def load_random_results(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def load_random_results(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.DataFrame]:
     root = (
         args.analysis_repo
-        / "results/causal_random_vector_baselines_one_sided_alpha_2026-10-04/models"
+        / "results/causal_random_vector_baselines_2026-10-02/models"
     )
     accuracy_frames = []
-    intervention_frames = []
     naturalistic_frames = []
     for model in MODELS:
         directory = root / model
         if not (directory / "completion.json").exists():
             raise FileNotFoundError(f"Random-vector run is incomplete for {model}")
         accuracy = pd.read_csv(directory / "accuracy_summary.csv")
-        intervention = pd.read_csv(directory / "intervention_summary.csv")
         naturalistic = pd.read_csv(directory / "naturalistic_summary.csv")
         for frame, name in (
             (accuracy, "accuracy"),
-            (intervention, "intervention"),
             (naturalistic, "naturalistic"),
         ):
             if set(frame.model.astype(str)) != {model}:
@@ -109,11 +106,9 @@ def load_random_results(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.Data
             if not frame.n_random_vectors.eq(10).all():
                 raise ValueError(f"{name} does not contain ten vectors for {model}")
         accuracy_frames.append(accuracy)
-        intervention_frames.append(intervention)
         naturalistic_frames.append(naturalistic)
     return (
         pd.concat(accuracy_frames, ignore_index=True),
-        pd.concat(intervention_frames, ignore_index=True),
         pd.concat(naturalistic_frames, ignore_index=True),
     )
 
@@ -207,7 +202,7 @@ def naturalistic_table(frame: pd.DataFrame, outcome: str) -> list[str]:
 
 def main() -> None:
     args = parse_args()
-    accuracy, intervention, naturalistic = load_random_results(args)
+    accuracy, naturalistic = load_random_results(args)
     naturalistic = normalize_naturalistic(args, naturalistic)
     learned = learned_accuracies(args)
     combined = learned.merge(
@@ -223,7 +218,6 @@ def main() -> None:
     derived.mkdir(parents=True, exist_ok=True)
     acl_derived.mkdir(parents=True, exist_ok=True)
     combined.to_csv(derived / "random_vector_accuracy_comparison.csv", index=False)
-    intervention.to_csv(derived / "random_vector_intervention_summary.csv", index=False)
     naturalistic.to_csv(derived / "random_vector_naturalistic_summary.csv", index=False)
     lines = [
         r"\section{Norm-matched random-vector baselines}",
@@ -231,11 +225,10 @@ def main() -> None:
         (
             "For each model, we sample ten isotropic Gaussian directions at the causal CAA's "
             "selected layer and rescale each direction to exactly match the learned causal "
-            "direction's norm. We reuse the same seeded directions for paired-accuracy, "
-            "intervention, and naturalistic evaluations. For interventions, we tune $\\alpha$ "
-            "separately for every random direction over the same one-sided grid and on the same "
-            "development items used for the learned direction; no test result enters selection."
-            " Naturalistic random-direction projections are divided by that model's learned-CAA "
+            "direction's norm. We reuse the same seeded directions for paired-accuracy, the "
+            "fixed-$|\\alpha|=5$ intervention, and naturalistic evaluations; no random direction "
+            "is selected using test performance. Naturalistic random-direction projections are "
+            "divided by that model's learned-CAA "
             "critical-minus-control training gap, matching the learned-direction calibration."
         ),
         *accuracy_table(combined),

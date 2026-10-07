@@ -77,7 +77,6 @@ incidental detail. The examples below come from the training split.
 \end{longtable}
 \endgroup
 
-% Source: eliciture_interp/stimuli_critical_temporal_enlarged.csv
 \subsection{Occasion items}
 \label{app:occasion-examples}
 
@@ -113,21 +112,26 @@ development, and testing. We show ten pairs below as qualitative examples.
 \end{longtable}
 \endgroup
 
-% Source: Impossible_Features/data/classification/hu_shades/data.csv
+% Source: eliciture_interp_paper/data/baselines/event_feasibility.csv
 \subsection{Plausibility items}
 \label{app:plausibility-examples}
 
-The plausibility dataset contrasts probable events with matched physically
-impossible events adapted from \citet{hu-etal-2025-shades} and
-\citet{lepori-etal-2026-fantasy}. We partition its 70 pairs into 42/14/14
-matched pairs for training, development, and testing, and show ten qualitative
-examples below.
+The plausibility baseline pools three event-feasibility contrasts: probable
+versus impossible events from \citet{hu-etal-2025-shades}, plausible versus
+implausible agent--patient reversals from EventsAdapt
+\citep{kauf-etal-2023-event}, and plausible animate versus semantically related
+inanimate agents from \citet{vega-mendoza-etal-2021-concurrent}. The last two
+sources introduce selectional and animacy violations, so this baseline should
+not be read as a pure measure of graded plausibility. We partition the 353
+pairs into 211/71/71 training, development, and test pairs. The source-specific
+splits are 42/14/14, 76/26/26, and 93/31/31 pairs, respectively. Examples from
+all three sources are shown below.
 
 \begingroup
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
 \begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
-\caption{Examples from the plausibility dataset.}
+\caption{Examples from the three-source event-feasibility dataset.}
 \label{tab:plausibility-examples}\\
 \toprule
 & Critical (Probable) & Control (Impossible) \\
@@ -141,13 +145,13 @@ examples below.
 \endfoot
 1 & Someone baked a cake inside an oven. & Someone baked a cake inside a freezer. \\
 2 & Someone boiled water using a kettle. & Someone boiled water using a refrigerator. \\
-3 & Someone broke a coconut using a rock. & Someone broke a coconut using a pillow. \\
-4 & Someone built a house out of brick. & Someone built a house out of gas. \\
-5 & Someone built a bridge out of steel. & Someone built a bridge out of soup. \\
-6 & Someone called a friend using a phone. & Someone called a friend using a sandwich. \\
-7 & Someone carried groceries inside a tote bag. & Someone carried groceries inside a tornado. \\
-8 & Someone carved a statue using a chisel. & Someone carved a statue using a sock. \\
-9 & Someone caught a fish in a lake. & Someone caught a fish in a raindrop. \\
-10 & Someone chilled a drink using ice. & Someone chilled a drink using fire. \\
+3 & Someone chopped a carrot using a knife. & Someone chopped a carrot using a rag. \\
+4 & The raider caught the illness. & The illness caught the raider. \\
+5 & The troublemaker crashed the car. & The car crashed the troublemaker. \\
+6 & The repairman fixed the tap. & The tap fixed the repairman. \\
+7 & The halftime show at the football match was organised by the cheerleader on Sunday. & The halftime show at the football match was organised by the goalpost on Sunday. \\
+8 & At the wedding ceremony the ring was brought by the groom nicely wrapped. & At the wedding ceremony the ring was brought by the veil nicely wrapped. \\
+9 & The employment interviews were administered by the committee for weeks. & The employment interviews were administered by the curriculum for weeks. \\
+10 & The taxi was driven by the cabdriver through town. & The taxi was driven by the wheel through town. \\
 \end{longtable}
 \endgroup

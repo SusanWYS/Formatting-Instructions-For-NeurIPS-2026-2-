@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the seven-model core paper figures."""
+"""Regenerate the seven-model core paper figures from primary result files."""
 
 from __future__ import annotations
 
@@ -54,9 +54,6 @@ def parse_args() -> argparse.Namespace:
 
 def save_figure(figure: plt.Figure, stem: Path) -> None:
     figure.savefig(stem.with_suffix(".pdf"), bbox_inches="tight", pad_inches=0.015)
-    figure.savefig(
-        stem.with_suffix(".png"), dpi=300, bbox_inches="tight", pad_inches=0.015
-    )
     plt.close(figure)
 
 
@@ -72,14 +69,59 @@ def wilson_interval(accuracy: float, n: int, z: float = 1.96) -> tuple[float, fl
 
 
 def load_rq1(args: argparse.Namespace) -> pd.DataFrame:
-    prior = pd.read_csv(args.paper_repo / "derived/rq1_behavior_pairwise_accuracy.csv")
-    prior = prior.rename(
-        columns={
-            "Yes/No": "Yes/No (Explicit)",
-            "7-Point Likert": "7-Point Likert (Explicit)",
-            "Surprisal": "IDK Why (Surprisal)",
-        }
-    ).set_index("model")
+    probability = pd.concat(
+        [
+            pd.read_csv(
+                args.analysis_repo
+                / "results/probabilistic_behavior_eval_v2/cross_model_metrics.csv"
+            ),
+            pd.read_csv(
+                args.analysis_repo
+                / "results/extended_paper_models_2026-10-02/rq1_probability/cross_model_metrics.csv"
+            ),
+        ],
+        ignore_index=True,
+    )
+    probability = probability[probability.model.isin(MODELS)]
+    explicit = (
+        probability[
+            probability.measure.isin(("yesno_probability", "likert_expected"))
+        ]
+        .pivot(index="model", columns="measure", values="pairwise_accuracy")
+        .rename(
+            columns={
+                "yesno_probability": "Yes/No (Explicit)",
+                "likert_expected": "7-Point Likert (Explicit)",
+            }
+        )
+    )
+
+    idk = pd.concat(
+        [
+            pd.read_csv(
+                args.analysis_repo
+                / "results/behavioral_eliciture/cross_model_summary.csv"
+            ),
+            pd.read_csv(
+                args.analysis_repo
+                / "results/extended_paper_models_2026-10-02/rq1_surprisal/cross_model_summary.csv"
+            ),
+        ],
+        ignore_index=True,
+    )
+    idk = idk[
+        idk.model.isin(MODELS)
+        & idk.scope.eq("all")
+        & idk.construction.eq("all")
+        & idk.measure.eq("ignorance_surprisal_sum")
+    ].set_index("model")
+    prior = explicit.join(
+        idk[["pairwise_accuracy"]].rename(
+            columns={"pairwise_accuracy": "IDK Why (Surprisal)"}
+        ),
+        how="outer",
+        validate="one_to_one",
+    )
 
     revised = pd.read_csv(
         args.analysis_repo

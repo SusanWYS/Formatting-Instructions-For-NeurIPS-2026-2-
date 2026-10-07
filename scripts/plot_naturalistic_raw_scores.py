@@ -55,7 +55,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--summary-csv",
         type=Path,
-        default=Path("derived/naturalistic_raw_scores_six_model.csv"),
+        default=Path("derived/naturalistic_raw_scores_seven_model.csv"),
     )
     parser.add_argument(
         "--difference-summary-csv",
@@ -455,11 +455,8 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
     )
     figure.subplots_adjust(left=0.19, right=0.985, bottom=0.19, top=0.91, hspace=0.22)
     output_dir.mkdir(parents=True, exist_ok=True)
-    # Preserve the established asset name so both manuscript formats continue
-    # to resolve the same figure without duplicating binary files.
-    stem = f"naturalistic_{outcome}_raw_scores_six_model"
+    stem = f"naturalistic_{outcome}_scores_seven_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
-    figure.savefig(output_dir / f"{stem}.png", dpi=300, bbox_inches="tight", pad_inches=0.015)
     plt.close(figure)
 
 
