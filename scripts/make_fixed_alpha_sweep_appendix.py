@@ -102,7 +102,7 @@ def table(frame: pd.DataFrame, alpha: float) -> list[str]:
         rf"\label{{{label}}}",
         r"\begin{tabular}{lrr}",
         r"\toprule",
-        r"Model & Derived causal vector & Random vectors \\",
+        r"Model & Causal vectors & Random vectors \\",
         r"\midrule",
     ]
     for model in MODELS:

@@ -201,7 +201,7 @@ def main() -> None:
             marker="o",
             markersize=3.2,
             linewidth=1.35,
-            label="Derived causal vector",
+            label="Causal vectors",
         ),
         Line2D(
             [0],

@@ -7,6 +7,8 @@ import argparse
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 
@@ -379,50 +381,81 @@ def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> 
     return row.iloc[0]
 
 
-def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
-    palette = {
-        "positive": ("#556B2F", "#B5B87A"),
-        "negative": ("#B94A48", "#F08080"),
-    }
-    projection_color, likert_color = palette[outcome]
-    # Use the same Matplotlib typography as Figure 3.  The canvas and LaTeX
-    # inclusion widths are both approximately half those of Figure 3.
-    figure, axes = plt.subplots(2, 1, figsize=(3.24, 2.5), sharex=True)
+def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
+    """Plot positive and negative outcomes together in two metric panels."""
+    colors = {"positive": "#5E7436", "negative": "#D0685B"}
+    plt.rcParams.update(
+        {
+            "font.family": "sans-serif",
+            "font.sans-serif": ["DejaVu Sans"],
+            "mathtext.fontset": "dejavusans",
+            "font.size": 8.2,
+            "axes.labelsize": 8.5,
+            "axes.titlesize": 9.0,
+            "xtick.labelsize": 7.5,
+            "ytick.labelsize": 7.5,
+            "legend.fontsize": 7.7,
+            "axes.linewidth": 0.65,
+            "pdf.fonttype": 42,
+            "ps.fonttype": 42,
+        }
+    )
+    # Full ACL/ARR text width; each panel is approximately the size of one
+    # panel in the preceding full-width figures.
+    figure, axes = plt.subplots(1, 2, figsize=(7.1, 2.32))
     x = np.arange(len(PLOT_CONDITIONS))
+    bar_width = 0.30
+    offsets = {"positive": -bar_width / 2 - 0.025, "negative": bar_width / 2 + 0.025}
 
-    for axis, metric, color in zip(
+    for axis, metric in zip(
         axes,
         ("CAA projection", "Likert rating"),
-        (projection_color, likert_color),
         strict=True,
     ):
-        rows = [lookup(summary, metric, outcome, condition) for condition in PLOT_CONDITIONS]
-        incidental = lookup(summary, metric, outcome, BASELINE)
-        means = np.array([row["mean"] for row in rows])
-        ci_low = np.array([row["ci_low"] for row in rows])
-        ci_high = np.array([row["ci_high"] for row in rows])
-        yerr = np.vstack((means - ci_low, ci_high - means))
-        displayed_min = min(ci_low.min(), float(incidental["ci_low"]), 0.0)
-        displayed_max = max(ci_high.max(), float(incidental["ci_high"]), 0.0)
+        displayed_lows = [0.0]
+        displayed_highs = [0.0]
+        for outcome in ("positive", "negative"):
+            rows = [
+                lookup(summary, metric, outcome, condition)
+                for condition in PLOT_CONDITIONS
+            ]
+            incidental = lookup(summary, metric, outcome, BASELINE)
+            means = np.array([row["mean"] for row in rows])
+            ci_low = np.array([row["ci_low"] for row in rows])
+            ci_high = np.array([row["ci_high"] for row in rows])
+            yerr = np.vstack((means - ci_low, ci_high - means))
+            displayed_lows.extend([float(ci_low.min()), float(incidental["mean"])])
+            displayed_highs.extend([float(ci_high.max()), float(incidental["mean"])])
+
+            axis.bar(
+                x + offsets[outcome],
+                means,
+                width=bar_width,
+                color=colors[outcome],
+                edgecolor="black",
+                linewidth=0.45,
+                yerr=yerr,
+                capsize=2.0,
+                error_kw={"elinewidth": 0.75, "capthick": 0.75},
+                zorder=3,
+            )
+            axis.axhline(
+                float(incidental["mean"]),
+                color=colors[outcome],
+                linestyle=(0, (4.0, 2.4)),
+                linewidth=1.15,
+                zorder=4,
+            )
+
+        displayed_min = min(displayed_lows)
+        displayed_max = max(displayed_highs)
         displayed_range = displayed_max - displayed_min
         if displayed_range == 0:
             displayed_range = max(abs(displayed_min), 1.0)
-        y_min = displayed_min - 0.10 * displayed_range
-        y_max = displayed_max + 0.10 * displayed_range
-
-        axis.bar(
-            x,
-            means,
-            width=0.36,
-            color=color,
-            edgecolor="black",
-            linewidth=0.5,
-            yerr=yerr,
-            capsize=1.8,
-            error_kw={"elinewidth": 0.7, "capthick": 0.7},
-            zorder=3,
+        axis.set_ylim(
+            displayed_min - 0.12 * displayed_range,
+            displayed_max + 0.12 * displayed_range,
         )
-        axis.set_ylim(y_min, y_max)
         axis.axhline(
             0.0,
             color="#777777",
@@ -430,32 +463,38 @@ def plot_outcome(summary: pd.DataFrame, outcome: str, output_dir: Path) -> None:
             linewidth=0.6,
             zorder=2,
         )
-        axis.axhline(
-            float(incidental["mean"]),
-            color="black",
-            linestyle="--",
-            linewidth=0.9,
-            label="Incidental details",
-            zorder=4,
-        )
         axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
         axis.spines[["top", "right"]].set_visible(False)
         axis.set_ylabel(r"$\Delta$ CAA" if metric == "CAA projection" else r"$\Delta$ Likert")
+        axis.set_title(metric, fontweight="normal", pad=3.0)
+        axis.set_xticks(x, PLOT_CONDITION_LABELS)
+        axis.set_xlabel("Demographic condition")
 
-    axes[-1].set_xticks(x, PLOT_CONDITION_LABELS)
-    axes[-1].set_xlabel("Demographic condition")
-    handles, labels = axes[0].get_legend_handles_labels()
+    handles = (
+        Patch(facecolor=colors["positive"], edgecolor="black", linewidth=0.45),
+        Patch(facecolor=colors["negative"], edgecolor="black", linewidth=0.45),
+        Line2D([0], [0], color=colors["positive"], linestyle=(0, (4.0, 2.4)), linewidth=1.15),
+        Line2D([0], [0], color=colors["negative"], linestyle=(0, (4.0, 2.4)), linewidth=1.15),
+    )
+    labels = (
+        "Positive outcomes",
+        "Negative outcomes",
+        "Positive incidental details",
+        "Negative incidental details",
+    )
     figure.legend(
         handles,
         labels,
         loc="upper center",
-        bbox_to_anchor=(0.59, 1.005),
+        bbox_to_anchor=(0.515, 1.005),
         frameon=False,
-        fontsize=8.5,
+        ncol=4,
+        handlelength=2.3,
+        columnspacing=1.35,
     )
-    figure.subplots_adjust(left=0.19, right=0.985, bottom=0.19, top=0.91, hspace=0.22)
+    figure.subplots_adjust(left=0.08, right=0.99, bottom=0.22, top=0.78, wspace=0.27)
     output_dir.mkdir(parents=True, exist_ok=True)
-    stem = f"naturalistic_{outcome}_scores_seven_model"
+    stem = "naturalistic_combined_scores_seven_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
     plt.close(figure)
 
@@ -490,8 +529,7 @@ def main() -> None:
     white_male_reference.sort_values(["outcome", "metric", "condition"]).to_csv(
         args.white_male_reference_csv, index=False
     )
-    for outcome in ("positive", "negative"):
-        plot_outcome(white_male_reference, outcome, args.output_dir)
+    plot_combined(white_male_reference, args.output_dir)
 
 
 if __name__ == "__main__":
