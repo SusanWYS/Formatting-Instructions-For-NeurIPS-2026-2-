@@ -30,7 +30,8 @@ LABELS = {
     "llama3_8b": "Llama 3 8B",
     "llama31_70b": "Llama 3.1 70B",
 }
-ALPHAS = np.array((0.5, 1.0, 2.0, 3.0, 4.0, 5.0))
+ALL_ALPHAS = np.array((0.5, 1.0, 2.0, 3.0, 4.0, 5.0))
+PLOT_ALPHAS = np.array((1.0, 2.0, 3.0, 4.0, 5.0))
 CAUSAL_COLOR = "#315B7D"
 RANDOM_COLOR = "#C25B3C"
 
@@ -57,7 +58,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def validate(frame: pd.DataFrame) -> None:
-    expected = {(model, alpha) for model in MODELS for alpha in ALPHAS}
+    expected = {(model, alpha) for model in MODELS for alpha in ALL_ALPHAS}
     observed = set(zip(frame.model, frame.alpha.astype(float), strict=True))
     if observed != expected:
         raise ValueError(
@@ -138,7 +139,9 @@ def main() -> None:
             shared = axis
 
     for index, (axis, model) in enumerate(zip(axes, MODELS, strict=True)):
-        subset = frame[frame.model.eq(model)].sort_values("alpha")
+        subset = frame[
+            frame.model.eq(model) & frame.alpha.isin(PLOT_ALPHAS)
+        ].sort_values("alpha")
         causal, causal_error = asymmetric_errors(
             subset, "causal_delta_accuracy", "causal_ci_low", "causal_ci_high"
         )
@@ -151,7 +154,7 @@ def main() -> None:
         axis.axhline(0, color="#777777", linewidth=0.65, alpha=0.75, zorder=0)
         axis.grid(axis="y", color="#D9D9D9", linewidth=0.5, alpha=0.65, zorder=0)
         axis.errorbar(
-            ALPHAS,
+            PLOT_ALPHAS,
             random,
             yerr=random_error,
             color=RANDOM_COLOR,
@@ -167,7 +170,7 @@ def main() -> None:
             zorder=2,
         )
         axis.errorbar(
-            ALPHAS,
+            PLOT_ALPHAS,
             causal,
             yerr=causal_error,
             color=CAUSAL_COLOR,
@@ -183,9 +186,9 @@ def main() -> None:
             zorder=3,
         )
         axis.set_title(LABELS[model], fontweight="normal", pad=2.8)
-        axis.set_xlim(0.25, 5.25)
+        axis.set_xlim(0.75, 5.25)
         axis.set_ylim(-82, 18)
-        axis.set_xticks(ALPHAS, (".5", "1", "2", "3", "4", "5"))
+        axis.set_xticks(PLOT_ALPHAS, ("1", "2", "3", "4", "5"))
         axis.set_yticks((-80, -60, -40, -20, 0))
         axis.spines["top"].set_visible(False)
         axis.spines["right"].set_visible(False)
