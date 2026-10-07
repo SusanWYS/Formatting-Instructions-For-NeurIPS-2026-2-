@@ -402,7 +402,7 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
     )
     # Full ACL/ARR text width; each panel is approximately the size of one
     # panel in the preceding full-width figures.
-    figure, axes = plt.subplots(1, 2, figsize=(7.1, 2.32))
+    figure, axes = plt.subplots(1, 2, figsize=(7.1, 2.52))
     x = np.arange(len(PLOT_CONDITIONS))
     bar_width = 0.30
     offsets = {"positive": -bar_width / 2 - 0.025, "negative": bar_width / 2 + 0.025}
@@ -479,8 +479,8 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
     labels = (
         "Positive outcomes",
         "Negative outcomes",
-        "Positive incidental details",
-        "Negative incidental details",
+        "Incidental details (positive outcomes)",
+        "Incidental details (negative outcomes)",
     )
     figure.legend(
         handles,
@@ -488,11 +488,11 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
         loc="upper center",
         bbox_to_anchor=(0.515, 1.005),
         frameon=False,
-        ncol=4,
+        ncol=2,
         handlelength=2.3,
-        columnspacing=1.35,
+        columnspacing=2.0,
     )
-    figure.subplots_adjust(left=0.08, right=0.99, bottom=0.22, top=0.78, wspace=0.27)
+    figure.subplots_adjust(left=0.08, right=0.99, bottom=0.21, top=0.70, wspace=0.27)
     output_dir.mkdir(parents=True, exist_ok=True)
     stem = "naturalistic_combined_scores_seven_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
