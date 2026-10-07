@@ -466,9 +466,9 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
         axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
         axis.spines[["top", "right"]].set_visible(False)
         axis.set_ylabel(
-            r"$\Delta$ CAA (vs. white male)"
+            r"$\Delta$ Projection (vs. white male)"
             if metric == "CAA projection"
-            else r"$\Delta$ Likert (vs. white male)"
+            else r"$\Delta$ Rating (vs. white male)"
         )
         axis.set_title(metric, fontweight="normal", pad=3.0)
         axis.set_xticks(x, PLOT_CONDITION_LABELS)
@@ -483,8 +483,8 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
     labels = (
         "Positive outcomes",
         "Negative outcomes",
-        "Incidental details (positive outcomes)",
-        "Incidental details (negative outcomes)",
+        "Neutral baseline (positive outcomes)",
+        "Neutral baseline (negative outcomes)",
     )
     figure.legend(
         handles,

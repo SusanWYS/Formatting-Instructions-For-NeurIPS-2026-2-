@@ -107,7 +107,8 @@ def main() -> None:
     )
 
     # ACL/ARR's full text block is approximately 7.1 inches wide. A 2x8 grid
-    # gives equal-sized panels: three centered above four.
+    # gives equal-sized panels: four Gemma/Qwen panels above three centered
+    # Llama panels.
     figure = plt.figure(figsize=(7.1, 3.45))
     grid = figure.add_gridspec(
         2,
@@ -120,13 +121,13 @@ def main() -> None:
         hspace=0.72,
     )
     positions = (
-        grid[0, 1:3],
-        grid[0, 3:5],
-        grid[0, 5:7],
-        grid[1, 0:2],
-        grid[1, 2:4],
-        grid[1, 4:6],
-        grid[1, 6:8],
+        grid[0, 0:2],
+        grid[0, 2:4],
+        grid[0, 4:6],
+        grid[0, 6:8],
+        grid[1, 1:3],
+        grid[1, 3:5],
+        grid[1, 5:7],
     )
     axes = []
     shared = None
@@ -188,7 +189,7 @@ def main() -> None:
         axis.set_yticks((-80, -60, -40, -20, 0))
         axis.spines["top"].set_visible(False)
         axis.spines["right"].set_visible(False)
-        if index not in (0, 3):
+        if index not in (0, 4):
             axis.tick_params(axis="y", labelleft=False)
 
     figure.supxlabel(r"Intervention magnitude $|\alpha|$", y=0.025)
