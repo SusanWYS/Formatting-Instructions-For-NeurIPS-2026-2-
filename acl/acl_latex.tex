@@ -41,14 +41,18 @@ Humans often infer causal relationships that are suggested but never explicitly 
 
 Language often leaves relationships between events unstated. For example, ``The executive who falsified quarterly revenue figures was fired'' suggests that the falsification \emph{caused} the firing, without explicitly stating so. These optional sentence-internal inferences are known as \emph{elicitures} \citep{cohen-kehler-2021-conversational}. While a susbtantial body of work has investigated whether language models (LMs) capture pragmatic phenomena such as conversational implicatures \citep{ruis2023goldilocks, jeretic-etal-2020-natural, schuster-etal-2020-harnessing, li-etal-2021-predicting}, elicitures have received less attention \citep[but see][]{pan-kehler-2025-pragmatic}, and are potentially derived through different mechanisms. Some theories argue that, in contrast to implicature, elicitures arise due to coherence and world knowledge rather than violation of conversational norms \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Therefore, understanding how LMs represent implicit causal relationships can shed light on their internal world models, including in scenarios where causal inferences have real-world impacts.
 
-Here, we explore three main research questions. \textbf{RQ1:} \textit{Do LM behaviors reflect inferences about implicit causal relationships within sentences?} \textbf{RQ2:} \textit{Do LMs form internal representations of implicit causal relationships that are distinct from other relations?} And if so, \textbf{RQ3:} \textit{Do these representations generalize from cross-sentence causal relations to within-sentence causal inferences?}
+Here, we center our research around four main research questions. \textbf{RQ1:} \textit{Do LM behaviors reflect inferences about implicit causal relationships within sentences?} \textbf{RQ2:} \textit{Do LMs form internal representations of implicit causal relationships that are distinct from other relations?} And if so, \textbf{RQ3:} \textit{Does the identified internal representation causally influence downstream sentence processing?} Connecting to the broader theme of alignment, \textbf{RQ4:} \textit{Do these representations generalize from cross-sentence causal relations to within-sentence causal inferences?}
 
-In a related study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use it during subsequent sentence processing (akin to our RQ1). This project extends Pan \& Kehler's behavioral study by %focusing on causal elicitures (instead of temporal relationships or other discourse relationships) and
-testing different syntactic constructions. Furthermore, we study whether implicit causality forms an internal representation that is distinct from occasion compatibility and plausibility (RQ2), and whether this representation generalizes across syntactic constructions (RQ3). We separately examine whether the same representation varies with demographic information in naturalistic social scenarios.
+In a related study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use it during subsequent sentence processing (akin to our RQ1). RQ1 extends Pan \& Kehler's behavioral study by testing different syntactic constructions. Furthermore, we study whether implicit causality forms an internal representation that is distinct from occasion compatibility and plausibility (RQ2), and whether this representation generalizes across syntactic constructions (RQ3). We separately examine whether the same representation varies with demographic information in naturalistic social scenarios.
 
 Across seven language models tested, we find that implicit causality consistently shapes model behavior and is reflected in internal representations that generalize across linguistic constructions. These representations also vary systematically with demographic descriptions. More broadly, this study reveals how LMs represent causal relationships that are inferred rather than stated,
 % Our results can shed light on how models construct internal world models, how their nonliteral inferences align with human cognition, and whether these representations encode systematic biases with
 with potential implications for the development of safer and more aligned models.
+
+\section{Background}
+\subsection{Pragmatics and Implicit Inferences}
+\subsection{The Linear Representation Hypothesis}
+\subsection{Misalignment?}
 
 \section{Experiments}
 \label{sec:experiments}
@@ -104,7 +108,7 @@ In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 
 \subsection{Identifying internal representations of implicit causality inference}
 \label{sec:representations}
 
-The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. Therefore, we ask two subsequent questions: \textbf{RQ2:} Is implicit causality selectively represented in LM activation states? and \textbf{RQ3:} Can a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences?
+The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. Therefore, we ask two subsequent questions: Is implicit causality selectively represented in LM activation states? and can a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences?
 
 \paragraph{Datasets.} We use three datasets of matched critical/control pairs.
 First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. We use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalizes to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}.
@@ -209,6 +213,7 @@ We use two complementary measures. First, we project each sentence's final-token
 Relative to the white-male condition, positive-outcome causal projections are higher for white women, minority men, and minority women, although the white-female difference is small (Figure~\ref{fig:naturalistic-positive-aggregate}). Positive-outcome Likert ratings are reliably lower only for minority men. For negative outcomes, minority women receive higher causal projections and ratings; white women receive slightly lower causal projections, while the remaining contrasts include zero (Figure~\ref{fig:naturalistic-negative-aggregate}). The incidental-detail condition lies above white men for positive-outcome ratings and below white men for both negative-outcome measures. The per-model estimates vary substantially (Appendix~\ref{app:naturalistic-model-results}); for example, the negative-outcome projection differences from the incidental-detail condition reverse direction for Gemma~2 2B. Norm-matched random-direction contrasts are reported in Appendix~\ref{app:random-baselines}. Thus, the aggregate directions describe this fixed collection of models rather than a uniform effect in every model.
 
 \FloatBarrier
+\section{Conclusion}
 
 \section{Discussion}
 \label{sec:discussion}
