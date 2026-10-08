@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: acl_latex.aux
+The style file: acl_natbib.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: paper.bib
+Warning--empty journal in hu-rubiofernandez-2026-referential
+You've used 21 entries,
+            3782 wiz_defined-function locations,
+            876 strings with 10675 characters,
+and the built_in function-call counts, 15593 in all, are:
+= -- 1416
+> -- 691
+< -- 17
++ -- 268
+- -- 199
+* -- 1007
+:= -- 2336
+add.period$ -- 90
+call.type$ -- 21
+change.case$ -- 182
+chr.to.int$ -- 22
+cite$ -- 22
+duplicate$ -- 924
+empty$ -- 1161
+format.name$ -- 265
+if$ -- 3485
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 188
+newline$ -- 109
+num.names$ -- 84
+pop$ -- 464
+preamble$ -- 1
+purify$ -- 150
+quote$ -- 0
+skip$ -- 866
+stack$ -- 0
+substring$ -- 553
+swap$ -- 505
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 183
+warning$ -- 1
+while$ -- 87
+width$ -- 0
+write$ -- 281
+(There was 1 warning)

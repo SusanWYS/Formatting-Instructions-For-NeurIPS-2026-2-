@@ -96,18 +96,9 @@ def load_rq1(args: argparse.Namespace) -> pd.DataFrame:
         )
     )
 
-    idk = pd.concat(
-        [
-            pd.read_csv(
-                args.analysis_repo
-                / "results/behavioral_eliciture/cross_model_summary.csv"
-            ),
-            pd.read_csv(
-                args.analysis_repo
-                / "results/extended_paper_models_2026-10-02/rq1_surprisal/cross_model_summary.csv"
-            ),
-        ],
-        ignore_index=True,
+    idk = pd.read_csv(
+        args.analysis_repo
+        / "results/rq1_idk_exact_2026-10-07/cross_model_summary.csv"
     )
     idk = idk[
         idk.model.isin(MODELS)
@@ -194,13 +185,11 @@ def plot_rq1(table: pd.DataFrame, output: Path) -> None:
 
 
 def result_dir(args: argparse.Namespace, model: str) -> Path:
-    if model == "llama31_70b":
-        return (
-            args.analysis_repo
-            / "results/extended_paper_models_2026-10-02/fixed_caa_evaluation/models"
-            / model
-        )
-    return args.pipeline_repo / "results/rq2_fixed_caa_evaluation/models" / model
+    return (
+        args.analysis_repo
+        / "results/occasion_standardized_2026-10-07/fixed_caa_evaluation/models"
+        / model
+    )
 
 
 def load_transfer(args: argparse.Namespace) -> pd.DataFrame:

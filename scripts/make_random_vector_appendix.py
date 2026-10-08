@@ -52,13 +52,11 @@ def parse_args() -> argparse.Namespace:
 
 
 def fixed_result_dir(args: argparse.Namespace, model: str) -> Path:
-    if model == "llama31_70b":
-        return (
-            args.analysis_repo
-            / "results/extended_paper_models_2026-10-02/fixed_caa_evaluation/models"
-            / model
-        )
-    return args.pipeline_repo / "results/rq2_fixed_caa_evaluation/models" / model
+    return (
+        args.analysis_repo
+        / "results/occasion_standardized_2026-10-07/fixed_caa_evaluation/models"
+        / model
+    )
 
 
 def learned_accuracies(args: argparse.Namespace) -> pd.DataFrame:
