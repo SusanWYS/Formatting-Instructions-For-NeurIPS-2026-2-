@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1791483604.10114 "paper.aux" "paper.bbl" "paper" 1791483605.07992 0
+["bibtex paper"] 1791483762.16888 "paper.aux" "paper.bbl" "paper" 1791483763.12809 0
   "./paper.bib" 1791174199.38524 14280 a0023b6b2d4b1bb12dee3519b7528a54 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1791483604.85585 19267 bf2f8bb89c7c7c978bb3b8f53b62f1c8 "pdflatex"
+  "paper.aux" 1791483762.90184 19228 5c22c92ee78f4e68c32fe5785227bbcf "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1791483604.15798 "paper.tex" "paper.pdf" "paper" 1791483605.08073 0
+["pdflatex"] 1791483762.223 "paper.tex" "paper.pdf" "paper" 1791483763.1286 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -141,15 +141,15 @@
   "appendix_examples.tex" 1790179834.45233 9102 ada7d93eff3704659866c2ee96768b93 ""
   "derived/random_vector_baselines.tex" 1791418870.6473 5298 9d81f288e835ea6bc1c909e3c2215aa9 ""
   "derived/rq2_results_text.tex" 1791418894.04985 1047 ea10f299c73a93fd4d148c302d843fd1 ""
-  "derived/rq3_self_blinding_stimuli.tex" 1791483600.31264 13259 ad7ad8beb58a64debd7640ae3f86811a ""
+  "derived/rq3_self_blinding_stimuli.tex" 1791483758.91213 13953 10a9c401d8c180047139e68f9e52aae0 ""
   "figures/rq1_behavior.pdf" 1791418868.88645 33883 4ff74563a94ef6ef8884045a0ae1262c ""
   "figures/rq2a_combined_cross_transfer_heatmaps.pdf" 1791418869.46597 34689 d20a1f81a69d29d08622f57d3b340cdf ""
   "figures/rq2b_causal_ood_caa_accuracy.pdf" 1791418869.62013 14893 e3cf9af42eb07b0d22624c03d5b532e8 ""
   "figures/rq3_self_blinding_unit_histograms.pdf" 1791418870.01931 40248 1ddab3257bb1165f78e94b0fa4631300 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1791483604.85585 19267 bf2f8bb89c7c7c978bb3b8f53b62f1c8 "pdflatex"
-  "paper.bbl" 1791483604.15146 7536 b4f524af3dd55e9d9d39c64f71d1fe89 "bibtex paper"
-  "paper.out" 1791483604.85767 4038 75e9b088e0caa06ad92fc28ed24cc670 "pdflatex"
+  "paper.aux" 1791483762.90184 19228 5c22c92ee78f4e68c32fe5785227bbcf "pdflatex"
+  "paper.bbl" 1791483762.21811 7536 b4f524af3dd55e9d9d39c64f71d1fe89 "bibtex paper"
+  "paper.out" 1791483762.90329 4038 75e9b088e0caa06ad92fc28ed24cc670 "pdflatex"
   "paper.tex" 1791483178.76079 40253 66d5fa94eab582aa9eadbb4dae569938 ""
   (generated)
   "paper.aux"

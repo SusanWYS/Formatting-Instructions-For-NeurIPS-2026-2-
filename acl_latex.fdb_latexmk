@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex acl_latex"] 1791483601.48413 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1791483602.59427 0
+["bibtex acl_latex"] 1791483760.07733 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1791483761.19731 0
   "./acl_natbib.bst" 1787909299.85666 45442 bb9ea745fc0a84096e0948d1c1b99bbe ""
   "./paper.bib" 1791174199.38524 14280 a0023b6b2d4b1bb12dee3519b7528a54 ""
-  "acl_latex.aux" 1791483602.36085 37991 ac549908e849b229c695faa085176d86 "pdflatex"
+  "acl_latex.aux" 1791483760.97167 37952 463d6f578b6fe93c1eaee101385c813b "pdflatex"
   (generated)
   "acl_latex.bbl"
   "acl_latex.blg"
   (rewritten before read)
-["pdflatex"] 1791483601.53838 "acl/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1791483602.59488 0
+["pdflatex"] 1791483760.13505 "acl/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1791483761.19808 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
@@ -179,10 +179,10 @@
   "acl/appendix_examples.tex" 1791417001.46921 10482 054857ca01d85236f3dc77e9832348c2 ""
   "acl/derived/fixed_alpha_sweep.tex" 1791407072.46544 7166 161a0989f900d83b79580597f47000c5 ""
   "acl/derived/random_vector_baselines.tex" 1791418870.64785 5298 9d81f288e835ea6bc1c909e3c2215aa9 ""
-  "acl/derived/rq3_self_blinding_stimuli.tex" 1791483600.29956 13406 c920284af6d74f273d51436d9f965408 ""
-  "acl_latex.aux" 1791483602.36085 37991 ac549908e849b229c695faa085176d86 "pdflatex"
-  "acl_latex.bbl" 1791483601.53503 7229 608911e8c929d38486f0d553d5de11fe "bibtex acl_latex"
-  "acl_latex.out" 1791483602.36288 5324 2d2dd758f1403201aff389913079ff34 "pdflatex"
+  "acl/derived/rq3_self_blinding_stimuli.tex" 1791483758.91099 14100 4e88f8f9eb670785ac257b401a67bd17 ""
+  "acl_latex.aux" 1791483760.97167 37952 463d6f578b6fe93c1eaee101385c813b "pdflatex"
+  "acl_latex.bbl" 1791483760.12838 7229 608911e8c929d38486f0d553d5de11fe "bibtex acl_latex"
+  "acl_latex.out" 1791483760.97414 5324 2d2dd758f1403201aff389913079ff34 "pdflatex"
   "derived/rq2_results_text.tex" 1791418894.04985 1047 ea10f299c73a93fd4d148c302d843fd1 ""
   "figures/intervention_alpha_sweep.pdf" 1791415529.5995 26238 0ce24bc096108d4dadbef8074b6854a0 ""
   "figures/naturalistic_combined_scores_seven_model.pdf" 1791482475.81061 15513 11d075145028bd52e6c8e6716f8345fa ""

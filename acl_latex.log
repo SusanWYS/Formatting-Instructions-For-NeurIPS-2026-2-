@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  8 OCT 2026 14:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  8 OCT 2026 14:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,24 +710,24 @@ Underfull \hbox (badness 1024) in paragraph at lines 143--148
 
 
 ] [9])
-(./acl/derived/rq3_self_blinding_stimuli.tex [10] [11])
+(./acl/derived/rq3_self_blinding_stimuli.tex [10] [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12])
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 243.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 243.
 
-(./acl/derived/random_vector_baselines.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-[13] [14] (./acl/derived/fixed_alpha_sweep.tex
+(./acl/derived/random_vector_baselines.tex) [13] [14] [15]
+(./acl/derived/fixed_alpha_sweep.tex
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 14.
-) [15
+) [16
 
-] [16]
+] [17]
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 32
 4.
 
@@ -758,11 +758,11 @@ Underfull \hbox (badness 1755) in paragraph at lines 374--375
  []\T1/ptm/b/n/10.95 (+20) Paired ac-cu-racy and sam-pling pa-ram-e-ters.[]
  []
 
-[17
+[18
 
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
-<figures/rq3_self_blinding_unit_histograms.pdf, id=532, 664.52263pt x 286.00853
+<figures/rq3_self_blinding_unit_histograms.pdf, id=536, 664.52263pt x 286.00853
 pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
@@ -770,9 +770,9 @@ Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
  input line 441.
 (pdftex.def)             Requested size: 455.24411pt x 195.94083pt.
 
-[18
+[19
 
-] [19 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./acl_latex.aux)
+] [20 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./acl_latex.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -781,11 +781,11 @@ Package rerunfilecheck Info: File `acl_latex.out' has not changed.
 (rerunfilecheck)             Checksum: 2D2DD758F1403201AFF389913079FF34;5324.
  ) 
 Here is how much of TeX's memory you used:
- 16501 strings out of 476106
- 264424 string characters out of 5793933
- 2027975 words of memory out of 5000000
+ 16508 strings out of 476106
+ 264503 string characters out of 5793933
+ 2030975 words of memory out of 5000000
  37674 multiletter control sequences out of 15000+600000
- 631429 words of font info for 399 fonts, out of 8000000 for 9000
+ 632069 words of font info for 403 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  84i,15n,93p,1374b,613s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
@@ -808,10 +808,10 @@ re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on acl_latex.pdf (19 pages, 465440 bytes).
+Output written on acl_latex.pdf (20 pages, 467132 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
- 532 compressed objects within 6 object streams
- 118 named destinations out of 1000 (max. 500000)
+ 676 PDF objects out of 1000 (max. 8388607)
+ 535 compressed objects within 6 object streams
+ 119 named destinations out of 1000 (max. 500000)
  62191 words of extra memory for PDF output out of 74296 (max. 10000000)
 
