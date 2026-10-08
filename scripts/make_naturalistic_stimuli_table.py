@@ -145,10 +145,10 @@ def build_rows(
         if row.construction == "relative_clause":
             demographic_marker = "who is {race} and {gender}"
             demographic_details = {
-                "white_male": "who is white and male",
-                "white_female": "who is white and female",
-                "minority_male": f"who is {row.assigned_minority_race} and male",
-                "minority_female": f"who is {row.assigned_minority_race} and female",
+                "white_male": "is white and male",
+                "white_female": "is white and female",
+                "minority_male": f"is {row.assigned_minority_race} and male",
+                "minority_female": f"is {row.assigned_minority_race} and female",
             }
         elif row.construction == "modifier":
             demographic_marker = "{race} {gender}"
@@ -184,19 +184,23 @@ def build_rows(
         demo_position = token_boundary(normalize_spacing(demo_before))
         non_demo_position = token_boundary(normalize_spacing(non_demo_before))
         if demo_position == non_demo_position:
-            insertions = {demo_position: r"[\emph{D/ND}]"}
+            insertions = {demo_position: r"who \_\_\_\_"}
+            non_demographic_detail = re.sub(
+                r"^who\s+", "", str(row.incidental_detail), count=1
+            )
         else:
             insertions = {
                 demo_position: r"[\emph{D}]",
                 non_demo_position: r"[\emph{ND}]",
             }
+            non_demographic_detail = str(row.incidental_detail)
         template = insert_markers(demo_base, insertions)
 
         rows.append(
             {
                 "template": template,
                 **demographic_details,
-                "non_demographic": str(row.incidental_detail),
+                "non_demographic": non_demographic_detail,
             }
         )
     return rows
@@ -231,7 +235,7 @@ def render_table(rows: list[dict[str, str]], *, per_column_font: bool) -> str:
         r"\setlength{\tabcolsep}{2pt}",
         r"\renewcommand{\arraystretch}{1.08}",
         rf"\begin{{longtable}}{{{column_spec}}}",
-        r"\caption{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph{D} marks the demographic-detail position, \emph{ND} marks the non-demographic-detail position, and \emph{D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition.}",
+        r"\caption{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph{D} marks the demographic-detail position, \emph{ND} marks the non-demographic-detail position, and ``who \_\_\_\_'' marks a shared relative-clause position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition.}",
         r"\label{tab:rq3-stimuli}\\",
         r"\toprule",
         r"Template & White male & White female & Minority male & Minority female & Non-demographic baseline \\",
