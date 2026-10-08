@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  4 OCT 2026 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  8 OCT 2026 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -629,29 +629,29 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq1_behavior.pdf, id=135, 466.62392pt x 98.01166pt>
+<figures/rq1_behavior.pdf, id=135, 467.0894pt x 100.21696pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
 Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 71.
-(pdftex.def)             Requested size: 270.28687pt x 56.77501pt.
+(pdftex.def)             Requested size: 270.28687pt x 57.99435pt.
 
 [2 <./figures/rq1_behavior.pdf>]
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=182, 771.39064pt x 236.6
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=184, 771.72195pt x 236.6
 698pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
 d on input line 128.
-(pdftex.def)             Requested size: 357.73405pt x 109.7578pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=183, 466.62392pt x 98.01166pt>
+(pdftex.def)             Requested size: 357.73405pt x 109.70723pt.
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=185, 466.40434pt x 99.61472pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
 t line 136.
-(pdftex.def)             Requested size: 397.48499pt x 83.49425pt.
- [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
-l_ood_caa_accuracy.pdf>] [4] (./paper.bbl
+(pdftex.def)             Requested size: 397.48499pt x 84.89937pt.
+ [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf>] [4 <./figures/rq2b_c
+ausal_ood_caa_accuracy.pdf>] (./paper.bbl
 [5]) [6] (./appendix_examples.tex [7
 
 
@@ -673,128 +673,438 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
                    \relax 
 l.151 \end{longtable}
                      ) (./derived/rq3_self_blinding_stimuli.tex
-Underfull \hbox (badness 1742) in paragraph at lines 23--23
-[]|\T1/ptm/m/n/7 (+20) The white male schoolteacher
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+[]|\T1/ptm/m/n/7 (+20) Minority
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 23--23
-[]|\T1/ptm/m/n/7 (+20) The Asian male schoolteacher
+Underfull \hbox (badness 4954) in paragraph at lines 13--13
+[]|\T1/ptm/m/n/7 (+20) Minority fe-
  []
 
 
-Underfull \hbox (badness 8056) in paragraph at lines 31--31
-[]|\T1/ptm/m/n/7 (+20) The white fe-male restau-rant
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+[]|\T1/ptm/m/n/7 (+20) Non-demographic
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 31--31
-[]|\T1/ptm/m/n/7 (+20) The His-panic male restau-rant
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+[]|\T1/ptm/m/n/7 (+20) Minority
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 40--40
-[]|\T1/ptm/m/n/7 (+20) The hous-ing ap-pli-cant who is
+Underfull \hbox (badness 4954) in paragraph at lines 17--17
+[]|\T1/ptm/m/n/7 (+20) Minority fe-
  []
 
 
-Underfull \hbox (badness 1082) in paragraph at lines 40--40
-\T1/ptm/m/n/7 (+20) white and male was de-nied a
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+[]|\T1/ptm/m/n/7 (+20) Non-demographic
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 40--40
-[]|\T1/ptm/m/n/7 (+20) The hous-ing ap-pli-cant who is
+Underfull \hbox (badness 2452) in paragraph at lines 22--23
+[]|\T1/ptm/m/n/7 (+20) who sat near the
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 40--40
-\T1/ptm/m/n/7 (+20) panic and male was de-nied a
+Underfull \hbox (badness 1024) in paragraph at lines 27--28
+[]|\T1/ptm/m/n/7 (+20) near the re-cep-tion
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 41--41
-\T1/ptm/m/n/7 (+20) re-ceive the Best Doc-u-men-tary
+Underfull \hbox (badness 2409) in paragraph at lines 28--28
+[]|\T1/ptm/m/n/7 (+20) who is His-
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 41--42
-\T1/ptm/m/n/7 (+20) re-ceive the Best Doc-u-men-tary
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
+\T1/ptm/m/n/7 (+20) panic and
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 43--44
-[]|\T1/ptm/m/n/7 (+20) The NFT col-lec-tion sub-mit-ted
+Underfull \hbox (badness 2409) in paragraph at lines 28--28
+[]|\T1/ptm/m/n/7 (+20) who is His-
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 49--49
-[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
+[]|\T1/ptm/m/n/7 (+20) Hispanic
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 49--49
-[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+Underfull \hbox (badness 4981) in paragraph at lines 29--29
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 49--49
-[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]|\T1/ptm/m/n/7 (+20) Hispanic
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 49--50
-[]|\T1/ptm/m/n/7 (+20) The pack-age ad-dressed to the
+Underfull \hbox (badness 4981) in paragraph at lines 31--31
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
-[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+[]|\T1/ptm/m/n/7 (+20) in the li-cens-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
-\T1/ptm/m/n/7 (+20) quested by the white male
+Underfull \hbox (badness 2409) in paragraph at lines 32--32
+[]|\T1/ptm/m/n/7 (+20) who is His-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
-[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+\T1/ptm/m/n/7 (+20) panic and
  []
 
 
-Underfull \hbox (badness 3271) in paragraph at lines 59--59
-\T1/ptm/m/n/7 (+20) quested by the white fe-male
+Underfull \hbox (badness 2409) in paragraph at lines 32--32
+[]|\T1/ptm/m/n/7 (+20) who is His-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
-[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+Underfull \hbox (badness 1622) in paragraph at lines 33--34
+[]|\T1/ptm/m/n/7 (+20) using the mod-er-a-
  []
 
 
-Underfull \hbox (badness 8113) in paragraph at lines 59--59
-\T1/ptm/m/n/7 (+20) quested by the Asian male
+Underfull \hbox (badness 2409) in paragraph at lines 34--34
+[]|\T1/ptm/m/n/7 (+20) who is His-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
-[]|\T1/ptm/m/n/7 (+20) The credit-limit in-crease re-
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\T1/ptm/m/n/7 (+20) panic and
  []
 
 
-Underfull \hbox (badness 2726) in paragraph at lines 59--60
-\T1/ptm/m/n/7 (+20) quested by the Asian fe-male
+Underfull \hbox (badness 2409) in paragraph at lines 34--34
+[]|\T1/ptm/m/n/7 (+20) who is His-
  []
 
 
-Underfull \hbox (badness 3271) in paragraph at lines 81--81
-[]|\T1/ptm/m/n/7 (+20) The His-panic male pet store
+Underfull \hbox (badness 2452) in paragraph at lines 34--35
+[]|\T1/ptm/m/n/7 (+20) who sat near the
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 36--36
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 36--36
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 36--37
+[]|\T1/ptm/m/n/7 (+20) who waited near
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 39--40
+[]|\T1/ptm/m/n/7 (+20) at the fes-ti-val en-
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 40--40
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 40--40
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+[]|\T1/ptm/m/n/7 (+20) who viewed the
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 42--42
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 42--42
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 6047) in paragraph at lines 43--44
+[]|\T1/ptm/m/n/7 (+20) using the cre-ator
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 45--46
+[]|\T1/ptm/m/n/7 (+20) by the ticket dis-
+ []
+
+
+Underfull \hbox (badness 2452) in paragraph at lines 48--49
+[]|\T1/ptm/m/n/7 (+20) who sat near the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 51--51
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 2961) in paragraph at lines 51--52
+[]|\T1/ptm/m/n/7 (+20) using the sub-mis-
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 52--53
+[]|\T1/ptm/m/n/7 (+20) whose screen had
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 53--53
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 4967) in paragraph at lines 53--54
+[]|\T1/ptm/m/n/7 (+20) using the jour-nal
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 56--57
+[]|\T1/ptm/m/n/7 (+20) who waited near
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 57--57
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 57--58
+[]|\T1/ptm/m/n/7 (+20) inside the pro-duc-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+[]|\T1/ptm/m/n/7 (+20) whose screen
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 60--60
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 60--60
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+[]|\T1/ptm/m/n/7 (+20) who stood near
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 61--61
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 6927) in paragraph at lines 61--62
+[]|\T1/ptm/m/n/7 (+20) outside the in-ter-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--63
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 63--63
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 64--64
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--64
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 64--64
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 66--66
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--66
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 66--66
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 66--67
+[]|\T1/ptm/m/n/7 (+20) who sat be-side a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--67
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 67--67
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+[]|\T1/ptm/m/n/7 (+20) inside the bank
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+[]|\T1/ptm/m/n/7 (+20) whose in-ter-view
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 71--71
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 72--73
+[]|\T1/ptm/m/n/7 (+20) who waited near
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 76--76
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 76--76
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+[]|\T1/ptm/m/n/7 (+20) near the of-fice
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 78--79
+[]|\T1/ptm/m/n/7 (+20) whose screen had
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 82--82
+[]|\T1/ptm/m/n/7 (+20) who is His-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\T1/ptm/m/n/7 (+20) panic and
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 82--82
+[]|\T1/ptm/m/n/7 (+20) who is His-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 85--85
-\T1/ptm/m/n/7 (+20) white fe-male small-business
+[]|\T1/ptm/m/n/7 (+20) Hispanic
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 85--85
+[]|\T1/ptm/m/n/7 (+20) Hispanic fe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+[]|\T1/ptm/m/n/7 (+20) who viewed the
  []
 
 [8]
@@ -803,16 +1113,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
 <to be read again> 
                    \relax 
 l.87 \end{longtable}
-                     [9] [10])
+                     [9])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11]
+ [10]
 (./derived/random_vector_baselines.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 310--312
 \T1/cmtt/m/n/9 Question: Does the fact that ... explain why [outcome]? Answer
  []
 
-[12]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 324--326
 \T1/cmtt/m/n/9 Question: How strongly does the fact that ... explain why
  []
@@ -822,19 +1132,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 324--326
 \T1/cmtt/m/n/9 [outcome]? Answer with one integer from 1 to 7, where 1 means
  []
 
-
-Underfull \vbox (badness 6510) has occurred while \output is active []
-
- [13]
-<figures/rq3_self_blinding_unit_histograms.pdf, id=375, 664.52263pt x 286.00853
+[12]
+<figures/rq3_self_blinding_unit_histograms.pdf, id=374, 664.52263pt x 286.00853
 pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 407.
+ input line 422.
 (pdftex.def)             Requested size: 397.48499pt x 171.07837pt.
-
-[14] [15 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./paper.aux)
+ [13] [14 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -843,11 +1149,11 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 75E9B088E0CAA06AD92FC28ED24CC670;4038.
  ) 
 Here is how much of TeX's memory you used:
- 14604 strings out of 476106
- 227904 string characters out of 5793933
- 2047975 words of memory out of 5000000
- 35883 multiletter control sequences out of 15000+600000
- 615786 words of font info for 355 fonts, out of 8000000 for 9000
+ 14682 strings out of 476106
+ 228693 string characters out of 5793933
+ 2037975 words of memory out of 5000000
+ 35887 multiletter control sequences out of 15000+600000
+ 624308 words of font info for 405 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  71i,17n,79p,1277b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
@@ -867,10 +1173,10 @@ type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (15 pages, 382901 bytes).
+Output written on paper.pdf (14 pages, 437422 bytes).
 PDF statistics:
- 507 PDF objects out of 1000 (max. 8388607)
- 403 compressed objects within 5 object streams
+ 506 PDF objects out of 1000 (max. 8388607)
+ 401 compressed objects within 5 object streams
  89 named destinations out of 1000 (max. 500000)
- 51373 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 55469 words of extra memory for PDF output out of 61914 (max. 10000000)
 

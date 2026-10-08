@@ -483,8 +483,8 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
     labels = (
         "Positive outcomes",
         "Negative outcomes",
-        "Neutral baseline (positive outcomes)",
-        "Neutral baseline (negative outcomes)",
+        "Non-demographic baseline (positive outcomes)",
+        "Non-demographic baseline (negative outcomes)",
     )
     figure.legend(
         handles,
