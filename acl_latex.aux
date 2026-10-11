@@ -102,11 +102,6 @@
 \citation{qwen-team-2025-qwen3}
 \citation{meta-2024-llama32}
 \citation{dubey-etal-2024-llama3}
-\citation{hobbs_literature_1990,kehler_coherence_2002}
-\citation{hu-rubiofernandez-2026-referential}
-\citation{hu-etal-2025-shades}
-\citation{kauf-etal-2023-event}
-\citation{vega-mendoza-etal-2021-concurrent}
 \@LN@col{1}
 \@LN{83}{1}
 \@LN{84}{1}
@@ -119,9 +114,9 @@
 \@LN{90}{1}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Pragmatics and Implicit Inferences}{2}{subsection.2.1}\protected@file@percent }
 \@LN{91}{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}The Linear Representation Hypothesis}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Neural Representations of Knowledge}{2}{subsection.2.2}\protected@file@percent }
 \@LN{92}{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Misalignment?}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Social Bias in LMs}{2}{subsection.2.3}\protected@file@percent }
 \@LN{93}{1}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Experiments}{2}{section.3}\protected@file@percent }
 \newlabel{sec:experiments}{{3}{2}{Experiments}{section.3}{}}
@@ -137,7 +132,7 @@
 \@LN{101}{1}
 \@LN{102}{1}
 \@LN{103}{1}
-\@writefile{toc}{\contentsline {paragraph}{Methods.}{2}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Data.}{2}{section*.1}\protected@file@percent }
 \@LN{104}{1}
 \@LN{105}{1}
 \@LN{106}{1}
@@ -146,6 +141,7 @@
 \@LN{109}{1}
 \@LN{110}{1}
 \@LN{111}{1}
+\@writefile{toc}{\contentsline {paragraph}{Methods.}{2}{section*.2}\protected@file@percent }
 \@LN{112}{1}
 \@LN{113}{1}
 \@LN{114}{1}
@@ -156,6 +152,7 @@
 \@LN{119}{1}
 \@LN{120}{1}
 \@LN{121}{1}
+\newlabel{eq:yesno-main}{{1}{2}{Methods}{equation.3.1}{}}
 \@LN{122}{1}
 \@LN{123}{1}
 \@LN{124}{1}
@@ -163,14 +160,15 @@
 \@LN{126}{1}
 \@LN{127}{1}
 \@LN{128}{1}
+\@LN@col{2}
 \@LN{129}{1}
 \@LN{130}{1}
-\@LN@col{2}
 \@LN{131}{1}
 \@LN{132}{1}
 \@LN{133}{1}
 \@LN{134}{1}
 \@LN{135}{1}
+\newlabel{eq:likert-main}{{2}{2}{Methods}{equation.3.2}{}}
 \@LN{136}{1}
 \@LN{137}{1}
 \@LN{138}{1}
@@ -178,7 +176,6 @@
 \@LN{140}{1}
 \@LN{141}{1}
 \@LN{142}{1}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{2}{section*.3}\protected@file@percent }
 \@LN{143}{1}
 \@LN{144}{1}
 \@LN{145}{1}
@@ -192,41 +189,48 @@
 \@LN{153}{1}
 \@LN{154}{1}
 \@LN{155}{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Identifying internal representations of implicit causality inference}{2}{subsection.3.2}\protected@file@percent }
-\newlabel{sec:representations}{{3.2}{2}{Identifying internal representations of implicit causality inference}{subsection.3.2}{}}
 \@LN{156}{1}
 \@LN{157}{1}
 \@LN{158}{1}
+\@writefile{toc}{\contentsline {paragraph}{Metrics.}{2}{section*.3}\protected@file@percent }
 \@LN{159}{1}
 \@LN{160}{1}
 \@LN{161}{1}
 \@LN{162}{1}
 \@LN{163}{1}
+\@writefile{toc}{\contentsline {paragraph}{Models.}{2}{section*.4}\protected@file@percent }
 \@LN{164}{1}
-\@writefile{toc}{\contentsline {paragraph}{Datasets.}{2}{section*.4}\protected@file@percent }
 \@LN{165}{1}
 \@LN{166}{1}
 \@LN{167}{1}
 \@LN{168}{1}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{2}{section*.6}\protected@file@percent }
 \@LN{169}{1}
 \@LN{170}{1}
 \@LN{171}{1}
 \@LN{172}{1}
 \@LN{173}{1}
-\@LN{174}{1}
-\@LN{175}{1}
-\@LN{176}{1}
-\@LN{177}{1}
-\@LN{178}{1}
-\@LN{179}{1}
-\@LN{180}{1}
+\citation{hobbs_literature_1990,kehler_coherence_2002}
+\citation{hu-rubiofernandez-2026-referential}
+\citation{hu-etal-2025-shades}
+\citation{kauf-etal-2023-event}
+\citation{vega-mendoza-etal-2021-concurrent}
 \citation{hu-rubiofernandez-2026-referential}
 \citation{rimsky-etal-2024-steering}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Paired accuracy on implicit causal inference items using two explicit judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf  {Both surprisal-based measures distinguish critical from control items consistently across models.}}}{3}{figure.caption.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Paired accuracy on implicit causal inference items using two explicit judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf  {Both surprisal-based measures distinguish critical from control items consistently across models.}}}{3}{figure.caption.5}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:rq1}{{1}{3}{Paired accuracy on implicit causal inference items using two explicit judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf {Both surprisal-based measures distinguish critical from control items consistently across models.}}{figure.caption.2}{}}
+\newlabel{fig:rq1}{{1}{3}{Paired accuracy on implicit causal inference items using two explicit judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf {Both surprisal-based measures distinguish critical from control items consistently across models.}}{figure.caption.5}{}}
 \@LN@col{1}
+\@LN{174}{2}
+\@LN{175}{2}
+\@LN{176}{2}
+\@LN{177}{2}
+\@LN{178}{2}
+\@LN{179}{2}
+\@LN{180}{2}
 \@LN{181}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Identifying internal representations of implicit causality inference}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:representations}{{3.2}{3}{Identifying internal representations of implicit causality inference}{subsection.3.2}{}}
 \@LN{182}{2}
 \@LN{183}{2}
 \@LN{184}{2}
@@ -236,6 +240,7 @@
 \@LN{188}{2}
 \@LN{189}{2}
 \@LN{190}{2}
+\@writefile{toc}{\contentsline {paragraph}{Datasets.}{3}{section*.7}\protected@file@percent }
 \@LN{191}{2}
 \@LN{192}{2}
 \@LN{193}{2}
@@ -252,13 +257,13 @@
 \@LN{204}{2}
 \@LN{205}{2}
 \@LN{206}{2}
-\@writefile{toc}{\contentsline {paragraph}{CAA directions.}{3}{section*.5}\protected@file@percent }
 \@LN{207}{2}
 \@LN{208}{2}
 \@LN{209}{2}
 \@LN{210}{2}
 \@LN{211}{2}
 \@LN{212}{2}
+\@LN@col{2}
 \@LN{213}{2}
 \@LN{214}{2}
 \@LN{215}{2}
@@ -267,12 +272,10 @@
 \@LN{218}{2}
 \@LN{219}{2}
 \@LN{220}{2}
-\@LN@col{2}
 \@LN{221}{2}
 \@LN{222}{2}
 \@LN{223}{2}
 \@LN{224}{2}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{3}{section*.8}\protected@file@percent }
 \@LN{225}{2}
 \@LN{226}{2}
 \@LN{227}{2}
@@ -281,6 +284,7 @@
 \@LN{230}{2}
 \@LN{231}{2}
 \@LN{232}{2}
+\@writefile{toc}{\contentsline {paragraph}{CAA directions.}{3}{section*.8}\protected@file@percent }
 \@LN{233}{2}
 \@LN{234}{2}
 \@LN{235}{2}
@@ -291,8 +295,6 @@
 \@LN{240}{2}
 \@LN{241}{2}
 \@LN{242}{2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Intervening on implicit causal representations}{3}{subsection.3.3}\protected@file@percent }
-\newlabel{sec:intervention}{{3.3}{3}{Intervening on implicit causal representations}{subsection.3.3}{}}
 \@LN{243}{2}
 \@LN{244}{2}
 \@LN{245}{2}
@@ -301,21 +303,19 @@
 \@LN{248}{2}
 \@LN{249}{2}
 \@LN{250}{2}
-\@LN{251}{2}
-\@LN{252}{2}
-\@LN{253}{2}
-\@writefile{toc}{\contentsline {paragraph}{Methods.}{3}{section*.9}\protected@file@percent }
-\@LN{254}{2}
-\@LN{255}{2}
-\@LN{256}{2}
-\@LN{257}{2}
-\citation{christian-mazor-2026-selfblinding}
-\citation{tamkin-etal-2023-discrimination}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the held-out in-distribution test set; plausibility accuracy is the unweighted macro-average over its three source test sets. \textbf  {Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}}{4}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:rq2-transfer}{{2}{4}{Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the held-out in-distribution test set; plausibility accuracy is the unweighted macro-average over its three source test sets. \textbf {Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}{figure.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf  {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}}{4}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:rq2b}{{3}{4}{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the held-out in-distribution test set; plausibility accuracy is the unweighted macro-average over its three source test sets. \textbf  {Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}}{4}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:rq2-transfer}{{2}{4}{Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the held-out in-distribution test set; plausibility accuracy is the unweighted macro-average over its three source test sets. \textbf {Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf  {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}}{4}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:rq2b}{{3}{4}{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items}{figure.caption.10}{}}
 \@LN@col{1}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{4}{section*.11}\protected@file@percent }
+\@LN{251}{3}
+\@LN{252}{3}
+\@LN{253}{3}
+\@LN{254}{3}
+\@LN{255}{3}
+\@LN{256}{3}
+\@LN{257}{3}
 \@LN{258}{3}
 \@LN{259}{3}
 \@LN{260}{3}
@@ -327,21 +327,23 @@
 \@LN{266}{3}
 \@LN{267}{3}
 \@LN{268}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Intervening on implicit causal representations}{4}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:intervention}{{3.3}{4}{Intervening on implicit causal representations}{subsection.3.3}{}}
 \@LN{269}{3}
 \@LN{270}{3}
 \@LN{271}{3}
 \@LN{272}{3}
 \@LN{273}{3}
 \@LN{274}{3}
+\@LN@col{2}
 \@LN{275}{3}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{4}{section*.11}\protected@file@percent }
 \@LN{276}{3}
 \@LN{277}{3}
 \@LN{278}{3}
 \@LN{279}{3}
+\@writefile{toc}{\contentsline {paragraph}{Methods.}{4}{section*.12}\protected@file@percent }
 \@LN{280}{3}
 \@LN{281}{3}
-\@LN@col{2}
 \@LN{282}{3}
 \@LN{283}{3}
 \@LN{284}{3}
@@ -353,24 +355,22 @@
 \@LN{290}{3}
 \@LN{291}{3}
 \@LN{292}{3}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Implicit representations of causality in real-world scenarios}{4}{subsection.3.4}\protected@file@percent }
-\newlabel{sec:naturalistic}{{3.4}{4}{Implicit representations of causality in real-world scenarios}{subsection.3.4}{}}
 \@LN{293}{3}
 \@LN{294}{3}
 \@LN{295}{3}
 \@LN{296}{3}
 \@LN{297}{3}
-\@LN{298}{3}
-\@LN{299}{3}
-\@LN{300}{3}
-\@LN{301}{3}
-\@writefile{toc}{\contentsline {paragraph}{Dataset.}{4}{section*.12}\protected@file@percent }
-\@LN{302}{3}
-\@LN{303}{3}
-\@LN{304}{3}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Change in paired accuracy across fixed intervention magnitudes $|\alpha |=1$--$5$ for the causal direction and ten norm-matched random directions; points show mean changes and error bars show 95\% bootstrap CIs. Negative values indicate reduced discrimination between critical and control contexts. The causal-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps directions and the shared item pairs. \textbf  {In five models, increasing the causal intervention increasingly reduces paired accuracy and generally has a larger effect than the random baseline; Qwen3 4B shows no reliable effect, while Llama~3.1 70B changes in the opposite direction.}}}{5}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:intervention-alpha-sweep}{{4}{5}{Change in paired accuracy across fixed intervention magnitudes $|\alpha |=1$--$5$ for the causal direction and ten norm-matched random directions; points show mean changes and error bars show 95\% bootstrap CIs. Negative values indicate reduced discrimination between critical and control contexts. The causal-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps directions and the shared item pairs. \textbf {In five models, increasing the causal intervention increasingly reduces paired accuracy and generally has a larger effect than the random baseline; Qwen3 4B shows no reliable effect, while Llama~3.1 70B changes in the opposite direction.}}{figure.caption.10}{}}
+\citation{christian-mazor-2026-selfblinding}
+\citation{tamkin-etal-2023-discrimination}
 \@LN@col{1}
+\@LN{298}{4}
+\@LN{299}{4}
+\@LN{300}{4}
+\@LN{301}{4}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{5}{section*.14}\protected@file@percent }
+\@LN{302}{4}
+\@LN{303}{4}
+\@LN{304}{4}
 \@LN{305}{4}
 \@LN{306}{4}
 \@LN{307}{4}
@@ -385,8 +385,9 @@
 \@LN{316}{4}
 \@LN{317}{4}
 \@LN{318}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Implicit representations of causality in real-world scenarios}{5}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:naturalistic}{{3.4}{5}{Implicit representations of causality in real-world scenarios}{subsection.3.4}{}}
 \@LN{319}{4}
-\@writefile{toc}{\contentsline {paragraph}{Evaluation.}{5}{section*.13}\protected@file@percent }
 \@LN{320}{4}
 \@LN{321}{4}
 \@LN{322}{4}
@@ -395,11 +396,11 @@
 \@LN{325}{4}
 \@LN{326}{4}
 \@LN{327}{4}
+\@writefile{toc}{\contentsline {paragraph}{Dataset.}{5}{section*.15}\protected@file@percent }
 \@LN{328}{4}
 \@LN{329}{4}
 \@LN{330}{4}
 \@LN{331}{4}
-\@LN@col{2}
 \@LN{332}{4}
 \@LN{333}{4}
 \@LN{334}{4}
@@ -413,8 +414,9 @@
 \@LN{342}{4}
 \@LN{343}{4}
 \@LN{344}{4}
-\@writefile{toc}{\contentsline {paragraph}{Results.}{5}{section*.15}\protected@file@percent }
 \@LN{345}{4}
+\@LN@col{2}
+\@writefile{toc}{\contentsline {paragraph}{Evaluation.}{5}{section*.16}\protected@file@percent }
 \@LN{346}{4}
 \@LN{347}{4}
 \@LN{348}{4}
@@ -428,99 +430,88 @@
 \@LN{356}{4}
 \@LN{357}{4}
 \@LN{358}{4}
+\@LN{359}{4}
+\@LN{360}{4}
+\@LN{361}{4}
+\@LN{362}{4}
+\@LN{363}{4}
+\@LN{364}{4}
+\@LN{365}{4}
+\@LN{366}{4}
+\@LN{367}{4}
+\@LN{368}{4}
+\@LN{369}{4}
+\@LN{370}{4}
+\@writefile{toc}{\contentsline {paragraph}{Results.}{5}{section*.18}\protected@file@percent }
+\@LN{371}{4}
+\@LN{372}{4}
+\@LN{373}{4}
+\@LN{374}{4}
+\@LN{375}{4}
+\@LN{376}{4}
+\@LN{377}{4}
+\@LN{378}{4}
+\@LN{379}{4}
+\@LN{380}{4}
+\@LN{381}{4}
+\@LN{382}{4}
+\@LN{383}{4}
+\@LN{384}{4}
+\@LN{385}{4}
+\@LN{386}{4}
+\@LN{387}{4}
+\@LN{388}{4}
+\@LN{389}{4}
+\@LN{390}{4}
+\@LN{391}{4}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Change in paired accuracy across fixed intervention magnitudes $|\alpha |=1$--$5$ for the causal direction and ten norm-matched random directions; points show mean changes and error bars show 95\% bootstrap CIs. Negative values indicate reduced discrimination between critical and control contexts. The causal-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps directions and the shared item pairs. \textbf  {In five models, increasing the causal intervention increasingly reduces paired accuracy and generally has a larger effect than the random baseline; Qwen3 4B shows no reliable effect, while Llama~3.1 70B changes in the opposite direction.}}}{6}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:intervention-alpha-sweep}{{4}{6}{Change in paired accuracy across fixed intervention magnitudes $|\alpha |=1$--$5$ for the causal direction and ten norm-matched random directions; points show mean changes and error bars show 95\% bootstrap CIs. Negative values indicate reduced discrimination between critical and control contexts. The causal-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps directions and the shared item pairs. \textbf {In five models, increasing the causal intervention increasingly reduces paired accuracy and generally has a larger effect than the random baseline; Qwen3 4B shows no reliable effect, while Llama~3.1 70B changes in the opposite direction.}}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Differences from the matched white-male condition for positive and negative outcomes, measured by training-gap-normalized causal projection (left) and expected Likert rating (right). Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; green and coral dashed lines give the corresponding non-demographic-baseline-minus-white-male differences, and solid gray lines mark zero. \textbf  {Positive-outcome CAA projections increase across demographic conditions, while minority women exceed white men in both negative-outcome measures.}}}{6}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:naturalistic-aggregate}{{5}{6}{Differences from the matched white-male condition for positive and negative outcomes, measured by training-gap-normalized causal projection (left) and expected Likert rating (right). Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; green and coral dashed lines give the corresponding non-demographic-baseline-minus-white-male differences, and solid gray lines mark zero. \textbf {Positive-outcome CAA projections increase across demographic conditions, while minority women exceed white men in both negative-outcome measures.}}{figure.caption.17}{}}
 \bibdata{paper}
 \bibcite{christian-mazor-2026-selfblinding}{{1}{2026}{{Christian and Mazor}}{{}}}
 \bibcite{cohen-kehler-2021-conversational}{{2}{2021}{{Cohen and Kehler}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Differences from the matched white-male condition for positive and negative outcomes, measured by training-gap-normalized causal projection (left) and expected Likert rating (right). Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; green and coral dashed lines give the corresponding non-demographic-baseline-minus-white-male differences, and solid gray lines mark zero. \textbf  {Positive-outcome CAA projections increase across demographic conditions, while minority women exceed white men in both negative-outcome measures.}}}{6}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:naturalistic-aggregate}{{5}{6}{Differences from the matched white-male condition for positive and negative outcomes, measured by training-gap-normalized causal projection (left) and expected Likert rating (right). Bars show equal-weight means across seven models with 95\% scenario-bootstrap CIs; green and coral dashed lines give the corresponding non-demographic-baseline-minus-white-male differences, and solid gray lines mark zero. \textbf {Positive-outcome CAA projections increase across demographic conditions, while minority women exceed white men in both negative-outcome measures.}}{figure.caption.14}{}}
-\@LN@col{1}
-\@LN{359}{5}
-\@LN{360}{5}
-\@LN{361}{5}
-\@LN{362}{5}
-\@LN{363}{5}
-\@LN{364}{5}
-\@LN{365}{5}
-\@LN{366}{5}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{6}{section.4}\protected@file@percent }
-\@LN{367}{5}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{6}{section.5}\protected@file@percent }
-\newlabel{sec:discussion}{{5}{6}{Discussion}{section.5}{}}
-\@LN{368}{5}
-\@LN{369}{5}
-\@LN{370}{5}
-\@LN{371}{5}
-\@LN{372}{5}
-\@LN{373}{5}
-\@LN{374}{5}
-\@LN{375}{5}
-\@LN{376}{5}
-\@LN{377}{5}
-\@LN{378}{5}
-\@LN{379}{5}
-\@LN{380}{5}
-\@LN{381}{5}
-\@LN{382}{5}
-\@LN{383}{5}
-\@LN{384}{5}
-\@LN{385}{5}
-\@LN{386}{5}
-\@LN{387}{5}
-\@LN{388}{5}
-\@LN{389}{5}
-\@LN{390}{5}
-\@LN@col{2}
-\@LN{391}{5}
-\@LN{392}{5}
-\@LN{393}{5}
-\@LN{394}{5}
-\@LN{395}{5}
-\@LN{396}{5}
-\@LN{397}{5}
-\@LN{398}{5}
-\@LN{399}{5}
-\@LN{400}{5}
-\@LN{401}{5}
-\@LN{402}{5}
-\@LN{403}{5}
-\@LN{404}{5}
-\@LN{405}{5}
-\@LN{406}{5}
-\@LN{407}{5}
-\@LN{408}{5}
-\@LN{409}{5}
-\@LN{410}{5}
-\@LN{411}{5}
-\@LN{412}{5}
-\@LN{413}{5}
-\@LN{414}{5}
-\@LN{415}{5}
-\@LN{416}{5}
-\@LN{417}{5}
-\@LN{418}{5}
-\@LN{419}{5}
-\@LN{420}{5}
-\@LN{421}{5}
 \bibcite{gemma-team-2024-gemma2}{{3}{2024}{{Gemma Team}}{{}}}
 \bibcite{dubey-etal-2024-llama3}{{4}{2024}{{Grattafiori et~al.}}{{}}}
 \bibcite{hobbs_literature_1990}{{5}{1990}{{Hobbs}}{{}}}
 \bibcite{hu-levy-2023-prompting}{{6}{2023}{{Hu and Levy}}{{}}}
 \bibcite{hu-rubiofernandez-2026-referential}{{7}{2026}{{Hu and Rubio-Fern\'andez}}{{}}}
 \bibcite{hu-etal-2025-shades}{{8}{2025}{{Hu et~al.}}{{Hu, Sosa, and Ullman}}}
-\bibcite{jeretic-etal-2020-natural}{{9}{2020}{{Jeretic et~al.}}{{Jeretic, Warstadt, Bhooshan, and Williams}}}
-\bibcite{kauf-etal-2023-event}{{10}{2023}{{Kauf et~al.}}{{Kauf, Ivanova, Rambelli, Chersoni, She, Chowdhury, Fedorenko, and Lenci}}}
-\bibcite{kehler_coherence_2002}{{11}{2002}{{Kehler}}{{}}}
-\bibcite{li-etal-2021-predicting}{{12}{2021}{{Li et~al.}}{{Li, Schuster, and Degen}}}
-\bibcite{meta-2024-llama32}{{13}{2024}{{Meta Llama}}{{}}}
-\bibcite{pan-kehler-2025-pragmatic}{{14}{2025}{{Pan and Kehler}}{{}}}
-\bibcite{rimsky-etal-2024-steering}{{15}{2024}{{Rimsky et~al.}}{{Rimsky, Gabrieli, Schulz, Tong, Hubinger, and Turner}}}
-\bibcite{rohde-etal-2011-anticipating}{{16}{2011}{{Rohde et~al.}}{{Rohde, Levy, and Kehler}}}
-\bibcite{ruis2023goldilocks}{{17}{2023}{{Ruis et~al.}}{{Ruis, Khan, Biderman, Hooker, Rocktäschel, and Grefenstette}}}
-\bibcite{schuster-etal-2020-harnessing}{{18}{2020}{{Schuster et~al.}}{{Schuster, Chen, and Degen}}}
-\bibcite{tamkin-etal-2023-discrimination}{{19}{2023}{{Tamkin et~al.}}{{Tamkin, Askell, Lovitt, Durmus, Joseph, Kravec, Nguyen, Kaplan, and Ganguli}}}
-\bibcite{vega-mendoza-etal-2021-concurrent}{{20}{2021}{{Vega-Mendoza et~al.}}{{Vega-Mendoza, Pickering, and Nieuwland}}}
-\bibcite{qwen-team-2025-qwen3}{{21}{2025}{{Yang et~al.}}{{}}}
 \@LN@col{1}
+\@LN{392}{6}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{7}{section.4}\protected@file@percent }
+\@LN{393}{6}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{7}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{7}{Discussion}{section.5}{}}
+\@LN{394}{6}
+\@LN{395}{6}
+\@LN{396}{6}
+\@LN{397}{6}
+\@LN{398}{6}
+\@LN{399}{6}
+\@LN{400}{6}
+\@LN{401}{6}
+\@LN{402}{6}
+\@LN{403}{6}
+\@LN{404}{6}
+\@LN{405}{6}
+\@LN{406}{6}
+\@LN{407}{6}
+\@LN{408}{6}
+\@LN{409}{6}
+\@LN{410}{6}
+\@LN{411}{6}
+\@LN{412}{6}
+\@LN{413}{6}
+\@LN{414}{6}
+\@LN{415}{6}
+\@LN{416}{6}
+\@LN{417}{6}
+\@LN@col{2}
+\@LN{418}{6}
+\@LN{419}{6}
+\@LN{420}{6}
+\@LN{421}{6}
 \@LN{422}{6}
 \@LN{423}{6}
 \@LN{424}{6}
@@ -565,45 +556,85 @@
 \@LN{463}{6}
 \@LN{464}{6}
 \@LN{465}{6}
-\@LN{466}{6}
-\@LN{467}{6}
-\@LN{468}{6}
-\@LN{469}{6}
-\@LN{470}{6}
-\@LN{471}{6}
-\@LN{472}{6}
-\@LN{473}{6}
-\@LN{474}{6}
-\@LN{475}{6}
+\bibcite{jeretic-etal-2020-natural}{{9}{2020}{{Jeretic et~al.}}{{Jeretic, Warstadt, Bhooshan, and Williams}}}
+\bibcite{kauf-etal-2023-event}{{10}{2023}{{Kauf et~al.}}{{Kauf, Ivanova, Rambelli, Chersoni, She, Chowdhury, Fedorenko, and Lenci}}}
+\bibcite{kehler_coherence_2002}{{11}{2002}{{Kehler}}{{}}}
+\bibcite{li-etal-2021-predicting}{{12}{2021}{{Li et~al.}}{{Li, Schuster, and Degen}}}
+\bibcite{meta-2024-llama32}{{13}{2024}{{Meta Llama}}{{}}}
+\bibcite{pan-kehler-2025-pragmatic}{{14}{2025}{{Pan and Kehler}}{{}}}
+\bibcite{rimsky-etal-2024-steering}{{15}{2024}{{Rimsky et~al.}}{{Rimsky, Gabrieli, Schulz, Tong, Hubinger, and Turner}}}
+\bibcite{rohde-etal-2011-anticipating}{{16}{2011}{{Rohde et~al.}}{{Rohde, Levy, and Kehler}}}
+\bibcite{ruis2023goldilocks}{{17}{2023}{{Ruis et~al.}}{{Ruis, Khan, Biderman, Hooker, Rocktäschel, and Grefenstette}}}
+\bibcite{schuster-etal-2020-harnessing}{{18}{2020}{{Schuster et~al.}}{{Schuster, Chen, and Degen}}}
+\bibcite{tamkin-etal-2023-discrimination}{{19}{2023}{{Tamkin et~al.}}{{Tamkin, Askell, Lovitt, Durmus, Joseph, Kravec, Nguyen, Kaplan, and Ganguli}}}
+\bibcite{vega-mendoza-etal-2021-concurrent}{{20}{2021}{{Vega-Mendoza et~al.}}{{Vega-Mendoza, Pickering, and Nieuwland}}}
+\bibcite{qwen-team-2025-qwen3}{{21}{2025}{{Yang et~al.}}{{}}}
+\@LN@col{1}
+\@LN{466}{7}
+\@LN{467}{7}
+\@LN{468}{7}
+\@LN{469}{7}
+\@LN{470}{7}
+\@LN{471}{7}
+\@LN{472}{7}
+\@LN{473}{7}
+\@LN{474}{7}
+\@LN{475}{7}
+\@LN{476}{7}
+\@LN{477}{7}
+\@LN{478}{7}
+\@LN{479}{7}
+\@LN{480}{7}
+\@LN{481}{7}
+\@LN{482}{7}
+\@LN{483}{7}
+\@LN{484}{7}
+\@LN{485}{7}
+\@LN{486}{7}
+\@LN{487}{7}
+\@LN{488}{7}
+\@LN{489}{7}
+\@LN{490}{7}
+\@LN{491}{7}
+\@LN{492}{7}
+\@LN{493}{7}
+\@LN{494}{7}
+\@LN{495}{7}
+\@LN{496}{7}
+\@LN{497}{7}
+\@LN{498}{7}
+\@LN{499}{7}
+\@LN{500}{7}
+\@LN{501}{7}
+\@LN{502}{7}
+\@LN{503}{7}
+\@LN{504}{7}
+\@LN{505}{7}
+\@LN{506}{7}
+\@LN{507}{7}
+\@LN{508}{7}
+\@LN{509}{7}
+\@LN{510}{7}
+\@LN{511}{7}
+\@LN{512}{7}
+\@LN{513}{7}
+\@LN{514}{7}
+\@LN{515}{7}
+\@LN{516}{7}
+\@LN{517}{7}
+\@LN{518}{7}
+\@LN{519}{7}
+\@LN{520}{7}
 \@LN@col{2}
-\@LN{476}{6}
-\@LN{477}{6}
-\@LN{478}{6}
-\@LN{479}{6}
-\@LN{480}{6}
-\@LN{481}{6}
-\@LN{482}{6}
-\@LN{483}{6}
-\@LN{484}{6}
-\@LN{485}{6}
-\@LN{486}{6}
-\@LN{487}{6}
-\@LN{488}{6}
-\@LN{489}{6}
-\@LN{490}{6}
-\@LN{491}{6}
-\@LN{492}{6}
-\@LN{493}{6}
-\@LN{494}{6}
-\@LN{495}{6}
-\@LN{496}{6}
-\@LN{497}{6}
-\@LN{498}{6}
-\@LN{499}{6}
-\@LN{500}{6}
-\@LN{501}{6}
-\@LN{502}{6}
-\@LN{503}{6}
+\@LN{521}{7}
+\@LN{522}{7}
+\@LN{523}{7}
+\@LN{524}{7}
+\@LN{525}{7}
+\@LN{526}{7}
+\@LN{527}{7}
+\@LN{528}{7}
+\@LN{529}{7}
 \gdef \LT@i {\LT@entry 
     {4}{13.00002pt}\LT@entry 
     {1}{208.30852pt}\LT@entry 
@@ -612,27 +643,27 @@
     {4}{13.00002pt}\LT@entry 
     {1}{208.30852pt}\LT@entry 
     {1}{204.30852pt}}
-\@LN{504}{7}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Dataset examples}{8}{appendix.A}\protected@file@percent }
-\newlabel{app:representation-examples}{{A}{8}{Dataset examples}{appendix.A}{}}
-\@LN{505}{7}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Within-sentence causal items}{8}{subsection.A.1}\protected@file@percent }
-\newlabel{app:within-sentence-examples}{{A.1}{8}{Within-sentence causal items}{subsection.A.1}{}}
-\@LN{506}{7}
-\@LN{507}{7}
-\@LN{508}{7}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Examples from the within-sentence causal dataset.}}{8}{table.1}\protected@file@percent }
-\newlabel{tab:within-sentence-examples}{{1}{8}{Examples from the within-sentence causal dataset}{table.1}{}}
-\@LN{509}{7}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Cross-sentence causal items}{8}{subsection.A.2}\protected@file@percent }
-\newlabel{app:cross-sentence-examples}{{A.2}{8}{Cross-sentence causal items}{subsection.A.2}{}}
-\@LN{510}{7}
-\@LN{511}{7}
-\@LN{512}{7}
-\@LN{513}{7}
-\@LN{514}{7}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Examples from the cross-sentence causal dataset.}}{8}{table.2}\protected@file@percent }
-\newlabel{tab:cross-sentence-examples}{{2}{8}{Examples from the cross-sentence causal dataset}{table.2}{}}
+\@LN{530}{8}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Dataset examples}{9}{appendix.A}\protected@file@percent }
+\newlabel{app:representation-examples}{{A}{9}{Dataset examples}{appendix.A}{}}
+\@LN{531}{8}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Within-sentence causal items}{9}{subsection.A.1}\protected@file@percent }
+\newlabel{app:within-sentence-examples}{{A.1}{9}{Within-sentence causal items}{subsection.A.1}{}}
+\@LN{532}{8}
+\@LN{533}{8}
+\@LN{534}{8}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Examples from the within-sentence causal dataset.}}{9}{table.1}\protected@file@percent }
+\newlabel{tab:within-sentence-examples}{{1}{9}{Examples from the within-sentence causal dataset}{table.1}{}}
+\@LN{535}{8}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Cross-sentence causal items}{9}{subsection.A.2}\protected@file@percent }
+\newlabel{app:cross-sentence-examples}{{A.2}{9}{Cross-sentence causal items}{subsection.A.2}{}}
+\@LN{536}{8}
+\@LN{537}{8}
+\@LN{538}{8}
+\@LN{539}{8}
+\@LN{540}{8}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Examples from the cross-sentence causal dataset.}}{9}{table.2}\protected@file@percent }
+\newlabel{tab:cross-sentence-examples}{{2}{9}{Examples from the cross-sentence causal dataset}{table.2}{}}
 \gdef \LT@iii {\LT@entry 
     {4}{13.00002pt}\LT@entry 
     {1}{208.30852pt}\LT@entry 
@@ -640,24 +671,24 @@
 \citation{hu-etal-2025-shades}
 \citation{kauf-etal-2023-event}
 \citation{vega-mendoza-etal-2021-concurrent}
-\@LN{515}{8}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Occasion items}{9}{subsection.A.3}\protected@file@percent }
-\newlabel{app:occasion-examples}{{A.3}{9}{Occasion items}{subsection.A.3}{}}
-\@LN{516}{8}
-\@LN{517}{8}
-\@LN{518}{8}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Examples from the occasion dataset.}}{9}{table.3}\protected@file@percent }
-\newlabel{tab:occasion-examples}{{3}{9}{Examples from the occasion dataset}{table.3}{}}
-\@LN{519}{8}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Plausibility items}{9}{subsection.A.4}\protected@file@percent }
-\newlabel{app:plausibility-examples}{{A.4}{9}{Plausibility items}{subsection.A.4}{}}
-\@LN{520}{8}
-\@LN{521}{8}
-\@LN{522}{8}
-\@LN{523}{8}
-\@LN{524}{8}
-\@LN{525}{8}
-\@LN{526}{8}
+\@LN{541}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Occasion items}{10}{subsection.A.3}\protected@file@percent }
+\newlabel{app:occasion-examples}{{A.3}{10}{Occasion items}{subsection.A.3}{}}
+\@LN{542}{9}
+\@LN{543}{9}
+\@LN{544}{9}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Examples from the occasion dataset.}}{10}{table.3}\protected@file@percent }
+\newlabel{tab:occasion-examples}{{3}{10}{Examples from the occasion dataset}{table.3}{}}
+\@LN{545}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Plausibility items}{10}{subsection.A.4}\protected@file@percent }
+\newlabel{app:plausibility-examples}{{A.4}{10}{Plausibility items}{subsection.A.4}{}}
+\@LN{546}{9}
+\@LN{547}{9}
+\@LN{548}{9}
+\@LN{549}{9}
+\@LN{550}{9}
+\@LN{551}{9}
+\@LN{552}{9}
 \gdef \LT@iv {\LT@entry 
     {4}{13.00002pt}\LT@entry 
     {1}{208.30852pt}\LT@entry 
@@ -669,167 +700,130 @@
     {1}{47.24873pt}\LT@entry 
     {1}{47.24873pt}\LT@entry 
     {1}{67.73389pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Examples from the three-source event-feasibility dataset.}}{10}{table.4}\protected@file@percent }
-\newlabel{tab:plausibility-examples}{{4}{10}{Examples from the three-source event-feasibility dataset}{table.4}{}}
-\@LN{527}{9}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Naturalistic scenarios: statistics and examples}{10}{subsection.A.5}\protected@file@percent }
-\newlabel{app:naturalistic-stimuli}{{A.5}{10}{Naturalistic scenarios: statistics and examples}{subsection.A.5}{}}
-\@LN{528}{9}
-\@LN{529}{9}
-\@LN{530}{9}
-\@LN{531}{9}
-\@LN{532}{9}
-\@LN{533}{9}
-\@LN{534}{9}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph  {D} marks the demographic-detail position, \emph  {ND} marks the non-demographic-detail position, and \emph  {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition.}}{10}{table.5}\protected@file@percent }
-\newlabel{tab:rq3-stimuli}{{5}{10}{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph {D} marks the demographic-detail position, \emph {ND} marks the non-demographic-detail position, and \emph {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition}{table.5}{}}
-\@LN{535}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Naturalistic per-model results}{13}{appendix.B}\protected@file@percent }
-\newlabel{app:naturalistic-model-results}{{B}{13}{Naturalistic per-model results}{appendix.B}{}}
-\@LN{536}{12}
-\@LN{537}{12}
-\@LN{538}{12}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf  {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}}{13}{table.caption.18}\protected@file@percent }
-\newlabel{tab:naturalistic-negative}{{6}{13}{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}{table.caption.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf  {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}}{13}{table.caption.19}\protected@file@percent }
-\newlabel{tab:naturalistic-positive}{{7}{13}{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}{table.caption.19}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf  {The aggregate increase is largest and most consistent in Qwen3 8B.}}}{13}{table.caption.20}\protected@file@percent }
-\newlabel{tab:naturalistic-likert-negative}{{8}{13}{Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf {The aggregate increase is largest and most consistent in Qwen3 8B.}}{table.caption.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf  {The aggregate decrease is driven primarily by Qwen3 4B.}}}{14}{table.caption.21}\protected@file@percent }
-\newlabel{tab:naturalistic-likert-positive}{{9}{14}{Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf {The aggregate decrease is driven primarily by Qwen3 4B.}}{table.caption.21}{}}
-\@LN{539}{13}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Norm-matched random-vector baselines}{14}{appendix.C}\protected@file@percent }
-\newlabel{app:random-baselines}{{C}{14}{Norm-matched random-vector baselines}{appendix.C}{}}
-\@LN{540}{13}
-\@LN{541}{13}
-\@LN{542}{13}
-\@LN{543}{13}
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf  {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}}{14}{table.caption.22}\protected@file@percent }
-\newlabel{tab:random-vector-accuracy}{{10}{14}{Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}{table.caption.22}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{14}{table.caption.23}\protected@file@percent }
-\newlabel{tab:random-vector-naturalistic-negative}{{11}{14}{Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.caption.23}{}}
-\@LN{544}{13}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{15}{table.caption.24}\protected@file@percent }
-\newlabel{tab:random-vector-naturalistic-positive}{{12}{15}{Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.caption.24}{}}
-\@LN{545}{15}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Intervention magnitude sweep}{16}{appendix.D}\protected@file@percent }
-\newlabel{app:fixed-alpha-sweep}{{D}{16}{Intervention magnitude sweep}{appendix.D}{}}
-\@LN{546}{15}
-\@LN{547}{15}
-\@LN{548}{15}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=0.5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{16}{table.caption.25}\protected@file@percent }
-\newlabel{tab:fixed-alpha-sweep-0p5}{{13}{16}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=0.5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.25}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=1$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{16}{table.caption.26}\protected@file@percent }
-\newlabel{tab:fixed-alpha-sweep-1}{{14}{16}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=1$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.26}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=2$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{16}{table.caption.27}\protected@file@percent }
-\newlabel{tab:fixed-alpha-sweep-2}{{15}{16}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=2$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.27}{}}
-\@LN{549}{15}
-\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=3$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{17}{table.caption.28}\protected@file@percent }
-\newlabel{tab:fixed-alpha-sweep-3}{{16}{17}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=3$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.28}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=4$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{17}{table.caption.29}\protected@file@percent }
-\newlabel{tab:fixed-alpha-sweep-4}{{17}{17}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=4$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.29}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{17}{table.caption.30}\protected@file@percent }
-\newlabel{tab:fixed-alpha-sweep-5}{{18}{17}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.30}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Examples from the three-source event-feasibility dataset.}}{11}{table.4}\protected@file@percent }
+\newlabel{tab:plausibility-examples}{{4}{11}{Examples from the three-source event-feasibility dataset}{table.4}{}}
+\@LN{553}{10}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Naturalistic scenarios: statistics and examples}{11}{subsection.A.5}\protected@file@percent }
+\newlabel{app:naturalistic-stimuli}{{A.5}{11}{Naturalistic scenarios: statistics and examples}{subsection.A.5}{}}
+\@LN{554}{10}
+\@LN{555}{10}
+\@LN{556}{10}
+\@LN{557}{10}
+\@LN{558}{10}
+\@LN{559}{10}
+\@LN{560}{10}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph  {D} marks the demographic-detail position, \emph  {ND} marks the non-demographic-detail position, and \emph  {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition.}}{11}{table.5}\protected@file@percent }
+\newlabel{tab:rq3-stimuli}{{5}{11}{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph {D} marks the demographic-detail position, \emph {ND} marks the non-demographic-detail position, and \emph {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition}{table.5}{}}
+\@LN{561}{13}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Naturalistic per-model results}{14}{appendix.B}\protected@file@percent }
+\newlabel{app:naturalistic-model-results}{{B}{14}{Naturalistic per-model results}{appendix.B}{}}
+\@LN{562}{13}
+\@LN{563}{13}
+\@LN{564}{13}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf  {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}}{14}{table.caption.21}\protected@file@percent }
+\newlabel{tab:naturalistic-negative}{{6}{14}{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}{table.caption.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf  {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}}{14}{table.caption.22}\protected@file@percent }
+\newlabel{tab:naturalistic-positive}{{7}{14}{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}{table.caption.22}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf  {The aggregate increase is largest and most consistent in Qwen3 8B.}}}{14}{table.caption.23}\protected@file@percent }
+\newlabel{tab:naturalistic-likert-negative}{{8}{14}{Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf {The aggregate increase is largest and most consistent in Qwen3 8B.}}{table.caption.23}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf  {The aggregate decrease is driven primarily by Qwen3 4B.}}}{15}{table.caption.24}\protected@file@percent }
+\newlabel{tab:naturalistic-likert-positive}{{9}{15}{Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf {The aggregate decrease is driven primarily by Qwen3 4B.}}{table.caption.24}{}}
+\@LN{565}{14}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Norm-matched random-vector baselines}{15}{appendix.C}\protected@file@percent }
+\newlabel{app:random-baselines}{{C}{15}{Norm-matched random-vector baselines}{appendix.C}{}}
+\@LN{566}{14}
+\@LN{567}{14}
+\@LN{568}{14}
+\@LN{569}{14}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf  {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}}{15}{table.caption.25}\protected@file@percent }
+\newlabel{tab:random-vector-accuracy}{{10}{15}{Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}{table.caption.25}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{15}{table.caption.26}\protected@file@percent }
+\newlabel{tab:random-vector-naturalistic-negative}{{11}{15}{Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.caption.26}{}}
+\@LN{570}{14}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{16}{table.caption.27}\protected@file@percent }
+\newlabel{tab:random-vector-naturalistic-positive}{{12}{16}{Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.caption.27}{}}
+\@LN{571}{16}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Intervention magnitude sweep}{17}{appendix.D}\protected@file@percent }
+\newlabel{app:fixed-alpha-sweep}{{D}{17}{Intervention magnitude sweep}{appendix.D}{}}
+\@LN{572}{16}
+\@LN{573}{16}
+\@LN{574}{16}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=0.5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{17}{table.caption.28}\protected@file@percent }
+\newlabel{tab:fixed-alpha-sweep-0p5}{{13}{17}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=0.5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.28}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=1$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{17}{table.caption.29}\protected@file@percent }
+\newlabel{tab:fixed-alpha-sweep-1}{{14}{17}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=1$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.29}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=2$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{17}{table.caption.30}\protected@file@percent }
+\newlabel{tab:fixed-alpha-sweep-2}{{15}{17}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=2$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.30}{}}
+\@LN{575}{16}
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=3$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{18}{table.caption.31}\protected@file@percent }
+\newlabel{tab:fixed-alpha-sweep-3}{{16}{18}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=3$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.31}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=4$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{18}{table.caption.32}\protected@file@percent }
+\newlabel{tab:fixed-alpha-sweep-4}{{17}{18}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=4$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.32}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted.}}{18}{table.caption.33}\protected@file@percent }
+\newlabel{tab:fixed-alpha-sweep-5}{{18}{18}{Change in paired accuracy under fixed-magnitude interventions with $|\alpha |=5$, in percentage points $\pm $ 95\% CI half-widths. The learned-direction CI bootstraps the 150 item pairs; the random-direction CI jointly bootstraps ten norm-matched directions and the shared item pairs. Bold CIs exclude zero; negative changes are predicted}{table.caption.33}{}}
 \@LN@col{1}
-\@LN{550}{17}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Behavioral evaluation details}{18}{appendix.E}\protected@file@percent }
-\newlabel{app:behavior-details}{{E}{18}{Behavioral evaluation details}{appendix.E}{}}
-\@writefile{toc}{\contentsline {paragraph}{Yes/No prompt and score.}{18}{section*.31}\protected@file@percent }
-\@LN{551}{17}
-\@LN{552}{17}
-\@LN{553}{17}
-\@LN{554}{17}
-\@LN{555}{17}
-\@LN{556}{17}
-\@LN{557}{17}
-\@LN{558}{17}
-\@LN{559}{17}
-\@LN{560}{17}
-\newlabel{eq:yes-probability}{{2}{18}{Yes/No prompt and score}{equation.E.2}{}}
-\@LN{561}{17}
-\@writefile{toc}{\contentsline {paragraph}{7-point Likert prompt and score.}{18}{section*.32}\protected@file@percent }
-\@LN{562}{17}
-\@LN{563}{17}
-\@LN{564}{17}
-\@LN{565}{17}
-\@LN{566}{17}
-\@LN{567}{17}
-\@LN{568}{17}
-\@LN{569}{17}
-\@LN{570}{17}
-\@LN{571}{17}
-\@LN{572}{17}
-\@LN{573}{17}
-\@LN{574}{17}
-\@LN{575}{17}
-\newlabel{eq:Likert-score}{{4}{18}{7-point Likert prompt and score}{equation.E.4}{}}
-\@LN{576}{17}
-\@writefile{toc}{\contentsline {paragraph}{IDK Why surprisal score.}{18}{section*.33}\protected@file@percent }
-\@LN{577}{17}
-\@LN{578}{17}
-\@LN{579}{17}
-\@LN{580}{17}
-\@LN{581}{17}
-\@LN{582}{17}
-\@LN{583}{17}
-\@LN{584}{17}
-\@LN{585}{17}
-\newlabel{eq:surprisal}{{5}{18}{IDK Why surprisal score}{equation.E.5}{}}
-\@LN{586}{17}
-\@LN{587}{17}
-\@LN{588}{17}
-\@LN{589}{17}
+\@LN{576}{18}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Behavioral evaluation details}{19}{appendix.E}\protected@file@percent }
+\newlabel{app:behavior-details}{{E}{19}{Behavioral evaluation details}{appendix.E}{}}
+\@writefile{toc}{\contentsline {paragraph}{Yes/No prompt and score.}{19}{section*.34}\protected@file@percent }
+\@LN{577}{18}
+\@LN{578}{18}
+\@LN{579}{18}
+\@LN{580}{18}
+\@LN{581}{18}
+\@LN{582}{18}
+\@LN{583}{18}
+\@LN{584}{18}
+\@LN{585}{18}
+\@LN{586}{18}
+\@LN{587}{18}
+\@LN{588}{18}
+\@LN{589}{18}
+\@LN{590}{18}
+\@LN{591}{18}
+\newlabel{eq:answer-sequence-probability}{{4}{19}{Yes/No prompt and score}{equation.E.4}{}}
+\@LN{592}{18}
+\@LN{593}{18}
+\@LN{594}{18}
+\@LN{595}{18}
+\newlabel{eq:yes-probability}{{5}{19}{Yes/No prompt and score}{equation.E.5}{}}
+\@LN{596}{18}
+\@writefile{toc}{\contentsline {paragraph}{7-point Likert prompt and score.}{19}{section*.35}\protected@file@percent }
+\@LN{597}{18}
+\@LN{598}{18}
+\@LN{599}{18}
+\@LN{600}{18}
+\@LN{601}{18}
+\@LN{602}{18}
+\@LN{603}{18}
+\@LN{604}{18}
+\@LN{605}{18}
+\@LN{606}{18}
+\@LN{607}{18}
+\@LN{608}{18}
+\@LN{609}{18}
+\@LN{610}{18}
+\@LN{611}{18}
+\@LN{612}{18}
+\newlabel{eq:Likert-score}{{7}{19}{7-point Likert prompt and score}{equation.E.7}{}}
+\@LN{613}{18}
+\@writefile{toc}{\contentsline {paragraph}{IDK Why surprisal score.}{19}{section*.36}\protected@file@percent }
+\@LN{614}{18}
+\@LN{615}{18}
+\@LN{616}{18}
+\@LN{617}{18}
+\@LN{618}{18}
 \@LN@col{2}
-\@writefile{toc}{\contentsline {paragraph}{Because-And surprisal score.}{18}{section*.34}\protected@file@percent }
-\@LN{590}{17}
-\@LN{591}{17}
-\@LN{592}{17}
-\@LN{593}{17}
-\@LN{594}{17}
-\@LN{595}{17}
-\@LN{596}{17}
-\@LN{597}{17}
-\@LN{598}{17}
-\@LN{599}{17}
-\@LN{600}{17}
-\newlabel{eq:because-and}{{6}{18}{Because-And surprisal score}{equation.E.6}{}}
-\@LN{601}{17}
-\@LN{602}{17}
-\@LN{603}{17}
-\@LN{604}{17}
-\@writefile{toc}{\contentsline {paragraph}{Paired accuracy and sampling parameters.}{18}{section*.35}\protected@file@percent }
-\@LN{605}{17}
-\@LN{606}{17}
-\newlabel{eq:paired-accuracy}{{7}{18}{Paired accuracy and sampling parameters}{equation.E.7}{}}
-\@LN{607}{17}
-\@LN{608}{17}
-\@LN{609}{17}
-\@writefile{toc}{\contentsline {section}{\numberline {F}CAA extraction and evaluation details}{18}{appendix.F}\protected@file@percent }
-\newlabel{app:caa-details}{{F}{18}{CAA extraction and evaluation details}{appendix.F}{}}
-\@LN{610}{17}
-\@writefile{toc}{\contentsline {subsection}{\numberline {F.1}Causal CAA direction extraction}{18}{subsection.F.1}\protected@file@percent }
-\newlabel{app:caa-extraction}{{F.1}{18}{Causal CAA direction extraction}{subsection.F.1}{}}
-\@LN{611}{17}
-\@LN{612}{17}
-\@LN{613}{17}
-\@LN{614}{17}
-\@LN{615}{17}
-\@LN{616}{17}
-\newlabel{eq:caa-direction}{{8}{18}{Causal CAA direction extraction}{equation.F.8}{}}
-\@LN{617}{17}
-\@LN{618}{17}
-\@LN{619}{17}
-\@LN{620}{17}
-\@LN{621}{17}
-\@LN{622}{17}
-\@writefile{toc}{\contentsline {subsection}{\numberline {F.2}CAA projection and evaluation}{18}{subsection.F.2}\protected@file@percent }
-\newlabel{app:caa-evaluation}{{F.2}{18}{CAA projection and evaluation}{subsection.F.2}{}}
-\@LN{623}{17}
-\@LN{624}{17}
-\newlabel{eq:caa-projection}{{9}{18}{CAA projection and evaluation}{equation.F.9}{}}
-\@LN{625}{17}
-\@LN@col{1}
+\@LN{619}{18}
+\@LN{620}{18}
+\@LN{621}{18}
+\@LN{622}{18}
+\newlabel{eq:surprisal}{{8}{19}{IDK Why surprisal score}{equation.E.8}{}}
+\@LN{623}{18}
+\@LN{624}{18}
+\@LN{625}{18}
 \@LN{626}{18}
+\@writefile{toc}{\contentsline {paragraph}{Because-And surprisal score.}{19}{section*.37}\protected@file@percent }
 \@LN{627}{18}
 \@LN{628}{18}
 \@LN{629}{18}
@@ -838,20 +832,74 @@
 \@LN{632}{18}
 \@LN{633}{18}
 \@LN{634}{18}
-\newlabel{eq:caa-paired-accuracy}{{10}{19}{CAA projection and evaluation}{equation.F.10}{}}
 \@LN{635}{18}
 \@LN{636}{18}
 \@LN{637}{18}
+\newlabel{eq:because-and}{{9}{19}{Because-And surprisal score}{equation.E.9}{}}
 \@LN{638}{18}
 \@LN{639}{18}
 \@LN{640}{18}
-\@writefile{toc}{\contentsline {section}{\numberline {G}Projection statistics}{19}{appendix.G}\protected@file@percent }
-\newlabel{app:raw-caa}{{G}{19}{Projection statistics}{appendix.G}{}}
 \@LN{641}{18}
+\@writefile{toc}{\contentsline {paragraph}{Candidate scoring and paired accuracy.}{19}{section*.38}\protected@file@percent }
 \@LN{642}{18}
 \@LN{643}{18}
 \@LN{644}{18}
+\@LN{645}{18}
+\@LN{646}{18}
+\@LN{647}{18}
+\@LN{648}{18}
+\newlabel{eq:paired-accuracy}{{10}{19}{Candidate scoring and paired accuracy}{equation.E.10}{}}
+\@LN{649}{18}
+\@LN{650}{18}
+\@LN{651}{18}
+\@writefile{toc}{\contentsline {section}{\numberline {F}CAA extraction and evaluation details}{19}{appendix.F}\protected@file@percent }
+\newlabel{app:caa-details}{{F}{19}{CAA extraction and evaluation details}{appendix.F}{}}
+\@LN{652}{18}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.1}Causal CAA direction extraction}{19}{subsection.F.1}\protected@file@percent }
+\newlabel{app:caa-extraction}{{F.1}{19}{Causal CAA direction extraction}{subsection.F.1}{}}
+\@LN{653}{18}
+\@LN{654}{18}
+\@LN{655}{18}
+\@LN{656}{18}
+\@LN@col{1}
+\@LN{657}{19}
+\@LN{658}{19}
+\newlabel{eq:caa-direction}{{11}{20}{Causal CAA direction extraction}{equation.F.11}{}}
+\@LN{659}{19}
+\@LN{660}{19}
+\@LN{661}{19}
+\@LN{662}{19}
+\@LN{663}{19}
+\@LN{664}{19}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.2}CAA projection and evaluation}{20}{subsection.F.2}\protected@file@percent }
+\newlabel{app:caa-evaluation}{{F.2}{20}{CAA projection and evaluation}{subsection.F.2}{}}
+\@LN{665}{19}
+\@LN{666}{19}
+\newlabel{eq:caa-projection}{{12}{20}{CAA projection and evaluation}{equation.F.12}{}}
+\@LN{667}{19}
+\@LN{668}{19}
+\@LN{669}{19}
+\@LN{670}{19}
+\@LN{671}{19}
+\@LN{672}{19}
+\@LN{673}{19}
+\@LN{674}{19}
+\@LN{675}{19}
+\@LN{676}{19}
+\newlabel{eq:caa-paired-accuracy}{{13}{20}{CAA projection and evaluation}{equation.F.13}{}}
+\@LN{677}{19}
+\@LN{678}{19}
+\@LN{679}{19}
+\@LN{680}{19}
+\@LN{681}{19}
+\@LN{682}{19}
+\@writefile{toc}{\contentsline {section}{\numberline {G}Projection statistics}{20}{appendix.G}\protected@file@percent }
+\newlabel{app:raw-caa}{{G}{20}{Projection statistics}{appendix.G}{}}
+\@LN{683}{19}
+\@LN{684}{19}
+\@LN{685}{19}
+\@LN{686}{19}
 \@LN@col{2}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf  {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}}{20}{figure.caption.36}\protected@file@percent }
-\newlabel{fig:rq3-distributions}{{6}{20}{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}{figure.caption.36}{}}
-\gdef \@abspage@last{20}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf  {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}}{21}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:rq3-distributions}{{6}{21}{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}{figure.caption.39}{}}
+\gdef \@abspage@last{21}

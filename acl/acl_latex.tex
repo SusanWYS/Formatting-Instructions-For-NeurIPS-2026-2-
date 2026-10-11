@@ -63,19 +63,34 @@ We first ask whether implicit causal inferences influence model behavior. To tes
 
 \paragraph{Data.}
 
-We manually authored 150 novel minimal pairs (critical/control) with sentences of the following structure: \textbf{[person] [modifier/relative clause] [outcome]}. The modifier plausibly causes the outcome in a critical sentence (e.g., \emph{The executive who falsified quarterly revenue figures was fired}) but is incidental in its control (e.g., \emph{The executive who wore a blue silk tie was fired}). We consider four evaluation methods listed below. 
-\paragraph{Methods.} We start with two explicit behavioral tests where we prompt the models for causal attributions.
-Under the \textbf{Yes/No (explicit)} method, we present the sentence and append the question, ``Does [modifier/relative clause] explain why [outcome]?'' We also instruct the models to output either \emph{ Yes.} or \emph{ No.} in a zero-shot setting. Given prefix $c$, we normalize the probability to obtain $P'(\text{ Yes.}) = \frac{P(\text{ Yes.} \mid c)}{P(\text{ Yes.} \mid c) + P(\text{ No.} \mid c)}$ (likewise for $P'(\text{ No.})$).
+We manually authored 150 minimal pairs with the structure \textbf{[person] [modifier/relative clause] [outcome]}. In the critical member, the modifier provides a plausible cause of the outcome (e.g., \emph{The executive who falsified quarterly revenue figures was fired}); in the control, it provides an incidental detail (e.g., \emph{The executive who wore a blue silk tie was fired}).
 
-Under the \textbf{7-point Likert (explicit)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. Specifically, we compute $P'(\text{ \text{ 1.}}) = \frac{P(\text{ 1.}\mid c)}{P(\text{ 1.}\mid c) + \dots + P(\text{ 7.} \mid c)}$, etc. 
+\paragraph{Methods.} We use two explicit judgments and two surprisal-based measures. For the \textbf{Yes/No (explicit)} measure, we present the sentence and ask, ``Does [modifier/relative clause] explain why [outcome]?'' The model is instructed to answer Yes or No. Let $c$ be the resulting prompt, and let $P_\theta(a\mid c)$ be the probability of the complete answer string $a$. We sum this probability over three capitalization variants of each answer and renormalize over the six candidates:
+\begin{equation}
+s_{\mathrm{YN}}(c)=
+\frac{\sum_{a\in\mathcal{Y}}P_\theta(a\mid c)}
+{\sum_{a\in\mathcal{Y}\cup\mathcal{N}}P_\theta(a\mid c)},
+\label{eq:yesno-main}
+\end{equation}
+where $\mathcal{Y}=\{\texttt{yes},\texttt{Yes},\texttt{YES}\}$ and $\mathcal{N}=\{\texttt{no},\texttt{No},\texttt{NO}\}$; every candidate begins with a space. Thus, $s_{\mathrm{YN}}$ measures the model's relative support for Yes among these six strings. It is not the probability that an unconstrained generation would begin with a yes response.
 
-Aside from explicit verbalization, we also explore two the implicit surprisal based methods. Under \textbf{IDK Why (surprisal)} method adapted from \citet{pan-kehler-2025-pragmatic}, we retain the sentence-final period, append a space followed by \emph{I don't know why.}, and sum surprisal over every token in this continuation. If the modifier supplies an explanation, this continuation should be less expected (having higher surprisal). 
+For the \textbf{7-point Likert (explicit)} measure, we ask how strongly the modifier explains the outcome, from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). Let $a_k$ be the complete answer string consisting of a leading space followed by the integer $k$. We renormalize the probabilities of the seven candidates and report the expected rating:
+\begin{equation}
+\begin{aligned}
+\pi_k(c)&=\frac{P_\theta(a_k\mid c)}
+{\sum_{j=1}^{7}P_\theta(a_j\mid c)},\\
+s_{\mathrm{L}}(c)&=\sum_{k=1}^{7}k\,\pi_k(c).
+\end{aligned}
+\label{eq:likert-main}
+\end{equation}
 
-To directly test the causal implications between \textbf{[modifier/relative clause]} and \textbf{[outcome]}, we also adopt the \textbf{Because-And (surprisal)} method, where we reconstruct each item without the original context as an outcome followed by the modifier, joined by either \emph{because} or \emph{and}. For example, \emph{The executive who wore a blue silk tie was fired} becomes \emph{(Because) The executive was fired because they wore a blue silk tie.} and \emph{(And) The executive was fired, and they wore a blue silk tie.} The because version explicitly links the modifier to the outcome, while the and version does not. We score the modifier tokens, including the final period, in both versions and subtract the mean log probability under and from that under because. We hypothesize that this \emph{because-and} log probability difference will be larger for critical sentences, where the modifier describes a potentially causal property, than for control sentences, where it describes an incidental detail.
+The two remaining measures do not ask the model to describe its inference. For \textbf{IDK Why (surprisal)}, adapted from \citet{pan-kehler-2025-pragmatic}, we retain the sentence-final period, append the exact string \emph{ I don't know why.}, and sum surprisal over every token in that continuation. If the modifier already explains the outcome, the continuation should be less expected and therefore more surprising.
+
+For \textbf{Because-And (surprisal)}, we rewrite each item as the outcome followed by the modifier content, joined with either \emph{because} or \emph{and}. For example, the control above yields \emph{The executive was fired because the executive wore a blue silk tie.} and \emph{The executive was fired, and the executive wore a blue silk tie.} We score the same modifier tokens, including the final period, after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}; larger values indicate a stronger preference for an explicitly causal connection. We expect the critical member of a pair to have the larger score.
 \paragraph{Metrics.}
-For all tasks, whether explicit or surprisal-based, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for implementation details.
+For all four measures, paired accuracy is the proportion of pairs in which the critical item receives a strictly higher score than its control; ties count as incorrect. See Appendix~\ref{app:behavior-details} for prompts and token-level definitions.
 
-\paragraph{Models.}In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3} base checkpoints.
+\paragraph{Models.} In all experiments, we test the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}.
 
 \begin{figure*}[t]
   \centering
@@ -324,31 +339,37 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
 \label{app:behavior-details}
 
 \paragraph{Yes/No prompt and score.}
-For the sentences, the complete prompt is:
+The complete prompt is:
 \begin{quote}\small\ttfamily
 Context: [person] [modifier/relative clause] [outcome]\\
-Question: Does the fact that ... explain why [outcome]? Answer Yes or No:
+Question: Does [modifier/relative clause] explain why [outcome]? Answer Yes or No:
 \end{quote}
-where in ... we paraphrase  [person] [modifier/relative clause]. Let $q$ denote a prompt. Let $\mathcal{Y}:=  \{\texttt{ yes}, \texttt{ Yes}, \text{and } \texttt{ YES}\}$ and $\mathcal{N}:= \{\texttt{ no}, \texttt{ No}, \text{and } \texttt{ NO}\}$. The Yes/No score is
+The modifier and outcome are paraphrased as standalone clauses where needed. Let $q$ denote the prompt. We score the capitalization variants $\mathcal{Y}=\{\texttt{yes},\texttt{Yes},\texttt{YES}\}$ and $\mathcal{N}=\{\texttt{no},\texttt{No},\texttt{NO}\}$, with one leading space prepended to every string and no terminal punctuation. If the tokenization of a candidate $a$ is $(a_1,\ldots,a_T)$, its complete-string probability is
 \begin{equation}
-p_{\mathrm{yes}}(q)=
+P_\theta(a\mid q)=\prod_{t=1}^{T}
+P_\theta(a_t\mid q,a_{<t}).
+\label{eq:answer-sequence-probability}
+\end{equation}
+The Yes/No score renormalizes the summed probability mass of the Yes variants over all six candidates:
+\begin{equation}
+s_{\mathrm{YN}}(q)=
 \frac{\sum_{a\in\mathcal{Y}}P_\theta(a\mid q)}
 {\sum_{a\in\mathcal{Y}\cup\mathcal{N}}P_\theta(a\mid q)}.
 \label{eq:yes-probability}
 \end{equation}
 
 \paragraph{7-point Likert prompt and score.}
-For the same critical sentence, the complete prompt is:
+For the same item, the complete prompt is:
 \begin{quote}\small\ttfamily
 Context: [person] [modifier/relative clause] [outcome].\\
-Question: How strongly does the fact that ... explain why [outcome]? Answer with one integer from 1 to 7, where 1 means definitely not, 4 means uncertain, and 7 means definitely yes:
+Question: How strongly does [modifier/relative clause] explain why [outcome]? Answer with one integer from 1 to 7, where 1 means definitely not, 4 means uncertain, and 7 means definitely yes:
 \end{quote}
-We compute the complete sequence probability for each leading-space answer $k \in \{\texttt{ 1}, \ldots, \texttt{ 7}\}$. We normalize over these seven candidates and take their expected value:
+Let $a_k$ be the complete answer string consisting of one leading space followed by the integer $k$. Using the complete-string probability in Equation~\ref{eq:answer-sequence-probability}, we normalize over the seven candidates and take their expected value:
 \begin{align}
-\widetilde P_\theta(k\mid q)
-  &=\frac{P_\theta(\texttt{ }k\mid q)}
-  {\sum_{j=1}^{7}P_\theta(\texttt{ }j\mid q)},\\
-r(q)&=\sum_{k=1}^{7}k\,\widetilde P_\theta(k\mid q).
+\pi_k(q)
+  &=\frac{P_\theta(a_k\mid q)}
+  {\sum_{j=1}^{7}P_\theta(a_j\mid q)},\\
+s_{\mathrm{L}}(q)&=\sum_{k=1}^{7}k\,\pi_k(q).
 \label{eq:Likert-score}
 \end{align}
 
@@ -375,8 +396,8 @@ B(E,F)&=\frac{1}{M}\sum_{t=1}^{M}
 \end{equation}
 A larger value means that the model favors a causal relation between the events over simple conjunction.
 
-\paragraph{Paired accuracy and sampling parameters.}
-For each measure $m$ ($p_{\mathrm{yes}}$, $r$, $S$, or $B$), we compute
+\paragraph{Candidate scoring and paired accuracy.}
+All candidate probabilities are computed from the model logits at temperature 1. We score the candidates directly rather than sampling generated responses, so no decoding parameters are used. For each measure $m$ ($s_{\mathrm{YN}}$, $s_{\mathrm{L}}$, $S$, or $B$) and $N$ item pairs, we compute
 \begin{equation}
 \begin{aligned}
 \operatorname{Acc}_{\mathrm{pair}}(m)
@@ -385,7 +406,8 @@ For each measure $m$ ($p_{\mathrm{yes}}$, $r$, $S$, or $B$), we compute
   \right].
 \end{aligned}
 \label{eq:paired-accuracy}
-\end{equation} ties receive zero credit.
+\end{equation}
+Ties receive zero credit.
 \section{CAA extraction and evaluation details}
 \label{app:caa-details}
 
