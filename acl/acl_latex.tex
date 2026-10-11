@@ -143,17 +143,17 @@ Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an e
 Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausiblity baseline. An example contrastive pair is \emph{Someone baked a cake inside an oven} vs \emph{Someone baked a cake inside a freezer}. See Appendix~\ref{app:representation-examples} for further examples.
 
 We use Occasion and Plausibility as baselines because both require world knowledge but do not encode causal relations. Specifically, Occasion evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
-\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify an activation-space direction for each relation. Let $\mathbf{h}^{\mathrm{crit}}_{i,\ell}$ and $\mathbf{h}^{\mathrm{ctrl}}_{i,\ell}$ be the activations at the final non-padding token of the critical and control members of training pair $i$ at layer $\ell$. For $N_{\mathrm{train}}$ pairs, we define the CAA direction as the mean paired difference
+\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify an activation-space direction for each relation. Let $\mathbf{h}^{\mathrm{crit}}_{i,\ell}$ and $\mathbf{h}^{\mathrm{ctrl}}_{i,\ell}$ be the activations at the final non-padding token of the critical and control members of training pair $i$ at layer $\ell$. For $N_{\mathrm{train}}$ pairs, we first compute the mean paired activation difference
 \begin{equation}
-\mathbf{v}_{\ell}=\frac{1}{N_{\mathrm{train}}}\sum_{i=1}^{N_{\mathrm{train}}}
+\boldsymbol{\Delta}_{\ell}=\frac{1}{N_{\mathrm{train}}}\sum_{i=1}^{N_{\mathrm{train}}}
 \left(\mathbf{h}^{\mathrm{crit}}_{i,\ell}-\mathbf{h}^{\mathrm{ctrl}}_{i,\ell}\right).
 \label{eq:caa-direction-main}
 \end{equation}
-For Plausibility, we compute a direction separately for each of the three source datasets and average the unit-normalized source directions with equal weight:
+For Causal and Occasion, the direction used for projection is $\mathbf{v}_{\ell}=\boldsymbol{\Delta}_{\ell}$. For Plausibility, we compute $\boldsymbol{\Delta}^{(r)}_{\ell}$ separately for each of the three source datasets and average the unit-normalized source directions with equal weight:
 \begin{equation}
 \mathbf{v}_{\ell}
 =\frac{1}{3}\sum_{r=1}^{3}
-\frac{\mathbf{v}^{(r)}_{\ell}}{\lVert\mathbf{v}^{(r)}_{\ell}\rVert_2}.
+\frac{\boldsymbol{\Delta}^{(r)}_{\ell}}{\lVert\boldsymbol{\Delta}^{(r)}_{\ell}\rVert_2}.
 \label{eq:plausibility-direction-main}
 \end{equation}
 We score an unseen item $x$ by projecting its final-token activation onto the unit-normalized direction,
@@ -444,14 +444,16 @@ Ties receive zero credit.
 For each model and candidate layer $\ell$, we extract the activation at the
 final non-padding token of the raw stimulus text. Let
 $\mathbf{h}^{+}_{i,\ell}$ and $\mathbf{h}^{-}_{i,\ell}$ denote the activations
-for the critical and control members of training pair $i$. The CAA direction is
-the mean paired activation difference
+for the critical and control members of training pair $i$. Their mean paired
+activation difference is
 \begin{equation}
-\mathbf{v}_{\ell}
+\boldsymbol{\Delta}_{\ell}
 =\frac{1}{N}\sum_{i=1}^{N}
 \left(\mathbf{h}^{+}_{i,\ell}-\mathbf{h}^{-}_{i,\ell}\right).
 \label{eq:caa-direction}
 \end{equation}
+For the causal CAA, the direction used for projection is
+$\mathbf{v}_{\ell}=\boldsymbol{\Delta}_{\ell}$.
 Directions are computed independently at layers 4, 8,
 12, and so on with a stride of 4, and the model's final layer is included when it does not fall on
 this stride.
