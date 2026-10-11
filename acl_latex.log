@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 18:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -791,11 +791,11 @@ Package rerunfilecheck Info: File `acl_latex.out' has not changed.
 (rerunfilecheck)             Checksum: EBACE05E0050E7E7BB5DE5892917991B;5353.
  ) 
 Here is how much of TeX's memory you used:
- 16544 strings out of 476106
- 264888 string characters out of 5793933
+ 16541 strings out of 476106
+ 264858 string characters out of 5793933
  2030975 words of memory out of 5000000
  37679 multiletter control sequences out of 15000+600000
- 633483 words of font info for 419 fonts, out of 8000000 for 9000
+ 633258 words of font info for 417 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  84i,15n,93p,1372b,619s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
@@ -818,7 +818,7 @@ re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on acl_latex.pdf (21 pages, 471154 bytes).
+Output written on acl_latex.pdf (21 pages, 471344 bytes).
 PDF statistics:
  688 PDF objects out of 1000 (max. 8388607)
  546 compressed objects within 6 object streams
