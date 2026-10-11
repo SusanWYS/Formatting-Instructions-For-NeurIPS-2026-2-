@@ -143,7 +143,36 @@ Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an e
 Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausiblity baseline. An example contrastive pair is \emph{Someone baked a cake inside an oven} vs \emph{Someone baked a cake inside a freezer}. See Appendix~\ref{app:representation-examples} for further examples.
 
 We use Occasion and Plausibility as baselines because both require world knowledge but do not encode causal relations. Specifically, Occasion evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
-\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify activation-space directions associated with each dataset. At each layer, for every matched contrastive training pair, we subtract the final-token activation of the control example from that of the critical example and average these differences to obtain a single direction. For the heterogeneous plausibility baseline, we first compute and unit-normalize one direction per source and then average the three directions equally. We then project unseen critical and control examples onto each direction: if the direction captures the target relation, the critical example should receive a higher projection than its matched control. We select the layer with the highest paired accuracy on the development set (macro-averaged across sources for plausibility) and report accuracy on the disjoint test set. See Appendix~\ref{app:caa-details}.
+\paragraph{CAA directions.} We use contrastive activation addition (CAA) \citep{rimsky-etal-2024-steering} to identify an activation-space direction for each relation. Let $\mathbf{h}^{\mathrm{crit}}_{i,\ell}$ and $\mathbf{h}^{\mathrm{ctrl}}_{i,\ell}$ be the activations at the final non-padding token of the critical and control members of training pair $i$ at layer $\ell$. For $N_{\mathrm{train}}$ pairs, we define the CAA direction as the mean paired difference
+\begin{equation}
+\mathbf{v}_{\ell}=\frac{1}{N_{\mathrm{train}}}\sum_{i=1}^{N_{\mathrm{train}}}
+\left(\mathbf{h}^{\mathrm{crit}}_{i,\ell}-\mathbf{h}^{\mathrm{ctrl}}_{i,\ell}\right).
+\label{eq:caa-direction-main}
+\end{equation}
+For Plausibility, we compute a direction separately for each of the three source datasets and average the unit-normalized source directions with equal weight:
+\begin{equation}
+\mathbf{v}^{\mathrm{plaus}}_{\ell}
+=\frac{1}{3}\sum_{r=1}^{3}
+\frac{\mathbf{v}^{(r)}_{\ell}}{\lVert\mathbf{v}^{(r)}_{\ell}\rVert_2}.
+\label{eq:plausibility-direction-main}
+\end{equation}
+We score an unseen item $x$ by projecting its final-token activation onto the unit-normalized direction,
+\begin{equation}
+s_{\ell}(x)=\mathbf{h}_{\ell}(x)^{\top}\frac{\mathbf{v}_{\ell}}{\lVert\mathbf{v}_{\ell}\rVert_2}.
+\label{eq:caa-score-main}
+\end{equation}
+For an evaluation set of $N_{\mathrm{eval}}$ matched pairs, pairwise accuracy is
+\begin{equation}
+\begin{aligned}
+d_{i,\ell}&=s_{\ell}(x_i^{\mathrm{crit}})-s_{\ell}(x_i^{\mathrm{ctrl}}),\\
+a_{i,\ell}&=\mathbf{1}(d_{i,\ell}>0)
+  +\tfrac{1}{2}\mathbf{1}(d_{i,\ell}=0),\\
+\operatorname{Acc}_{\mathrm{pair}}(\ell)
+  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}a_{i,\ell}.
+\end{aligned}
+\label{eq:caa-accuracy-main}
+\end{equation}
+Thus, an evaluation pair is correct when its critical item projects farther along the direction than its control; an exact tie receives half credit. We select the layer with the highest development-set paired accuracy and report accuracy at that fixed layer on the disjoint test set. For Plausibility, layer selection and test accuracy use an unweighted macro-average over the three sources. See Appendix~\ref{app:caa-details} for the candidate layers and further implementation details.
 
 \begin{figure*}[t]
   \centering
