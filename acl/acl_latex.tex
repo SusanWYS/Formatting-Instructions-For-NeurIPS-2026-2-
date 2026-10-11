@@ -51,8 +51,8 @@ with potential implications for the development of safer and more aligned models
 
 \section{Background}
 \subsection{Pragmatics and Implicit Inferences}
-\subsection{The Linear Representation Hypothesis}
-\subsection{Misalignment?}
+\subsection{Neural Representations of Knowledge}
+\subsection{Social Bias in LMs}
 
 \section{Experiments}
 \label{sec:experiments}
@@ -61,16 +61,21 @@ with potential implications for the development of safer and more aligned models
 \label{sec:behavior}
 We first ask whether implicit causal inferences influence model behavior. To test this, we compare two kinds of explicit metalinguistic judgments with two implicit measures based on the surprisal of subsequent text \citep{hu-levy-2023-prompting}. Our setup replicates and extends \citet{pan-kehler-2025-pragmatic}. More details about behavioral evaluation are provided in Appendix~\ref{app:behavior-details}.
 
-\paragraph{Methods.}
+\paragraph{Data.}
 
-We manually authored 150 novel minimal pairs (critical/control) with sentences of the following structure: \textbf{[person] [modifier/relative clause] [outcome]}. The modifier plausibly causes the outcome in a critical sentence (e.g., \emph{The executive who falsified quarterly revenue figures was fired}) but is incidental in its control (e.g., \emph{The executive who wore a blue silk tie was fired}).
+We manually authored 150 novel minimal pairs (critical/control) with sentences of the following structure: \textbf{[person] [modifier/relative clause] [outcome]}. The modifier plausibly causes the outcome in a critical sentence (e.g., \emph{The executive who falsified quarterly revenue figures was fired}) but is incidental in its control (e.g., \emph{The executive who wore a blue silk tie was fired}). We consider four evaluation methods listed below. 
+\paragraph{Methods.} We start with two explicit behavioral tests where we prompt the models for causal attributions.
+Under the \textbf{Yes/No (explicit)} method, we present the sentence and append the question, ``Does [modifier/relative clause] explain why [outcome]?'' We also instruct the models to output either \emph{ Yes.} or \emph{ No.} in a zero-shot setting. Given prefix $c$, we normalize the probability to obtain $P'(\text{ Yes.}) = \frac{P(\text{ Yes.} \mid c)}{P(\text{ Yes.} \mid c) + P(\text{ No.} \mid c)}$ (likewise for $P'(\text{ No.})$).
 
-We consider four evaluation methods. Under the \textbf{Yes/No (explicit)} method, we present the sentence and append the question, ``Does [modifier] explain why [outcome]?'' We normalize complete-answer probabilities to obtain $P(\text{Yes})$. % The prompt is in \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-Under the \textbf{7-point Likert (explicit)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. % ; see \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-Under the \textbf{IDK Why (surprisal)} method, adapting \citet{pan-kehler-2025-pragmatic}, we retain the sentence-final period, append a space followed by \emph{I don't know why.}, and sum surprisal over every token in this continuation. If the modifier supplies an explanation, this continuation should be less expected. Under the \textbf{Because-And (surprisal)} method, we reconstruct each item without the original context as an outcome followed by the modifier, joined by either \emph{because} or \emph{and}. We score the same modifier tokens, including the final period, in both sentences and subtract their mean log probabilities under \emph{and} from those under \emph{because}. % See \hyperref[app:behavior-details]{Appendix~\ref*{app:behavior-details}}.
-For all tasks, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for implementation details.
+Under the \textbf{7-point Likert (explicit)} method, we present the sentence and ask how strongly the modifier explains the outcome from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). The rating is the probability-weighted mean of the seven complete answers. Specifically, we compute $P'(\text{ \text{ 1.}}) = \frac{P(\text{ 1.}\mid c)}{P(\text{ 1.}\mid c) + \dots + P(\text{ 7.} \mid c)}$, etc. 
 
-In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3} base checkpoints.
+Aside from explicit verbalization, we also explore two the implicit surprisal based methods. Under \textbf{IDK Why (surprisal)} method adapted from \citet{pan-kehler-2025-pragmatic}, we retain the sentence-final period, append a space followed by \emph{I don't know why.}, and sum surprisal over every token in this continuation. If the modifier supplies an explanation, this continuation should be less expected (having higher surprisal). 
+
+To directly test the causal implications between \textbf{[modifier/relative clause]} and \textbf{[outcome]}, we also adopt the \textbf{Because-And (surprisal)} method, where we reconstruct each item without the original context as an outcome followed by the modifier, joined by either \emph{because} or \emph{and}. For example, \emph{The executive who wore a blue silk tie was fired} becomes \emph{(Because) The executive was fired because they wore a blue silk tie.} and \emph{(And) The executive was fired, and they wore a blue silk tie.} The because version explicitly links the modifier to the outcome, while the and version does not. We score the modifier tokens, including the final period, in both versions and subtract the mean log probability under and from that under because. We hypothesize that this \emph{because-and} log probability difference will be larger for critical sentences, where the modifier describes a potentially causal property, than for control sentences, where it describes an incidental detail.
+\paragraph{Metrics.}
+For all tasks, whether explicit or surprisal-based, we report paired accuracy, which is the proportion of critical items scoring strictly above their controls. See Appendix~\ref{app:behavior-details} for implementation details.
+
+\paragraph{Models.}In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3} base checkpoints.
 
 \begin{figure*}[t]
   \centering
