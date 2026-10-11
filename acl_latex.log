@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 19:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 19:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,10 +677,6 @@ Underfull \hbox (badness 1132) in paragraph at lines 135--136
 \T1/ptm/m/n/10.95 (+20) rep-re-sented in model in-ter-nals, we use three
  []
 
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 148.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 148.
 [3 <./figures/rq1_behavior.pdf>]
 <figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=239, 771.72195pt x 236.6
 698pt>
@@ -737,6 +733,11 @@ Underfull \hbox (badness 1024) in paragraph at lines 143--148
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13])
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 290.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 290.
+
 (./acl/derived/random_vector_baselines.tex) [14] [15] [16]
 (./acl/derived/fixed_alpha_sweep.tex
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
@@ -814,7 +815,7 @@ ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on acl_latex.pdf (21 pages, 483296 bytes).
+Output written on acl_latex.pdf (21 pages, 483289 bytes).
 PDF statistics:
  698 PDF objects out of 1000 (max. 8388607)
  554 compressed objects within 6 object streams
