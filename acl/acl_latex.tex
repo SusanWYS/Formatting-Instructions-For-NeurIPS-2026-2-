@@ -172,7 +172,7 @@ a_{i,\ell}&=\mathbf{1}(d_{i,\ell}>0)
 \end{aligned}
 \label{eq:caa-accuracy-main}
 \end{equation}
-Thus, an evaluation pair is correct when its critical item projects farther along the direction than its control; an exact tie receives half credit. We select the layer with the highest development-set paired accuracy and report accuracy at that fixed layer on the disjoint test set. For Plausibility, layer selection and test accuracy use an unweighted macro-average over the three sources. See Appendix~\ref{app:caa-details} for the candidate layers and further implementation details.
+Thus, an evaluation pair is correct when its critical item projects farther along the direction than its control. Ties receive half credit. We select the layer with the highest development-set paired accuracy and report accuracy at that fixed layer on the disjoint test set. See Appendix~\ref{app:caa-details} for the candidate layers and further implementation details.
 
 \begin{figure*}[t]
   \centering
@@ -191,7 +191,7 @@ Thus, an evaluation pair is correct when its critical item projects farther alon
 % \vspace{-6pt}
 
 \paragraph{Results.}
-The CAA directions are relatively relation-selective: each direction strongly separates its own held-out relation, whereas cross-relation transfer is substantially weaker and more variable (Figure~\ref{fig:rq2-transfer}). This selectivity is not absolute, indicating some shared structure across relations. On the other hand, the causal direction learned from cross-sentence explanatory relations transfers strongly to unseen within-sentence elicitures, outperforming the occasion and plausibility directions in every model (Figure~\ref{fig:rq2b}). Norm-matched random directions average near chance on these evaluations (Appendix~\ref{app:random-baselines}). These results indicate that models encode a causal signal that generalizes across syntactic constructions and is not reducible to the tested occasion or event-feasibility contrasts.
+The CAA directions are relatively relation-selective: each direction strongly separates its own held-out relation, whereas cross-relation transfer is substantially weaker and more variable (Figure~\ref{fig:rq2-transfer}). This selectivity is not absolute, indicating some shared structure across relations. We hypothesize that CAA directions computed from the causality set generalize relatively well to occasion and plausibility because causal attributions are naturally occasion-compatible and more plausible (compared to the incidental detail controls). On the other hand, occasion-compatibility and event plausibility alone cannot well separate causal attributions from incidental details. Moreover, the causal direction learned from cross-sentence explanatory relations transfers strongly to unseen within-sentence elicitures, outperforming the occasion and plausibility directions in every model (Figure~\ref{fig:rq2b}). Norm-matched random directions average near chance on these evaluations (Appendix~\ref{app:random-baselines}). These results indicate that models encode a causal signal that generalizes across syntactic constructions and is not reducible to the tested occasion or event-plausibility contrasts.
 
 \subsection{Intervening on implicit causal representations}
 \label{sec:intervention}
