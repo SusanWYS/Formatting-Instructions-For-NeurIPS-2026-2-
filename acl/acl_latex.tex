@@ -213,7 +213,7 @@ Following \citet{ghandeharioun-etal-2024-whos}, we apply the signed intervention
 \end{figure*}
 
 \paragraph{Results.}
-The learned-direction effect becomes progressively more negative as intervention magnitude increases in five models (Figure~\ref{fig:intervention-alpha-sweep}). We generally observe the largest fall at $|\alpha|=5$. We do not observe expected intervention effects for Qwen3 4B and Llama~3.1 70B. These deviations may reflect the intervention setup: layers were selected to optimize representational readout rather than intervention efficacy, and the selected layer for Llama~3.1 70B is relatively early in the network. We unfortunately do not have a good explanation for the near-zero intervention effects on Qwen3 4B. Overall, across five out of the seven tested models, the learned direction has a larger absolute effect than the mean random direction at all alphas, although random directions also reduce accuracy in some models. The intervention therefore provides evidence that the causal direction can potentially affect behavioral discrimination more than random direction baselines. See more implementation details in Appendix~\ref{app:fixed-alpha-sweep}.
+The learned-direction effect becomes progressively more negative as intervention magnitude increases in five models (Figure~\ref{fig:intervention-alpha-sweep}). We generally observe the largest fall at $|\alpha|=5$. We do not observe expected intervention effects for Qwen3 4B and Llama~3.1 70B. These deviations may reflect the intervention setup: layers were selected to optimize representational readout rather than intervention efficacy, and the selected layer for Llama~3.1 70B is relatively early in the network. A post hoc diagnostic at 45\% depth supports this explanation (Appendix Figure~\ref{fig:llama70b-layer36-intervention}). We unfortunately do not have a good explanation for the near-zero intervention effects on Qwen3 4B. Overall, across five out of the seven tested models, the learned direction has a larger absolute effect than the mean random direction at all alphas, although random directions also reduce accuracy in some models. The intervention therefore provides evidence that the causal direction can potentially affect behavioral discrimination more than random direction baselines. See more implementation details in Appendix~\ref{app:fixed-alpha-sweep}.
 
 \subsection{Implicit representations of causality in real-world scenarios}
 \label{sec:naturalistic}
@@ -280,7 +280,8 @@ templates and condition-specific details is shown in Table~\ref{tab:rq3-stimuli}
 
 All reported intervals are two-sided 95\% intervals. The error bars in
 Figure~\ref{fig:rq2b} are Wilson score intervals over the 150 matched-pair
-correctness indicators. For Figure~\ref{fig:intervention-alpha-sweep}, we use
+correctness indicators. For Figures~\ref{fig:intervention-alpha-sweep}
+and~\ref{fig:llama70b-layer36-intervention}, we use
 10,000 percentile-bootstrap samples. The learned-direction interval resamples
 the 150 item pairs. The random-direction interval jointly resamples the ten
 norm-matched directions and the shared item pairs.
@@ -378,6 +379,17 @@ Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} r
 
 \clearpage
 \input{acl/derived/fixed_alpha_sweep}
+
+\subsection{Deeper-layer Llama~3.1 70B diagnostic}
+\label{app:llama70b-layer36-intervention}
+The original readout procedure selected layer 16 of 80 because it was the earliest layer that reached the maximum development accuracy. To test whether this relatively early layer explains the model's anomalous intervention result, we conduct a post hoc diagnostic at layer 36, or 45\% of model depth. The layer-36 CAA is computed from the same 384 training pairs and obtains 97.9\% paired accuracy on the 48 development pairs. We fix this layer before running the intervention and retain all other settings from Section~\ref{sec:intervention}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.48\textwidth]{figures/llama70b_layer36_intervention.pdf}
+  \caption{Change in Llama~3.1 70B paired accuracy when intervening at layer 36 with the causal direction or ten norm-matched random directions. Points show mean changes, and the error bars use the procedure in Appendix~\ref{app:confidence-intervals}. Negative values indicate reduced discrimination between critical and control contexts. \textbf{At this deeper layer, the causal intervention produces a large monotonic decrease in accuracy, whereas the random-direction mean remains near zero.}}
+  \label{fig:llama70b-layer36-intervention}
+\end{figure}
 
 \clearpage
 \twocolumn

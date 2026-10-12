@@ -345,6 +345,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT ./figures/llama70b_layer36_intervention.pdf
+INPUT ./figures/llama70b_layer36_intervention.pdf
+INPUT ./figures/llama70b_layer36_intervention.pdf
+INPUT ./figures/llama70b_layer36_intervention.pdf
+INPUT ./figures/llama70b_layer36_intervention.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
 INPUT ./figures/rq3_self_blinding_unit_histograms.pdf
 INPUT ./figures/rq3_self_blinding_unit_histograms.pdf
