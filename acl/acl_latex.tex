@@ -217,7 +217,7 @@ We calculate paired accuracy over these projection scores using Equation~\ref{eq
 \begin{figure*}[t]
   \centering
   \IfFileExists{figures/rq2a_combined_cross_transfer_heatmaps.pdf}{\includegraphics[width=\textwidth]{figures/rq2a_combined_cross_transfer_heatmaps.pdf}}{\rule{\textwidth}{.30\textwidth}}
-  \caption{Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the relation used to construct the CAA and columns show the held-out in-distribution evaluation relation. Plausibility accuracy is the unweighted macro-average over its three sources. \textbf{Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}
+  \caption{Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the relation used to construct the CAA and columns show the held-out in-distribution evaluation relation. \textbf{Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}
   \label{fig:rq2-transfer}
 \end{figure*}
 
@@ -225,7 +225,7 @@ We calculate paired accuracy over these projection scores using Equation~\ref{eq
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
-  \caption{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs. Appendix~\ref{app:confidence-intervals} describes the error bars. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}
+  \caption{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}
   \label{fig:rq2b}
 \end{figure*}
 % \vspace{-6pt}
@@ -249,7 +249,7 @@ Following \citet{ghandeharioun-etal-2024-whos}, we apply the signed intervention
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{figures/intervention_alpha_sweep.pdf}
-  \caption{Change in paired accuracy across fixed intervention magnitudes $|\alpha|=1$--$5$ for the causal direction and ten norm-matched random directions. Points show mean changes, and Appendix~\ref{app:confidence-intervals} describes the error bars. Negative values indicate reduced discrimination between critical and control contexts. \textbf{In five models, increasing the causal intervention increasingly reduces paired accuracy and generally has a larger effect than the random baseline. Qwen3 4B shows no reliable effect, while Llama~3.1 70B changes in the opposite direction.}}
+  \caption{Change in paired accuracy across fixed intervention magnitudes $|\alpha|=1$--$5$ for the causal direction and ten norm-matched random directions. Points show mean changes, and Appendix~\ref{app:confidence-intervals} describes the error bars. Negative values indicate reduced distinguishability between critical and control contexts. \textbf{In five models, increasing the causal intervention increasingly reduces paired accuracy and generally has a larger effect than the random baseline.}}
   \label{fig:intervention-alpha-sweep}
 \end{figure*}
 
@@ -312,7 +312,7 @@ For both $\delta_{\mathrm{proj}}$ and $\delta_{\mathrm{rating}}$, a positive dif
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/naturalistic_combined_scores_seven_model.pdf}
-  \caption{Differences from the matched white-male condition for positive and negative outcomes (columns). The top row reports $\Delta_{\mathrm{proj}}$, based on the normalized projection in Equation~\ref{eq:naturalistic-projection-normalization}; the bottom row reports $\Delta_{\mathrm{rating}}$. Equation~\ref{eq:naturalistic-white-male-contrasts} defines both differences and their averages across models and scenarios. Appendix~\ref{app:confidence-intervals} describes the error bars. Olive and coral indicate positive and negative outcomes, respectively. Matching dashed lines give the corresponding non-demographic-baseline-minus-white-male differences, and solid gray lines mark zero. \textbf{Positive-outcome CAA projections increase across demographic conditions, while minority women exceed white men in both negative-outcome measures.}}
+  \caption{Differences from the matched white-male condition for positive and negative outcomes (columns). \textbf{Positive-outcome CAA projections increase across demographic conditions, while minority women exceed white men in both negative-outcome measures.}}
   \label{fig:naturalistic-aggregate}
 \end{figure}
 
