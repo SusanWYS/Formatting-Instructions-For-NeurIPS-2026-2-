@@ -157,16 +157,19 @@ For Causal and Occasion, the direction used for projection is $\mathbf{v}_{\ell}
 
 We score an unseen item $x$ by projecting its final-token activation onto the unit-normalized direction,
 \begin{equation}
-s_{\ell}(x)=\mathbf{h}_{\ell}(x)^{\top}\frac{\mathbf{v}_{\ell}}{\lVert\mathbf{v}_{\ell}\rVert_2}.
+s_{\ell}(x)=
+\frac{\mathbf{h}_{\ell}(x)^{\top}\mathbf{v}_{\ell}}
+{\lVert\mathbf{v}_{\ell}\rVert_2}.
 \label{eq:caa-score-main}
 \end{equation}
 For an evaluation set of $N_{\mathrm{eval}}$ matched pairs, pairwise accuracy is
 \begin{equation}
 \begin{aligned}
 \Delta s_{i,\ell}&=s_{\ell}(x_i^{\mathrm{crit}})-s_{\ell}(x_i^{\mathrm{ctrl}}),\\
+a_{i,\ell}&=\mathbf{1}(\Delta s_{i,\ell}>0)
+  +\tfrac{1}{2}\mathbf{1}(\Delta s_{i,\ell}=0),\\
 \operatorname{Acc}_{\mathrm{pair}}(\ell)
-  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}\mathbf{1}(\Delta s_{i,\ell}>0)\\
-  +\tfrac{1}{2}\mathbf{1}(\Delta s_{i,\ell}=0).
+  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}a_{i,\ell}.
 \end{aligned}
 \label{eq:caa-accuracy-main}
 \end{equation}
