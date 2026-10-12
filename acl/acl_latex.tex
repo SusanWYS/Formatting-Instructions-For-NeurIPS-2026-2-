@@ -38,12 +38,12 @@ suggests that Melissa detests the children \emph{because} they are arrogant and 
 
 \section{Introduction}
 \label{sec:introduction}
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/caa_method_figure.pdf}
-  \caption{Overview of how we construct and evaluate the causal CAA direction. (a) We average the final-token activation difference between critical and control cross-sentence training items. (b) We project unseen within-sentence critical and control items onto this direction. \textbf{The evaluation tests whether a direction learned from cross-sentence discourse relations transfers to optional within-sentence causal inferences.}}
-  \label{fig:caa-method}
-\end{figure}
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=\columnwidth]{figures/caa_method_figure.pdf}
+%   \caption{Overview of how we construct and evaluate the causal CAA direction. (a) We average the final-token activation difference between critical and control cross-sentence training items. (b) We project unseen within-sentence critical and control items onto this direction. \textbf{The evaluation tests whether a direction learned from cross-sentence discourse relations transfers to optional within-sentence causal inferences.}}
+%   \label{fig:caa-method}
+% \end{figure}
 
 % Language often leaves relationships between events unstated. For instance, 
 % \emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification \emph{caused} the firing, without directly stating so. These optional sentence-internal inferences are known as \emph{elicitures} \citep{cohen-kehler-2021-conversational}. While a substantial body of work has investigated whether language models (LMs) capture pragmatic phenomena such as conversational implicatures \citep{ruis2023goldilocks, jeretic-etal-2020-natural, schuster-etal-2020-harnessing, li-etal-2021-predicting}, elicitures have received less attention \citep[but see][]{pan-kehler-2025-pragmatic}, and are potentially derived through different mechanisms. Some theories argue that, in contrast to implicature, elicitures arise due to coherence and world knowledge rather than violation of conversational norms \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Therefore, understanding how LMs represent implicit causal relationships can shed light on their internal world models, including in scenarios where causal inferences have real-world impacts.
@@ -326,9 +326,9 @@ For scoring projections, we compute the average score difference from the white-
 \label{eq:naturalistic-white-male-contrasts}
 \end{equation}
 
-In addition, we present the naturalistic sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario. 
+Again, to investigate the gap between explicit reports and implict representations of causality (see Section~\ref{sec:behavior}), we also present each model with each sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario. 
 
-For likert ratings, we use
+For Likert ratings, we use
 \begin{equation}
 \begin{aligned}
 \delta_{\mathrm{rating}}(m,j,c)
@@ -339,14 +339,13 @@ For likert ratings, we use
 \end{aligned}
 \label{eq:naturalistic-white-male-contrasts}
 \end{equation}
-
 We average  $\Delta_{\mathrm{proj}}(m,j,c)$  and $\Delta_{\mathrm{rating}}(m,j,c)$ equally across the all models and scenarios. For both $\Delta_{\mathrm{proj}}$ and $\Delta_{\mathrm{rating}}$, a positive difference indicates a higher score than the corresponding white-male item. 
 
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/naturalistic_combined_scores_seven_model.pdf}
-  \caption{Differences from the matched white-male condition for positive and negative outcomes. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases.}}
+  \caption{Differences from the matched white-male condition for positive and negative outcomes. Top row: CAA projections. Bottom row: Likert ratings. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases.}}
   \label{fig:naturalistic-aggregate}
 \end{figure}
 
