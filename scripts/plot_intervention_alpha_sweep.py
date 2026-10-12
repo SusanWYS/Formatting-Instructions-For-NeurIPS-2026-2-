@@ -22,13 +22,13 @@ MODELS = (
     "llama31_70b",
 )
 LABELS = {
-    "gemma2_2b": "Gemma 2 2B",
-    "gemma2_9b": "Gemma 2 9B",
-    "qwen3_4b": "Qwen3 4B",
-    "qwen3_8b": "Qwen3 8B",
-    "llama32_3b": "Llama 3.2 3B",
-    "llama3_8b": "Llama 3 8B",
-    "llama31_70b": "Llama 3.1 70B",
+    "gemma2_2b": "Gemma 2\n2B",
+    "gemma2_9b": "Gemma 2\n9B",
+    "qwen3_4b": "Qwen3\n4B",
+    "qwen3_8b": "Qwen3\n8B",
+    "llama32_3b": "Llama 3.2\n3B",
+    "llama3_8b": "Llama 3\n8B",
+    "llama31_70b": "Llama 3.1\n70B",
 }
 ALL_ALPHAS = np.array((0.5, 1.0, 2.0, 3.0, 4.0, 5.0))
 PLOT_ALPHAS = np.array((1.0, 2.0, 3.0, 4.0, 5.0))
@@ -92,10 +92,10 @@ def main() -> None:
             "font.sans-serif": ["DejaVu Sans"],
             "mathtext.fontset": "dejavusans",
             "font.size": 7.2,
-            "axes.titlesize": 8.0,
-            "axes.labelsize": 8.0,
-            "xtick.labelsize": 6.8,
-            "ytick.labelsize": 6.8,
+            "axes.titlesize": 7.2,
+            "axes.labelsize": 7.6,
+            "xtick.labelsize": 6.4,
+            "ytick.labelsize": 6.4,
             "legend.fontsize": 7.4,
             "axes.linewidth": 0.65,
             "xtick.major.width": 0.6,
@@ -107,36 +107,22 @@ def main() -> None:
         }
     )
 
-    # ACL/ARR's full text block is approximately 7.1 inches wide. A 2x8 grid
-    # gives equal-sized panels: four Gemma/Qwen panels above three centered
-    # Llama panels.
-    figure = plt.figure(figsize=(7.1, 3.45))
-    grid = figure.add_gridspec(
-        2,
-        8,
+    # ACL/ARR's full text block is approximately 7.1 inches wide. Keep all
+    # seven model panels on one row and share both axes across them.
+    figure, axes = plt.subplots(
+        1,
+        len(MODELS),
+        figsize=(7.1, 1.95),
+        sharex=True,
+        sharey=True,
+    )
+    figure.subplots_adjust(
         left=0.075,
         right=0.993,
-        bottom=0.145,
-        top=0.875,
-        wspace=1.05,
-        hspace=0.33,
+        bottom=0.22,
+        top=0.69,
+        wspace=0.18,
     )
-    positions = (
-        grid[0, 0:2],
-        grid[0, 2:4],
-        grid[0, 4:6],
-        grid[0, 6:8],
-        grid[1, 1:3],
-        grid[1, 3:5],
-        grid[1, 5:7],
-    )
-    axes = []
-    shared = None
-    for position in positions:
-        axis = figure.add_subplot(position, sharex=shared, sharey=shared)
-        axes.append(axis)
-        if shared is None:
-            shared = axis
 
     for index, (axis, model) in enumerate(zip(axes, MODELS, strict=True)):
         subset = frame[
@@ -192,7 +178,7 @@ def main() -> None:
         axis.set_yticks((-80, -60, -40, -20, 0))
         axis.spines["top"].set_visible(False)
         axis.spines["right"].set_visible(False)
-        if index not in (0, 4):
+        if index != 0:
             axis.tick_params(axis="y", labelleft=False)
 
     figure.supxlabel(r"Intervention magnitude $|\alpha|$", y=0.025)
@@ -223,7 +209,7 @@ def main() -> None:
     figure.legend(
         handles=handles,
         loc="upper center",
-        bbox_to_anchor=(0.535, 0.992),
+        bbox_to_anchor=(0.535, 0.995),
         frameon=False,
         ncol=2,
         columnspacing=1.8,
