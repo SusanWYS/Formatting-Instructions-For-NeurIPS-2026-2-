@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 21:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 21:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -719,7 +719,7 @@ Underfull \vbox (badness 2126) has occurred while \output is active []
 
  [5 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
 l_ood_caa_accuracy.pdf>]
-<figures/naturalistic_combined_scores_seven_model.pdf, id=349, 517.01794pt x 17
+<figures/naturalistic_combined_scores_seven_model.pdf, id=348, 517.01794pt x 17
 9.66039pt>
 File: figures/naturalistic_combined_scores_seven_model.pdf Graphic file (type p
 df)
@@ -823,7 +823,7 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on acl_latex.pdf (21 pages, 496739 bytes).
+Output written on acl_latex.pdf (21 pages, 496971 bytes).
 PDF statistics:
  729 PDF objects out of 1000 (max. 8388607)
  580 compressed objects within 6 object streams
