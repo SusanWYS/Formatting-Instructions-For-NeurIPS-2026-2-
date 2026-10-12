@@ -101,7 +101,7 @@ For all four measures, paired accuracy is the proportion of pairs in which the c
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/rq1_behavior.pdf}
+  \includegraphics[width=\textwidth]{figures/rq1_behavior.pdf}
   \caption{Paired accuracy on implicit causal inference items using two direct judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf{Both surprisal-based measures distinguish critical from control items consistently across models.}}
   \label{fig:rq1}
 \end{figure*}
@@ -166,9 +166,8 @@ For an evaluation set of $N_{\mathrm{eval}}$ matched pairs, pairwise accuracy is
 \begin{equation}
 \begin{aligned}
 \operatorname{Acc}_{\mathrm{pair}}(\ell)
-  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}\\[-2pt]
-  &\quad\Bigl[\mathbf{1}\!\left(s_{\ell}(x_i^{\mathrm{crit}})>s_{\ell}(x_i^{\mathrm{ctrl}})\right)\\[-2pt]
-  &\qquad{}+\tfrac{1}{2}\mathbf{1}\!\left(s_{\ell}(x_i^{\mathrm{crit}})=s_{\ell}(x_i^{\mathrm{ctrl}})\right)\Bigr].
+  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}\mathbf{1}(s_{\ell}(x_i^{\mathrm{crit}})>s_{\ell}(x_i^{\mathrm{ctrl}}))\\[-2pt]
+  &\qquad{}+\tfrac{1}{2}\mathbf{1}(s_{\ell}(x_i^{\mathrm{crit}})=s_{\ell}(x_i^{\mathrm{ctrl}})).
 \end{aligned}
 \label{eq:caa-accuracy-main}
 \end{equation}
