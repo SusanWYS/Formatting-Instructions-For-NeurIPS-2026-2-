@@ -165,11 +165,10 @@ s_{\ell}(x)=
 For an evaluation set of $N_{\mathrm{eval}}$ matched pairs, pairwise accuracy is
 \begin{equation}
 \begin{aligned}
-\Delta s_{i,\ell}&=s_{\ell}(x_i^{\mathrm{crit}})-s_{\ell}(x_i^{\mathrm{ctrl}}),\\
-a_{i,\ell}&=\mathbf{1}(\Delta s_{i,\ell}>0)
-  +\tfrac{1}{2}\mathbf{1}(\Delta s_{i,\ell}=0),\\
 \operatorname{Acc}_{\mathrm{pair}}(\ell)
-  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}a_{i,\ell}.
+  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}\\[-2pt]
+  &\quad\Bigl[\mathbf{1}\!\left(s_{\ell}(x_i^{\mathrm{crit}})>s_{\ell}(x_i^{\mathrm{ctrl}})\right)\\[-2pt]
+  &\qquad{}+\tfrac{1}{2}\mathbf{1}\!\left(s_{\ell}(x_i^{\mathrm{crit}})=s_{\ell}(x_i^{\mathrm{ctrl}})\right)\Bigr].
 \end{aligned}
 \label{eq:caa-accuracy-main}
 \end{equation}
