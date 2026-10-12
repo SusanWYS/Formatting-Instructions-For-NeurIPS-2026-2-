@@ -30,11 +30,8 @@
 \maketitle
 
 \begin{abstract}
-Humans often infer causal relationships that are suggested but never directly stated. For example:
-\begin{quote}\small
-\emph{Melissa detests the children who are arrogant and rude.}
-\end{quote}
-This sentence suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across seven language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive and negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
+Humans often infer causal relationships that are suggested but never directly stated. For example, \emph{Melissa detests the children who are arrogant and rude}
+suggests that Melissa detests the children \emph{because} they are arrogant and rude. We ask whether language models make similar implicit causal inferences and whether these inferences are represented internally. Across seven language models, we find that implicit causal information reliably changes what models expect to come next, even when models do not always report the same inference when asked directly. We also find an internal representation of causality that can be distinguished from plausibility and occasion compatibility. This representation transfers from implicit causal relations across sentences to causal relations within a sentence. Moreover, demographic descriptions shift this causal signal in positive and negative social scenarios, although the direction and magnitude vary across models. Together, these results suggest that implicit causal inferences are reflected both in model behavior and in internal representations that generalize across linguistic contexts and reveal systematic differences in socially implicated settings.
 
 
 \end{abstract}
@@ -42,11 +39,8 @@ This sentence suggests that Melissa detests the children \emph{because} they are
 \section{Introduction}
 \label{sec:introduction}
 
-Language often leaves relationships between events unstated. For example:
-\begin{quote}\small
-\emph{The executive who falsified quarterly revenue figures was fired.}
-\end{quote}
-This sentence suggests that the falsification \emph{caused} the firing, without directly stating so. These optional sentence-internal inferences are known as \emph{elicitures} \citep{cohen-kehler-2021-conversational}. While a substantial body of work has investigated whether language models (LMs) capture pragmatic phenomena such as conversational implicatures \citep{ruis2023goldilocks, jeretic-etal-2020-natural, schuster-etal-2020-harnessing, li-etal-2021-predicting}, elicitures have received less attention \citep[but see][]{pan-kehler-2025-pragmatic}, and are potentially derived through different mechanisms. Some theories argue that, in contrast to implicature, elicitures arise due to coherence and world knowledge rather than violation of conversational norms \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Therefore, understanding how LMs represent implicit causal relationships can shed light on their internal world models, including in scenarios where causal inferences have real-world impacts.
+Language often leaves relationships between events unstated. For instance, 
+\emph{The executive who falsified quarterly revenue figures was fired} suggests that the falsification \emph{caused} the firing, without directly stating so. These optional sentence-internal inferences are known as \emph{elicitures} \citep{cohen-kehler-2021-conversational}. While a substantial body of work has investigated whether language models (LMs) capture pragmatic phenomena such as conversational implicatures \citep{ruis2023goldilocks, jeretic-etal-2020-natural, schuster-etal-2020-harnessing, li-etal-2021-predicting}, elicitures have received less attention \citep[but see][]{pan-kehler-2025-pragmatic}, and are potentially derived through different mechanisms. Some theories argue that, in contrast to implicature, elicitures arise due to coherence and world knowledge rather than violation of conversational norms \citep{cohen-kehler-2021-conversational,rohde-etal-2011-anticipating}. Therefore, understanding how LMs represent implicit causal relationships can shed light on their internal world models, including in scenarios where causal inferences have real-world impacts.
 
 We study implicit causal inference in LMs through four research questions:
 \begin{description}[leftmargin=3em,labelwidth=2.3em,labelsep=.35em,itemsep=1pt,topsep=2pt,parsep=0pt,partopsep=0pt]
@@ -77,7 +71,7 @@ We first ask whether implicit causal inferences influence model behavior. To tes
 \paragraph{Data.}
 
 To test LM implicit causality attribution, we manually authored 150 minimal pairs with the structure \textbf{[person] [modifier/relative clause] [outcome]}. In the critical member, the modifier provides a plausible cause of the outcome; in the control, it provides an incidental detail. For example:
-\begin{quote}\small
+\begin{quote}
 \textit{Critical:} \emph{The executive who falsified quarterly revenue figures was fired.}\\
 \textit{Control:} \emph{The executive who wore a blue silk tie was fired.}
 \end{quote}
@@ -105,8 +99,8 @@ s_{\mathrm{L}}(c)&=\sum_{k=1}^{7}k\,\pi_k(c).
 
 The two remaining measures do not directly prompt the models to attribute causality. For \textbf{IDK Why (surprisal)}, adapted from \citet{pan-kehler-2025-pragmatic}, we retain the sentence-final period, append the exact string \emph{ I don't know why.}, and sum surprisal over every token in that continuation. If the modifier already explains the outcome, the continuation should be less expected and having lower log probability.
 
-For \textbf{Because-And (surprisal)}, we rewrite each item as the outcome followed by the modifier content, joined with either \emph{because} or \emph{and}. For example:
-\begin{quote}\small
+For \textbf{Because-And (surprisal)}, we rewrite each item as the outcome followed by the modifier content, joined with either \emph{because} or \emph{and}. Examples are given below:
+\begin{quote}
 \textit{Source:} \emph{The executive who wore a blue silk tie was fired.}\\
 \textit{Because:} \emph{The executive was fired because the executive wore a blue silk tie.}\\
 \textit{And:} \emph{The executive was fired, and the executive wore a blue silk tie.}
@@ -160,13 +154,13 @@ Ties count as incorrect. See Appendix~\ref{app:behavior-details} for prompts and
 \subsection{Identifying internal representations of implicit causality inference}
 \label{sec:representations}
 
-The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. How do we test if implicit causality is selectively represented in LM activation states? To this end, we find model directions related to implicit causal inferences through contrastive training sets. We further evaluate if a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences.
+The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. How do we test if implicit causality is selectively represented in LM activation states? To this end, we identify model directions related to implicit causal inferences through contrastive training sets. We further evaluate if a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences.
 
 \paragraph{Data.} To test if implicit causality is selectively represented in model internals, we use three datasets: Causal, Occasion (baseline), and Plausibility (baseline), all being matched critical/control pairs.
 
-First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. For CAA fitting and in-distribution evaluation, we use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalize to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}. For example:
+First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. For CAA fitting and in-distribution evaluation, we use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalize to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}. An examplar pair is:
 \begin{samepage}
-\begin{quote}\small
+\begin{quote}
 \textit{Critical:} \emph{The potatoes sat in flooded fields for weeks. The potatoes rotted underground.}\\
 \textit{Control:} \emph{The potatoes grew near a wooden property line. The potatoes rotted underground.}
 \end{quote}
@@ -174,13 +168,13 @@ First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \em
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from Section~\ref{sec:behavior}, where a potential explanation or incidental detail appears as the modifier or relative clause for the outcome.
 
 Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential} and standardize every evaluated sentence to begin with a capital letter and end with a period. For example:
-\begin{quote}\small
+\begin{quote}
 \textit{Critical:} \emph{A lifeguard got a painful sunburn last Sunday.}\\
 \textit{Control:} \emph{A translator got a painful sunburn last Sunday.}
 \end{quote}
 
-Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausiblity baseline. For example:
-\begin{quote}\small
+Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausiblity baseline. We show a pair of examples here:
+\begin{quote}
 \textit{Critical:} \emph{Someone baked a cake inside an oven.}\\
 \textit{Control:} \emph{Someone baked a cake inside a freezer.}
 \end{quote}
