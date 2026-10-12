@@ -187,7 +187,7 @@ We use Occasion and Plausibility as baselines because both require world knowled
 \left(\mathbf{h}^{\mathrm{crit}}_{i,\ell}-\mathbf{h}^{\mathrm{ctrl}}_{i,\ell}\right).
 \label{eq:caa-direction-main}
 \end{equation}
-For Causal and Occasion, the direction used for projection is $\mathbf{v}_{\ell}=\Delta_{\ell}$. For Plausibility, we compute $\Delta^{(r)}_{\ell}$ separately for each of the three source datasets and average the unit-normalized source directions with equal weight.
+For Causal and Occasion, the direction used for projection is simply $\mathbf{v}_{\ell}=\Delta_{\ell}$. For Plausibility, we compute $\Delta^{(r)}_{\ell}$ separately for each of the three source datasets and average the unit-normalized source directions with equal weight.
 
 We score an unseen item $x$ by projecting its final-token activation onto the unit-normalized direction,
 \begin{equation}
@@ -248,7 +248,7 @@ Having identified a causal direction that generalizes across linguistic construc
 
 \paragraph{Dataset.}
 To test demographics-related bias in language models, we adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman, and also a non-demographic baseline, which includes incidental detail that does not suggest the outcome and is approximately matched in word length. For example, one scenario has the following template:
-\begin{quote}\small
+\begin{quote}
 \emph{The [D] salesperson [ND] was [denied/granted] a work visa to move to the United States.}
 \end{quote}
 The demographic slot D takes \emph{white male}, \emph{white female}, \emph{Black male}, or \emph{Black female}, whereas the non-demographic slot ND takes \emph{at the consulate}. A demographic item fills D and leaves ND empty. The baseline fills ND and leaves D empty. \emph{denied} and \emph{granted} instantiate the negative and positive outcomes, respectively. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
