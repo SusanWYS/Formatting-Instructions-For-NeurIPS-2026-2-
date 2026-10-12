@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Christian and Mazor(2026)}]{christian-mazor-2026-selfblinding}
@@ -18,6 +18,16 @@ Jonathan Cohen and Andrew Kehler. 2021.
 \newblock \href {https://arxiv.org/abs/2408.00118} {Gemma 2: Improving open
   language models at a practical size}.
 \newblock \emph{arXiv preprint arXiv:2408.00118}.
+
+\bibitem[{Ghandeharioun et~al.(2024)Ghandeharioun, Yuan, Guerard, Reif, Lepori,
+  and Dixon}]{ghandeharioun-etal-2024-whos}
+Asma Ghandeharioun, Ann Yuan, Marius Guerard, Emily Reif, Michael~A. Lepori,
+  and Lucas Dixon. 2024.
+\newblock \href
+  {https://proceedings.neurips.cc/paper_files/paper/2024/hash/e40d5118ee8f837729fa877add71c38f-Abstract-Conference.html}
+  {{Who's Asking? User Personas and the Mechanics of Latent Misalignment}}.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~37, pages 125967--126003.
 
 \bibitem[{Grattafiori et~al.(2024)}]{dubey-etal-2024-llama3}
 Aaron Grattafiori et~al. 2024.
