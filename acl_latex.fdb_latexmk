@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex acl_latex"] 1791786682.52449 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1791786683.6524 0
+["bibtex acl_latex"] 1791787069.35034 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1791787070.47459 0
   "./acl_natbib.bst" 1787909299.85666 45442 bb9ea745fc0a84096e0948d1c1b99bbe ""
   "./paper.bib" 1791765192.28582 14841 5827c51b70f6c81af9efb2d3288ac9cf ""
-  "acl_latex.aux" 1791786683.41301 43544 9b856714d5f1c06fc17e5f955b984e0d "pdflatex"
+  "acl_latex.aux" 1791787070.24343 44623 41505fbbcff0807cd13e85fa280273c0 "pdflatex"
   (generated)
   "acl_latex.bbl"
   "acl_latex.blg"
   (rewritten before read)
-["pdflatex"] 1791786682.58096 "acl/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1791786683.65314 0
+["pdflatex"] 1791787069.4088 "acl/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1791787070.47533 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
@@ -121,7 +121,6 @@
   "/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty" 1579038678 6078 f1cb470c9199e7110a27851508ed7a5c ""
   "/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty" 1696191071 56128 c2ccf1a29d78c33bc553880402e4fb9a ""
   "/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty" 1696191071 72619 ee90b6612147680fd73c3b1406a74245 ""
-  "/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty" 1645391520 7418 021d7c4eb11bde94592761855a3d046e ""
   "/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty" 1561238569 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
@@ -161,7 +160,6 @@
   "/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty" 1698869629 12667 e4b5eb11e4b7239e6c8a52bbe074a6c6 ""
-  "/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty" 1698955022 12935 94a3291359b5f73ff1b19345a6983105 ""
   "/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty" 1334873510 1048 517e01cde97c1c0baf72e69d43aa5a2e ""
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
@@ -171,14 +169,14 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771962468.9046 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771961255 6831120 7a8920521b2023ff229f2e01d990437d ""
   "acl/acl.sty" 1790174920 11615 e2c027f483aa40e577ed34264c8b0655 ""
-  "acl/acl_latex.tex" 1791786678.34744 48620 51e23c73e59548c0bb0680a4d21e1bd0 ""
-  "acl/appendix_examples.tex" 1791417001.46921 10482 054857ca01d85236f3dc77e9832348c2 ""
+  "acl/acl_latex.tex" 1791787063.89861 48587 837a7c491383cd1ff9c89f5d85396330 ""
+  "acl/appendix_examples.tex" 1791786934.69572 10084 435e90d6a4bcb1fe229bcc104b38ca6b ""
   "acl/derived/fixed_alpha_sweep.tex" 1791407072.46544 7166 161a0989f900d83b79580597f47000c5 ""
-  "acl/derived/random_vector_baselines.tex" 1791767407.61565 5835 34f5da0658b7797a6d3174c67455818f ""
-  "acl/derived/rq3_self_blinding_stimuli.tex" 1791483758.91099 14100 4e88f8f9eb670785ac257b401a67bd17 ""
-  "acl_latex.aux" 1791786683.41301 43544 9b856714d5f1c06fc17e5f955b984e0d "pdflatex"
-  "acl_latex.bbl" 1791786682.57383 7775 f07139cd84b798f1278a94509da1cd21 "bibtex acl_latex"
-  "acl_latex.out" 1791786683.41519 5757 c09b40a5cb5cdc57f3a52bf516fd69d7 "pdflatex"
+  "acl/derived/random_vector_baselines.tex" 1791786970.81848 5917 bc541f4fbf2600277155373b50db8950 ""
+  "acl/derived/rq3_self_blinding_stimuli.tex" 1791787020.68291 16590 ba438a8b6eb988752d681ba84d256b33 ""
+  "acl_latex.aux" 1791787070.24343 44623 41505fbbcff0807cd13e85fa280273c0 "pdflatex"
+  "acl_latex.bbl" 1791787069.40153 7775 f07139cd84b798f1278a94509da1cd21 "bibtex acl_latex"
+  "acl_latex.out" 1791787070.24559 5757 c09b40a5cb5cdc57f3a52bf516fd69d7 "pdflatex"
   "derived/rq2_results_text.tex" 1791418894.04985 1047 ea10f299c73a93fd4d148c302d843fd1 ""
   "figures/intervention_alpha_sweep.pdf" 1791780228.66562 45701 8c23eaf18b36d04a0aa1f6e756aa65f3 ""
   "figures/llama70b_layer36_intervention.pdf" 1791777450.87464 36482 dca29cd0aedc07a5721da3a032797e71 ""

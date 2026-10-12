@@ -7,22 +7,17 @@ both behavioral evaluation and out-of-distribution CAA evaluation. Critical and
 control members hold the outcome and construction fixed while changing whether
 the modifier plausibly explains the outcome.
 
-\begingroup
+\begin{table*}[t]
+\centering
+\footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
 \caption{Examples from the within-sentence causal dataset.}
-\label{tab:within-sentence-examples}\\
+\label{tab:within-sentence-examples}
+\begin{tabular}{@{}r >{\raggedright\arraybackslash}p{.44\textwidth} >{\raggedright\arraybackslash}p{.44\textwidth}@{}}
 \toprule
 & Critical & Control \\
 \midrule
-\endfirsthead
-\toprule
-& Critical & Control \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & The executive who falsified quarterly revenue figures was fired. & The executive who wore a blue silk tie was fired. \\
 2 & The contractor repeatedly failing mandatory safety inspections lost the municipal contract. & The contractor carrying a blue clipboard with a metal clip lost the municipal contract. \\
 3 & The department manager who altered employee performance records was demoted. & The department manager whose office was beside the west stairwell was demoted. \\
@@ -33,8 +28,9 @@ the modifier plausibly explains the outcome.
 8 & The clinic administrator implicated by an audit exposing diverted patient fees resigned. & The clinic administrator seated at a desk beside a narrow window resigned. \\
 9 & The warehouse supervisor who ordered workers to bypass machine safety locks was suspended. & The warehouse supervisor who kept spare gloves in a lower drawer was suspended. \\
 10 & The board member responsible for disclosing confidential board votes was expelled. & The board member taking notes with a black fountain pen was expelled. \\
-\end{longtable}
-\endgroup
+\bottomrule
+\end{tabular}
+\end{table*}
 
 % Source: eliciture_interp_paper/data/causal_cross_sentence/rq23_train_dev.tsv
 % (examples restricted to the frozen 384-pair causal training split)
@@ -48,22 +44,17 @@ testing. In each critical item, the first sentence plausibly causes the outcome
 in the second sentence; in the control, the first sentence provides an
 incidental detail. The examples below come from the training split.
 
-\begingroup
+\begin{table*}[t]
+\centering
+\footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
 \caption{Examples from the cross-sentence causal dataset.}
-\label{tab:cross-sentence-examples}\\
+\label{tab:cross-sentence-examples}
+\begin{tabular}{@{}r >{\raggedright\arraybackslash}p{.44\textwidth} >{\raggedright\arraybackslash}p{.44\textwidth}@{}}
 \toprule
 & Critical & Control \\
 \midrule
-\endfirsthead
-\toprule
-& Critical & Control \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & The potatoes sat in flooded fields for weeks. The potatoes rotted underground. & The potatoes grew near a wooden property line. The potatoes rotted underground. \\
 2 & The dog ate greasy table scraps every day. The dog developed a painful stomach illness. & The dog wore a thick leather collar. The dog developed a painful stomach illness. \\
 3 & The microphones were placed too close to the monitors. The microphones created a loud feedback loop. & The microphones were bought from a local music shop. The microphones created a loud feedback loop. \\
@@ -74,8 +65,9 @@ incidental detail. The examples below come from the training split.
 8 & The class used a helpful textbook. The class learned the topic quickly. & The class occupied a corner room. The class learned the topic quickly. \\
 9 & The applicant owed too much money to other lenders. The applicant was denied the home loan. & The applicant worked near a large park. The applicant was denied the home loan. \\
 10 & The seafood was left in an open freezer. The seafood was thrown away. & The seafood was packed in a square crate. The seafood was thrown away. \\
-\end{longtable}
-\endgroup
+\bottomrule
+\end{tabular}
+\end{table*}
 
 \subsection{Occasion items}
 \label{app:occasion-examples}
@@ -85,22 +77,17 @@ We partition 1,200 occasion pairs into 800/200/200 matched pairs for training,
 development, and testing. All evaluated sentences begin with a capital letter
 and end with a period. We show ten pairs below as qualitative examples.
 
-\begingroup
+\begin{table*}[t]
+\centering
+\footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
 \caption{Examples from the occasion dataset.}
-\label{tab:occasion-examples}\\
+\label{tab:occasion-examples}
+\begin{tabular}{@{}r >{\raggedright\arraybackslash}p{.44\textwidth} >{\raggedright\arraybackslash}p{.44\textwidth}@{}}
 \toprule
 & Critical (Occasion-compatible) & Control \\
 \midrule
-\endfirsthead
-\toprule
-& Critical (Occasion-compatible) & Control \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & A lifeguard got a painful sunburn last Sunday. & A translator got a painful sunburn last Sunday. \\
 2 & A hiker got their boots completely covered in thick mud yesterday. & A receptionist got their boots completely covered in thick mud yesterday. \\
 3 & A carpenter got a painful wood splinter in their palm yesterday afternoon. & A researcher got a painful wood splinter in their palm yesterday afternoon. \\
@@ -111,8 +98,9 @@ and end with a period. We show ten pairs below as qualitative examples.
 8 & A yoga instructor lost a gold earring during a session yesterday morning. & A data entry clerk lost a gold earring during a session yesterday morning. \\
 9 & An archivist got a sharp paper cut on their index finger yesterday. & A soccer coach got a sharp paper cut on their index finger yesterday. \\
 10 & An ice hockey player inhaled a lot of freezing cold air and got throat irritation yesterday morning. & A database administrator inhaled a lot of freezing cold air and got throat irritation yesterday morning. \\
-\end{longtable}
-\endgroup
+\bottomrule
+\end{tabular}
+\end{table*}
 
 % Source: eliciture_interp_paper/data/baselines/event_feasibility.csv
 \subsection{Plausibility items}
@@ -129,22 +117,17 @@ pairs into 211/71/71 training, development, and test pairs. The source-specific
 splits are 42/14/14, 76/26/26, and 93/31/31 pairs, respectively. Examples from
 all three sources are shown below.
 
-\begingroup
+\begin{table*}[t]
+\centering
+\footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}>{\footnotesize}r >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth} >{\footnotesize\raggedright\arraybackslash}p{.44\linewidth}@{}}
 \caption{Examples from the three-source event-feasibility dataset.}
-\label{tab:plausibility-examples}\\
+\label{tab:plausibility-examples}
+\begin{tabular}{@{}r >{\raggedright\arraybackslash}p{.44\textwidth} >{\raggedright\arraybackslash}p{.44\textwidth}@{}}
 \toprule
 & Critical (Probable) & Control (Impossible) \\
 \midrule
-\endfirsthead
-\toprule
-& Critical (Probable) & Control (Impossible) \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & Someone baked a cake inside an oven. & Someone baked a cake inside a freezer. \\
 2 & Someone boiled water using a kettle. & Someone boiled water using a refrigerator. \\
 3 & Someone chopped a carrot using a knife. & Someone chopped a carrot using a rag. \\
@@ -155,5 +138,6 @@ all three sources are shown below.
 8 & At the wedding ceremony the ring was brought by the groom nicely wrapped. & At the wedding ceremony the ring was brought by the veil nicely wrapped. \\
 9 & The employment interviews were administered by the committee for weeks. & The employment interviews were administered by the curriculum for weeks. \\
 10 & The taxi was driven by the cabdriver through town. & The taxi was driven by the wheel through town. \\
-\end{longtable}
-\endgroup
+\bottomrule
+\end{tabular}
+\end{table*}

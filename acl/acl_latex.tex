@@ -16,7 +16,6 @@
 \usepackage{placeins}
 \usepackage{enumitem}
 \usepackage{array}
-\usepackage{longtable}
 \usepackage{url}
 
 \newcommand{\caa}{CAA}
@@ -273,7 +272,6 @@ Our experiments cover seven English-language base models and a controlled set of
 \normalsize
 \clearpage
 \appendix
-\onecolumn
 
 \section{Dataset examples}
 \label{app:representation-examples}
@@ -288,7 +286,7 @@ one race/gender-agnostic, one white-male, one white-female, one minority-male, a
 The templates are balanced across relative-clause (33) and modifier
 (32) constructions. Assigned minority identities are also approximately
 balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of scenario
-templates and condition-specific details is shown in Table~\ref{tab:rq3-stimuli}; the non-demographic baseline replaces the race and gender markers with a unique, length-matched incidental detail that was manually checked for grammaticality and outcome neutrality.
+templates and condition-specific details is shown in the five-part table beginning with Table~\ref{tab:rq3-stimuli}; the non-demographic baseline replaces the race and gender markers with a unique, length-matched incidental detail that was manually checked for grammaticality and outcome neutrality.
 
 \input{acl/derived/rq3_self_blinding_stimuli}
 
@@ -372,7 +370,6 @@ Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-
 
 \input{acl/derived/random_vector_baselines}
 
-\clearpage
 \input{acl/derived/fixed_alpha_sweep}
 
 \subsection{Deeper-layer Llama~3.1 70B diagnostic}
@@ -381,13 +378,11 @@ The original readout procedure selected layer 16 of 80 because it was the earlie
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.48\textwidth]{figures/llama70b_layer36_intervention.pdf}
+  \includegraphics[width=\columnwidth]{figures/llama70b_layer36_intervention.pdf}
   \caption{Change in Llama~3.1 70B paired accuracy when intervening at layer 36 with the causal direction or ten norm-matched random directions. Points show mean changes, and the error bars use the procedure in Appendix~\ref{app:confidence-intervals}. Negative values indicate reduced discrimination between critical and control contexts. \textbf{At this deeper layer, the causal intervention produces a large monotonic decrease in accuracy, whereas the random-direction mean remains near zero.}}
   \label{fig:llama70b-layer36-intervention}
 \end{figure}
 
-\clearpage
-\twocolumn
 \section{Behavioral evaluation details}
 \label{app:behavior-details}
 

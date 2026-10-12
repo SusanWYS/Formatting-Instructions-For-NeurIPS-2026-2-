@@ -2,12 +2,12 @@
 \label{app:random-baselines}
 For model $m$, let $\mathbf{v}_m$ denote the learned causal direction at its selected layer and let $d_m$ be its dimensionality. For each of ten fixed, distinct seeds, we draw a vector with independent standard-normal coordinates and rescale it as
 \begin{equation}
-\mathbf{g}_{m,j}\sim\mathcal{N}(\mathbf{0},\mathbf{I}_{d_m}),
-\qquad
+\begin{aligned}
+\mathbf{g}_{m,j}&\sim\mathcal{N}(\mathbf{0},\mathbf{I}_{d_m}),\\
 \mathbf{r}_{m,j}
-=\frac{\lVert\mathbf{v}_m\rVert_2}{\lVert\mathbf{g}_{m,j}\rVert_2}
-\mathbf{g}_{m,j},
-\quad j=1,\ldots,10.
+&=\frac{\lVert\mathbf{v}_m\rVert_2}{\lVert\mathbf{g}_{m,j}\rVert_2}
+\mathbf{g}_{m,j}, \qquad j=1,\ldots,10.
+\end{aligned}
 \label{eq:random-direction}
 \end{equation}
 Each random direction therefore has an isotropically sampled orientation and exactly the same norm as the learned direction. We evaluate all ten directions at the learned direction's selected layer and do not select any direction using development or test performance. We reuse these seeded directions for paired accuracy, the fixed-alpha intervention sweep, and the naturalistic evaluations. Naturalistic random-direction projections are divided by that model's learned-CAA critical-minus-control training gap, matching the learned-direction calibration.
@@ -34,9 +34,10 @@ Llama~3.1 70B & $0.96$ & $0.51\mathbin{\pm}0.16$ & $0.82$ & $0.48\mathbin{\pm}0.
 \bottomrule
 \end{tabular}}
 \end{table*}
-\begin{table}[htbp]
+\begin{table*}[t]
 \centering
 \small
+\setlength{\tabcolsep}{4pt}
 \caption{Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm$ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}
 \label{tab:random-vector-naturalistic-negative}
 \begin{tabular}{lrrrr}
@@ -52,10 +53,11 @@ Llama~3 8B & $-0.01\mathbin{\pm}0.03$ & $-0.01\mathbin{\pm}0.03$ & $-0.01\mathbi
 Llama~3.1 70B & $0.00\mathbin{\pm}0.01$ & $0.00\mathbin{\pm}0.01$ & $0.00\mathbin{\pm}0.01$ & $0.01\mathbin{\pm}0.02$ \\
 \bottomrule
 \end{tabular}
-\end{table}
-\begin{table}[htbp]
+\end{table*}
+\begin{table*}[t]
 \centering
 \small
+\setlength{\tabcolsep}{4pt}
 \caption{Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm$ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}
 \label{tab:random-vector-naturalistic-positive}
 \begin{tabular}{lrrrr}
@@ -71,4 +73,4 @@ Llama~3 8B & $-0.01\mathbin{\pm}0.03$ & $-0.01\mathbin{\pm}0.02$ & $-0.01\mathbi
 Llama~3.1 70B & $0.01\mathbin{\pm}0.01$ & $0.00\mathbin{\pm}0.01$ & $0.00\mathbin{\pm}0.01$ & $0.01\mathbin{\pm}0.01$ \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
