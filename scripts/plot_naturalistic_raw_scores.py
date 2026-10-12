@@ -8,7 +8,6 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 
@@ -382,39 +381,59 @@ def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> 
 
 
 def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
-    """Plot positive and negative outcomes together in two metric panels."""
+    """Plot outcomes by column and metrics by row in a one-column figure."""
     colors = {"positive": "#5E7436", "negative": "#D0685B"}
     plt.rcParams.update(
         {
             "font.family": "sans-serif",
             "font.sans-serif": ["DejaVu Sans"],
             "mathtext.fontset": "dejavusans",
-            "font.size": 8.2,
-            "axes.labelsize": 8.5,
-            "axes.titlesize": 9.0,
-            "xtick.labelsize": 7.5,
-            "ytick.labelsize": 7.5,
-            "legend.fontsize": 7.7,
+            "font.size": 7.2,
+            "axes.labelsize": 7.4,
+            "axes.titlesize": 7.8,
+            "xtick.labelsize": 6.4,
+            "ytick.labelsize": 6.4,
+            "legend.fontsize": 6.8,
             "axes.linewidth": 0.65,
             "pdf.fonttype": 42,
             "ps.fonttype": 42,
         }
     )
-    # Full ACL/ARR text width; each panel is approximately the size of one
-    # panel in the preceding full-width figures.
-    figure, axes = plt.subplots(1, 2, figsize=(7.1, 2.52))
+    # ACL/ARR single-column width. Columns separate outcomes and rows separate
+    # the two metrics, with shared y scales within each metric.
+    figure, axes = plt.subplots(2, 2, figsize=(3.45, 3.65), sharex="col", sharey="row")
     x = np.arange(len(PLOT_CONDITIONS))
-    bar_width = 0.30
-    offsets = {"positive": -bar_width / 2 - 0.025, "negative": bar_width / 2 + 0.025}
+    bar_width = 0.48
+    metrics = ("CAA projection", "Likert rating")
+    outcomes = ("positive", "negative")
 
-    for axis, metric in zip(
-        axes,
-        ("CAA projection", "Likert rating"),
-        strict=True,
-    ):
+    row_limits: dict[str, tuple[float, float]] = {}
+    for metric in metrics:
         displayed_lows = [0.0]
         displayed_highs = [0.0]
-        for outcome in ("positive", "negative"):
+        for outcome in outcomes:
+            rows = [
+                lookup(summary, metric, outcome, condition)
+                for condition in PLOT_CONDITIONS
+            ]
+            incidental = lookup(summary, metric, outcome, BASELINE)
+            ci_low = np.array([row["ci_low"] for row in rows])
+            ci_high = np.array([row["ci_high"] for row in rows])
+            displayed_lows.extend([float(ci_low.min()), float(incidental["mean"])])
+            displayed_highs.extend([float(ci_high.max()), float(incidental["mean"])])
+        displayed_min = min(displayed_lows)
+        displayed_max = max(displayed_highs)
+        displayed_range = displayed_max - displayed_min
+        if displayed_range == 0:
+            displayed_range = max(abs(displayed_min), 1.0)
+        row_limits[metric] = (
+            displayed_min - 0.12 * displayed_range,
+            displayed_max + 0.12 * displayed_range,
+        )
+
+    for row_index, metric in enumerate(metrics):
+        for column_index, outcome in enumerate(outcomes):
+            axis = axes[row_index, column_index]
             rows = [
                 lookup(summary, metric, outcome, condition)
                 for condition in PLOT_CONDITIONS
@@ -424,11 +443,8 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
             ci_low = np.array([row["ci_low"] for row in rows])
             ci_high = np.array([row["ci_high"] for row in rows])
             yerr = np.vstack((means - ci_low, ci_high - means))
-            displayed_lows.extend([float(ci_low.min()), float(incidental["mean"])])
-            displayed_highs.extend([float(ci_high.max()), float(incidental["mean"])])
-
             axis.bar(
-                x + offsets[outcome],
+                x,
                 means,
                 width=bar_width,
                 color=colors[outcome],
@@ -446,57 +462,53 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
                 linewidth=1.15,
                 zorder=4,
             )
-
-        displayed_min = min(displayed_lows)
-        displayed_max = max(displayed_highs)
-        displayed_range = displayed_max - displayed_min
-        if displayed_range == 0:
-            displayed_range = max(abs(displayed_min), 1.0)
-        axis.set_ylim(
-            displayed_min - 0.12 * displayed_range,
-            displayed_max + 0.12 * displayed_range,
-        )
-        axis.axhline(
-            0.0,
-            color="#777777",
-            linestyle="-",
-            linewidth=0.6,
-            zorder=2,
-        )
-        axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
-        axis.spines[["top", "right"]].set_visible(False)
-        axis.set_ylabel(
-            r"$\Delta$ Projection (vs. white male)"
-            if metric == "CAA projection"
-            else r"$\Delta$ Rating (vs. white male)"
-        )
-        axis.set_title(metric, fontweight="normal", pad=3.0)
-        axis.set_xticks(x, PLOT_CONDITION_LABELS)
-        axis.set_xlabel("Demographic condition")
+            axis.set_ylim(*row_limits[metric])
+            axis.axhline(
+                0.0,
+                color="#777777",
+                linestyle="-",
+                linewidth=0.6,
+                zorder=2,
+            )
+            axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
+            axis.spines[["top", "right"]].set_visible(False)
+            axis.set_xticks(x, PLOT_CONDITION_LABELS)
+            if row_index == 0:
+                axis.tick_params(axis="x", labelbottom=False)
+                axis.set_title(
+                    "Positive outcomes" if outcome == "positive" else "Negative outcomes",
+                    fontweight="normal",
+                    pad=2.8,
+                )
+            if column_index == 0:
+                axis.set_ylabel(
+                    r"$\Delta$ Projection"
+                    if metric == "CAA projection"
+                    else r"$\Delta$ Rating"
+                )
+            else:
+                axis.tick_params(axis="y", labelleft=False)
 
     handles = (
-        Patch(facecolor=colors["positive"], edgecolor="black", linewidth=0.45),
-        Patch(facecolor=colors["negative"], edgecolor="black", linewidth=0.45),
-        Line2D([0], [0], color=colors["positive"], linestyle=(0, (4.0, 2.4)), linewidth=1.15),
-        Line2D([0], [0], color=colors["negative"], linestyle=(0, (4.0, 2.4)), linewidth=1.15),
+        Line2D(
+            [0], [0], color="#666666", linestyle=(0, (4.0, 2.4)),
+            linewidth=1.15
+        ),
     )
-    labels = (
-        "Positive outcomes",
-        "Negative outcomes",
-        "Non-demographic baseline (positive outcomes)",
-        "Non-demographic baseline (negative outcomes)",
-    )
+    labels = ("Non-demographic baseline",)
     figure.legend(
         handles,
         labels,
         loc="upper center",
-        bbox_to_anchor=(0.515, 1.005),
+        bbox_to_anchor=(0.53, 0.995),
         frameon=False,
-        ncol=2,
+        ncol=1,
         handlelength=2.3,
-        columnspacing=2.0,
     )
-    figure.subplots_adjust(left=0.08, right=0.99, bottom=0.21, top=0.70, wspace=0.27)
+    figure.supxlabel("Demographic condition", y=0.02, fontsize=7.4)
+    figure.subplots_adjust(
+        left=0.19, right=0.985, bottom=0.16, top=0.88, wspace=0.16, hspace=0.20
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
     stem = "naturalistic_combined_scores_seven_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
