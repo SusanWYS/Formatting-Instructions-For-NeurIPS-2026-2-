@@ -551,9 +551,9 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
                 )
             if column_index == 0:
                 axis.set_ylabel(
-                    r"$\Delta \widetilde{s}$"
+                    r"$\Delta_{\mathrm{proj}}$"
                     if metric == "CAA projection"
-                    else r"$\Delta$ Rating"
+                    else r"$\Delta_{\mathrm{rating}}$"
                 )
             else:
                 axis.tick_params(axis="y", labelleft=False)
