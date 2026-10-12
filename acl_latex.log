@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 20:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  11 OCT 2026 21:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,14 +698,19 @@ Underfull \hbox (badness 2671) in paragraph at lines 193--194
 ons are rel-a-tively
  []
 
-<figures/intervention_alpha_sweep.pdf, id=254, 505.53586pt x 239.55779pt>
+
+Underfull \hbox (badness 3590) in paragraph at lines 195--196
+\T1/ptm/m/n/10.95 (+20) cross-sentence ex-plana-tory re-la-tions trans-fers
+ []
+
+<figures/intervention_alpha_sweep.pdf, id=255, 505.53586pt x 239.55779pt>
 File: figures/intervention_alpha_sweep.pdf Graphic file (type pdf)
 <use figures/intervention_alpha_sweep.pdf>
 Package pdftex.def Info: figures/intervention_alpha_sweep.pdf  used on input li
-ne 208.
+ne 210.
 (pdftex.def)             Requested size: 455.24411pt x 215.72429pt.
 [4]
-Underfull \hbox (badness 1337) in paragraph at lines 221--222
+Underfull \hbox (badness 1337) in paragraph at lines 223--224
 \T1/ptm/m/n/10.95 (+20) mi-nor-ity man, or a mi-nor-ity woman---and a
  []
 
@@ -714,13 +719,13 @@ Underfull \vbox (badness 2126) has occurred while \output is active []
 
  [5 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
 l_ood_caa_accuracy.pdf>]
-<figures/naturalistic_combined_scores_seven_model.pdf, id=348, 517.01794pt x 17
+<figures/naturalistic_combined_scores_seven_model.pdf, id=349, 517.01794pt x 17
 9.66039pt>
 File: figures/naturalistic_combined_scores_seven_model.pdf Graphic file (type p
 df)
 <use figures/naturalistic_combined_scores_seven_model.pdf>
 Package pdftex.def Info: figures/naturalistic_combined_scores_seven_model.pdf  
-used on input line 230.
+used on input line 232.
 (pdftex.def)             Requested size: 409.71692pt x 142.37698pt.
  [6 <./figures/intervention_alpha_sweep.pdf>] (./acl_latex.bbl
 [7 <./figures/naturalistic_combined_scores_seven_model.pdf>]
@@ -737,9 +742,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13])
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 307.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 309.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 307.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 309.
 
 (./acl/derived/random_vector_baselines.tex) [14] [15] [16]
 (./acl/derived/fixed_alpha_sweep.tex
@@ -751,19 +756,19 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 
 ] [18]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 388.
+(Font)              scaled to size 9.0pt on input line 390.
 
-Underfull \hbox (badness 6236) in paragraph at lines 388--390
+Underfull \hbox (badness 6236) in paragraph at lines 390--392
 \T1/zi4/m/n/9 Question: Does [modifier/relative
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+Underfull \hbox (badness 10000) in paragraph at lines 410--412
 \T1/zi4/m/n/9 Question: How strongly does
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+Underfull \hbox (badness 10000) in paragraph at lines 410--412
 \T1/zi4/m/n/9 [modifier/relative clause] explain
  []
 
@@ -771,12 +776,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 408--410
 
 
 ]
-<figures/rq3_self_blinding_unit_histograms.pdf, id=575, 664.52263pt x 286.00853
+<figures/rq3_self_blinding_unit_histograms.pdf, id=578, 664.52263pt x 286.00853
 pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 520.
+ input line 522.
 (pdftex.def)             Requested size: 455.24411pt x 195.94083pt.
  [20
 
@@ -790,10 +795,10 @@ Package rerunfilecheck Info: File `acl_latex.out' has not changed.
 (rerunfilecheck)             Checksum: CD358E9FAF01373AB4EAB8127C8BAB71;5501.
  ) 
 Here is how much of TeX's memory you used:
- 16572 strings out of 476106
- 265376 string characters out of 5793933
+ 16576 strings out of 476106
+ 265425 string characters out of 5793933
  2030975 words of memory out of 5000000
- 37691 multiletter control sequences out of 15000+600000
+ 37694 multiletter control sequences out of 15000+600000
  634491 words of font info for 427 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  84i,15n,93p,1372b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -804,24 +809,24 @@ r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cmextra/cmmib9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on acl_latex.pdf (21 pages, 486001 bytes).
+-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cmextra/cmmib9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on acl_latex.pdf (21 pages, 496739 bytes).
 PDF statistics:
- 721 PDF objects out of 1000 (max. 8388607)
- 574 compressed objects within 6 object streams
- 132 named destinations out of 1000 (max. 500000)
+ 729 PDF objects out of 1000 (max. 8388607)
+ 580 compressed objects within 6 object streams
+ 133 named destinations out of 1000 (max. 500000)
  63223 words of extra memory for PDF output out of 74296 (max. 10000000)
 

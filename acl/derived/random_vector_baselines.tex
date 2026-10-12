@@ -1,6 +1,16 @@
 \section{Norm-matched random-vector baselines}
 \label{app:random-baselines}
-For each model, we sample ten isotropic Gaussian directions at the causal CAA's selected layer and rescale each direction to exactly match the learned causal direction's norm. We reuse the same seeded directions for paired-accuracy, the fixed-$|\alpha|=5$ intervention, and naturalistic evaluations; no random direction is selected using test performance. Naturalistic random-direction projections are divided by that model's learned-CAA critical-minus-control training gap, matching the learned-direction calibration.
+For model $m$, let $\mathbf{v}_m$ denote the learned causal direction at its selected layer and let $d_m$ be its dimensionality. For each of ten fixed, distinct seeds, we draw a vector with independent standard-normal coordinates and rescale it as
+\begin{equation}
+\mathbf{g}_{m,j}\sim\mathcal{N}(\mathbf{0},\mathbf{I}_{d_m}),
+\qquad
+\mathbf{r}_{m,j}
+=\frac{\lVert\mathbf{v}_m\rVert_2}{\lVert\mathbf{g}_{m,j}\rVert_2}
+\mathbf{g}_{m,j},
+\quad j=1,\ldots,10.
+\label{eq:random-direction}
+\end{equation}
+Each random direction therefore has an isotropically sampled orientation and exactly the same norm as the learned direction. We evaluate all ten directions at the learned direction's selected layer and do not select any direction using development or test performance. We reuse these seeded directions for paired accuracy, the fixed-alpha intervention sweep, and the naturalistic evaluations. Naturalistic random-direction projections are divided by that model's learned-CAA critical-minus-control training gap, matching the learned-direction calibration.
 \begin{table*}[htbp]
 \centering
 \small
