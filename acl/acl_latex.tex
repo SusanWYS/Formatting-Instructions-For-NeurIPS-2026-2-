@@ -225,10 +225,10 @@ The learned-direction effect becomes progressively more negative as intervention
 Having identified a causal direction that generalizes across linguistic constructions and influence downstream sentence processing behaviors, we next examine whether the causal representation identified on controlled synthetic data also reflects potential real-world consequences. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive and negative social outcomes.
 
 \paragraph{Dataset.}
-We adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman, and also a non-demographic baseline, which includes incidental detail that does not suggest the outcome and is approximately matched in word length. For example, one scenario has the template \emph{The [D] salesperson [ND] was [denied/granted] a work visa to move to the United States}. The demographic slot D takes \emph{white male}, \emph{white female}, \emph{Black male}, or \emph{Black female}, whereas the non-demographic slot ND takes \emph{at the consulate}. A demographic item fills D and leaves ND empty. The baseline fills ND and leaves D empty. \emph{Denied} and \emph{granted} instantiate the negative and positive outcomes, respectively. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
+To test demographics-related bias in language models, we adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman, and also a non-demographic baseline, which includes incidental detail that does not suggest the outcome and is approximately matched in word length. For example, one scenario has the template \emph{The [D] salesperson [ND] was [denied/granted] a work visa to move to the United States}. The demographic slot D takes \emph{white male}, \emph{white female}, \emph{Black male}, or \emph{Black female}, whereas the non-demographic slot ND takes \emph{at the consulate}. A demographic item fills D and leaves ND empty. The baseline fills ND and leaves D empty. \emph{denied} and \emph{granted} instantiate the negative and positive outcomes, respectively. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-We use two complementary measures. First, we project each sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M=7$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. We divide each projection by that model's mean critical-minus-control training gap, $g_m$:
+As in previous evaluation, we project each naturalistic sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. We divide each projection by that model's mean critical-minus-control training gap, $g_m$:
 \begin{equation}
 \begin{aligned}
 g_m&=\frac{1}{N}\sum_{i=1}^{N}
@@ -237,9 +237,9 @@ g_m&=\frac{1}{N}\sum_{i=1}^{N}
 \end{aligned}
 \label{eq:naturalistic-projection-normalization}
 \end{equation}
-Thus, one unit of $\widetilde{s}_m$ equals model $m$'s average causal training contrast, making projection differences more comparable across models.
+Intuitively, one unit of $\widetilde{s}_m$ equals model $m$'s average causal training contrast, making projection differences more comparable across models.
 
-Second, we present the sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J=65$ matched scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario:
+Second, we present the naturalistic sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario. 
 \begin{equation}
 \begin{aligned}
 \delta_{\mathrm{proj}}(m,j,c)
@@ -255,7 +255,9 @@ Second, we present the sentence and ask how strongly the person's demographic id
 \end{aligned}
 \label{eq:naturalistic-white-male-contrasts}
 \end{equation}
-We then average these differences equally across the seven models and 65 scenarios. Figure~\ref{fig:naturalistic-aggregate} plots $\Delta_{\mathrm{proj}}(c)$ in the upper row and $\Delta_{\mathrm{rating}}(c)$ in the lower row. White men provide a useful reference because they are the socially advantaged group along both demographic dimensions. It would be interesting to study the shifts associated with gender and minority status in comparison to white males. For both measures, a positive difference indicates a higher score than the corresponding white-male item. Appendix~\ref{app:confidence-intervals} describes the confidence interval estimates, and Appendix~\ref{app:naturalistic-model-results} reports each demographic condition relative to the non-demographic baseline.
+We then average these differences equally across the all models and scenarios. In particular, white men provide a useful reference because they are the socially advantaged group along both demographic dimensions. It would be interesting to study the shifts associated with gender and minority status in comparison to white males. 
+
+For both $\delta_{\mathrm{proj}}$ and $\delta_{\mathrm{rating}}$, a positive difference indicates a higher score than the corresponding white-male item. Appendix~\ref{app:confidence-intervals} describes the confidence interval estimates, and Appendix~\ref{app:naturalistic-model-results} reports each demographic condition relative to the non-demographic baseline.
 
 \begin{figure}[t]
   \centering
