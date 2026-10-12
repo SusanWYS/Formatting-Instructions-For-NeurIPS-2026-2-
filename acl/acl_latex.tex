@@ -113,8 +113,7 @@ For all four measures, paired accuracy is the proportion of pairs in which the c
 =\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}
 \mathbf{1}(s(x_i^{\mathrm{crit}})>s(x_i^{\mathrm{ctrl}})).
 \label{eq:paired-accuracy-main}
-\end{equation}
-Ties count as incorrect. See Appendix~\ref{app:behavior-details} for prompts.
+\end{equation} See Appendix~\ref{app:behavior-details} for prompts.
 
 \paragraph{Models.} In all experiments, we test the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}.
 
@@ -491,7 +490,7 @@ For each item, we reconstruct two sentence-only versions from the outcome event 
 \textit{Because:} \emph{The executive was fired because the executive falsified quarterly revenue figures.}\\
 \textit{And:} \emph{The executive was fired, and the executive falsified quarterly revenue figures.}
 \end{quote}
-We score the identical tokens of $F$, including the final period, after each connective. For target tokens $f=(f_1,\ldots,f_M)$, the score is
+We score the identical tokens of $F$, including the final period after each connective. For target tokens $f=(f_1,\ldots,f_M)$, the score is
 \begin{equation}
 \begin{aligned}
 \ell_{\mathrm{because},t}
