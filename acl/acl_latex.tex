@@ -46,7 +46,7 @@ We study implicit causal inference in LMs through four research questions:
   \item[\textbf{RQ1}] \textit{Do LM behaviors reflect inferences about implicit causal relationships within sentences?}
   \item[\textbf{RQ2}] \textit{Do LMs form internal representations of implicit causal relationships that are distinct from other relations?}
   \item[\textbf{RQ3}] \textit{Does the identified internal representation causally influence downstream sentence processing?}
-  \item[\textbf{RQ4}] \textit{Do these representations generalize from cross-sentence causal relations to within-sentence causal inferences?}
+  \item[\textbf{RQ4}] \textit{Do representations of implicit causality generalize to settings with potential real-world implications?}
 \end{description}
 
 In a related study, \citet{pan-kehler-2025-pragmatic} show that LMs infer implicit causality via eliciture and use it during subsequent sentence processing (akin to our RQ1). RQ1 extends Pan \& Kehler's behavioral study by testing different syntactic constructions. Furthermore, we study whether implicit causality forms an internal representation that is distinct from occasion compatibility and plausibility, and whether this representation generalizes across syntactic constructions (RQ2). We validate that the identified internal directions are causally used by models in RQ3. We separately examine whether the same representation varies with demographic information in naturalistic social scenarios (RQ4).
@@ -189,7 +189,7 @@ Thus, an evaluation pair is correct when its critical item projects farther alon
 % \vspace{-6pt}
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/rq2b_causal_ood_caa_accuracy.pdf}
   \caption{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs. Appendix~\ref{app:confidence-intervals} describes the error bars. \textbf{Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}
   \label{fig:rq2b}
 \end{figure*}
@@ -213,7 +213,7 @@ Following \citet{ghandeharioun-etal-2024-whos}, we apply the signed intervention
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/intervention_alpha_sweep.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/intervention_alpha_sweep.pdf}
   \caption{Change in paired accuracy across fixed intervention magnitudes $|\alpha|=1$--$5$ for the causal direction and ten norm-matched random directions. Points show mean changes, and Appendix~\ref{app:confidence-intervals} describes the error bars. Negative values indicate reduced discrimination between critical and control contexts. \textbf{In five models, increasing the causal intervention increasingly reduces paired accuracy and generally has a larger effect than the random baseline. Qwen3 4B shows no reliable effect, while Llama~3.1 70B changes in the opposite direction.}}
   \label{fig:intervention-alpha-sweep}
 \end{figure*}
