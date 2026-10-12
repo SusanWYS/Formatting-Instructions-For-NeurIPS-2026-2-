@@ -105,7 +105,7 @@ For \textbf{Because-And (surprisal)}, we rewrite each item as the outcome follow
 \textit{Because:} \emph{The executive was fired because the executive wore a blue silk tie.}\\
 \textit{And:} \emph{The executive was fired, and the executive wore a blue silk tie.}
 \end{quote}
-We score the same modifier tokens, including the final period, after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}. Larger values indicate a stronger preference for an directly causal connection. We expect the critical member of a pair to have the larger score (larger log probability gap).
+We score the modifier tokens including the final period (i.e., \emph{the executive wore a blue silk tie.} in the example above), after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}. Larger values indicate a stronger preference for an directly causal connection. We expect the critical member of a pair to have the larger score (larger log probability gap).
 \paragraph{Metrics.}
 For all four measures, paired accuracy is the proportion of pairs in which the critical item receives a strictly higher score than its control. For an evaluation set of $N_{\mathrm{eval}}$ matched pairs,
 \begin{equation}
@@ -114,7 +114,7 @@ For all four measures, paired accuracy is the proportion of pairs in which the c
 \mathbf{1}(s(x_i^{\mathrm{crit}})>s(x_i^{\mathrm{ctrl}})).
 \label{eq:paired-accuracy-main}
 \end{equation}
-Ties count as incorrect. See Appendix~\ref{app:behavior-details} for prompts and token-level definitions.
+Ties count as incorrect. See Appendix~\ref{app:behavior-details} for prompts.
 
 \paragraph{Models.} In all experiments, we test the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}.
 
@@ -283,7 +283,7 @@ Second, we present the naturalistic sentence and ask how strongly the person's d
 \end{equation}
 We then average these differences equally across the all models and scenarios. In particular, white men provide a useful reference because they are the socially advantaged group along both demographic dimensions. It would be interesting to study the shifts associated with gender and minority status in comparison to white males. 
 
-For both $\delta_{\mathrm{proj}}$ and $\delta_{\mathrm{rating}}$, a positive difference indicates a higher score than the corresponding white-male item. Appendix~\ref{app:confidence-intervals} describes the confidence interval estimates, and Appendix~\ref{app:naturalistic-model-results} reports each demographic condition relative to the non-demographic baseline.
+For both $\delta_{\mathrm{proj}}$ and $\delta_{\mathrm{rating}}$, a positive difference indicates a higher score than the corresponding white-male item. Appendix~\ref{app:naturalistic-model-results} reports each demographic condition relative to the non-demographic baseline.
 
 \begin{figure}[t]
   \centering
