@@ -449,8 +449,14 @@ def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> 
     return row.iloc[0]
 
 
-def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
-    """Plot outcomes by column and metrics by row in a one-column figure."""
+def plot_combined(
+    summary: pd.DataFrame,
+    output_dir: Path,
+    stem: str,
+    *,
+    one_row: bool = False,
+) -> None:
+    """Plot the two outcomes for each of the two metrics."""
     colors = {"positive": "#5E7436", "negative": "#D0685B"}
     plt.rcParams.update(
         {
@@ -468,9 +474,16 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
             "ps.fonttype": 42,
         }
     )
-    # ACL/ARR single-column width. Columns separate outcomes and rows separate
-    # the two metrics, with shared y scales within each metric.
-    figure, axes = plt.subplots(2, 2, figsize=(3.45, 3.65), sharex="col", sharey="row")
+    if one_row:
+        # ACL/ARR full-text width. The two projection panels are followed by
+        # the two rating panels, with shared y scales within each metric.
+        figure, axes = plt.subplots(1, 4, figsize=(7.1, 2.35))
+    else:
+        # ACL/ARR single-column width. Columns separate outcomes and rows
+        # separate the two metrics, with shared y scales within each metric.
+        figure, axes = plt.subplots(
+            2, 2, figsize=(3.45, 3.65), sharex="col", sharey="row"
+        )
     x = np.arange(len(PLOT_CONDITIONS))
     bar_width = 0.48
     metrics = ("CAA projection", "Likert rating")
@@ -502,7 +515,11 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
 
     for row_index, metric in enumerate(metrics):
         for column_index, outcome in enumerate(outcomes):
-            axis = axes[row_index, column_index]
+            axis = (
+                axes[row_index * len(outcomes) + column_index]
+                if one_row
+                else axes[row_index, column_index]
+            )
             rows = [
                 lookup(summary, metric, outcome, condition)
                 for condition in PLOT_CONDITIONS
@@ -542,8 +559,9 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
             axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
             axis.spines[["top", "right"]].set_visible(False)
             axis.set_xticks(x, PLOT_CONDITION_LABELS)
-            if row_index == 0:
+            if not one_row and row_index == 0:
                 axis.tick_params(axis="x", labelbottom=False)
+            if one_row or row_index == 0:
                 axis.set_title(
                     "Positive outcomes" if outcome == "positive" else "Negative outcomes",
                     fontweight="normal",
@@ -565,19 +583,44 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
         ),
     )
     labels = ("Non-demographic baseline",)
-    figure.legend(
-        handles,
-        labels,
-        loc="upper center",
-        bbox_to_anchor=(0.53, 0.995),
-        frameon=False,
-        ncol=1,
-        handlelength=2.3,
-    )
-    figure.supxlabel("Demographic condition", y=0.02, fontsize=7.4)
-    figure.subplots_adjust(
-        left=0.19, right=0.985, bottom=0.16, top=0.88, wspace=0.16, hspace=0.20
-    )
+    if one_row:
+        figure.text(
+            0.275, 0.965, "CAA projection", ha="center", va="top", fontsize=7.8
+        )
+        figure.text(
+            0.755, 0.965, "Likert rating", ha="center", va="top", fontsize=7.8
+        )
+        figure.legend(
+            handles,
+            labels,
+            loc="lower center",
+            bbox_to_anchor=(0.5, 0.005),
+            frameon=False,
+            ncol=1,
+            handlelength=2.3,
+        )
+        figure.subplots_adjust(
+            left=0.075, right=0.995, bottom=0.23, top=0.78, wspace=0.27
+        )
+    else:
+        figure.legend(
+            handles,
+            labels,
+            loc="upper center",
+            bbox_to_anchor=(0.53, 0.995),
+            frameon=False,
+            ncol=1,
+            handlelength=2.3,
+        )
+        figure.supxlabel("Demographic condition", y=0.02, fontsize=7.4)
+        figure.subplots_adjust(
+            left=0.19,
+            right=0.985,
+            bottom=0.16,
+            top=0.88,
+            wspace=0.16,
+            hspace=0.20,
+        )
     output_dir.mkdir(parents=True, exist_ok=True)
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
     plt.close(figure)
@@ -637,6 +680,7 @@ def main() -> None:
         white_male_reference,
         args.output_dir,
         "naturalistic_combined_scores_seven_model",
+        one_row=True,
     )
     plot_per_model_combined(per_model_white_male_reference, args.output_dir)
 

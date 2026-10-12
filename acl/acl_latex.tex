@@ -342,12 +342,12 @@ For Likert ratings, we use
 We average  $\Delta_{\mathrm{proj}}(m,j,c)$  and $\Delta_{\mathrm{rating}}(m,j,c)$ equally across the all models and scenarios. For both $\Delta_{\mathrm{proj}}$ and $\Delta_{\mathrm{rating}}$, a positive difference indicates a higher score than the corresponding white-male item. 
 
 
-\begin{figure}[t]
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/naturalistic_combined_scores_seven_model.pdf}
-  \caption{Differences from the matched white-male condition for positive and negative outcomes. Top row: CAA projections. Bottom row: Likert ratings. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases.}}
+  \includegraphics[width=\textwidth]{figures/naturalistic_combined_scores_seven_model.pdf}
+  \caption{Differences from the matched white-male condition for positive and negative outcomes. The left two panels show CAA projections, and the right two show Likert ratings. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases.}}
   \label{fig:naturalistic-aggregate}
-\end{figure}
+\end{figure*}
 
 \paragraph{Results.}
 For positive outcomes, minority men and minority women have significantly higher causal projections than white men, with the largest increase for minority women (Figure~\ref{fig:naturalistic-aggregate}). Both minority conditions also have higher mean projections than the non-demographic incidental-detail baseline. The Likert ratings do not recover this pattern. Every demographic condition receives a lower rating than the incidental-detail baseline, suggesting that models do not reliably verbalize the causal information captured by their internal representations.
@@ -537,6 +537,16 @@ Let $a_k$ be the complete answer string consisting of one leading space followed
 s_{\mathrm{L}}(q)&=\sum_{k=1}^{7}k\,\pi_k(q).
 \label{eq:Likert-score}
 \end{align}
+
+\paragraph{Gemini rating distributions.}
+We also apply the same 1--7 question to the 384 training, 48 development, and 48 held-out ID cross-sentence pairs and the 150 within-sentence OOD pairs using Gemini~3.6 Flash. Each item is rated in an independent request with medium thinking, default sampling settings, and structured JSON output. Figure~\ref{fig:gemini36-likert-histograms} shows the resulting distributions.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/gemini36_likert_histograms.pdf}
+  \caption{Distributions of Gemini~3.6 Flash causal ratings for critical and control items in the cross-sentence (left) and within-sentence (right) constructions, where 1 means definitely not causal and 7 means definitely causal. Bars show the percentage of items within each condition at each rating; the cross-sentence panel pools the training, development, and held-out ID splits. \textbf{Critical ratings concentrate near 7 and control ratings near 1 in both constructions.}}
+  \label{fig:gemini36-likert-histograms}
+\end{figure*}
 
 \paragraph{IDK Why surprisal score.}
 For the critical member of the example pair, the prefix $x$ is the complete sentence [person] [modifier/relative clause] [outcome], including its final period. We then append a space followed by \emph{I don't know why.} The resulting sequence has the form:
