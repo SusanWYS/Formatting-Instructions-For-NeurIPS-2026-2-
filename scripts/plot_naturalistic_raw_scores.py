@@ -21,6 +21,15 @@ MODELS = (
     "llama3_8b",
     "llama31_70b",
 )
+MODEL_LABELS = {
+    "gemma2_2b": "Gemma 2\n2B",
+    "gemma2_9b": "Gemma 2\n9B",
+    "qwen3_4b": "Qwen3\n4B",
+    "qwen3_8b": "Qwen3\n8B",
+    "llama32_3b": "Llama 3.2\n3B",
+    "llama3_8b": "Llama 3\n8B",
+    "llama31_70b": "Llama 3.1\n70B",
+}
 CONDITIONS = (
     "white_male",
     "white_female",
@@ -515,6 +524,129 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
     plt.close(figure)
 
 
+def plot_per_model_differences(per_model: pd.DataFrame, output_dir: Path) -> None:
+    """Plot demographic-minus-baseline contrasts separately for every model."""
+    colors = {"positive": "#5E7436", "negative": "#D0685B"}
+    condition_labels = (
+        "White\nmale",
+        "White\nfemale",
+        "Minority\nmale",
+        "Minority\nfemale",
+    )
+    plt.rcParams.update(
+        {
+            "font.family": "sans-serif",
+            "font.sans-serif": ["DejaVu Sans"],
+            "mathtext.fontset": "dejavusans",
+            "font.size": 7.2,
+            "axes.labelsize": 7.4,
+            "axes.titlesize": 7.4,
+            "xtick.labelsize": 5.6,
+            "ytick.labelsize": 6.2,
+            "legend.fontsize": 6.8,
+            "axes.linewidth": 0.65,
+            "pdf.fonttype": 42,
+            "ps.fonttype": 42,
+        }
+    )
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    x = np.arange(len(CONDITIONS))
+    width = 0.34
+    for metric, stem, ylabel in (
+        (
+            "CAA projection",
+            "naturalistic_per_model_projection",
+            r"$\Delta$ Projection",
+        ),
+        (
+            "Likert rating",
+            "naturalistic_per_model_rating",
+            r"$\Delta$ Rating",
+        ),
+    ):
+        metric_rows = per_model[per_model["metric"] == metric]
+        ymin = min(0.0, float(metric_rows["ci_low"].min()))
+        ymax = max(0.0, float(metric_rows["ci_high"].max()))
+        yrange = ymax - ymin
+        if yrange == 0:
+            yrange = max(abs(ymin), 1.0)
+        ylim = (ymin - 0.09 * yrange, ymax + 0.09 * yrange)
+
+        figure, axes = plt.subplots(
+            2,
+            4,
+            figsize=(7.15, 4.15),
+            sharex=True,
+            sharey=True,
+        )
+        flat_axes = axes.ravel()
+        for model_index, model in enumerate(MODELS):
+            axis = flat_axes[model_index]
+            for outcome_index, outcome in enumerate(("positive", "negative")):
+                rows = (
+                    metric_rows[
+                        (metric_rows["model"] == model)
+                        & (metric_rows["outcome"] == outcome)
+                    ]
+                    .set_index("condition")
+                    .loc[list(CONDITIONS)]
+                )
+                means = rows["mean"].to_numpy()
+                lows = rows["ci_low"].to_numpy()
+                highs = rows["ci_high"].to_numpy()
+                offset = (-0.5 if outcome_index == 0 else 0.5) * width
+                axis.bar(
+                    x + offset,
+                    means,
+                    width=width,
+                    color=colors[outcome],
+                    edgecolor="black",
+                    linewidth=0.4,
+                    yerr=np.vstack((means - lows, highs - means)),
+                    capsize=1.5,
+                    error_kw={"elinewidth": 0.65, "capthick": 0.65},
+                    label=f"{outcome.capitalize()} outcomes",
+                    zorder=3,
+                )
+            axis.set_title(MODEL_LABELS[model], fontweight="normal", pad=2.5)
+            axis.set_ylim(*ylim)
+            axis.axhline(0.0, color="#777777", linewidth=0.65, zorder=2)
+            axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
+            axis.spines[["top", "right"]].set_visible(False)
+            axis.set_xticks(x, condition_labels)
+            axis.tick_params(axis="x", pad=1.5)
+
+        flat_axes[-1].set_visible(False)
+        handles, labels = flat_axes[0].get_legend_handles_labels()
+        figure.legend(
+            handles,
+            labels,
+            loc="upper center",
+            bbox_to_anchor=(0.5, 0.995),
+            frameon=False,
+            ncol=2,
+            handlelength=1.8,
+            columnspacing=1.5,
+        )
+        figure.supylabel(ylabel, x=0.012, fontsize=7.4)
+        figure.supxlabel("Demographic condition", y=0.015, fontsize=7.4)
+        figure.subplots_adjust(
+            left=0.075,
+            right=0.992,
+            bottom=0.13,
+            top=0.88,
+            wspace=0.20,
+            hspace=0.34,
+        )
+        figure.savefig(
+            output_dir / f"{stem}.pdf",
+            bbox_inches="tight",
+            pad_inches=0.015,
+        )
+        plt.close(figure)
+
+
 def main() -> None:
     args = parse_args()
     projection = read_projection_scores(
@@ -546,6 +678,7 @@ def main() -> None:
         args.white_male_reference_csv, index=False
     )
     plot_combined(white_male_reference, args.output_dir)
+    plot_per_model_differences(per_model, args.output_dir)
 
 
 if __name__ == "__main__":

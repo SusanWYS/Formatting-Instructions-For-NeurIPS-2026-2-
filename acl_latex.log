@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  12 OCT 2026 02:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  12 OCT 2026 02:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -714,14 +714,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_causa
 l_ood_caa_accuracy.pdf>]
-<figures/naturalistic_combined_scores_seven_model.pdf, id=353, 239.88213pt x 25
+<figures/naturalistic_combined_scores_seven_model.pdf, id=353, 239.84293pt x 25
 5.94621pt>
 File: figures/naturalistic_combined_scores_seven_model.pdf Graphic file (type p
 df)
 <use figures/naturalistic_combined_scores_seven_model.pdf>
 Package pdftex.def Info: figures/naturalistic_combined_scores_seven_model.pdf  
 used on input line 247.
-(pdftex.def)             Requested size: 219.08614pt x 233.7628pt.
+(pdftex.def)             Requested size: 219.08614pt x 233.80576pt.
  [6 <./figures/intervention_alpha_sweep.pdf>] (./acl_latex.bbl
 [7 <./figures/naturalistic_combined_scores_seven_model.pdf>]
 Underfull \hbox (badness 1024) in paragraph at lines 153--158
@@ -736,58 +736,72 @@ Underfull \hbox (badness 1024) in paragraph at lines 153--158
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13])
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 325.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 325.
+<figures/naturalistic_per_model_projection.pdf, id=518, 508.564pt x 292.67746pt
+>
+File: figures/naturalistic_per_model_projection.pdf Graphic file (type pdf)
+<use figures/naturalistic_per_model_projection.pdf>
+Package pdftex.def Info: figures/naturalistic_per_model_projection.pdf  used on
+ input line 320.
+(pdftex.def)             Requested size: 455.24411pt x 261.9916pt.
+<figures/naturalistic_per_model_rating.pdf, id=519, 508.564pt x 292.67746pt>
+File: figures/naturalistic_per_model_rating.pdf Graphic file (type pdf)
+<use figures/naturalistic_per_model_rating.pdf>
+Package pdftex.def Info: figures/naturalistic_per_model_rating.pdf  used on inp
+ut line 327.
+(pdftex.def)             Requested size: 455.24411pt x 261.9916pt.
 
-(./acl/derived/random_vector_baselines.tex) [14] [15] [16]
-(./acl/derived/fixed_alpha_sweep.tex
+[14] [15 <./figures/naturalistic_per_model_projection.pdf> <./figures/naturalis
+tic_per_model_rating.pdf>] (./acl/derived/random_vector_baselines.tex) [16
+
+]
+[17] (./acl/derived/fixed_alpha_sweep.tex
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 14.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 14.
 )
-<figures/llama70b_layer36_intervention.pdf, id=547, 233.85544pt x 152.66449pt>
+<figures/llama70b_layer36_intervention.pdf, id=566, 233.85544pt x 152.66449pt>
 File: figures/llama70b_layer36_intervention.pdf Graphic file (type pdf)
 <use figures/llama70b_layer36_intervention.pdf>
 Package pdftex.def Info: figures/llama70b_layer36_intervention.pdf  used on inp
-ut line 404.
+ut line 344.
 (pdftex.def)             Requested size: 218.51521pt x 142.6567pt.
- [17
+ [18
 
-] [18 <./figures/llama70b_layer36_intervention.pdf>]
+] [19 <./figures/llama70b_layer36_intervention.pdf>]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 417.
+(Font)              scaled to size 9.0pt on input line 357.
 
-Underfull \hbox (badness 6236) in paragraph at lines 417--419
+Underfull \hbox (badness 6236) in paragraph at lines 357--359
 \T1/zi4/m/n/9 Question: Does [modifier/relative
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--439
+Underfull \hbox (badness 10000) in paragraph at lines 377--379
 \T1/zi4/m/n/9 Question: How strongly does
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--439
+Underfull \hbox (badness 10000) in paragraph at lines 377--379
 \T1/zi4/m/n/9 [modifier/relative clause] explain
  []
 
-[19
+[20
 
 
 ]
-<figures/rq3_self_blinding_unit_histograms.pdf, id=606, 664.52263pt x 286.00853
+<figures/rq3_self_blinding_unit_histograms.pdf, id=624, 664.52263pt x 286.00853
 pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 549.
+ input line 489.
 (pdftex.def)             Requested size: 455.24411pt x 195.94083pt.
- [20
+ [21
 
-] [21 <./figures/rq3_self_blinding_unit_histograms.pdf>]
+] [22 <./figures/rq3_self_blinding_unit_histograms.pdf>]
 (./acl_latex.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -797,38 +811,37 @@ Package rerunfilecheck Info: File `acl_latex.out' has not changed.
 (rerunfilecheck)             Checksum: C09B40A5CB5CDC57F3A52BF516FD69D7;5757.
  ) 
 Here is how much of TeX's memory you used:
- 16627 strings out of 476106
- 266545 string characters out of 5793933
+ 16624 strings out of 476106
+ 266976 string characters out of 5793933
  2030975 words of memory out of 5000000
  37718 multiletter control sequences out of 15000+600000
- 635712 words of font info for 443 fonts, out of 8000000 for 9000
+ 634508 words of font info for 440 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  84i,15n,93p,1396b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
-r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cmextra/cmmib9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on acl_latex.pdf (21 pages, 575846 bytes).
+r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy9
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+ri8a.pfb>
+Output written on acl_latex.pdf (22 pages, 568542 bytes).
 PDF statistics:
- 757 PDF objects out of 1000 (max. 8388607)
- 598 compressed objects within 6 object streams
- 136 named destinations out of 1000 (max. 500000)
- 63236 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 768 PDF objects out of 1000 (max. 8388607)
+ 603 compressed objects within 7 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 63246 words of extra memory for PDF output out of 74296 (max. 10000000)
 

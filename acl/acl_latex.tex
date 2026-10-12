@@ -312,83 +312,23 @@ for multiple comparisons.
 \section{Naturalistic per-model results}
 \label{app:naturalistic-model-results}
 
-Tables~\ref{tab:naturalistic-negative}--\ref{tab:naturalistic-likert-positive} report each model separately. Each cell is the mean demographic-minus-agnostic difference across 65 matched scenarios $\pm$ a 95\% scenario-bootstrap CI. CAA differences are reported in model-specific causal-training-gap units.
+Figures~\ref{fig:naturalistic-per-model-projection} and~\ref{fig:naturalistic-per-model-rating} report each model separately. Bars show the mean difference from the matched non-demographic baseline across 65 scenarios, with 95\% scenario-bootstrap CIs. CAA differences are reported in model-specific causal-training-gap units.
 
-\begin{table}[htbp]
+\FloatBarrier
+\begin{figure*}[t]
   \centering
-  \caption{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf{Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}
-  \label{tab:naturalistic-negative}
-  \begin{tabular}{lrrrr}
-    \toprule
-    Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
-    \midrule
-    Gemma 2 2B & $\boldsymbol{-.045\mathbin{\pm}.041}$ & $\boldsymbol{-.065\mathbin{\pm}.041}$ & $-.014\mathbin{\pm}.041$ & $.007\mathbin{\pm}.043$ \\
-    Gemma 2 9B & $\boldsymbol{.106\mathbin{\pm}.050}$ & $\boldsymbol{.084\mathbin{\pm}.050}$ & $\boldsymbol{.108\mathbin{\pm}.051}$ & $\boldsymbol{.097\mathbin{\pm}.053}$ \\
-    Qwen3 4B & $.037\mathbin{\pm}.038$ & $\boldsymbol{.051\mathbin{\pm}.036}$ & $\boldsymbol{.044\mathbin{\pm}.039}$ & $\boldsymbol{.061\mathbin{\pm}.040}$ \\
-    Qwen3 8B & $.018\mathbin{\pm}.045$ & $.042\mathbin{\pm}.047$ & $\boldsymbol{.064\mathbin{\pm}.049}$ & $\boldsymbol{.088\mathbin{\pm}.050}$ \\
-    Llama 3.2 3B & $\boldsymbol{.075\mathbin{\pm}.044}$ & $\boldsymbol{.050\mathbin{\pm}.042}$ & $\boldsymbol{.056\mathbin{\pm}.045}$ & $\boldsymbol{.083\mathbin{\pm}.043}$ \\
-    Llama 3 8B & $.006\mathbin{\pm}.047$ & $-.011\mathbin{\pm}.049$ & $-.006\mathbin{\pm}.050$ & $.010\mathbin{\pm}.052$ \\
-    Llama 3.1 70B & $\boldsymbol{.087\mathbin{\pm}.033}$ & $\boldsymbol{.089\mathbin{\pm}.034}$ & $\boldsymbol{.075\mathbin{\pm}.034}$ & $\boldsymbol{.093\mathbin{\pm}.034}$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+  \includegraphics[width=\textwidth]{figures/naturalistic_per_model_projection.pdf}
+  \caption{Per-model causal projection differences from the matched non-demographic baseline across 65 naturalistic scenarios. Bars show mean differences with 95\% scenario-bootstrap CIs. Olive and coral indicate positive and negative outcomes, respectively. Positive values indicate that the demographic condition receives a higher projection than its matched incidental-detail baseline. \textbf{Projection differences vary across models, but minority women generally receive the largest positive shift.}}
+  \label{fig:naturalistic-per-model-projection}
+\end{figure*}
 
-\begin{table}[htbp]
+\begin{figure*}[t]
   \centering
-  \caption{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf{Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}
-  \label{tab:naturalistic-positive}
-  \begin{tabular}{lrrrr}
-    \toprule
-    Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
-    \midrule
-    Gemma 2 2B & $\boldsymbol{-.098\mathbin{\pm}.048}$ & $\boldsymbol{-.108\mathbin{\pm}.048}$ & $-.032\mathbin{\pm}.050$ & $.005\mathbin{\pm}.049$ \\
-    Gemma 2 9B & $.021\mathbin{\pm}.048$ & $.018\mathbin{\pm}.049$ & $.045\mathbin{\pm}.052$ & $.047\mathbin{\pm}.050$ \\
-    Qwen3 4B & $.005\mathbin{\pm}.042$ & $.022\mathbin{\pm}.040$ & $.010\mathbin{\pm}.041$ & $.029\mathbin{\pm}.041$ \\
-    Qwen3 8B & $-.014\mathbin{\pm}.046$ & $.010\mathbin{\pm}.047$ & $.011\mathbin{\pm}.049$ & $.040\mathbin{\pm}.052$ \\
-    Llama 3.2 3B & $-.018\mathbin{\pm}.055$ & $-.019\mathbin{\pm}.057$ & $-.017\mathbin{\pm}.057$ & $.019\mathbin{\pm}.056$ \\
-    Llama 3 8B & $-.012\mathbin{\pm}.049$ & $-.011\mathbin{\pm}.051$ & $-.000\mathbin{\pm}.054$ & $.030\mathbin{\pm}.054$ \\
-    Llama 3.1 70B & $\boldsymbol{.059\mathbin{\pm}.034}$ & $\boldsymbol{.055\mathbin{\pm}.033}$ & $\boldsymbol{.049\mathbin{\pm}.037}$ & $\boldsymbol{.067\mathbin{\pm}.035}$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf{The aggregate increase is largest and most consistent in Qwen3 8B.}}
-  \label{tab:naturalistic-likert-negative}
-  \begin{tabular}{lrrrr}
-    \toprule
-    Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
-    \midrule
-    Gemma 2 2B & $\boldsymbol{.08\mathbin{\pm}.05}$ & $\boldsymbol{.06\mathbin{\pm}.05}$ & $.03\mathbin{\pm}.05$ & $.00\mathbin{\pm}.05$ \\
-    Gemma 2 9B & $.03\mathbin{\pm}.04$ & $\boldsymbol{.06\mathbin{\pm}.04}$ & $\boldsymbol{.07\mathbin{\pm}.05}$ & $\boldsymbol{.11\mathbin{\pm}.05}$ \\
-    Qwen3 4B & $-.01\mathbin{\pm}.09$ & $.03\mathbin{\pm}.08$ & $.08\mathbin{\pm}.09$ & $\boldsymbol{.16\mathbin{\pm}.09}$ \\
-    Qwen3 8B & $\boldsymbol{.20\mathbin{\pm}.09}$ & $\boldsymbol{.21\mathbin{\pm}.09}$ & $\boldsymbol{.30\mathbin{\pm}.10}$ & $\boldsymbol{.42\mathbin{\pm}.10}$ \\
-    Llama 3.2 3B & $.04\mathbin{\pm}.07$ & $-.02\mathbin{\pm}.08$ & $-.05\mathbin{\pm}.08$ & $-.06\mathbin{\pm}.08$ \\
-    Llama 3 8B & $-.04\mathbin{\pm}.13$ & $.00\mathbin{\pm}.13$ & $-.07\mathbin{\pm}.12$ & $.00\mathbin{\pm}.12$ \\
-    Llama 3.1 70B & $.06\mathbin{\pm}.08$ & $\boldsymbol{.08\mathbin{\pm}.08}$ & $\boldsymbol{.10\mathbin{\pm}.07}$ & $\boldsymbol{.10\mathbin{\pm}.07}$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf{The aggregate decrease is driven primarily by Qwen3 4B.}}
-  \label{tab:naturalistic-likert-positive}
-  \begin{tabular}{lrrrr}
-    \toprule
-    Model & \shortstack{White\\male} & \shortstack{White\\female} & \shortstack{Minority\\male} & \shortstack{Minority\\female} \\
-    \midrule
-    Gemma 2 2B & $.03\mathbin{\pm}.06$ & $.00\mathbin{\pm}.06$ & $.00\mathbin{\pm}.06$ & $-.02\mathbin{\pm}.06$ \\
-    Gemma 2 9B & $.01\mathbin{\pm}.05$ & $.05\mathbin{\pm}.06$ & $.05\mathbin{\pm}.06$ & $\boldsymbol{.08\mathbin{\pm}.06}$ \\
-    Qwen3 4B & $\boldsymbol{-.62\mathbin{\pm}.18}$ & $\boldsymbol{-.51\mathbin{\pm}.17}$ & $\boldsymbol{-.66\mathbin{\pm}.18}$ & $\boldsymbol{-.46\mathbin{\pm}.18}$ \\
-    Qwen3 8B & $.07\mathbin{\pm}.15$ & $-.06\mathbin{\pm}.15$ & $\boldsymbol{-.17\mathbin{\pm}.16}$ & $-.04\mathbin{\pm}.16$ \\
-    Llama 3.2 3B & $.06\mathbin{\pm}.11$ & $.04\mathbin{\pm}.12$ & $.02\mathbin{\pm}.13$ & $.04\mathbin{\pm}.13$ \\
-    Llama 3 8B & $\boldsymbol{-.21\mathbin{\pm}.16}$ & $-.09\mathbin{\pm}.18$ & $-.12\mathbin{\pm}.17$ & $.00\mathbin{\pm}.17$ \\
-    Llama 3.1 70B & $.06\mathbin{\pm}.10$ & $.04\mathbin{\pm}.09$ & $\boldsymbol{-.10\mathbin{\pm}.09}$ & $\boldsymbol{-.09\mathbin{\pm}.08}$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+  \includegraphics[width=\textwidth]{figures/naturalistic_per_model_rating.pdf}
+  \caption{Per-model expected-rating differences from the matched non-demographic baseline across 65 naturalistic scenarios. Bars show mean differences with 95\% scenario-bootstrap CIs. Olive and coral indicate positive and negative outcomes, respectively. Positive values indicate that the demographic condition receives a higher causal rating than its matched incidental-detail baseline. \textbf{Explicit ratings vary substantially across models and do not consistently recover the projection pattern.}}
+  \label{fig:naturalistic-per-model-rating}
+\end{figure*}
+\FloatBarrier
 
 \input{acl/derived/random_vector_baselines}
 
@@ -542,12 +482,12 @@ Appendix~\ref{app:representation-examples}.
 
 Figure~\ref{fig:rq3-distributions} shows the causal-direction projection normalized by each model's causal training gap
 distributions underlying the paired summary statistics in
-Table~\ref{tab:naturalistic-negative}.
+Figure~\ref{fig:naturalistic-per-model-projection}.
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref{tab:naturalistic-negative}).}}
+  \caption{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences from the non-demographic baseline vary across models (Figure~\ref{fig:naturalistic-per-model-projection}).}}
   \label{fig:rq3-distributions}
 \end{figure*}
 
