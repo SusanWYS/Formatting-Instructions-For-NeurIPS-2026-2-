@@ -119,7 +119,7 @@ def main() -> None:
         bottom=0.145,
         top=0.875,
         wspace=1.05,
-        hspace=0.22,
+        hspace=0.25,
     )
     positions = (
         grid[0, 0:2],
