@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  12 OCT 2026 02:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  12 OCT 2026 02:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -743,45 +743,45 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figures/naturalistic_gemma2_2b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_gemma2_2b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_gemma2_2b_scores.pdf  used on inp
-ut line 322.
+ut line 324.
 (pdftex.def)             Requested size: 218.51521pt x 229.2989pt.
 <figures/naturalistic_gemma2_9b_scores.pdf, id=522, 239.84293pt x 255.94621pt>
 File: figures/naturalistic_gemma2_9b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_gemma2_9b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_gemma2_9b_scores.pdf  used on inp
-ut line 326.
+ut line 328.
 (pdftex.def)             Requested size: 218.51521pt x 233.1965pt.
 <figures/naturalistic_qwen3_4b_scores.pdf, id=525, 239.84293pt x 255.94621pt>
 File: figures/naturalistic_qwen3_4b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_qwen3_4b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_qwen3_4b_scores.pdf  used on inpu
-t line 336.
+t line 338.
 (pdftex.def)             Requested size: 218.51521pt x 233.1965pt.
 <figures/naturalistic_qwen3_8b_scores.pdf, id=526, 243.92065pt x 255.94621pt>
 File: figures/naturalistic_qwen3_8b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_qwen3_8b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_qwen3_8b_scores.pdf  used on inpu
-t line 340.
+t line 342.
 (pdftex.def)             Requested size: 218.51521pt x 229.2989pt.
 <figures/naturalistic_llama32_3b_scores.pdf, id=529, 239.84293pt x 255.94621pt>
 
 File: figures/naturalistic_llama32_3b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_llama32_3b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_llama32_3b_scores.pdf  used on in
-put line 350.
+put line 352.
 (pdftex.def)             Requested size: 218.51521pt x 233.1965pt.
 <figures/naturalistic_llama3_8b_scores.pdf, id=530, 239.84293pt x 255.94621pt>
 File: figures/naturalistic_llama3_8b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_llama3_8b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_llama3_8b_scores.pdf  used on inp
-ut line 354.
+ut line 356.
 (pdftex.def)             Requested size: 218.51521pt x 233.1965pt.
 <figures/naturalistic_llama31_70b_scores.pdf, id=533, 243.92065pt x 255.94621pt
 >
 File: figures/naturalistic_llama31_70b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_llama31_70b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_llama31_70b_scores.pdf  used on i
-nput line 364.
+nput line 366.
 (pdftex.def)             Requested size: 218.51521pt x 229.2989pt.
 
 [14] [15 <./figures/naturalistic_gemma2_2b_scores.pdf> <./figures/naturalistic_
@@ -803,25 +803,25 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 File: figures/llama70b_layer36_intervention.pdf Graphic file (type pdf)
 <use figures/llama70b_layer36_intervention.pdf>
 Package pdftex.def Info: figures/llama70b_layer36_intervention.pdf  used on inp
-ut line 382.
+ut line 384.
 (pdftex.def)             Requested size: 218.51521pt x 142.6567pt.
  [19
 
 ] [20 <./figures/llama70b_layer36_intervention.pdf>]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 395.
+(Font)              scaled to size 9.0pt on input line 397.
 
-Underfull \hbox (badness 6236) in paragraph at lines 395--397
+Underfull \hbox (badness 6236) in paragraph at lines 397--399
 \T1/zi4/m/n/9 Question: Does [modifier/relative
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--417
+Underfull \hbox (badness 10000) in paragraph at lines 417--419
 \T1/zi4/m/n/9 Question: How strongly does
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--417
+Underfull \hbox (badness 10000) in paragraph at lines 417--419
 \T1/zi4/m/n/9 [modifier/relative clause] explain
  []
 
@@ -834,7 +834,7 @@ pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 527.
+ input line 529.
 (pdftex.def)             Requested size: 455.24411pt x 195.94083pt.
  [22
 
@@ -875,7 +875,7 @@ xlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on acl_latex.pdf (23 pages, 620917 bytes).
+Output written on acl_latex.pdf (23 pages, 620919 bytes).
 PDF statistics:
  833 PDF objects out of 1000 (max. 8388607)
  642 compressed objects within 7 object streams
