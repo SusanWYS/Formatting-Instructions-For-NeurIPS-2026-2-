@@ -254,7 +254,7 @@ To test demographics-related bias in language models, we adapt 65 decision scena
 The demographic slot D takes \emph{white male}, \emph{white female}, \emph{Black male}, or \emph{Black female}, whereas the non-demographic slot ND takes \emph{at the consulate}. A demographic item fills D and leaves ND empty. The baseline fills ND and leaves D empty. \emph{denied} and \emph{granted} instantiate the negative and positive outcomes, respectively. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
 \paragraph{Evaluation.}
-As in previous evaluation, we project each naturalistic sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. We divide each projection by that model's mean critical-minus-control training gap, $g_m$:
+As in prior evaluations, we project each naturalistic sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. We divide each projection by that model's mean critical-minus-control training gap, $g_m$:
 \begin{equation}
 \begin{aligned}
 g_m&=\frac{1}{N}\sum_{i=1}^{N}
@@ -266,21 +266,29 @@ g_m&=\frac{1}{N}\sum_{i=1}^{N}
 Intuitively, one unit of $\widetilde{s}_m$ equals model $m$'s average causal training contrast, making projection differences more comparable across models.
 
 Second, we present the naturalistic sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale from Section~\ref{sec:behavior}. Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario. 
+For projections, we have
 \begin{equation}
 \begin{aligned}
 \delta_{\mathrm{proj}}(m,j,c)
 &=\widetilde{s}_m(x_{j,c})-\widetilde{s}_m(x_{j,\mathrm{WM}}),\\
-\delta_{\mathrm{rating}}(m,j,c)
-&=r_m(x_{j,c})-r_m(x_{j,\mathrm{WM}}),\\
 \Delta_{\mathrm{proj}}(c)
 &=\frac{1}{JM}\sum_{j=1}^{J}\sum_{m=1}^{M}
-\delta_{\mathrm{proj}}(m,j,c),\\
+\delta_{\mathrm{proj}}(m,j,c).
+\end{aligned}
+\label{eq:naturalistic-white-male-contrasts}
+\end{equation}
+For likert ratings, we use
+\begin{equation}
+\begin{aligned}
+\delta_{\mathrm{rating}}(m,j,c)
+&=r_m(x_{j,c})-r_m(x_{j,\mathrm{WM}}),\\
 \Delta_{\mathrm{rating}}(c)
 &=\frac{1}{JM}\sum_{j=1}^{J}\sum_{m=1}^{M}
 \delta_{\mathrm{rating}}(m,j,c).
 \end{aligned}
 \label{eq:naturalistic-white-male-contrasts}
 \end{equation}
+
 We then average these differences equally across the all models and scenarios. In particular, white men provide a useful reference because they are the socially advantaged group along both demographic dimensions. It would be interesting to study the shifts associated with gender and minority status in comparison to white males. 
 
 For both $\delta_{\mathrm{proj}}$ and $\delta_{\mathrm{rating}}$, a positive difference indicates a higher score than the corresponding white-male item. Appendix~\ref{app:naturalistic-model-results} reports each demographic condition relative to the non-demographic baseline.
