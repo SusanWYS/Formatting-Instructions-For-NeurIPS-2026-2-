@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  12 OCT 2026 03:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  12 OCT 2026 04:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -646,59 +646,59 @@ n/10.95 (+20) and $\OMS/cmsy/m/n/10.95 N \OT1/cmr/m/n/10.95 =
 <figures/rq1_behavior.pdf, id=170, 467.0894pt x 100.21696pt>
 File: figures/rq1_behavior.pdf Graphic file (type pdf)
 <use figures/rq1_behavior.pdf>
-Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 104.
-(pdftex.def)             Requested size: 364.19667pt x 78.14444pt.
+Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 111.
+(pdftex.def)             Requested size: 455.24411pt x 97.67978pt.
 [2{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
-Underfull \hbox (badness 1132) in paragraph at lines 140--141
+Underfull \hbox (badness 1132) in paragraph at lines 147--148
 \T1/ptm/m/n/10.95 (+20) rep-re-sented in model in-ter-nals, we use three
  []
 
 [3 <./figures/rq1_behavior.pdf>]
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=247, 771.72195pt x 236.6
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=248, 771.72195pt x 236.6
 698pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
-d on input line 179.
+d on input line 176.
 (pdftex.def)             Requested size: 455.24411pt x 139.61229pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=248, 466.40434pt x 99.61472pt>
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=249, 466.40434pt x 99.61472pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
-t line 187.
+t line 184.
 (pdftex.def)             Requested size: 409.71692pt x 87.51224pt.
 
-Underfull \hbox (badness 2671) in paragraph at lines 194--195
+Underfull \hbox (badness 2671) in paragraph at lines 191--192
  []\T1/ptm/b/n/10.95 (+20) Results.[] \T1/ptm/m/n/10.95 (+20) The CAA di-rec-ti
 ons are rel-a-tively
  []
 
 
-Underfull \hbox (badness 3590) in paragraph at lines 196--197
+Underfull \hbox (badness 3590) in paragraph at lines 193--194
 \T1/ptm/m/n/10.95 (+20) cross-sentence ex-plana-tory re-la-tions trans-fers
  []
 
-<figures/intervention_alpha_sweep.pdf, id=259, 505.53586pt x 239.55779pt>
+<figures/intervention_alpha_sweep.pdf, id=260, 505.53586pt x 239.55779pt>
 File: figures/intervention_alpha_sweep.pdf Graphic file (type pdf)
 <use figures/intervention_alpha_sweep.pdf>
 Package pdftex.def Info: figures/intervention_alpha_sweep.pdf  used on input li
-ne 211.
+ne 208.
 (pdftex.def)             Requested size: 409.71692pt x 194.15039pt.
 [4] [5 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf> <./figures/rq2b_ca
 usal_ood_caa_accuracy.pdf>]
-Underfull \hbox (badness 2828) in paragraph at lines 227--228
+Underfull \hbox (badness 2828) in paragraph at lines 226--227
  []\T1/ptm/b/n/10.95 (+20) Evaluation.[] \T1/ptm/m/n/10.95 (+20) As in pre-vi-o
 us eval-u-a-tion, we
  []
 
-<figures/naturalistic_combined_scores_seven_model.pdf, id=353, 240.84666pt x 25
+<figures/naturalistic_combined_scores_seven_model.pdf, id=354, 240.84666pt x 25
 5.94621pt>
 File: figures/naturalistic_combined_scores_seven_model.pdf Graphic file (type p
 df)
 <use figures/naturalistic_combined_scores_seven_model.pdf>
 Package pdftex.def Info: figures/naturalistic_combined_scores_seven_model.pdf  
-used on input line 260.
+used on input line 259.
 (pdftex.def)             Requested size: 219.08614pt x 232.8216pt.
 [6 <./figures/intervention_alpha_sweep.pdf>] (./acl_latex.bbl [7 <./figures/nat
 uralistic_combined_scores_seven_model.pdf>]
@@ -719,45 +719,45 @@ Underfull \hbox (badness 4543) in paragraph at lines 109--119
 File: figures/naturalistic_gemma2_2b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_gemma2_2b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_gemma2_2b_scores.pdf  used on inp
-ut line 336.
+ut line 335.
 (pdftex.def)             Requested size: 218.51521pt x 228.34988pt.
 <figures/naturalistic_gemma2_9b_scores.pdf, id=538, 240.84666pt x 255.94621pt>
 File: figures/naturalistic_gemma2_9b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_gemma2_9b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_gemma2_9b_scores.pdf  used on inp
-ut line 340.
+ut line 339.
 (pdftex.def)             Requested size: 218.51521pt x 232.21625pt.
 <figures/naturalistic_qwen3_4b_scores.pdf, id=541, 240.84666pt x 255.94621pt>
 File: figures/naturalistic_qwen3_4b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_qwen3_4b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_qwen3_4b_scores.pdf  used on inpu
-t line 350.
+t line 349.
 (pdftex.def)             Requested size: 218.51521pt x 232.21625pt.
 <figures/naturalistic_qwen3_8b_scores.pdf, id=542, 244.92441pt x 255.94621pt>
 File: figures/naturalistic_qwen3_8b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_qwen3_8b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_qwen3_8b_scores.pdf  used on inpu
-t line 354.
+t line 353.
 (pdftex.def)             Requested size: 218.51521pt x 228.34988pt.
 <figures/naturalistic_llama32_3b_scores.pdf, id=545, 240.84666pt x 255.94621pt>
 
 File: figures/naturalistic_llama32_3b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_llama32_3b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_llama32_3b_scores.pdf  used on in
-put line 364.
+put line 363.
 (pdftex.def)             Requested size: 218.51521pt x 232.21625pt.
 <figures/naturalistic_llama3_8b_scores.pdf, id=546, 240.84666pt x 255.94621pt>
 File: figures/naturalistic_llama3_8b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_llama3_8b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_llama3_8b_scores.pdf  used on inp
-ut line 368.
+ut line 367.
 (pdftex.def)             Requested size: 218.51521pt x 232.21625pt.
 <figures/naturalistic_llama31_70b_scores.pdf, id=549, 244.92441pt x 255.94621pt
 >
 File: figures/naturalistic_llama31_70b_scores.pdf Graphic file (type pdf)
 <use figures/naturalistic_llama31_70b_scores.pdf>
 Package pdftex.def Info: figures/naturalistic_llama31_70b_scores.pdf  used on i
-nput line 378.
+nput line 377.
 (pdftex.def)             Requested size: 218.51521pt x 228.34988pt.
  [15 <./figures/naturalistic_gemma2_2b_scores.pdf> <./figures/naturalistic_gemm
 a2_9b_scores.pdf> <./figures/naturalistic_qwen3_4b_scores.pdf> <./figures/natur
@@ -776,22 +776,22 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 File: figures/llama70b_layer36_intervention.pdf Graphic file (type pdf)
 <use figures/llama70b_layer36_intervention.pdf>
 Package pdftex.def Info: figures/llama70b_layer36_intervention.pdf  used on inp
-ut line 395.
+ut line 394.
 (pdftex.def)             Requested size: 219.08614pt x 143.02942pt.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 406.
+(Font)              scaled to size 9.0pt on input line 405.
 
-Underfull \hbox (badness 6236) in paragraph at lines 406--408
+Underfull \hbox (badness 6236) in paragraph at lines 405--407
 \T1/zi4/m/n/9 Question: Does [modifier/relative
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--428
+Underfull \hbox (badness 10000) in paragraph at lines 425--427
 \T1/zi4/m/n/9 Question: How strongly does
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--428
+Underfull \hbox (badness 10000) in paragraph at lines 425--427
 \T1/zi4/m/n/9 [modifier/relative clause] explain
  []
 
@@ -804,7 +804,7 @@ pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 538.
+ input line 537.
 (pdftex.def)             Requested size: 455.24411pt x 195.94083pt.
  [21
 
@@ -818,12 +818,12 @@ Package rerunfilecheck Info: File `acl_latex.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  16500 strings out of 476106
- 266431 string characters out of 5793933
+ 266434 string characters out of 5793933
  2022975 words of memory out of 5000000
  37607 multiletter control sequences out of 15000+600000
  633787 words of font info for 431 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 84i,15n,93p,1302b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,93p,1302b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
 r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy9
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
@@ -845,7 +845,7 @@ xmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on acl_latex.pdf (22 pages, 631635 bytes).
+Output written on acl_latex.pdf (22 pages, 631378 bytes).
 PDF statistics:
  844 PDF objects out of 1000 (max. 8388607)
  650 compressed objects within 7 object streams

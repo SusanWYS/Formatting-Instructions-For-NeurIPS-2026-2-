@@ -95,7 +95,14 @@ The two remaining measures do not directly prompt the models to attribute causal
 
 For \textbf{Because-And (surprisal)}, we rewrite each item as the outcome followed by the modifier content, joined with either \emph{because} or \emph{and}. For example, the sentence  \emph{The executive who wore a blue silk tie was fired} yields \emph{The executive was fired because the executive wore a blue silk tie.} and \emph{The executive was fired, and the executive wore a blue silk tie.} We score the same modifier tokens, including the final period, after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}. Larger values indicate a stronger preference for an directly causal connection. We expect the critical member of a pair to have the larger score (larger log probability gap).
 \paragraph{Metrics.}
-For all four measures, paired accuracy is the proportion of pairs in which the critical item receives a strictly higher score than its control with ties counting as incorrect. See Appendix~\ref{app:behavior-details} for prompts and token-level definitions.
+For all four measures, paired accuracy is the proportion of pairs in which the critical item receives a strictly higher score than its control. For an evaluation set of $N_{\mathrm{eval}}$ matched pairs,
+\begin{equation}
+\operatorname{Acc}_{\mathrm{pair}}
+=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}
+\mathbf{1}\!\left(s(x_i^{\mathrm{crit}})>s(x_i^{\mathrm{ctrl}})\right).
+\label{eq:paired-accuracy-main}
+\end{equation}
+Ties count as incorrect. See Appendix~\ref{app:behavior-details} for prompts and token-level definitions.
 
 \paragraph{Models.} In all experiments, we test the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}.
 
@@ -162,16 +169,7 @@ s_{\ell}(x)=
 {\lVert\mathbf{v}_{\ell}\rVert_2}.
 \label{eq:caa-score-main}
 \end{equation}
-For an evaluation set of $N_{\mathrm{eval}}$ matched pairs, pairwise accuracy is
-\begin{equation}
-\begin{aligned}
-\operatorname{Acc}_{\mathrm{pair}}(\ell)
-  &=\frac{1}{N_{\mathrm{eval}}}\sum_{i=1}^{N_{\mathrm{eval}}}\mathbf{1}(s_{\ell}(x_i^{\mathrm{crit}})>s_{\ell}(x_i^{\mathrm{ctrl}}))\\[-2pt]
-  &\qquad{}+\tfrac{1}{2}\mathbf{1}(s_{\ell}(x_i^{\mathrm{crit}})=s_{\ell}(x_i^{\mathrm{ctrl}})).
-\end{aligned}
-\label{eq:caa-accuracy-main}
-\end{equation}
-Thus, an evaluation pair is correct when its critical item projects farther along the direction than its control. Ties receive half credit. See Appendix~\ref{app:caa-details} for data partitions, layer selection, and further implementation details.
+We calculate paired accuracy over these projection scores using Equation~\ref{eq:paired-accuracy-main}. See Appendix~\ref{app:caa-details} for data partitions, layer selection, and further implementation details.
 
 \begin{figure*}[t]
   \centering
