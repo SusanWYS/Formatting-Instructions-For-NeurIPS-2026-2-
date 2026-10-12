@@ -83,6 +83,11 @@ def parse_args() -> argparse.Namespace:
         default=Path("derived/naturalistic_white_male_reference_scores_seven_model.csv"),
     )
     parser.add_argument(
+        "--per-model-white-male-reference-csv",
+        type=Path,
+        default=Path("derived/naturalistic_white_male_reference_scores_per_model.csv"),
+    )
+    parser.add_argument(
         "--calibration-csv",
         type=Path,
         default=Path("derived/causal_train_projection_gaps.csv"),
@@ -378,6 +383,61 @@ def summarize_white_male_reference(
     return pd.DataFrame(rows)
 
 
+def summarize_per_model_white_male_reference(
+    scores: pd.DataFrame, repetitions: int
+) -> pd.DataFrame:
+    """Summarize Figure-5-style contrasts separately for every model."""
+    reference = (
+        scores[scores["condition"] == "white_male"][
+            ["metric", "outcome", "decision_question_id", "model_key", "score"]
+        ]
+        .rename(columns={"score": "white_male_score"})
+    )
+    contrasts = scores[
+        scores["condition"].isin((*PLOT_CONDITIONS, BASELINE))
+    ].merge(
+        reference,
+        on=["metric", "outcome", "decision_question_id", "model_key"],
+        how="left",
+        validate="many_to_one",
+    )
+    if contrasts["white_male_score"].isna().any():
+        raise ValueError("Missing matched white-male reference")
+    contrasts["difference"] = contrasts["score"] - contrasts["white_male_score"]
+
+    rng = np.random.default_rng(20261004)
+    rows = []
+    for keys, group in contrasts.groupby(
+        ["metric", "outcome", "condition", "model_key"],
+        sort=False,
+        observed=True,
+    ):
+        values = group.sort_values("decision_question_id")["difference"].to_numpy()
+        samples = rng.choice(
+            values, size=(repetitions, len(values)), replace=True
+        ).mean(axis=1)
+        low, high = np.quantile(samples, [0.025, 0.975])
+        rows.append(
+            {
+                "metric": keys[0],
+                "score_units": (
+                    "causal_training_gap"
+                    if keys[0] == "CAA projection"
+                    else "Likert points"
+                ),
+                "outcome": keys[1],
+                "condition": keys[2],
+                "model": keys[3],
+                "reference_condition": "white_male",
+                "mean": values.mean(),
+                "ci_low": low,
+                "ci_high": high,
+                "n_scenarios": len(values),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> pd.Series:
     row = summary[
         (summary["metric"] == metric)
@@ -389,7 +449,7 @@ def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> 
     return row.iloc[0]
 
 
-def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
+def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
     """Plot outcomes by column and metrics by row in a one-column figure."""
     colors = {"positive": "#5E7436", "negative": "#D0685B"}
     plt.rcParams.update(
@@ -519,132 +579,19 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path) -> None:
         left=0.19, right=0.985, bottom=0.16, top=0.88, wspace=0.16, hspace=0.20
     )
     output_dir.mkdir(parents=True, exist_ok=True)
-    stem = "naturalistic_combined_scores_seven_model"
     figure.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.015)
     plt.close(figure)
 
 
-def plot_per_model_differences(per_model: pd.DataFrame, output_dir: Path) -> None:
-    """Plot demographic-minus-baseline contrasts separately for every model."""
-    colors = {"positive": "#5E7436", "negative": "#D0685B"}
-    condition_labels = (
-        "White\nmale",
-        "White\nfemale",
-        "Minority\nmale",
-        "Minority\nfemale",
-    )
-    plt.rcParams.update(
-        {
-            "font.family": "sans-serif",
-            "font.sans-serif": ["DejaVu Sans"],
-            "mathtext.fontset": "dejavusans",
-            "font.size": 7.2,
-            "axes.labelsize": 7.4,
-            "axes.titlesize": 7.4,
-            "xtick.labelsize": 5.6,
-            "ytick.labelsize": 6.2,
-            "legend.fontsize": 6.8,
-            "axes.linewidth": 0.65,
-            "pdf.fonttype": 42,
-            "ps.fonttype": 42,
-        }
-    )
-
-    output_dir.mkdir(parents=True, exist_ok=True)
-    x = np.arange(len(CONDITIONS))
-    width = 0.34
-    for metric, stem, ylabel in (
-        (
-            "CAA projection",
-            "naturalistic_per_model_projection",
-            r"$\Delta$ Projection",
-        ),
-        (
-            "Likert rating",
-            "naturalistic_per_model_rating",
-            r"$\Delta$ Rating",
-        ),
-    ):
-        metric_rows = per_model[per_model["metric"] == metric]
-        ymin = min(0.0, float(metric_rows["ci_low"].min()))
-        ymax = max(0.0, float(metric_rows["ci_high"].max()))
-        yrange = ymax - ymin
-        if yrange == 0:
-            yrange = max(abs(ymin), 1.0)
-        ylim = (ymin - 0.09 * yrange, ymax + 0.09 * yrange)
-
-        figure, axes = plt.subplots(
-            2,
-            4,
-            figsize=(7.15, 4.15),
-            sharex=True,
-            sharey=True,
+def plot_per_model_combined(
+    per_model_summary: pd.DataFrame, output_dir: Path
+) -> None:
+    """Render one exact Figure-5-style plot for each model."""
+    for model in MODELS:
+        summary = per_model_summary[per_model_summary["model"] == model].drop(
+            columns="model"
         )
-        flat_axes = axes.ravel()
-        for model_index, model in enumerate(MODELS):
-            axis = flat_axes[model_index]
-            for outcome_index, outcome in enumerate(("positive", "negative")):
-                rows = (
-                    metric_rows[
-                        (metric_rows["model"] == model)
-                        & (metric_rows["outcome"] == outcome)
-                    ]
-                    .set_index("condition")
-                    .loc[list(CONDITIONS)]
-                )
-                means = rows["mean"].to_numpy()
-                lows = rows["ci_low"].to_numpy()
-                highs = rows["ci_high"].to_numpy()
-                offset = (-0.5 if outcome_index == 0 else 0.5) * width
-                axis.bar(
-                    x + offset,
-                    means,
-                    width=width,
-                    color=colors[outcome],
-                    edgecolor="black",
-                    linewidth=0.4,
-                    yerr=np.vstack((means - lows, highs - means)),
-                    capsize=1.5,
-                    error_kw={"elinewidth": 0.65, "capthick": 0.65},
-                    label=f"{outcome.capitalize()} outcomes",
-                    zorder=3,
-                )
-            axis.set_title(MODEL_LABELS[model], fontweight="normal", pad=2.5)
-            axis.set_ylim(*ylim)
-            axis.axhline(0.0, color="#777777", linewidth=0.65, zorder=2)
-            axis.grid(axis="y", color="#dddddd", linewidth=0.5, zorder=0)
-            axis.spines[["top", "right"]].set_visible(False)
-            axis.set_xticks(x, condition_labels)
-            axis.tick_params(axis="x", pad=1.5)
-
-        flat_axes[-1].set_visible(False)
-        handles, labels = flat_axes[0].get_legend_handles_labels()
-        figure.legend(
-            handles,
-            labels,
-            loc="upper center",
-            bbox_to_anchor=(0.5, 0.995),
-            frameon=False,
-            ncol=2,
-            handlelength=1.8,
-            columnspacing=1.5,
-        )
-        figure.supylabel(ylabel, x=0.012, fontsize=7.4)
-        figure.supxlabel("Demographic condition", y=0.015, fontsize=7.4)
-        figure.subplots_adjust(
-            left=0.075,
-            right=0.992,
-            bottom=0.13,
-            top=0.88,
-            wspace=0.20,
-            hspace=0.34,
-        )
-        figure.savefig(
-            output_dir / f"{stem}.pdf",
-            bbox_inches="tight",
-            pad_inches=0.015,
-        )
-        plt.close(figure)
+        plot_combined(summary, output_dir, f"naturalistic_{model}_scores")
 
 
 def main() -> None:
@@ -659,6 +606,9 @@ def main() -> None:
     difference_summary = summarize_paired_differences(scores, args.bootstrap_repetitions)
     per_model = summarize_per_model_differences(scores, args.bootstrap_repetitions)
     white_male_reference = summarize_white_male_reference(
+        scores, args.bootstrap_repetitions
+    )
+    per_model_white_male_reference = summarize_per_model_white_male_reference(
         scores, args.bootstrap_repetitions
     )
     args.summary_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -677,8 +627,18 @@ def main() -> None:
     white_male_reference.sort_values(["outcome", "metric", "condition"]).to_csv(
         args.white_male_reference_csv, index=False
     )
-    plot_combined(white_male_reference, args.output_dir)
-    plot_per_model_differences(per_model, args.output_dir)
+    args.per_model_white_male_reference_csv.parent.mkdir(
+        parents=True, exist_ok=True
+    )
+    per_model_white_male_reference.sort_values(
+        ["outcome", "metric", "model", "condition"]
+    ).to_csv(args.per_model_white_male_reference_csv, index=False)
+    plot_combined(
+        white_male_reference,
+        args.output_dir,
+        "naturalistic_combined_scores_seven_model",
+    )
+    plot_per_model_combined(per_model_white_male_reference, args.output_dir)
 
 
 if __name__ == "__main__":

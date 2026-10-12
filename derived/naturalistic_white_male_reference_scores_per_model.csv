@@ -1,0 +1,113 @@
+metric,score_units,outcome,condition,model,reference_condition,mean,ci_low,ci_high,n_scenarios
+CAA projection,causal_training_gap,negative,minority_female,gemma2_2b,white_male,0.052131833060178386,0.03323824504642934,0.0696420030754241,65
+CAA projection,causal_training_gap,negative,minority_male,gemma2_2b,white_male,0.03102542181408564,0.013084052427464292,0.04855859995805097,65
+CAA projection,causal_training_gap,negative,race_gender_agnostic,gemma2_2b,white_male,0.045133939413104535,0.004361329271728962,0.0855869220791288,65
+CAA projection,causal_training_gap,negative,white_female,gemma2_2b,white_male,-0.02008439723576168,-0.026481919151267328,-0.013946595177288945,65
+CAA projection,causal_training_gap,negative,minority_female,gemma2_9b,white_male,-0.009372746128076906,-0.022731622104068434,0.003222213896681947,65
+CAA projection,causal_training_gap,negative,minority_male,gemma2_9b,white_male,0.0015257961052757144,-0.009989199349599744,0.012711730358085442,65
+CAA projection,causal_training_gap,negative,race_gender_agnostic,gemma2_9b,white_male,-0.10603883569600617,-0.1553288934235392,-0.055505787483612415,65
+CAA projection,causal_training_gap,negative,white_female,gemma2_9b,white_male,-0.02160460251809795,-0.02845713106091434,-0.014977423926255251,65
+CAA projection,causal_training_gap,negative,minority_female,llama31_70b,white_male,0.005423386657254646,-0.004949195354889799,0.015534108334019012,65
+CAA projection,causal_training_gap,negative,minority_male,llama31_70b,white_male,-0.011974287378170845,-0.02135701829912171,-0.002267770613511355,65
+CAA projection,causal_training_gap,negative,race_gender_agnostic,llama31_70b,white_male,-0.08712495363293239,-0.12045433440295522,-0.054330748604607404,65
+CAA projection,causal_training_gap,negative,white_female,llama31_70b,white_male,0.0016487777736660409,-0.0026322516387691946,0.0059960646125711715,65
+CAA projection,causal_training_gap,negative,minority_female,llama32_3b,white_male,0.008023707000165376,-0.009903385432787954,0.026310394809305956,65
+CAA projection,causal_training_gap,negative,minority_male,llama32_3b,white_male,-0.019893082199962903,-0.03804768538528848,-0.001261792433931018,65
+CAA projection,causal_training_gap,negative,race_gender_agnostic,llama32_3b,white_male,-0.07539858398455174,-0.11845440085098767,-0.031662085616101475,65
+CAA projection,causal_training_gap,negative,white_female,llama32_3b,white_male,-0.025369270288949156,-0.033929773401759816,-0.017291417220994316,65
+CAA projection,causal_training_gap,negative,minority_female,llama3_8b,white_male,0.0039062289732451757,-0.015314878670045343,0.02275068648458293,65
+CAA projection,causal_training_gap,negative,minority_male,llama3_8b,white_male,-0.012032989452241833,-0.032679677261845175,0.008578172320063677,65
+CAA projection,causal_training_gap,negative,race_gender_agnostic,llama3_8b,white_male,-0.005984419126273685,-0.05344363045515337,0.04080451372123355,65
+CAA projection,causal_training_gap,negative,white_female,llama3_8b,white_male,-0.016572567583141986,-0.02373633837508077,-0.009648074068229496,65
+CAA projection,causal_training_gap,negative,minority_female,qwen3_4b,white_male,0.023909673232795862,0.00863611336378121,0.039094286568399306,65
+CAA projection,causal_training_gap,negative,minority_male,qwen3_4b,white_male,0.00690525133345353,-0.008029743504907457,0.022053607955957327,65
+CAA projection,causal_training_gap,negative,race_gender_agnostic,qwen3_4b,white_male,-0.03699938988207243,-0.07521040095331155,0.0012752236034841238,65
+CAA projection,causal_training_gap,negative,white_female,qwen3_4b,white_male,0.014383289086262952,0.007173594932582096,0.02190117955135227,65
+CAA projection,causal_training_gap,negative,minority_female,qwen3_8b,white_male,0.06989258918702904,0.0528931482690274,0.086329340465714,65
+CAA projection,causal_training_gap,negative,minority_male,qwen3_8b,white_male,0.045928395527141126,0.029055172900645496,0.06185314388296803,65
+CAA projection,causal_training_gap,negative,race_gender_agnostic,qwen3_8b,white_male,-0.018282160018053963,-0.06465078408521842,0.02646704026941639,65
+CAA projection,causal_training_gap,negative,white_female,qwen3_8b,white_male,0.02353673403498184,0.012321272021530846,0.03351595305274401,65
+Likert rating,Likert points,negative,minority_female,gemma2_2b,white_male,-0.07308294849675494,-0.0991783302049528,-0.048409089785811564,65
+Likert rating,Likert points,negative,minority_male,gemma2_2b,white_male,-0.04224921602047833,-0.06685548596358677,-0.018611123109673253,65
+Likert rating,Likert points,negative,race_gender_agnostic,gemma2_2b,white_male,-0.07667763112013663,-0.1270305662022028,-0.027421673596210214,65
+Likert rating,Likert points,negative,white_female,gemma2_2b,white_male,-0.014188204414334082,-0.027382440448678175,-0.0014331298289233343,65
+Likert rating,Likert points,negative,minority_female,gemma2_9b,white_male,0.07811076931904838,0.05146180739565307,0.1040574129056788,65
+Likert rating,Likert points,negative,minority_male,gemma2_9b,white_male,0.0381089773200356,0.020225291335308284,0.055623205499474526,65
+Likert rating,Likert points,negative,race_gender_agnostic,gemma2_9b,white_male,-0.03445274675273554,-0.07858994053356563,0.005739149282731749,65
+Likert rating,Likert points,negative,white_female,gemma2_9b,white_male,0.02330712346113004,0.008880857453279932,0.037596102645825365,65
+Likert rating,Likert points,negative,minority_female,llama31_70b,white_male,0.04195042111268921,0.00885558117165475,0.07470491671812762,65
+Likert rating,Likert points,negative,minority_male,llama31_70b,white_male,0.039095187663599366,0.004317666486364799,0.07398034604694709,65
+Likert rating,Likert points,negative,race_gender_agnostic,llama31_70b,white_male,-0.057157094729412904,-0.1355948348894965,0.022946085262389358,65
+Likert rating,Likert points,negative,white_female,llama31_70b,white_male,0.020611609475367325,-0.0010868481619256724,0.04199834383490487,65
+Likert rating,Likert points,negative,minority_female,llama32_3b,white_male,-0.10781914023949202,-0.1463324290750174,-0.06882574346686898,65
+Likert rating,Likert points,negative,minority_male,llama32_3b,white_male,-0.09658149137807286,-0.13556056798962457,-0.05937594703348985,65
+Likert rating,Likert points,negative,race_gender_agnostic,llama32_3b,white_male,-0.04326094369208327,-0.11193292944250054,0.02271582224677919,65
+Likert rating,Likert points,negative,white_female,llama32_3b,white_male,-0.06534548048038383,-0.0882849704149664,-0.041446029799862116,65
+Likert rating,Likert points,negative,minority_female,llama3_8b,white_male,0.04594684810116138,0.0009937832862296962,0.09064497083032676,65
+Likert rating,Likert points,negative,minority_male,llama3_8b,white_male,-0.029529403829684605,-0.07226697906899546,0.013831261844595402,65
+Likert rating,Likert points,negative,race_gender_agnostic,llama3_8b,white_male,0.044455335658844075,-0.07670650655615492,0.16974503416215558,65
+Likert rating,Likert points,negative,white_female,llama3_8b,white_male,0.044419700175127634,0.01627703220846477,0.0704154426645426,65
+Likert rating,Likert points,negative,minority_female,qwen3_4b,white_male,0.17634427847072007,0.13495884122169136,0.21703209569260698,65
+Likert rating,Likert points,negative,minority_male,qwen3_4b,white_male,0.08785579441223558,0.045566102979935325,0.13104088505796216,65
+Likert rating,Likert points,negative,race_gender_agnostic,qwen3_4b,white_male,0.013077591265427558,-0.0734852713600288,0.10168258268356622,65
+Likert rating,Likert points,negative,white_female,qwen3_4b,white_male,0.03779559801907814,0.009043994337088884,0.06620551966822556,65
+Likert rating,Likert points,negative,minority_female,qwen3_8b,white_male,0.21801116666001658,0.15157811149466727,0.2850384303863669,65
+Likert rating,Likert points,negative,minority_male,qwen3_8b,white_male,0.09328183613847651,0.02609040449574829,0.16075869615714608,65
+Likert rating,Likert points,negative,race_gender_agnostic,qwen3_8b,white_male,-0.20367636243843013,-0.29139954691877523,-0.11318082390783797,65
+Likert rating,Likert points,negative,white_female,qwen3_8b,white_male,0.0020295930470742526,-0.03263861088481991,0.03642460017415247,65
+CAA projection,causal_training_gap,positive,minority_female,gemma2_2b,white_male,0.10261256234562444,0.08313388585780401,0.12120980505952028,65
+CAA projection,causal_training_gap,positive,minority_male,gemma2_2b,white_male,0.06565427025278081,0.04752393731517433,0.08402781763885599,65
+CAA projection,causal_training_gap,positive,race_gender_agnostic,gemma2_2b,white_male,0.09807139220375835,0.04925315919162413,0.1441049942509691,65
+CAA projection,causal_training_gap,positive,white_female,gemma2_2b,white_male,-0.010299249385576232,-0.01649221455808969,-0.004454901888533974,65
+CAA projection,causal_training_gap,positive,minority_female,gemma2_9b,white_male,0.02682220182092019,0.011752515230866536,0.0416788854839336,65
+CAA projection,causal_training_gap,positive,minority_male,gemma2_9b,white_male,0.02426939993229424,0.01130087525522905,0.037276179925357845,65
+CAA projection,causal_training_gap,positive,race_gender_agnostic,gemma2_9b,white_male,-0.02050461325019352,-0.06915290314553843,0.026370533006386778,65
+CAA projection,causal_training_gap,positive,white_female,gemma2_9b,white_male,-0.002563192740638638,-0.009366955643632562,0.003910872438890051,65
+CAA projection,causal_training_gap,positive,minority_female,llama31_70b,white_male,0.00878948962655828,-0.0025996598672984057,0.02014279440302625,65
+CAA projection,causal_training_gap,positive,minority_male,llama31_70b,white_male,-0.009852307744196376,-0.021266011091264244,0.0015805950043747627,65
+CAA projection,causal_training_gap,positive,race_gender_agnostic,llama31_70b,white_male,-0.05862057887913744,-0.09341441328680103,-0.02557903464401771,65
+CAA projection,causal_training_gap,positive,white_female,llama31_70b,white_male,-0.003974315072850303,-0.00986084046806959,0.001714474464626895,65
+CAA projection,causal_training_gap,positive,minority_female,llama32_3b,white_male,0.037055332401571064,0.016539313833091963,0.05806626494402008,65
+CAA projection,causal_training_gap,positive,minority_male,llama32_3b,white_male,0.0011222330745395141,-0.020524634265190852,0.022883570388775393,65
+CAA projection,causal_training_gap,positive,race_gender_agnostic,llama32_3b,white_male,0.01803495417907847,-0.038456986218369675,0.07364975068897756,65
+CAA projection,causal_training_gap,positive,white_female,llama32_3b,white_male,-0.001121957524809595,-0.010692897005787723,0.008204476261751536,65
+CAA projection,causal_training_gap,positive,minority_female,llama3_8b,white_male,0.041623531137476424,0.021533320369593354,0.06070257765988838,65
+CAA projection,causal_training_gap,positive,minority_male,llama3_8b,white_male,0.011573316007217472,-0.00960690490653487,0.031855438631980613,65
+CAA projection,causal_training_gap,positive,race_gender_agnostic,llama3_8b,white_male,0.011658251695279462,-0.039965659434850045,0.06282649792146813,65
+CAA projection,causal_training_gap,positive,white_female,llama3_8b,white_male,0.0005874372180219693,-0.00714818789767897,0.007975423063768238,65
+CAA projection,causal_training_gap,positive,minority_female,qwen3_4b,white_male,0.0239067233809846,0.008321902464231664,0.038481913144948775,65
+CAA projection,causal_training_gap,positive,minority_male,qwen3_4b,white_male,0.0050064573367010375,-0.00892807153535774,0.018303041329801546,65
+CAA projection,causal_training_gap,positive,race_gender_agnostic,qwen3_4b,white_male,-0.004723018924446889,-0.046938938069841646,0.03633698381598401,65
+CAA projection,causal_training_gap,positive,white_female,qwen3_4b,white_male,0.017651398936052564,0.010845855267541176,0.02442831267613863,65
+CAA projection,causal_training_gap,positive,minority_female,qwen3_8b,white_male,0.05415275258918149,0.033105813079526716,0.07428201815831763,65
+CAA projection,causal_training_gap,positive,minority_male,qwen3_8b,white_male,0.025675896127591084,0.009217217996386962,0.04207580491367777,65
+CAA projection,causal_training_gap,positive,race_gender_agnostic,qwen3_8b,white_male,0.014421102393907162,-0.0314509304074105,0.05985435148333787,65
+CAA projection,causal_training_gap,positive,white_female,qwen3_8b,white_male,0.024834061898612047,0.014163685591346184,0.03484927588817918,65
+Likert rating,Likert points,positive,minority_female,gemma2_2b,white_male,-0.04593942799081394,-0.07821404595003148,-0.015574153958172663,65
+Likert rating,Likert points,positive,minority_male,gemma2_2b,white_male,-0.021103163282862457,-0.050608311784140395,0.007701631837288573,65
+Likert rating,Likert points,positive,race_gender_agnostic,gemma2_2b,white_male,-0.02537870208532259,-0.0802381855467835,0.029882524633349138,65
+Likert rating,Likert points,positive,white_female,gemma2_2b,white_male,-0.02327662903405844,-0.039114152239362016,-0.00789469612240115,65
+Likert rating,Likert points,positive,minority_female,gemma2_9b,white_male,0.07703421663494125,0.04470604167814979,0.11043985855042081,65
+Likert rating,Likert points,positive,minority_male,gemma2_9b,white_male,0.043408011012958464,0.012219342408252511,0.07457466096596456,65
+Likert rating,Likert points,positive,race_gender_agnostic,gemma2_9b,white_male,-0.007330294545452033,-0.06121294013179581,0.045721199019245685,65
+Likert rating,Likert points,positive,white_female,gemma2_9b,white_male,0.046625891939896524,0.03024450882191605,0.06309878537721542,65
+Likert rating,Likert points,positive,minority_female,llama31_70b,white_male,-0.14243097242716002,-0.19008964128671554,-0.09673118209754927,65
+Likert rating,Likert points,positive,minority_male,llama31_70b,white_male,-0.1518068014745045,-0.19859957553138138,-0.10691007606179338,65
+Likert rating,Likert points,positive,race_gender_agnostic,llama31_70b,white_male,-0.056204063060782114,-0.1579288576572528,0.04587772313411506,65
+Likert rating,Likert points,positive,white_female,llama31_70b,white_male,-0.020851653447479784,-0.049087282820577456,0.005951177691660389,65
+Likert rating,Likert points,positive,minority_female,llama32_3b,white_male,-0.023862935392337366,-0.07093089879926022,0.024632529145124413,65
+Likert rating,Likert points,positive,minority_male,llama32_3b,white_male,-0.03564250580869431,-0.085791716713212,0.016070852833205886,65
+Likert rating,Likert points,positive,race_gender_agnostic,llama32_3b,white_male,-0.06001590374431159,-0.16950201981248628,0.041735617331749394,65
+Likert rating,Likert points,positive,white_female,llama32_3b,white_male,-0.01626825115099659,-0.04505006956891542,0.014422622396654138,65
+Likert rating,Likert points,positive,minority_female,llama3_8b,white_male,0.2135187617556829,0.15127017621920244,0.2746860612461937,65
+Likert rating,Likert points,positive,minority_male,llama3_8b,white_male,0.09205517073079172,0.04059521674590859,0.14657852024759385,65
+Likert rating,Likert points,positive,race_gender_agnostic,llama3_8b,white_male,0.209656167503617,0.055551724613642474,0.3733882140239814,65
+Likert rating,Likert points,positive,white_female,llama3_8b,white_male,0.12385392736577211,0.08284280858196268,0.16447963103611313,65
+Likert rating,Likert points,positive,minority_female,qwen3_4b,white_male,0.16441652037506813,0.0757759507687528,0.25682608789321865,65
+Likert rating,Likert points,positive,minority_male,qwen3_4b,white_male,-0.03656952204566832,-0.11280941873579627,0.0424828166367913,65
+Likert rating,Likert points,positive,race_gender_agnostic,qwen3_4b,white_male,0.6204189571058143,0.44472284274161583,0.7980754776318039,65
+Likert rating,Likert points,positive,white_female,qwen3_4b,white_male,0.10615939616892851,0.06719311434659132,0.14380463365598442,65
+Likert rating,Likert points,positive,minority_female,qwen3_8b,white_male,-0.11065179281504021,-0.17634544109547592,-0.04535223728924047,65
+Likert rating,Likert points,positive,minority_male,qwen3_8b,white_male,-0.24210529785177184,-0.3039156983964313,-0.17916500590451528,65
+Likert rating,Likert points,positive,race_gender_agnostic,qwen3_8b,white_male,-0.0742815712828892,-0.22813401330316949,0.07868963480576625,65
+Likert rating,Likert points,positive,white_female,qwen3_8b,white_male,-0.13109846951083182,-0.16564327428179051,-0.09569732646630064,65
