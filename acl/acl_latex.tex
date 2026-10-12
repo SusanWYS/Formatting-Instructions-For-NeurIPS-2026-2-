@@ -174,12 +174,13 @@ The behavioral results show that implicit causal relations affect model predicti
 \paragraph{Data.} To test if implicit causality is selectively represented in model internals, we use three datasets: Causal, Occasion (baseline), and Plausibility (baseline), all being matched critical/control pairs.
 
 First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. For CAA fitting and in-distribution evaluation, we use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalize to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}. An examplar pair is:
-\begin{samepage}
 \begin{quote}
+\begin{minipage}{\linewidth}
+\small
 \textit{Critical:} \emph{The potatoes sat in flooded fields for weeks. The potatoes rotted underground.}\\
 \textit{Control:} \emph{The potatoes grew near a wooden property line. The potatoes rotted underground.}
+\end{minipage}
 \end{quote}
-\end{samepage}
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from Section~\ref{sec:behavior}, where a potential explanation or incidental detail appears as the modifier or relative clause for the outcome.
 
 Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential} and standardize every evaluated sentence to begin with a capital letter and end with a period. For example:
