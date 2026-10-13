@@ -90,7 +90,7 @@ with potential implications for the development of safer and more aligned models
 
 \paragraph{Eliciture.}
 
-What a sentence communicates can go beyond its literal content. For example, a conversational implicature is an inference that a listener draws from an utterance even though it is not part of the utterance's literal meaning. Implicatures are commonly explained by reasoning about why a cooperative speaker chose one utterance over another \citep{grice-1975-logic}. Elicitures instead are thought to arise from coherence and world knowledge. In \emph{The boss fired the employee who is always late}, the defeasible causal link between the lateness and firing helps connect the two events \citep{cohen-kehler-2021-conversational}. Such expectations affect relative-clause and pronoun interpretation in humans \citep{rohde-etal-2011-anticipating,kehler-rohde-2019-prominence}. LM research has largely focused on implicatures and presuppositions \citep{hu-etal-2023-fine,hu-levy-2023-prompting}. To the best of our knowledge, \citet{pan-kehler-2025-pragmatic} is the only work that shows LMs draw elicitures and use them in subsequent processing. % We ask whether the same implicit causal inference can be found and manipulated in model activations.
+What a sentence communicates can go beyond its literal content. For example, a conversational implicature is an inference that a listener draws from an utterance even though it is not part of the utterance's literal meaning. Implicatures are commonly explained by reasoning about why a cooperative speaker chose one utterance over another \citep{grice-1975-logic}. Elicitures instead are thought to arise from coherence and world knowledge. In \emph{The boss fired the employee who is always late}, the defeasible causal link between the lateness and firing helps connect the two events \citep{cohen-kehler-2021-conversational}. Such expectations affect relative-clause and pronoun interpretation in humans \citep{rohde-etal-2011-anticipating,kehler-rohde-2019-prominence}. LM research has largely focused on implicatures and presuppositions \citep{hu-etal-2023-fine,jeretic-etal-2020-natural}. To the best of our knowledge, \citet{pan-kehler-2025-pragmatic} is the only work that shows LMs draw elicitures and use them in subsequent processing. % We ask whether the same implicit causal inference can be found and manipulated in model activations.
 
 \paragraph{Linear representations.}
 
@@ -203,7 +203,7 @@ However, this behavioral sensitivity does not by itself establish that models re
 
 The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is encoded in model internals. To address this, we identify model directions related to implicit causal inferences through contrastive training sets. We further evaluate if a representation learned from cross-sentence causal relationships generalizes to the weaker, non-mandated causal readings of within-sentence inferences.
 
-\paragraph{Data.} To test if implicit causality is selectively represented in model internals, we use three datasets: Causal, Occasion (baseline), and Plausibility (baseline), all containing matched critical/control pairs. We use Occasion and Plausibility as baselines because both require world knowledge but do not encode causal relations. Specifically, Occasion evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
+\paragraph{Data.} To test if implicit causality is selectively represented in model internals, we use three datasets: Causal, Occasion (baseline), and Plausibility (baseline), all containing matched critical/control pairs. We use Occasion and Plausibility as baselines because both require world knowledge but do not encode causal relations. 
 
 First, the main \textbf{Causal} dataset (480 pairs; \Cref{tab:cross-sentence-examples}) tests implicit causality \emph{across} sentences. For CAA fitting and in-distribution evaluation, we use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalize to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}. An example is:
 \begin{quote}
@@ -214,7 +214,7 @@ First, the main \textbf{Causal} dataset (480 pairs; \Cref{tab:cross-sentence-exa
 \end{quote}
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from Section~\ref{sec:behavior}, where a potential explanation or incidental detail appears as the modifier or relative clause for the outcome.
 
-Second, the \textbf{Occasion (baseline)} dataset (1200 pairs; \Cref{tab:occasion-examples}) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential} and standardize every evaluated sentence to begin with a capital letter and end with a period. The contrast is illustrated below:
+Second, the \textbf{Occasion (baseline)} dataset (1200 pairs; \Cref{tab:occasion-examples}) tests whether an event is compatible with a person's typical activity. Specifically, Occasion evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential} and standardize every evaluated sentence to begin with a capital letter and end with a period. The contrast is illustrated below:
 \begin{quote}
 \textit{Critical:} \emph{A lifeguard got a painful sunburn last Sunday.}\\
 \textit{Control:} \emph{A translator got a painful sunburn last Sunday.}
@@ -244,7 +244,7 @@ s_{\ell}(x)=
 {\lVert\mathbf{v}_{\ell}\rVert_2}.
 \label{eq:caa-score-main}
 \end{equation}
-We calculate paired accuracy over these projection scores. % using Equation~\ref{eq:paired-accuracy-main}.
+We then calculate paired accuracy over these projection scores. % using Equation~\ref{eq:paired-accuracy-main}.
 
 \begin{figure*}[t]
   \centering
@@ -292,7 +292,7 @@ Overall, across five out of the seven tested models, the learned direction has a
 
 \section{RQ4: Implicit representations of causality with social implications}
 \label{sec:naturalistic}
-Would the identified causal direction have any real-world implications? Having shown that this direction generalizes across linguistic constructions and influences downstream sentence processing, we next ask whether it captures causal associations in naturalistic social scenarios. Social bias can arise when models infer a causal role for demographic cues. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive and negative social outcomes.
+Would the identified causal direction have any real-world implications? Having shown that this direction generalizes across linguistic constructions and influences downstream sentence processing, we next ask whether it captures causal associations in naturalistic social scenarios. Social bias can arise when models infer a causal role given demographic cues. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive and negative social outcomes.
 
 \paragraph{Dataset.}
 To test demographics-related bias in language models, we adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding} (see \Cref{tab:rq3-stimuli}), based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman, and also a non-demographic baseline, which includes incidental detail that does not suggest the outcome and is approximately matched in word length. One scenario has the following template:
