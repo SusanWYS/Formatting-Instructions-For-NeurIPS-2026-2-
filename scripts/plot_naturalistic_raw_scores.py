@@ -449,7 +449,13 @@ def lookup(summary: pd.DataFrame, metric: str, outcome: str, condition: str) -> 
     return row.iloc[0]
 
 
-def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
+def plot_combined(
+    summary: pd.DataFrame,
+    output_dir: Path,
+    stem: str,
+    *,
+    height_inches: float = 3.65,
+) -> None:
     """Plot outcomes by column and metrics by row in a one-column figure."""
     colors = {"positive": "#5E7436", "negative": "#D0685B"}
     plt.rcParams.update(
@@ -470,7 +476,9 @@ def plot_combined(summary: pd.DataFrame, output_dir: Path, stem: str) -> None:
     )
     # ACL/ARR single-column width. Columns separate outcomes and rows separate
     # the two metrics, with shared y scales within each metric.
-    figure, axes = plt.subplots(2, 2, figsize=(3.45, 3.65), sharex="col", sharey="row")
+    figure, axes = plt.subplots(
+        2, 2, figsize=(3.45, height_inches), sharex="col", sharey="row"
+    )
     x = np.arange(len(PLOT_CONDITIONS))
     bar_width = 0.48
     metrics = ("CAA projection", "Likert rating")
@@ -637,6 +645,7 @@ def main() -> None:
         white_male_reference,
         args.output_dir,
         "naturalistic_combined_scores_seven_model",
+        height_inches=3.2,
     )
     plot_per_model_combined(per_model_white_male_reference, args.output_dir)
 
