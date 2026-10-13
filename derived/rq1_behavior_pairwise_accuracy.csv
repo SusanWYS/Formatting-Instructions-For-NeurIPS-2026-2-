@@ -1,4 +1,4 @@
-model,Yes/No (Explicit),7-Point Likert (Explicit),IDK Why (Surprisal),Because-And (Surprisal)
+model,Yes/No (Prompted),7-Point Likert (Prompted),IDK Why (Surprisal),Because-And (Surprisal)
 gemma2_2b,0.4466666666666666,0.3933333333333333,0.9133333333333332,0.8266666666666667
 gemma2_9b,0.88,0.9466666666666668,0.9933333333333332,0.92
 qwen3_4b,0.96,1.0,0.9,0.8933333333333333

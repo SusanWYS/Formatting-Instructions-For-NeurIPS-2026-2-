@@ -101,7 +101,7 @@ We use Contrastive Activation Addition (CAA), which averages activation differen
 \paragraph{Social bias in LMs.}
 
 Prior work tests for the social biases in LMs in several ways. Association tests ask whether model representations or token probabilities link demographic groups with stereotypes \citep{may-etal-2019-measuring,kurita-etal-2019-measuring}. Contrastive benchmarks compare the probabilities of stereotyped and anti-stereotyped sentences \citep{nadeem-etal-2021-stereoset,nangia-etal-2020-crows}. There are also studies testing whether demographic information changes answers to ambiguous questions or social decisions \citep{parrish-etal-2022-bbq,tamkin-etal-2023-discrimination}. Moreover, \citet{ghandeharioun-etal-2024-whos} show that user personas change safety-relevant representations even when the response remains safe. In a similar spirit, we also compare model internals with direct verbalized social judgments. 
-% We use projection onto the causal CAA direction to measure whether demographic information changes the internal causal representation, then compare this measure with the model's explicit causal rating in social scenarios.
+% We use projection onto the causal CAA direction to measure whether demographic information changes the internal causal representation, then compare this measure with the model's prompted causal rating in social scenarios.
 
 % \section{Experiments}
 % \label{sec:experiments}
@@ -119,9 +119,9 @@ To test LM implicit causality attribution, we manually authored 150 minimal pair
 \textit{Control:} \emph{The executive who wore a blue silk tie was fired.}
 \end{quote}
 
-\paragraph{Methods.} We use two explicit prompted judgments and two surprisal-based measures. 
+\paragraph{Methods.} We use two prompted judgments and two surprisal-based measures.
 
-Under the \textbf{Yes/No (explicit)} measure, we present the sentence and ask, ``Does [modifier/relative clause] explain why [outcome]?'' The model is instructed to answer Yes or No. Let $c$ be the resulting prompt, and define the complete answer string as $a$. We sum the probability $P_\theta(a\mid c)$ over different capitalization variants of Yes and No and renormalize over all candidates:
+Under the \textbf{Yes/No (prompted)} measure, we present the sentence and ask, ``Does [modifier/relative clause] explain why [outcome]?'' The model is instructed to answer Yes or No. Let $c$ be the resulting prompt, and define the complete answer string as $a$. We sum the probability $P_\theta(a\mid c)$ over different capitalization variants of Yes and No and renormalize over all candidates:
 \begin{equation}
 s_{\mathrm{YN}}(c)=
 \frac{\sum_{a\in\mathcal{Y}}P_\theta(a\mid c)}
@@ -130,7 +130,7 @@ s_{\mathrm{YN}}(c)=
 \end{equation}
 where $\mathcal{Y}=\{\texttt{yes},\texttt{ Yes},\texttt{ YES}\}$ and $\mathcal{N}=\{\texttt{no},\texttt{ No},\texttt{ NO}\}$. Thus, $s_{\mathrm{YN}}$ measures the model's relative support for Yes among these six strings.
 
-For the \textbf{7-point Likert (explicit)} measure, we ask how strongly the modifier explains the outcome, from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). Let $a_k$ be the complete answer string $ k$ ($k$ is an integer from 1 to 7). We renormalize the probabilities of the seven candidates:
+For the \textbf{7-point Likert (prompted)} measure, we ask how strongly the modifier explains the outcome, from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). Let $a_k$ be the complete answer string $ k$ ($k$ is an integer from 1 to 7). We renormalize the probabilities of the seven candidates:
 \begin{equation}
 \begin{aligned}
 \pi_k(c)&=\frac{P_\theta(a_k\mid c)}
@@ -328,7 +328,7 @@ For scoring projections, we compute the average score difference from the white-
 \label{eq:naturalistic-white-male-contrasts}
 \end{equation}
 
-Again, to investigate the gap between explicit reports and implict representations of causality (see Section~\ref{sec:behavior}), we also present each model with each sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale. Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario. 
+Again, to investigate the gap between prompted reports and implicit representations of causality (see Section~\ref{sec:behavior}), we also present each model with each sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale. Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario.
 
 For Likert ratings, we use
 \begin{equation}
@@ -459,7 +459,7 @@ Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-
     \centering\normalsize Qwen3 8B\\[3pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_qwen3_8b_scores.pdf}
   \end{minipage}
-  \caption{Naturalistic results for Qwen3 4B (left) and Qwen3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The Qwen models show especially large differences between internal projections and explicit ratings for positive outcomes.}}
+  \caption{Naturalistic results for Qwen3 4B (left) and Qwen3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The Qwen models show especially large differences between internal projections and prompted ratings for positive outcomes.}}
   \label{fig:naturalistic-per-model-qwen}
 \end{figure*}
 

@@ -83,15 +83,15 @@ def load_rq1(args: argparse.Namespace) -> pd.DataFrame:
         ignore_index=True,
     )
     probability = probability[probability.model.isin(MODELS)]
-    explicit = (
+    prompted = (
         probability[
             probability.measure.isin(("yesno_probability", "likert_expected"))
         ]
         .pivot(index="model", columns="measure", values="pairwise_accuracy")
         .rename(
             columns={
-                "yesno_probability": "Yes/No (Explicit)",
-                "likert_expected": "7-Point Likert (Explicit)",
+                "yesno_probability": "Yes/No (Prompted)",
+                "likert_expected": "7-Point Likert (Prompted)",
             }
         )
     )
@@ -106,7 +106,7 @@ def load_rq1(args: argparse.Namespace) -> pd.DataFrame:
         & idk.construction.eq("all")
         & idk.measure.eq("ignorance_surprisal_sum")
     ].set_index("model")
-    prior = explicit.join(
+    prior = prompted.join(
         idk[["pairwise_accuracy"]].rename(
             columns={"pairwise_accuracy": "IDK Why (Surprisal)"}
         ),
@@ -127,8 +127,8 @@ def load_rq1(args: argparse.Namespace) -> pd.DataFrame:
     prior["Because-And (Surprisal)"] = revised["pairwise_accuracy"]
 
     columns = (
-        "Yes/No (Explicit)",
-        "7-Point Likert (Explicit)",
+        "Yes/No (Prompted)",
+        "7-Point Likert (Prompted)",
         "IDK Why (Surprisal)",
         "Because-And (Surprisal)",
     )
@@ -143,8 +143,8 @@ def plot_rq1(table: pd.DataFrame, output: Path) -> None:
     x = np.arange(len(table))
     width = 0.18
     columns = (
-        "Yes/No (Explicit)",
-        "7-Point Likert (Explicit)",
+        "Yes/No (Prompted)",
+        "7-Point Likert (Prompted)",
         "IDK Why (Surprisal)",
         "Because-And (Surprisal)",
     )
