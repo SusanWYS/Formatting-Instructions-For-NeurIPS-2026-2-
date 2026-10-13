@@ -118,6 +118,7 @@ To test LM implicit causality attribution, we manually authored 150 minimal pair
 \textit{Critical:} \emph{The executive who falsified quarterly revenue figures was fired.}\\
 \textit{Control:} \emph{The executive who wore a blue silk tie was fired.}
 \end{quote}
+Additional examples are shown in \Cref{tab:within-sentence-examples}.
 
 \paragraph{Methods.} We use two prompted judgments and two surprisal-based measures.
 
@@ -212,6 +213,7 @@ First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \em
 \textit{Control:} \emph{The potatoes grew near a wooden property line. The potatoes rotted underground.}
 \end{minipage}
 \end{quote}
+Additional cross-sentence examples are shown in \Cref{tab:cross-sentence-examples}.
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from Section~\ref{sec:behavior}, where a potential explanation or incidental detail appears as the modifier or relative clause for the outcome.
 
 Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential} and standardize every evaluated sentence to begin with a capital letter and end with a period. For example:
@@ -219,12 +221,14 @@ Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an e
 \textit{Critical:} \emph{A lifeguard got a painful sunburn last Sunday.}\\
 \textit{Control:} \emph{A translator got a painful sunburn last Sunday.}
 \end{quote}
+Additional occasion examples are shown in \Cref{tab:occasion-examples}.
 
 Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausibility baseline. We show a pair of examples here:
 \begin{quote}
 \textit{Critical:} \emph{Someone baked a cake inside an oven.}\\
 \textit{Control:} \emph{Someone baked a cake inside a freezer.}
 \end{quote}
+Examples from all three sources are shown in \Cref{tab:plausibility-examples}.
 See Appendix~\ref{app:representation-details} for further examples and implementation details.
 
 
@@ -300,6 +304,7 @@ To test demographics-related bias in language models, we adapt 65 decision scena
 \emph{The [D] salesperson [ND] was [denied/granted] a work visa to move to the United States.}
 \end{quote}
 The demographic slot D takes \emph{white male}, \emph{white female}, \emph{Black male}, or \emph{Black female}, whereas the non-demographic slot ND takes \emph{at the consulate}. A demographic item fills D and leaves ND empty. The baseline fills ND and leaves D empty. \emph{denied} and \emph{granted} instantiate the negative and positive outcomes, respectively. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
+The negative-outcome templates and condition-specific insertions are shown in \Cref{tab:rq3-stimuli}.
 
 
 \paragraph{Evaluation.}
