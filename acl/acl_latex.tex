@@ -148,7 +148,7 @@ For \textbf{Because-And (surprisal)}, we rewrite each item as the outcome follow
 \textit{Because:} \emph{The executive was fired because the executive wore a blue silk tie.}\\
 \textit{And:} \emph{The executive was fired, and the executive wore a blue silk tie.}
 \end{quote}
-We score the modifier tokens including the final period (i.e., \emph{the executive wore a blue silk tie.} in the example above), after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}. Larger values indicate a stronger preference for an directly causal connection. We expect the critical sentence to have the larger score than the control.
+We score the modifier tokens including the final period (i.e., \emph{the executive wore a blue silk tie.} in the example above), after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}. Larger values indicate a stronger preference for a directly causal connection. We expect the critical sentence to have the larger score than the control.
 
 % \paragraph{Metrics.}
 For all four scoring methods, we report paired accuracy as our main evaluation metric: i.e., the proportion of pairs in which the critical item receives a strictly higher score than its control. 
@@ -201,7 +201,7 @@ For all four scoring methods, we report paired accuracy as our main evaluation m
 \section{RQ2: Identifying internal representations of implicit causality}
 \label{sec:representations}
 
-The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. How do we test if implicit causality is selectively represented in LM activation states? To this end, we identify model directions related to implicit causal inferences through contrastive training sets. We further evaluate if a representation learned from cross-sentence causal relationships generalize to the weaker, non-mandated causal readings of within-sentence inferences.
+The behavioral results show that implicit causal relations affect model predictions, but they do not reveal how the inference is represented in model internals. How do we test if implicit causality is selectively represented in LM activation states? To this end, we identify model directions related to implicit causal inferences through contrastive training sets. We further evaluate if a representation learned from cross-sentence causal relationships generalizes to the weaker, non-mandated causal readings of within-sentence inferences.
 
 \paragraph{Data.} To test if implicit causality is selectively represented in model internals, we use three datasets: Causal, Occasion (baseline), and Plausibility (baseline), all containing matched critical/control pairs. We use Occasion and Plausibility as baselines because both require world knowledge but do not encode causal relations. Specifically, Occasion evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
 
@@ -220,7 +220,7 @@ Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an e
 \textit{Control:} \emph{A translator got a painful sunburn last Sunday.}
 \end{quote}
 
-Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausiblity baseline. We show a pair of examples here:
+Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausibility baseline. We show a pair of examples here:
 \begin{quote}
 \textit{Critical:} \emph{Someone baked a cake inside an oven.}\\
 \textit{Control:} \emph{Someone baked a cake inside a freezer.}
@@ -328,7 +328,7 @@ For scoring projections, we compute the average score difference from the white-
 \label{eq:naturalistic-white-male-contrasts}
 \end{equation}
 
-Again, to investigate the gap between explicit reports and implict representations of causality (see Section~\ref{sec:behavior}), we also present each model with each sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario. 
+Again, to investigate the gap between explicit reports and implict representations of causality (see Section~\ref{sec:behavior}), we also present each model with each sentence and ask how strongly the person's demographic identity explains the outcome on the 1--7 scale. Let $r_m(x)$ denote model $m$'s expected Likert rating. For each outcome, let $j$ index one of the $J$ matched naturalistic scenarios, let $c$ denote a demographic condition or the non-demographic baseline, and let $\mathrm{WM}$ denote the white-male condition. We define each matched difference by subtracting the white-male score for the same scenario. 
 
 For Likert ratings, we use
 \begin{equation}
@@ -377,7 +377,7 @@ Our results also have implications for safety and alignment. We find that causal
 
 % This motivates looking beyond direct responses when studying what LMs infer from context. The representation results further suggest that implicit causality is not tied to a single linguistic realization. A causal direction learned from cross-sentence discourse relations remains informative for within-sentence eliciture, and is more selective for causality than for other relationships involving world knowledge such as plausibility or occasion compatibility. Intervening along this direction changes model expectations in most models, providing evidence that the representation is behaviorally consequential rather than only correlational. 
 
-The results from \Cref{sec:naturalistic} (RQ4; implicit representations in causality in real-world scenarios) also highlight a case where pragmatic inference---here, the tendency to infer causal relationships between demographic information and positive/negative outcomes---may be undesirable. \jh{elaborate a bit} Our findings suggest that balancing between making pragmatic inferences and maintaining neutrality is an important challenge for developing aligned AI systems.
+The results from \Cref{sec:naturalistic} (RQ4; implicit representations of causality in real-world scenarios) also highlight a case where pragmatic inference---here, the tendency to infer causal relationships between demographic information and positive/negative outcomes---may be undesirable. \jh{elaborate a bit} Our findings suggest that balancing between making pragmatic inferences and maintaining neutrality is an important challenge for developing aligned AI systems.
 
 Finally, we note that the main result from \Cref{sec:naturalistic} (i.e., a stronger causal representation of sentences connecting minority demographics to positive/negative outcomes) is compatible with at least two scenarios. First, it could be that the model ``believes'', in some sense, that the demographic of the person is more strongly causing the positive/negative outcome. Another option is that the model represents that the demographic attribute explains the outcome because of discrimination by the decision maker (i.e., the character in charge of the outcome). This interpretation reflects real-world knowledge and has different normative implications from attributing blame to the subject. Our experiments are not designed to tease these options apart. An important direction for future work would be to investigate \emph{what kind} of causal link the model is representing: a first-order link, or a higher-order inference about the individuals involved in the social scenario.
 
