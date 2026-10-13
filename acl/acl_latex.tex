@@ -304,7 +304,7 @@ The demographic slot D takes \emph{white male}, \emph{white female}, \emph{Black
 
 
 \paragraph{Evaluation.}
-As before, we project each naturalistic sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. We divide each projection by that model's mean critical-minus-control training gap, $g_m$:
+As before, we project each naturalistic sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. Raw projection magnitudes are not directly comparable across models because their activation scales differ. We therefore express each projection in units of the model's mean critical-minus-control training gap, $g_m$, before averaging across models:
 \begin{equation}
 \begin{aligned}
 g_m&=\frac{1}{N}\sum_{i=1}^{N}
