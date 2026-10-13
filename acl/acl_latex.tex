@@ -128,7 +128,7 @@ s_{\mathrm{YN}}(c)=
 {\sum_{a\in\mathcal{Y}\cup\mathcal{N}}P_\theta(a\mid c)},
 \label{eq:yesno-main}
 \end{equation}
-where $\mathcal{Y}=\{\texttt{yes},\texttt{ Yes},\texttt{ YES}\}$ and $\mathcal{N}=\{\texttt{no},\texttt{ No},\texttt{ NO}\}$. Thus, $s_{\mathrm{YN}}$ measures the model's relative support for Yes among these six strings.
+where $\mathcal{Y}=\{\texttt{yes},\texttt{ Yes},\texttt{ YES}\}$ and $\mathcal{N}=\{\texttt{no},\texttt{ No},\texttt{ NO}\}$ (all starting with a leading space). Thus, $s_{\mathrm{YN}}$ measures the model's relative support for Yes among these six strings.
 
 For the \textbf{7-point Likert (prompted)} measure, we ask how strongly the modifier explains the outcome, from 1 (definitely not) through 4 (uncertain) to 7 (definitely yes). Let $a_k$ be the complete answer string $ k$ ($k$ is an integer from 1 to 7). We renormalize the probabilities of the seven candidates:
 \begin{equation}
@@ -161,7 +161,7 @@ For all four scoring methods, we report paired accuracy as our main evaluation m
 % \end{equation} 
 
 
-\paragraph{Models.} In all experiments, we test the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}. We chose base models because pretrained model representations are more interpretable than instruction-tuned ones, although this choice may come at the cost of weaker performance under direct prompting.
+\paragraph{Models.} In all experiments, we test the base checkpoints of Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B and Llama~3.1 70B \citep{dubey-etal-2024-llama3}. We choose base models because pretrained model representations are more interpretable than instruction-tuned ones, although this choice may come at the cost of weaker performance under direct prompting.
 
 \begin{figure*}[t]
   \centering
@@ -348,7 +348,7 @@ We average  $\Delta_{\mathrm{proj}}(m,j,c)$  and $\Delta_{\mathrm{rating}}(m,j,c
   \centering
   \includegraphics[width=\columnwidth]{figures/naturalistic_combined_scores_seven_model.pdf}
   \caption{Differences from the matched white
-  -male condition for positive and negative outcomes. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases. Minority conditions are generally more causal than the white male baselines based on CAA projections.}}
+  -male condition for positive and negative outcomes. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases. Minority conditions are generally more causal than the white male baselines for CAA projections.}}
   \label{fig:naturalistic-aggregate}
 \end{figure}
 
