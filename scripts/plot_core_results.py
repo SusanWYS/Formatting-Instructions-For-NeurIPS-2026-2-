@@ -148,7 +148,9 @@ def plot_rq1(table: pd.DataFrame, output: Path) -> None:
         "IDK Why (Surprisal)",
         "Because-And (Surprisal)",
     )
-    colors = ("#3B6FB6", "#D97A32", "#4F9D69", "#8A63A8")
+    # Okabe--Ito color-blind-safe pairs: blues for prompted measures and
+    # orange/vermillion for surprisal measures.
+    colors = ("#56B4E9", "#0072B2", "#E69F00", "#D55E00")
     for offset, (column, color) in enumerate(zip(columns, colors, strict=True)):
         means = table[column].to_numpy(dtype=float)
         intervals = np.asarray([wilson_interval(value, 150) for value in means])
