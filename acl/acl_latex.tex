@@ -225,7 +225,7 @@ Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether 
 \textit{Critical:} \emph{Someone baked a cake inside an oven.}\\
 \textit{Control:} \emph{Someone baked a cake inside a freezer.}
 \end{quote}
-See Appendix~\ref{app:representation-examples} for further examples.
+See Appendix~\ref{app:representation-details} for further examples and implementation details.
 
 
 
@@ -244,8 +244,7 @@ s_{\ell}(x)=
 {\lVert\mathbf{v}_{\ell}\rVert_2}.
 \label{eq:caa-score-main}
 \end{equation}
-We calculate paired accuracy over these projection scores. % using Equation~\ref{eq:paired-accuracy-main}. 
-See Appendix~\ref{app:caa-details} for further implementation details.
+We calculate paired accuracy over these projection scores. % using Equation~\ref{eq:paired-accuracy-main}.
 
 \begin{figure*}[t]
   \centering
@@ -266,7 +265,7 @@ See Appendix~\ref{app:caa-details} for further implementation details.
 \paragraph{Results.}
 The CAA directions are relatively relation-selective: each direction strongly separates its own held-out relation, whereas cross-relation transfer is substantially weaker and more variable (Figure~\ref{fig:rq2-transfer}). This selectivity is not absolute, indicating some shared structure across relations. We hypothesize that CAA directions computed from the causality set generalize relatively well to occasion and plausibility because causal attributions are naturally occasion-compatible and more plausible (compared to the incidental detail controls). In contrast, occasion compatibility or event plausibility alone does not reliably distinguish causal explanations from incidental details. Directions learned from these baselines should therefore transfer less well to causal pairs. 
 
-Moreover, the causal direction learned from cross-sentence explanatory relations transfers strongly to unseen within-sentence elicitures, outperforming the occasion and plausibility directions in every model (Figure~\ref{fig:rq2b}). Norm-matched random directions average near chance on these evaluations (Appendix~\ref{app:random-baselines}). These results indicate that models encode a causal signal that generalizes across syntactic constructions and is not reducible to the tested occasion or event-plausibility contrasts.
+Moreover, the causal direction learned from cross-sentence explanatory relations transfers strongly to unseen within-sentence elicitures, outperforming the occasion and plausibility directions in every model (Figure~\ref{fig:rq2b}). Norm-matched random directions average near chance on these evaluations. These results indicate that models encode a causal signal that generalizes across syntactic constructions and is not reducible to the tested occasion or event-plausibility contrasts.
 
 \section{RQ3: Intervening on implicit causal representations}
 \label{sec:intervention}
@@ -277,7 +276,7 @@ For a causal CAA direction $v_l$ at the layer $l$ selected in Section~\ref{sec:r
 % \begin{equation}
 %     h'_{l,t}=h_{l,t}+\alpha v_l.
 % \end{equation}
-Following \citet{ghandeharioun-etal-2024-whos}, we apply the signed intervention vector at every token position in the selected layer. We then score the fixed continuation autoregressively, retaining the intervention at each successive token. For every learned causal direction and each of ten norm-matched random directions, we test $|\alpha|\in\{1,2,3,4,5\}$, subtracting the direction from critical contexts and adding it to their controls. Appendix~\ref{app:random-baselines} describes how we construct the random directions. At each magnitude, we measure the change in paired accuracy on the 150 within-sentence pairs relative to no intervention. A negative change indicates that the intervention reduces the model's behavioral discrimination between critical and control contexts, so a larger negative change indicates better intervention effects. Appendix~\ref{app:confidence-intervals} describes the computations of confidence intervals.
+Following \citet{ghandeharioun-etal-2024-whos}, we apply the signed intervention vector at every token position in the selected layer. We then score the fixed continuation autoregressively, retaining the intervention at each successive token. For every learned causal direction and each of ten norm-matched random directions, we test $|\alpha|\in\{1,2,3,4,5\}$, subtracting the direction from critical contexts and adding it to their controls. At each magnitude, we measure the change in paired accuracy on the 150 within-sentence pairs relative to no intervention. A negative change indicates that the intervention reduces the model's behavioral discrimination between critical and control contexts, so a larger negative change indicates better intervention effects. See Appendix~\ref{app:intervention-details} for further implementation and statistical details.
 
 \begin{figure*}[t]
   \centering
@@ -289,7 +288,7 @@ Following \citet{ghandeharioun-etal-2024-whos}, we apply the signed intervention
 \paragraph{Results.}
 The learned-direction effect becomes progressively more negative as intervention magnitude increases in five models (Figure~\ref{fig:intervention-alpha-sweep}). We generally observe the largest fall at $|\alpha|=5$. We do not observe expected intervention effects for Qwen3 4B and Llama~3.1 70B. The selected layer for Llama~3.1 70B is relatively early in the network (about 20\% model depth), which is optimized for readout on dev set rather than for causal interventions. An intervention analysis at 45\% depth of Llama~3.1 70B is shown in Figure~\ref{fig:llama70b-layer36-intervention} and suggests that later layers are more suitable for causal interventions. However, the near-zero intervention effects on Qwen3 4B remain unexplained, which we intend to investigate in future work. 
 
-Overall, across five out of the seven tested models, the learned direction has a larger absolute effect than the mean random direction at all alphas, although random directions also reduce accuracy in some models. The intervention therefore provides evidence that the causal direction can potentially affect behavioral discrimination more than random direction baselines. See more implementation details in Appendix~\ref{app:fixed-alpha-sweep}.
+Overall, across five out of the seven tested models, the learned direction has a larger absolute effect than the mean random direction at all alphas, although random directions also reduce accuracy in some models. The intervention therefore provides evidence that the causal direction can potentially affect behavioral discrimination more than random direction baselines.
 
 \section{RQ4: Implicit representations of causality with social implications}
 \label{sec:naturalistic}
@@ -355,7 +354,7 @@ We average  $\Delta_{\mathrm{proj}}(m,j,c)$  and $\Delta_{\mathrm{rating}}(m,j,c
 \paragraph{Results.}
 For positive outcomes, minority men and minority women have significantly higher causal projections than white men, with the largest increase for minority women (Figure~\ref{fig:naturalistic-aggregate}). Both minority conditions also have higher mean projections than the non-demographic (incidental-detail) baseline. The Likert ratings do not recover this pattern. Every demographic condition receives a lower rating than the baseline, suggesting that models do not reliably verbalize the causal information captured by their internal representations.
 
-For negative outcomes, the projections and ratings show the same ordering: scores generally increase from white women to minority men to minority women. The incidental-detail baseline receives the lowest score on both measures, as expected. Appendix~\ref{app:naturalistic-model-results} reports the per-model results.
+For negative outcomes, the projections and ratings show the same ordering: scores generally increase from white women to minority men to minority women. The incidental-detail baseline receives the lowest score on both measures, as expected. Appendix~\ref{app:naturalistic-details} provides the complete stimuli, uncertainty estimates, and per-model results.
 
 % \FloatBarrier
 
@@ -393,117 +392,7 @@ Our experiments cover seven English-language base models and a controlled set of
 \clearpage
 \appendix
 
-\section{Dataset examples}
-\label{app:representation-examples}
-
-\input{acl/appendix_examples}
-
-\subsection{Naturalistic scenarios: statistics and examples}
-\label{app:naturalistic-stimuli}
-
-The naturalistic evaluation contains 65 scenario templates and 650 sentences:
-one race/gender-agnostic, one white-male, one white-female, one minority-male, and one minority-female version of each positive and negative outcome.
-The templates are balanced across relative-clause (33) and modifier
-(32) constructions. Assigned minority identities are also approximately
-balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of scenario
-templates and condition-specific details is shown in the five-part table beginning with Table~\ref{tab:rq3-stimuli}; the non-demographic baseline replaces the race and gender markers with a unique, length-matched incidental detail that was manually checked for grammaticality and outcome neutrality.
-
-\input{acl/derived/rq3_self_blinding_stimuli}
-
-\section{Confidence intervals}
-\label{app:confidence-intervals}
-
-All reported intervals are two-sided 95\% intervals. The error bars in
-Figure~\ref{fig:rq2b} are Wilson score intervals over the 150 matched-pair
-correctness indicators. For Figures~\ref{fig:intervention-alpha-sweep}
-and~\ref{fig:llama70b-layer36-intervention}, we use
-10,000 percentile-bootstrap samples. The learned-direction interval resamples
-the 150 item pairs. The random-direction interval jointly resamples the ten
-norm-matched directions and the shared item pairs.
-
-For Figure~\ref{fig:naturalistic-aggregate}, we first average the seven models'
-paired differences within each of the 65 scenarios and then use 10,000
-percentile-bootstrap samples over scenarios. The seven tested models are treated
-as fixed. The per-model intervals in
-Appendix~\ref{app:naturalistic-model-results} likewise bootstrap the 65 matched
-scenarios. These naturalistic comparisons are exploratory and are not corrected
-for multiple comparisons.
-
-\section{Naturalistic per-model results}
-\label{app:naturalistic-model-results}
-
-Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-llama70b} reproduce the Figure~\ref{fig:naturalistic-aggregate} layout for each model. Bars show each demographic condition relative to its matched white-male condition. The dashed line shows the non-demographic-baseline-minus-white-male difference. Error bars are 95\% scenario-bootstrap CIs across 65 scenarios.
-
-\FloatBarrier
-\begin{figure*}[t]
-  \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Gemma 2 2B\\[3pt]
-    \includegraphics[width=\linewidth]{figures/naturalistic_gemma2_2b_scores.pdf}
-  \end{minipage}\hfill
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Gemma 2 9B\\[3pt]
-    \includegraphics[width=\linewidth]{figures/naturalistic_gemma2_9b_scores.pdf}
-  \end{minipage}
-  \caption{Naturalistic results for Gemma~2 2B (left) and Gemma~2 9B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The two Gemma models show different demographic patterns, illustrating the importance of reporting per-model results.}}
-  \label{fig:naturalistic-per-model-gemma}
-\end{figure*}
-
-\begin{figure*}[t]
-  \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Qwen3 4B\\[3pt]
-    \includegraphics[width=\linewidth]{figures/naturalistic_qwen3_4b_scores.pdf}
-  \end{minipage}\hfill
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Qwen3 8B\\[3pt]
-    \includegraphics[width=\linewidth]{figures/naturalistic_qwen3_8b_scores.pdf}
-  \end{minipage}
-  \caption{Naturalistic results for Qwen3 4B (left) and Qwen3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The Qwen models show especially large differences between internal projections and prompted ratings for positive outcomes.}}
-  \label{fig:naturalistic-per-model-qwen}
-\end{figure*}
-
-\begin{figure*}[t]
-  \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Llama 3.2 3B\\[3pt]
-    \includegraphics[width=\linewidth]{figures/naturalistic_llama32_3b_scores.pdf}
-  \end{minipage}\hfill
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Llama 3 8B\\[3pt]
-    \includegraphics[width=\linewidth]{figures/naturalistic_llama3_8b_scores.pdf}
-  \end{minipage}
-  \caption{Naturalistic results for Llama~3.2 3B (left) and Llama~3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The smaller Llama models show small and mostly uncertain demographic differences.}}
-  \label{fig:naturalistic-per-model-llama}
-\end{figure*}
-
-\begin{figure*}[t]
-  \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Llama 3.1 70B\\[3pt]
-    \includegraphics[width=\linewidth]{figures/naturalistic_llama31_70b_scores.pdf}
-  \end{minipage}
-  \caption{Naturalistic results for Llama~3.1 70B, using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{This model shows positive projection shifts across demographic conditions, but its rating differences are smaller and less consistent.}}
-  \label{fig:naturalistic-per-model-llama70b}
-\end{figure*}
-\FloatBarrier
-
-\input{acl/derived/random_vector_baselines}
-
-\input{acl/derived/fixed_alpha_sweep}
-
-\subsection{Deeper-layer Llama~3.1 70B diagnostic}
-\label{app:llama70b-layer36-intervention}
-The original readout procedure selected layer 16 of 80 because it was the earliest layer that reached the maximum development accuracy. To test whether this relatively early layer explains the model's anomalous intervention result, we conduct a post hoc diagnostic at layer 36, or 45\% of model depth. The layer-36 CAA is computed from the same 384 training pairs and obtains 97.9\% paired accuracy on the 48 development pairs. We fix this layer before running the intervention and retain all other settings from Section~\ref{sec:intervention}.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/llama70b_layer36_intervention.pdf}
-  \caption{Change in Llama~3.1 70B paired accuracy when intervening at layer 36 with the causal direction or ten norm-matched random directions. Points show mean changes, and the error bars use the procedure in Appendix~\ref{app:confidence-intervals}. Negative values indicate reduced discrimination between critical and control contexts. \textbf{At this deeper layer, the causal intervention produces a large monotonic decrease in accuracy, whereas the random-direction mean remains near zero.}}
-  \label{fig:llama70b-layer36-intervention}
-\end{figure}
-
-\section{Behavioral evaluation details}
+\section{RQ1: Behavioral evaluation details}
 \label{app:behavior-details}
 
 \paragraph{Yes/No prompt and score.}
@@ -595,12 +484,17 @@ All candidate probabilities are computed from the model logits at temperature 1.
 \label{eq:paired-accuracy}
 \end{equation}
 Ties receive zero credit.
-\section{CAA extraction and evaluation details}
+
+\section{RQ2: Representation identification details}
+\label{app:representation-details}
+\label{app:representation-examples}
+
+\input{acl/appendix_examples}
+
+\subsection{CAA extraction and evaluation}
 \label{app:caa-details}
 
-\subsection{Causal CAA direction extraction}
-\label{app:caa-extraction}
-
+\paragraph{Direction extraction.}
 For each model and candidate layer $\ell$, we extract the activation at the
 final non-padding token of the raw stimulus text. Let
 $\mathbf{h}^{+}_{i,\ell}$ and $\mathbf{h}^{-}_{i,\ell}$ denote the activations
@@ -618,9 +512,7 @@ Directions are computed independently at layers 4, 8,
 12, and so on with a stride of 4, and the model's final layer is included when it does not fall on
 this stride.
 
-\subsection{CAA projection and evaluation}
-\label{app:caa-evaluation}
-
+\paragraph{Projection and evaluation.}
 We score an unseen stimulus activation $\mathbf{h}_{j,\ell}$ by its projection
 onto the unit-normalized direction:
 \begin{equation}
@@ -649,9 +541,123 @@ with the highest paired accuracy on the corresponding development partition and
 then freeze both the layer and direction for held-out testing. For Plausibility,
 we select the layer using the unweighted macro-average of development accuracy
 across the three sources and report the analogous macro-average on their test
-partitions. Exact partition sizes are reported with the dataset descriptions in
-Appendix~\ref{app:representation-examples}.
-\section{Projection statistics}
+partitions. Exact partition sizes are reported with the dataset descriptions above.
+
+\paragraph{Confidence intervals.}
+The error bars in Figure~\ref{fig:rq2b} are two-sided 95\% Wilson score
+intervals over the 150 matched-pair correctness indicators.
+
+\input{acl/derived/random_vector_baselines}
+
+\section{RQ3: Intervention details}
+\label{app:intervention-details}
+\label{app:confidence-intervals}
+
+\paragraph{Confidence intervals.}
+For Figures~\ref{fig:intervention-alpha-sweep}
+and~\ref{fig:llama70b-layer36-intervention}, we report two-sided 95\%
+intervals from 10,000 percentile-bootstrap samples. The learned-direction
+interval resamples the 150 item pairs. The random-direction interval jointly
+resamples the ten norm-matched directions and the shared item pairs.
+
+\input{acl/derived/fixed_alpha_sweep}
+
+\subsection{Deeper-layer Llama~3.1 70B diagnostic}
+\label{app:llama70b-layer36-intervention}
+The original readout procedure selected layer 16 of 80 because it was the earliest layer that reached the maximum development accuracy. To test whether this relatively early layer explains the model's anomalous intervention result, we conduct a post hoc diagnostic at layer 36, or 45\% of model depth. The layer-36 CAA is computed from the same 384 training pairs and obtains 97.9\% paired accuracy on the 48 development pairs. We fix this layer before running the intervention and retain all other settings from Section~\ref{sec:intervention}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/llama70b_layer36_intervention.pdf}
+  \caption{Change in Llama~3.1 70B paired accuracy when intervening at layer 36 with the causal direction or ten norm-matched random directions. Points show mean changes, and the error bars use the procedure in Appendix~\ref{app:intervention-details}. Negative values indicate reduced discrimination between critical and control contexts. \textbf{At this deeper layer, the causal intervention produces a large monotonic decrease in accuracy, whereas the random-direction mean remains near zero.}}
+  \label{fig:llama70b-layer36-intervention}
+\end{figure}
+
+\section{RQ4: Naturalistic evaluation details}
+\label{app:naturalistic-details}
+
+\subsection{Naturalistic scenarios: statistics and examples}
+\label{app:naturalistic-stimuli}
+
+The naturalistic evaluation contains 65 scenario templates and 650 sentences:
+one race/gender-agnostic, one white-male, one white-female, one minority-male, and one minority-female version of each positive and negative outcome.
+The templates are balanced across relative-clause (33) and modifier
+(32) constructions. Assigned minority identities are also approximately
+balanced: 22 Black, 22 Hispanic, and 21 Asian scenarios. The full set of scenario
+templates and condition-specific details is shown in the five-part table beginning with Table~\ref{tab:rq3-stimuli}; the non-demographic baseline replaces the race and gender markers with a unique, length-matched incidental detail that was manually checked for grammaticality and outcome neutrality.
+
+\input{acl/derived/rq3_self_blinding_stimuli}
+
+\subsection{Confidence intervals}
+All reported intervals are two-sided 95\% intervals. For Figure~\ref{fig:naturalistic-aggregate}, we first average the seven models'
+paired differences within each of the 65 scenarios and then use 10,000
+percentile-bootstrap samples over scenarios. The seven tested models are treated
+as fixed. The per-model intervals reported below likewise bootstrap the 65
+matched scenarios. These naturalistic comparisons are exploratory and are not corrected
+for multiple comparisons.
+
+\subsection{Naturalistic per-model results}
+\label{app:naturalistic-model-results}
+
+Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-llama70b} reproduce the Figure~\ref{fig:naturalistic-aggregate} layout for each model. Bars show each demographic condition relative to its matched white-male condition. The dashed line shows the non-demographic-baseline-minus-white-male difference. Error bars are 95\% scenario-bootstrap CIs across 65 scenarios.
+
+\FloatBarrier
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}[t]{.48\textwidth}
+    \centering\normalsize Gemma 2 2B\\[3pt]
+    \includegraphics[width=\linewidth]{figures/naturalistic_gemma2_2b_scores.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.48\textwidth}
+    \centering\normalsize Gemma 2 9B\\[3pt]
+    \includegraphics[width=\linewidth]{figures/naturalistic_gemma2_9b_scores.pdf}
+  \end{minipage}
+  \caption{Naturalistic results for Gemma~2 2B (left) and Gemma~2 9B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The two Gemma models show different demographic patterns, illustrating the importance of reporting per-model results.}}
+  \label{fig:naturalistic-per-model-gemma}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}[t]{.48\textwidth}
+    \centering\normalsize Qwen3 4B\\[3pt]
+    \includegraphics[width=\linewidth]{figures/naturalistic_qwen3_4b_scores.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.48\textwidth}
+    \centering\normalsize Qwen3 8B\\[3pt]
+    \includegraphics[width=\linewidth]{figures/naturalistic_qwen3_8b_scores.pdf}
+  \end{minipage}
+  \caption{Naturalistic results for Qwen3 4B (left) and Qwen3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The Qwen models show especially large differences between internal projections and prompted ratings for positive outcomes.}}
+  \label{fig:naturalistic-per-model-qwen}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}[t]{.48\textwidth}
+    \centering\normalsize Llama 3.2 3B\\[3pt]
+    \includegraphics[width=\linewidth]{figures/naturalistic_llama32_3b_scores.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.48\textwidth}
+    \centering\normalsize Llama 3 8B\\[3pt]
+    \includegraphics[width=\linewidth]{figures/naturalistic_llama3_8b_scores.pdf}
+  \end{minipage}
+  \caption{Naturalistic results for Llama~3.2 3B (left) and Llama~3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The smaller Llama models show small and mostly uncertain demographic differences.}}
+  \label{fig:naturalistic-per-model-llama}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}[t]{.48\textwidth}
+    \centering\normalsize Llama 3.1 70B\\[3pt]
+    \includegraphics[width=\linewidth]{figures/naturalistic_llama31_70b_scores.pdf}
+  \end{minipage}
+  \caption{Naturalistic results for Llama~3.1 70B, using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{This model shows positive projection shifts across demographic conditions, but its rating differences are smaller and less consistent.}}
+  \label{fig:naturalistic-per-model-llama70b}
+\end{figure*}
+\FloatBarrier
+
+\input{acl/derived/random_vector_naturalistic}
+
+\subsection{Projection statistics}
 \label{app:raw-caa}
 
 Figure~\ref{fig:rq3-distributions} shows the causal-direction projection normalized by each model's causal training gap
