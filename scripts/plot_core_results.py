@@ -299,7 +299,8 @@ def plot_syntax(args: argparse.Namespace, output: Path, derived: Path) -> None:
     x = np.arange(len(MODELS))
     width = 0.22
     conditions = ("Causal CAA", "Occasion CAA", "Plausibility CAA")
-    colors = ("#C97A6A", "#8E7D9F", "#B5A46A")
+    # Okabe--Ito color-blind-safe colors for the three CAA conditions.
+    colors = ("#0072B2", "#E69F00", "#009E73")
     for index, (condition, color) in enumerate(zip(conditions, colors, strict=True)):
         local = table[table.caa_condition.eq(condition)].set_index("model").loc[list(MODELS)]
         means = local.pairwise_accuracy.to_numpy(dtype=float)
