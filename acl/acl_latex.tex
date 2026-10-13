@@ -599,59 +599,47 @@ for multiple comparisons.
 \subsection{Naturalistic per-model results}
 \label{app:naturalistic-model-results}
 
-Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-llama70b} reproduce the Figure~\ref{fig:naturalistic-aggregate} layout for each model. Bars show each demographic condition relative to its matched white-male condition. The dashed line shows the non-demographic-baseline-minus-white-male difference. Error bars are 95\% scenario-bootstrap CIs across 65 scenarios.
+Figure~\ref{fig:naturalistic-per-model} reproduces the Figure~\ref{fig:naturalistic-aggregate} layout for each model. Bars show each demographic condition relative to its matched white-male condition. The dashed line shows the non-demographic-baseline-minus-white-male difference. Error bars are 95\% scenario-bootstrap CIs across 65 scenarios.
 
 \FloatBarrier
-\begin{figure*}[t]
+\begin{figure*}[p]
   \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Gemma 2 2B\\[3pt]
+  \makebox[\textwidth][c]{%
+  \begin{minipage}[t]{.30\textwidth}
+    \centering\normalsize Gemma 2 2B\\[2pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_gemma2_2b_scores.pdf}
-  \end{minipage}\hfill
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Gemma 2 9B\\[3pt]
+  \end{minipage}\hspace{.025\textwidth}
+  \begin{minipage}[t]{.30\textwidth}
+    \centering\normalsize Gemma 2 9B\\[2pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_gemma2_9b_scores.pdf}
-  \end{minipage}
-  \caption{Naturalistic results for Gemma~2 2B (left) and Gemma~2 9B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The two Gemma models show different demographic patterns, illustrating the importance of reporting per-model results.}}
-  \label{fig:naturalistic-per-model-gemma}
-\end{figure*}
+  \end{minipage}}
+  \vspace{2pt}
 
-\begin{figure*}[t]
-  \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Qwen3 4B\\[3pt]
+  \makebox[\textwidth][c]{%
+  \begin{minipage}[t]{.30\textwidth}
+    \centering\normalsize Qwen3 4B\\[2pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_qwen3_4b_scores.pdf}
-  \end{minipage}\hfill
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Qwen3 8B\\[3pt]
+  \end{minipage}\hspace{.025\textwidth}
+  \begin{minipage}[t]{.30\textwidth}
+    \centering\normalsize Qwen3 8B\\[2pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_qwen3_8b_scores.pdf}
-  \end{minipage}
-  \caption{Naturalistic results for Qwen3 4B (left) and Qwen3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The Qwen models show especially large differences between internal projections and prompted ratings for positive outcomes.}}
-  \label{fig:naturalistic-per-model-qwen}
-\end{figure*}
+  \end{minipage}}
+  \vspace{2pt}
 
-\begin{figure*}[t]
-  \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Llama 3.2 3B\\[3pt]
+  \begin{minipage}[t]{.30\textwidth}
+    \centering\normalsize Llama 3.2 3B\\[2pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_llama32_3b_scores.pdf}
   \end{minipage}\hfill
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Llama 3 8B\\[3pt]
+  \begin{minipage}[t]{.30\textwidth}
+    \centering\normalsize Llama 3 8B\\[2pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_llama3_8b_scores.pdf}
-  \end{minipage}
-  \caption{Naturalistic results for Llama~3.2 3B (left) and Llama~3 8B (right), using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{The smaller Llama models show small and mostly uncertain demographic differences.}}
-  \label{fig:naturalistic-per-model-llama}
-\end{figure*}
-
-\begin{figure*}[t]
-  \centering
-  \begin{minipage}[t]{.48\textwidth}
-    \centering\normalsize Llama 3.1 70B\\[3pt]
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.30\textwidth}
+    \centering\normalsize Llama 3.1 70B\\[2pt]
     \includegraphics[width=\linewidth]{figures/naturalistic_llama31_70b_scores.pdf}
   \end{minipage}
-  \caption{Naturalistic results for Llama~3.1 70B, using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. \textbf{This model shows positive projection shifts across demographic conditions, but its rating differences are smaller and less consistent.}}
-  \label{fig:naturalistic-per-model-llama70b}
+  \caption{Naturalistic results for all seven models, using the same 2$\times$2 layout as Figure~\ref{fig:naturalistic-aggregate}. Bars show demographic differences relative to the matched white-male condition, dashed lines show the non-demographic-baseline difference, and error bars are 95\% scenario-bootstrap CIs. \textbf{The size and direction of the demographic differences vary substantially across models, and the projection and prompted-rating patterns often diverge.}}
+  \label{fig:naturalistic-per-model}
 \end{figure*}
 \FloatBarrier
 
@@ -662,12 +650,12 @@ Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-
 
 Figure~\ref{fig:rq3-distributions} shows the causal-direction projection normalized by each model's causal training gap
 distributions underlying the paired summary statistics in
-Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-llama70b}.
+Figure~\ref{fig:naturalistic-per-model}.
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/rq3_self_blinding_unit_histograms.pdf}
-  \caption{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences vary across models (Figures~\ref{fig:naturalistic-per-model-gemma}--\ref{fig:naturalistic-per-model-llama70b}).}}
+  \caption{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf{The distributions overlap substantially, while the paired differences vary across models (Figure~\ref{fig:naturalistic-per-model}).}}
   \label{fig:rq3-distributions}
 \end{figure*}
 
