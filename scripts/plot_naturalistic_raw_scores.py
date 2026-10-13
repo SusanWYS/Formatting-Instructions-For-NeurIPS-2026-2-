@@ -236,7 +236,7 @@ def summarize(scores: pd.DataFrame, repetitions: int) -> pd.DataFrame:
 def summarize_paired_differences(
     scores: pd.DataFrame, repetitions: int
 ) -> pd.DataFrame:
-    """Summarize demographic-minus-agnostic differences by scenario."""
+    """Summarize demographic-minus-non-demographic differences by scenario."""
     scenario_means = (
         scores.groupby(
             ["metric", "outcome", "condition", "decision_question_id"],
@@ -257,7 +257,7 @@ def summarize_paired_differences(
         validate="many_to_one",
     )
     if differences["baseline_score"].isna().any():
-        raise ValueError("Missing matched race/gender-agnostic baseline")
+        raise ValueError("Missing matched non-demographic baseline")
     differences["difference"] = differences["score"] - differences["baseline_score"]
 
     rng = np.random.default_rng(20260930)

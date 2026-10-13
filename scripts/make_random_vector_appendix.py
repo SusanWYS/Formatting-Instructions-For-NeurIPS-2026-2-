@@ -172,7 +172,7 @@ def naturalistic_table(frame: pd.DataFrame, outcome: str) -> list[str]:
         r"\begin{table}[htbp]",
         r"\centering",
         r"\small",
-        rf"\caption{{Random-direction demographic-minus-agnostic CAA differences for {readable} outcomes. Entries are means $\pm$ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}",
+        rf"\caption{{Random-direction CAA differences between each demographic condition and the matched non-demographic baseline for {readable} outcomes. Entries are means $\pm$ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}",
         rf"\label{{{label}}}",
         r"\begin{tabular}{lrrrr}",
         r"\toprule",
