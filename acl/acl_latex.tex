@@ -113,7 +113,7 @@ We first ask whether implicit causal inferences influence model behavior. To tes
 
 \paragraph{Data.}
 
-To test LM implicit causality attribution, we manually authored 150 minimal pairs with the structure \textbf{[person] [modifier/relative clause] [outcome]}. Each pair has a critical sentence and a control sentence. In the critical member of the pair, the modifier provides a plausible cause of the outcome; in the control, it provides an incidental detail. For example (\Cref{tab:within-sentence-examples}):
+To test LM implicit causality attribution, we manually authored 150 minimal pairs with the structure \textbf{[person] [modifier/relative clause] [outcome]} (see \Cref{tab:within-sentence-examples}). Each pair has a critical sentence and a control sentence. In the critical member of the pair, the modifier provides a plausible cause of the outcome; in the control, it provides an incidental detail. For example:
 \begin{quote}
 \textit{Critical:} \emph{The executive who falsified quarterly revenue figures was fired.}\\
 \textit{Control:} \emph{The executive who wore a blue silk tie was fired.}
@@ -205,7 +205,7 @@ The behavioral results show that implicit causal relations affect model predicti
 
 \paragraph{Data.} To test if implicit causality is selectively represented in model internals, we use three datasets: Causal, Occasion (baseline), and Plausibility (baseline), all containing matched critical/control pairs. We use Occasion and Plausibility as baselines because both require world knowledge but do not encode causal relations. Specifically, Occasion evokes another type of non-causal eliciture as described in \citet{hu-rubiofernandez-2026-referential}. They therefore help test whether the causal direction captures causality specifically, rather than general semantic compatibility or event likelihood.
 
-First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \emph{across} sentences. For CAA fitting and in-distribution evaluation, we use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalize to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}. For example (\Cref{tab:cross-sentence-examples}):
+First, the main \textbf{Causal} dataset (480 pairs; \Cref{tab:cross-sentence-examples}) tests implicit causality \emph{across} sentences. For CAA fitting and in-distribution evaluation, we use \emph{cross-sentence} causality because many theories propose that clauses in discourse (here, sentences) must be structurally related \citep[e.g.,][]{hobbs_literature_1990,kehler_coherence_2002}, in contrast to the non-mandated causal relationships between elements \emph{within} a sentence. This approach allows us to test whether causality representations learned from discourse relationships generalize to within-sentence causality (i.e., eliciture). In each pair of cross-sentence constructions, an \emph{explanation or incidental detail sentence} is followed by an \emph{outcome sentence}. An example is:
 \begin{quote}
 \begin{minipage}{\linewidth}
 \textit{Critical:} \emph{The potatoes sat in flooded fields for weeks. The potatoes rotted underground.}\\
@@ -214,13 +214,13 @@ First, the main \textbf{Causal} dataset (480 pairs) tests implicit causality \em
 \end{quote}
 For out-of-distribution evaluation, we use the 150 within-sentence pairs from Section~\ref{sec:behavior}, where a potential explanation or incidental detail appears as the modifier or relative clause for the outcome.
 
-Second, the \textbf{Occasion (baseline)} dataset (1200 pairs) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential} and standardize every evaluated sentence to begin with a capital letter and end with a period. For example (\Cref{tab:occasion-examples}):
+Second, the \textbf{Occasion (baseline)} dataset (1200 pairs; \Cref{tab:occasion-examples}) tests whether an event is compatible with a person's typical activity. We adapt and expand the occasion items from \citet{hu-rubiofernandez-2026-referential} and standardize every evaluated sentence to begin with a capital letter and end with a period. The contrast is illustrated below:
 \begin{quote}
 \textit{Critical:} \emph{A lifeguard got a painful sunburn last Sunday.}\\
 \textit{Control:} \emph{A translator got a painful sunburn last Sunday.}
 \end{quote}
 
-Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausibility baseline. For example (\Cref{tab:plausibility-examples}):
+Finally, the \textbf{Plausibility (baseline)} dataset (353 pairs; \Cref{tab:plausibility-examples}) tests whether an event is physically and semantically possible. We combine 70 probable--impossible pairs from \citet{hu-etal-2025-shades}, 128 pairs from EventsAdapt \citep{kauf-etal-2023-event}, and 155 pairs from \citet{vega-mendoza-etal-2021-concurrent}. Together, these sources provide a broad event-plausibility baseline. One pair is:
 \begin{quote}
 \textit{Critical:} \emph{Someone baked a cake inside an oven.}\\
 \textit{Control:} \emph{Someone baked a cake inside a freezer.}
@@ -295,7 +295,7 @@ Overall, across five out of the seven tested models, the learned direction has a
 Would the identified causal direction have any real-world implications? Having shown that this direction generalizes across linguistic constructions and influences downstream sentence processing, we next ask whether it captures causal associations in naturalistic social scenarios. Social bias can arise when models infer a causal role for demographic cues. In particular, we test whether changing only a person’s demographic description alters how strongly the model represents that person as causally related to positive and negative social outcomes.
 
 \paragraph{Dataset.}
-To test demographics-related bias in language models, we adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding}, based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman, and also a non-demographic baseline, which includes incidental detail that does not suggest the outcome and is approximately matched in word length. For example (\Cref{tab:rq3-stimuli}):
+To test demographics-related bias in language models, we adapt 65 decision scenarios from \citet{christian-mazor-2026-selfblinding} (see \Cref{tab:rq3-stimuli}), based on \citet{tamkin-etal-2023-discrimination}. For each scenario, we construct positive and negative outcomes with four matched descriptions: a white man, a white woman, a minority man, or a minority woman, and also a non-demographic baseline, which includes incidental detail that does not suggest the outcome and is approximately matched in word length. One scenario has the following template:
 \begin{quote}
 \emph{The [D] salesperson [ND] was [denied/granted] a work visa to move to the United States.}
 \end{quote}
