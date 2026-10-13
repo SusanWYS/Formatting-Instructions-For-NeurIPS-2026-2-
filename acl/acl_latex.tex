@@ -682,19 +682,14 @@ We evaluate models with the following advertised parameter counts: Gemma~2 2B
 and 9B, Qwen3 4B and 8B, Llama~3.2 3B, Llama~3 8B, and Llama~3.1 70B. All
 experiments use inference only. Constructing a CAA direction requires averaging
 activation differences and does not train model parameters. We estimate the
-final reported runs at approximately 5 H100 GPU-hours. Runs used NVIDIA A100,
-A6000, and H100 GPUs on an institutional Slurm cluster. Models up to 9B
-parameters ran on one GPU. Llama~3.1 70B used two H100s for most runs and five
-A6000s for the random-direction diagnostic. The Gemini validation ratings were
-obtained through an API, for which the provider-side hardware and GPU time are
-not available to us.
+final reported runs at approximately 5 H100 GPU-hours. 
 
 \section{Use of AI assistance}
 \label{app:ai-assistance}
 
 We used OpenAI Codex for substantive assistance with code development and
 debugging, experiment orchestration, figure and table generation, literature
-search, and editing parts of the manuscript. We also used GPT-5.6 Sol to
+search, and editing parts of the manuscript. We also used GPT-5.6 Sol (xhigh reasoning effort) to
 generate candidate dataset items. The authors manually reviewed every candidate
 and removed or rewrote examples that were ungrammatical, unnatural, ambiguous,
 or poorly matched. The authors checked the resulting code, analyses, citations,
