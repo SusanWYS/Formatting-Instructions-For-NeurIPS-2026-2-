@@ -559,9 +559,9 @@ def plot_combined(
                 )
             if column_index == 0:
                 axis.set_ylabel(
-                    r"$\Delta_{\mathrm{proj}}$"
+                    r"$\Delta_{\mathrm{proj}}$ (CAA)"
                     if metric == "CAA projection"
-                    else r"$\Delta_{\mathrm{rating}}$"
+                    else r"$\Delta_{\mathrm{rating}}$ (Likert)"
                 )
             else:
                 axis.tick_params(axis="y", labelleft=False)
