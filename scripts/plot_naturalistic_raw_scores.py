@@ -645,7 +645,7 @@ def main() -> None:
         white_male_reference,
         args.output_dir,
         "naturalistic_combined_scores_seven_model",
-        height_inches=3.2,
+        height_inches=2.85,
     )
     plot_per_model_combined(per_model_white_male_reference, args.output_dir)
 
