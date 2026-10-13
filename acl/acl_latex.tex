@@ -92,15 +92,16 @@ with potential implications for the development of safer and more aligned models
 
 What a sentence communicates can go beyond its literal content. For example, a conversational implicature is an inference that a listener draws from an utterance even though it is not part of the utterance's literal meaning. Implicatures are commonly explained by reasoning about why a cooperative speaker chose one utterance over another \citep{grice-1975-logic}. Elicitures instead are thought to arise from coherence and world knowledge. In \emph{The boss fired the employee who is always late}, the defeasible causal link between the lateness and firing helps connect the two events \citep{cohen-kehler-2021-conversational}. Such expectations affect relative-clause and pronoun interpretation in humans \citep{rohde-etal-2011-anticipating,kehler-rohde-2019-prominence}. LM research has largely focused on implicatures and presuppositions \citep{hu-etal-2023-fine,hu-levy-2023-prompting}. To the best of our knowledge, \citet{pan-kehler-2025-pragmatic} is the only work that shows LMs draw elicitures and use them in subsequent processing. % We ask whether the same implicit causal inference can be found and manipulated in model activations.
 
-\paragraph{Linear Representation Hypothesis.}
+\paragraph{Linear representations.}
 
-We test implicit causality under the linear representation hypothesis, which proposes that some concepts are encoded as directions in a model's activation space \citep{park-etal-2024-linear}. Previous work has reported linear directions for entity states and event plausibility \citep{li-etal-2021-implicit,lepori-etal-2026-fantasy}, truth \citep{marks-tegmark-2024-geometry}, factual and linguistic relations \citep{hernandez-etal-2024-linearity}, and tasks learned from in-context examples \citep{todd-etal-2024-function}. Not every relation has a reliable linear direction, even when the model can predict it correctly \citep{hernandez-etal-2024-linearity}. 
+We test implicit causality under the linear representation hypothesis, which proposes that some concepts are encoded as directions in a model's activation space \citep{park-etal-2024-linear}. Prior work has reported linear directions for entity states and event plausibility \citep{li-etal-2021-implicit,lepori-etal-2026-fantasy}, truth \citep{marks-tegmark-2024-geometry}, factual and linguistic relations \citep{hernandez-etal-2024-linearity}, and tasks learned from in-context examples \citep{todd-etal-2024-function}. Not every relation has a reliable linear direction, even when the model can predict it correctly \citep{hernandez-etal-2024-linearity}. 
 
 We use Contrastive Activation Addition (CAA), which averages activation differences between matched critical and control items \citep{rimsky-etal-2024-steering}. We ask whether this direction separates causality from occasion compatibility and plausibility, transfers from cross-sentence to within-sentence items, and changes model predictions when added back to the model's activations.
 
-\paragraph{Social Bias in LMs.}
+\paragraph{Social bias in LMs.}
 
-Prior work tests for the social biases in LMs in several ways. Association tests ask whether model representations or token probabilities link demographic groups with stereotypes \citep{may-etal-2019-measuring,kurita-etal-2019-measuring}. Contrastive benchmarks compare the probabilities of stereotyped and anti-stereotyped sentences \citep{nadeem-etal-2021-stereoset,nangia-etal-2020-crows}. There are also studies testing whether demographic information changes answers to ambiguous questions or social decisions \citep{parrish-etal-2022-bbq,tamkin-etal-2023-discrimination}. Moreover, \citet{ghandeharioun-etal-2024-whos} show that user personas change safety-relevant representations even when the response remains safe. In a similar spirit, we compare model internals with direct verbalized social judgments. We use projection onto the causal CAA direction to measure whether demographic information changes the internal causal representation, then compare this measure with the model's explicit causal rating in social scenarios.
+Prior work tests for the social biases in LMs in several ways. Association tests ask whether model representations or token probabilities link demographic groups with stereotypes \citep{may-etal-2019-measuring,kurita-etal-2019-measuring}. Contrastive benchmarks compare the probabilities of stereotyped and anti-stereotyped sentences \citep{nadeem-etal-2021-stereoset,nangia-etal-2020-crows}. There are also studies testing whether demographic information changes answers to ambiguous questions or social decisions \citep{parrish-etal-2022-bbq,tamkin-etal-2023-discrimination}. Moreover, \citet{ghandeharioun-etal-2024-whos} show that user personas change safety-relevant representations even when the response remains safe. In a similar spirit, we also compare model internals with direct verbalized social judgments. 
+% We use projection onto the causal CAA direction to measure whether demographic information changes the internal causal representation, then compare this measure with the model's explicit causal rating in social scenarios.
 
 % \section{Experiments}
 % \label{sec:experiments}
@@ -147,9 +148,10 @@ For \textbf{Because-And (surprisal)}, we rewrite each item as the outcome follow
 \textit{Because:} \emph{The executive was fired because the executive wore a blue silk tie.}\\
 \textit{And:} \emph{The executive was fired, and the executive wore a blue silk tie.}
 \end{quote}
-We score the modifier tokens including the final period (i.e., \emph{the executive wore a blue silk tie.} in the example above), after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}. Larger values indicate a stronger preference for an directly causal connection. We expect the critical sentence to have the larger score (larger log probability gap) than the control.
-\paragraph{Metrics.}
-For all four measures, we report paired accuracy: i.e., the proportion of pairs in which the critical item receives a strictly higher score than its control. 
+We score the modifier tokens including the final period (i.e., \emph{the executive wore a blue silk tie.} in the example above), after each connective. The score is their mean log probability after \emph{because} minus their mean log probability after \emph{and}. Larger values indicate a stronger preference for an directly causal connection. We expect the critical sentence to have the larger score than the control.
+
+% \paragraph{Metrics.}
+For all four scoring methods, we report paired accuracy as our main evaluation metric: i.e., the proportion of pairs in which the critical item receives a strictly higher score than its control. 
 % For an evaluation set of $N_{\mathrm{eval}}$ matched pairs,
 % \begin{equation}
 % \operatorname{Acc}_{\mathrm{pair}}
@@ -168,9 +170,9 @@ For all four measures, we report paired accuracy: i.e., the proportion of pairs 
   \label{fig:rq1}
 \end{figure*}
 
-\paragraph{Results.} Figure~\ref{fig:rq1} shows that both surprisal measures achieve consistently high paired accuracy across model families. In contrast, direct Yes/No and Likert judgments vary substantially across models. \jh{if we only test base models, then we need to provide some caveat/justification here.} Thus, causal information reliably affects models' next-word predictions even when the models do not report the same inference consistently through direct judgments.
+\paragraph{Results.} Figure~\ref{fig:rq1} shows that both surprisal measures achieve consistently high paired accuracy across model families. In contrast, direct Yes/No and Likert judgments vary substantially across models. \jh{if we only test base models, then we need to provide some caveat/justification here. Might be worth noting that even though these models are not instruct-tuned, many of them still get high accuracy under the prompting methods.} Thus, causal information reliably affects models' next-word predictions even when the models do not report the same inference consistently through direct judgments.
 
-\jh{add some transition/caveats: It could be that probability measurements are simply influenced by co-occurrence statistics or semantic similarity between the causes and outcomes. So, we need to go a level further and look at representations.}
+\jh{add some transition: It could be that probability measurements are simply influenced by co-occurrence statistics or semantic similarity between the causes and outcomes. So, we need to go a level further and look at representations.}
 
 % \paragraph{Models.} In all experiments, we test Gemma~2 2B/9B \citep{gemma-team-2024-gemma2}, Qwen3 4B/8B \citep{qwen-team-2025-qwen3}, Llama~3.2 3B \citep{meta-2024-llama32}, and Llama~3 8B \citep{dubey-etal-2024-llama3} base checkpoints.
 
@@ -285,7 +287,7 @@ Following \citet{ghandeharioun-etal-2024-whos}, we apply the signed intervention
 \end{figure*}
 
 \paragraph{Results.}
-The learned-direction effect becomes progressively more negative as intervention magnitude increases in five models (Figure~\ref{fig:intervention-alpha-sweep}). We generally observe the largest fall at $|\alpha|=5$. We do not observe expected intervention effects for Qwen3 4B and Llama~3.1 70B. The selected layer for Llama~3.1 70B is relatively early in the network (about 20\% model depth), which is optimized for readout on dev set rather than for causal interventions. An intervention analysis at 45\% depth of Llama~3.1 70B is shown in Figure~\ref{fig:llama70b-layer36-intervention} and suggests that later layers are more suitable for causal interventions. We unfortunately do not have a good explanation for the near-zero intervention effects on Qwen3 4B. 
+The learned-direction effect becomes progressively more negative as intervention magnitude increases in five models (Figure~\ref{fig:intervention-alpha-sweep}). We generally observe the largest fall at $|\alpha|=5$. We do not observe expected intervention effects for Qwen3 4B and Llama~3.1 70B. The selected layer for Llama~3.1 70B is relatively early in the network (about 20\% model depth), which is optimized for readout on dev set rather than for causal interventions. An intervention analysis at 45\% depth of Llama~3.1 70B is shown in Figure~\ref{fig:llama70b-layer36-intervention} and suggests that later layers are more suitable for causal interventions. However, the near-zero intervention effects on Qwen3 4B remain unexplained, which we intend to investigate in future work. 
 
 Overall, across five out of the seven tested models, the learned direction has a larger absolute effect than the mean random direction at all alphas, although random directions also reduce accuracy in some models. The intervention therefore provides evidence that the causal direction can potentially affect behavioral discrimination more than random direction baselines. See more implementation details in Appendix~\ref{app:fixed-alpha-sweep}.
 
@@ -300,10 +302,9 @@ To test demographics-related bias in language models, we adapt 65 decision scena
 \end{quote}
 The demographic slot D takes \emph{white male}, \emph{white female}, \emph{Black male}, or \emph{Black female}, whereas the non-demographic slot ND takes \emph{at the consulate}. A demographic item fills D and leaves ND empty. The baseline fills ND and leaves D empty. \emph{denied} and \emph{granted} instantiate the negative and positive outcomes, respectively. Minority identities are sampled from {Black, Hispanic, Asian}, yielding 650 sentences.
 
-In our analyses, we treat the \emph{white male} condition as a reference condition because they are the socially advantaged group along both demographic dimensions (race and gender) in western cultures. % It would be interesting to study the shifts associated with gender and minority status in comparison to white males. 
 
 \paragraph{Evaluation.}
-As in prior evaluations, we project each naturalistic sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. We divide each projection by that model's mean critical-minus-control training gap, $g_m$:
+As before, we project each naturalistic sentence's final-token activation onto the causal CAA direction identified in Section~\ref{sec:representations}. Let $m$ index one of the $M$ models, let $s_m(x)$ denote model $m$'s projection in Equation~\ref{eq:caa-score-main} at its selected layer, and let $N$ be the number of causal training pairs. We divide each projection by that model's mean critical-minus-control training gap, $g_m$:
 \begin{equation}
 \begin{aligned}
 g_m&=\frac{1}{N}\sum_{i=1}^{N}
@@ -314,6 +315,7 @@ g_m&=\frac{1}{N}\sum_{i=1}^{N}
 \end{equation}
 Intuitively, one unit of $\widetilde{s}_m$ equals model $m$'s average causal training contrast, making projection differences more comparable across models.
 
+In our analyses, we treat the white-male condition as a reference condition because they are the socially advantaged group along both demographic dimensions (race and gender) in western cultures. % It would be interesting to study the shifts associated with gender and minority status in comparison to white males. 
 For scoring projections, we compute the average score difference from the white-male baselines:
 \begin{equation}
 \begin{aligned}
@@ -345,12 +347,13 @@ We average  $\Delta_{\mathrm{proj}}(m,j,c)$  and $\Delta_{\mathrm{rating}}(m,j,c
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/naturalistic_combined_scores_seven_model.pdf}
-  \caption{Differences from the matched white-male condition for positive and negative outcomes. Top row: CAA projections. Bottom row: Likert ratings. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases.}}
+  \caption{Differences from the matched white
+  -male condition for positive and negative outcomes. Top row: CAA projections. Bottom row: Likert ratings. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases.}}
   \label{fig:naturalistic-aggregate}
 \end{figure}
 
 \paragraph{Results.}
-For positive outcomes, minority men and minority women have significantly higher causal projections than white men, with the largest increase for minority women (Figure~\ref{fig:naturalistic-aggregate}). Both minority conditions also have higher mean projections than the non-demographic incidental-detail baseline. The Likert ratings do not recover this pattern. Every demographic condition receives a lower rating than the incidental-detail baseline, suggesting that models do not reliably verbalize the causal information captured by their internal representations.
+For positive outcomes, minority men and minority women have significantly higher causal projections than white men, with the largest increase for minority women (Figure~\ref{fig:naturalistic-aggregate}). Both minority conditions also have higher mean projections than the non-demographic (incidental-detail) baseline. The Likert ratings do not recover this pattern. Every demographic condition receives a lower rating than the baseline, suggesting that models do not reliably verbalize the causal information captured by their internal representations.
 
 For negative outcomes, the projections and ratings show the same ordering: scores generally increase from white women to minority men to minority women. The incidental-detail baseline receives the lowest score on both measures, as expected. Appendix~\ref{app:naturalistic-model-results} reports the per-model results.
 
