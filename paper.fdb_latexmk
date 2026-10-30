@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1793340124.52944 "paper.aux" "paper.bbl" "paper" 1793340150.19148 0
+["bibtex paper"] 1793340124.52944 "paper.aux" "paper.bbl" "paper" 1793341061.40427 0
   "./paper.bib" 1791879759.65663 28964 4af8e839207a278fd82d4f0e0f558b0f ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1793340149.69514 21504 d1daa9d1725e76370005bad6a502e1a7 "pdflatex"
+  "paper.aux" 1793341061.1916 21504 d1daa9d1725e76370005bad6a502e1a7 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1793340124.58516 "paper.tex" "paper.pdf" "paper" 1793340150.19316 0
+["pdflatex"] 1793341055.50084 "paper.tex" "paper.pdf" "paper" 1793341061.40542 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -147,7 +147,7 @@
   "derived/rq2_results_text.tex" 1791418894.04985 1047 ea10f299c73a93fd4d148c302d843fd1 ""
   "derived/rq3_self_blinding_stimuli.tex" 1791483758.91213 13953 10a9c401d8c180047139e68f9e52aae0 ""
   "figures/gemini36_likert_histograms.pdf" 1791838652.56571 12386 c66e1b5f0ac3c5c03d9d940dcf06d661 ""
-  "figures/naturalistic_combined_scores_seven_model.pdf" 1791871349.89701 14813 a53cf979b89f18641e006ccce369e454 ""
+  "figures/naturalistic_combined_scores_seven_model_onerow.pdf" 1793341036.65721 15123 86be4c2a4f8aaaf7284f19394bfd0376 ""
   "figures/naturalistic_gemma2_2b_scores.pdf" 1791839761.59121 13620 430a5594028a84925348a2b2a98c8382 ""
   "figures/naturalistic_gemma2_9b_scores.pdf" 1791839762.00687 13258 9bf264e253df17f3bc6ab6f61c0c2028 ""
   "figures/naturalistic_llama31_70b_scores.pdf" 1791839764.08194 13657 090e359b32efefb6c75d1b83ee58d1d2 ""
@@ -160,10 +160,10 @@
   "figures/rq2b_causal_ood_caa_accuracy.pdf" 1791877741.66333 14361 d43947252105c64f97a6eb39f71de7d3 ""
   "figures/rq3_self_blinding_unit_histograms.pdf" 1791418870.01931 40248 1ddab3257bb1165f78e94b0fa4631300 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1793340149.69514 21504 d1daa9d1725e76370005bad6a502e1a7 "pdflatex"
+  "paper.aux" 1793341061.1916 21504 d1daa9d1725e76370005bad6a502e1a7 "pdflatex"
   "paper.bbl" 1793340124.58033 8198 2b868f26d6c44f7be35d64fe315c8226 "bibtex paper"
-  "paper.out" 1793340149.90599 4748 4949d7f24b4670ba34ed41083498f74b "pdflatex"
-  "paper.tex" 1793340117.69964 37661 2ad3df2e130dddc2119bd2176deca3e7 ""
+  "paper.out" 1793341061.1931 4748 4949d7f24b4670ba34ed41083498f74b "pdflatex"
+  "paper.tex" 1793341051.00642 37666 71f3c238f4b6c94e67031f3bff3adfc4 ""
   (generated)
   "paper.aux"
   "paper.log"

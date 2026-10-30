@@ -66,7 +66,7 @@ In all experiments, we test the base checkpoints of Gemma~2 2B/9B \citep{gemma-t
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=.6\linewidth]{figures/rq1_behavior_neurips.pdf}
+  \includegraphics[width=.78\linewidth]{figures/rq1_behavior_neurips.pdf}
   \caption{Paired accuracy on implicit causal inference items using two direct judgments and one surprisal-based measure. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf{The surprisal-based measure distinguishes critical from control items consistently across models.}}
   \label{fig:rq1}
 \end{figure}
@@ -91,7 +91,7 @@ We use \emph{Occasion} and \emph{Plausibility} as baselines because both require
 
 \begin{figure}[t]
   \centering
-  \IfFileExists{figures/rq2a_combined_cross_transfer_heatmaps.pdf}{\includegraphics[width=0.62\linewidth]{figures/rq2a_combined_cross_transfer_heatmaps.pdf}}{\rule{\linewidth}{.30\linewidth}}
+  \IfFileExists{figures/rq2a_combined_cross_transfer_heatmaps.pdf}{\includegraphics[width=0.78\linewidth]{figures/rq2a_combined_cross_transfer_heatmaps.pdf}}{\rule{\linewidth}{.30\linewidth}}
   \caption{Cross-transfer paired accuracy between causal and occasion relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the relation used to construct the CAA and columns show the held-out in-distribution evaluation relation. \textbf{Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}
   \label{fig:rq2-transfer}
 \end{figure}
@@ -120,7 +120,7 @@ We use two complementary measures. First, we project each sentence's final-token
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=.46\linewidth]{figures/naturalistic_combined_scores_seven_model.pdf}
+  \includegraphics[width=\linewidth]{figures/naturalistic_combined_scores_seven_model_onerow.pdf}
   \caption{Differences from the matched white-male condition for positive and negative outcomes. \textbf{Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases. Minority conditions are generally more causal than the white male baselines for CAA projections.}}
   \label{fig:naturalistic-aggregate}
 \end{figure}
