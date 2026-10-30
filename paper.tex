@@ -2,7 +2,7 @@
 \usepackage{microtype}
 \usepackage{soul}
 \usepackage[final,dblblindworkshop]{neurips_2026}
-\workshoptitle{LP4FM}
+\workshoptitle{Linguistic Principles for Foundation Models (LP4FM)}
 \usepackage{enumitem}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -145,6 +145,10 @@ For negative outcomes, the projections and ratings show the same ordering: score
 Here, we investigated whether LMs represent implicit causal relationships, and whether these representations generalize to settings with social implications. We found that implicit causality consistently influences model behavior, and is reflected in internal representations that generalize across linguistic constructions. Moreover, demographic information can change activation along the causal direction: holding the social outcome fixed, changing only the demographic description shifts the strength of the causal signal in some models and conditions. From a cognitive perspective, these results suggest that LMs have learned to represent unstated, non-mandated causal links between events---inferences not explained by typical implicature mechanisms, nor reducible to non-causal relations that still involve world knowledge, such as event plausibility and occasion compatibility. Eliciture therefore provides an interesting test bed for investigating LMs' pragmatic abilities beyond standard tests of implicature or figurative language understanding \citep{pan-kehler-2025-pragmatic}, by shedding light on how LMs build internal models of coherence and the world more broadly.
 
 Our results also have implications for safety and alignment. Causal relationships are most consistently surfaced in continuation probabilities, even when the same models do not report them reliably through direct judgments (in line with \citealt{hu-levy-2023-prompting}), highlighting a distinction between \emph{making} an implicit inference and \emph{reporting} it. This is more than a methodological point: a researcher or user might deem a model safe to use in a certain scenario (e.g., hiring) based on its prompted reports, while the model still represents undesired sentence-internal causal connections that are never explicitly stated. These implicit representations could inadvertently influence downstream decision-making, or even be exploited by users acting in bad faith. The results from Section~\ref{sec:naturalistic} also highlight a case where pragmatic inference may be undesirable: when demographic information is irrelevant to an outcome, treating it as explanatory may introduce social biases unsupported by the context. Moreover, that result is compatible with at least two scenarios: the model may ``believe'', in some sense, that the demographic of the person more strongly causes the outcome, or it may represent that the demographic attribute explains the outcome because of discrimination by the decision maker. These interpretations have different normative implications, and our experiments are not designed to tease them apart; investigating \emph{what kind} of causal link the model represents is an important direction for future work.
+
+\begin{ack}
+We thank the members of the Group for Language and Intelligence (GLInt) lab for general feedback and constructive criticism.
+\end{ack}
 
 % \scriptsize
 % \setlength{\bibsep}{1pt}
