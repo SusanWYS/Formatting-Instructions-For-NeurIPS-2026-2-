@@ -1,18 +1,16 @@
 # Fdb version 4
-["bibtex paper"] 1793344113.01718 "paper.aux" "paper.bbl" "paper" 1793344114.64007 0
+["bibtex paper"] 1793344113.01718 "paper.aux" "paper.bbl" "paper" 1793344504.08368 0
   "./paper.bib" 1791879759.65663 28964 4af8e839207a278fd82d4f0e0f558b0f ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1793344114.35882 21504 0a3863fbc95b2c9d307cd4e0a9afd090 "pdflatex"
+  "paper.aux" 1793344503.84435 21504 0a3863fbc95b2c9d307cd4e0a9afd090 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1793344113.07556 "paper.tex" "paper.pdf" "paper" 1793344114.64079 0
+["pdflatex"] 1793344502.80426 "paper.tex" "paper.pdf" "paper" 1793344504.08431 0
   "/etc/texmf/web2c/texmf.cnf" 1771961221.85341 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm" 1136768653 4712 9ef4d7d106579d4b136e1529e1a4533c ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm" 1136768653 7040 b2bd27e2bfe6f6948cbc3239cae7444f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768653 4524 6bce29db5bc272ba5f332261583fee9c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8t.tfm" 1136768653 6880 f19b8995b61c334d78fc734065f6b4d4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmbi8r.tfm" 1136768653 4480 10409ed8bab5aea9ec9a78028b763919 ""
@@ -54,12 +52,10 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb" 1136849748 44648 23115b2a545ebfe2c526c3ca99db8b95 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 a3faba884469519614ca56ba5f6b1de1 ""
-  "/usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf" 1136768653 2344 44ff28c9ef2fc97180cd884f900fee71 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb8t.vf" 1136768653 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmbi8t.vf" 1136768653 2324 51908dae6e03953a90119973962f0e4d ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8t.vf" 1136768653 2348 91706c542228501c410c266421fbe30c ""
@@ -120,14 +116,12 @@
   "/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty" 1665067230 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1704491087 30006 57b07afb710ee2f649c65cfbafda39c1 ""
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
-  "/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty" 1684613922 154524 d78e0d3f9a3cdfd2cab61cd321c9281c ""
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def" 1678741534 48246 c3eed060aba663f58af3ff756e83f2bd ""
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg" 1678741534 26842 05a01d67d23e805520393a049533b8c0 ""
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty" 1678741534 98531 f79ec363f3014ada2cb766715926ecc9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg" 1678741534 22906 7a8d9f8766e60f694cdde7648421c2ab ""
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg" 1678741534 12427 02d1873769280609ae2509e963f1fa66 ""
   "/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty" 1707919699 45458 f1c6cb3edd91174e966cbbaf88993bcf ""
-  "/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd" 1586716065 1483 47067fbe7c3ffed1ede7aaa7b8549d7a ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd" 1137110629 774 61d7da1e9f9e74989b196d147e623736 ""
   "/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
@@ -160,10 +154,10 @@
   "figures/rq2b_causal_ood_caa_accuracy.pdf" 1791877741.66333 14361 d43947252105c64f97a6eb39f71de7d3 ""
   "figures/rq3_self_blinding_unit_histograms.pdf" 1791418870.01931 40248 1ddab3257bb1165f78e94b0fa4631300 ""
   "neurips_2026.sty" 1787657940.19795 13704 f447d3302c8719cb27619a074c876b44 ""
-  "paper.aux" 1793344114.35882 21504 0a3863fbc95b2c9d307cd4e0a9afd090 "pdflatex"
+  "paper.aux" 1793344503.84435 21504 0a3863fbc95b2c9d307cd4e0a9afd090 "pdflatex"
   "paper.bbl" 1793344113.06977 8198 2b868f26d6c44f7be35d64fe315c8226 "bibtex paper"
-  "paper.out" 1793344114.36114 4748 4949d7f24b4670ba34ed41083498f74b "pdflatex"
-  "paper.tex" 1793344102.74319 36735 640478f5a27833a29a7496ed0bafcdb2 ""
+  "paper.out" 1793344503.8471 4748 4949d7f24b4670ba34ed41083498f74b "pdflatex"
+  "paper.tex" 1793344496.60388 36938 b0407dcf14c9128dc5b8fb5c1d702d96 ""
   (generated)
   "paper.aux"
   "paper.log"
