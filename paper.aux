@@ -16,8 +16,8 @@
 \citation{qwen-team-2025-qwen3}
 \citation{meta-2024-llama32}
 \citation{dubey-etal-2024-llama3}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Paired accuracy on implicit causal inference items using two explicit judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf  {Both surprisal-based measures distinguish critical from control items consistently across models.}}}{2}{figure.1}\protected@file@percent }
-\newlabel{fig:rq1}{{1}{2}{Paired accuracy on implicit causal inference items using two explicit judgments and two surprisal-based measures. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf {Both surprisal-based measures distinguish critical from control items consistently across models.}}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Paired accuracy on implicit causal inference items using two direct judgments and one surprisal-based measure. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf  {The surprisal-based measure distinguishes critical from control items consistently across models.}}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:rq1}{{1}{2}{Paired accuracy on implicit causal inference items using two direct judgments and one surprisal-based measure. Higher accuracy indicates that a method more consistently assigns a higher causal score to the critical sentence than to its control. \textbf {The surprisal-based measure distinguishes critical from control items consistently across models.}}{figure.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Experiments}{2}{section.2}\protected@file@percent }
 \newlabel{sec:experiments}{{2}{2}{Experiments}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Measuring implicit causal inference through model behaviors}{2}{subsection.2.1}\protected@file@percent }
@@ -27,11 +27,12 @@
 \citation{hobbs_literature_1990,kehler_coherence_2002}
 \citation{hu-rubiofernandez-2026-referential}
 \citation{hu-etal-2025-shades}
-\citation{lepori-etal-2026-fantasy}
+\citation{kauf-etal-2023-event}
+\citation{vega-mendoza-etal-2021-concurrent}
 \citation{hu-rubiofernandez-2026-referential}
 \citation{rimsky-etal-2024-steering}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the held-out in-distribution test set. \textbf  {Causal CAA directions are largely relation-selective and distinct from occasional and plausibility directions.}}}{3}{figure.2}\protected@file@percent }
-\newlabel{fig:rq2-transfer}{{2}{3}{Cross-transfer paired accuracy between causal and occasional relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the CAA training set and columns show the held-out in-distribution test set. \textbf {Causal CAA directions are largely relation-selective and distinct from occasional and plausibility directions.}}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cross-transfer paired accuracy between causal and occasion relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the relation used to construct the CAA and columns show the held-out in-distribution evaluation relation. \textbf  {Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:rq2-transfer}{{2}{3}{Cross-transfer paired accuracy between causal and occasion relations (top row) and causal and plausibility relations (bottom row). Within each heatmap, rows show the relation used to construct the CAA and columns show the held-out in-distribution evaluation relation. \textbf {Causal CAA directions are largely relation-selective with respect to the tested occasion and event-feasibility baselines.}}{figure.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Identifying internal representations of implicit causality inference}{3}{subsection.2.2}\protected@file@percent }
 \newlabel{sec:representations}{{2.2}{3}{Identifying internal representations of implicit causality inference}{subsection.2.2}{}}
 \@writefile{toc}{\contentsline {paragraph}{Datasets.}{3}{section*.3}\protected@file@percent }
@@ -39,15 +40,19 @@
 \@writefile{toc}{\contentsline {paragraph}{Results.}{3}{section*.5}\protected@file@percent }
 \citation{christian-mazor-2026-selfblinding}
 \citation{tamkin-etal-2023-discrimination}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf  {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}}{4}{figure.3}\protected@file@percent }
-\newlabel{fig:rq2b}{{3}{4}{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs with 95\% CIs. \textbf {Causal CAA directions generalize consistently to within-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs. \textbf  {Causal CAA directions learned from \emph  {cross}-sentence causal inference generalize consistently to \emph  {within}-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items.}}{4}{figure.3}\protected@file@percent }
+\newlabel{fig:rq2b}{{3}{4}{Paired accuracy of causal, occasional, and plausibility CAA directions on 150 unseen within-sentence causal inference pairs. \textbf {Causal CAA directions learned from \emph {cross}-sentence causal inference generalize consistently to \emph {within}-sentence implicit causal inference.} Occasion and plausibility CAA directions transfer less consistently to within-sentence implicit causal items}{figure.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Implicit representations of causality in real-world scenarios}{4}{subsection.2.3}\protected@file@percent }
 \newlabel{sec:naturalistic}{{2.3}{4}{Implicit representations of causality in real-world scenarios}{subsection.2.3}{}}
 \@writefile{toc}{\contentsline {paragraph}{Dataset.}{4}{section*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Evaluation.}{4}{section*.7}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Seven-model aggregate differences from the matched race/gender-agnostic baseline $\pm $ 95\% scenario-bootstrap CIs. CAA projections are divided by each model's causal training gap; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf  {Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}}{4}{table.1}\protected@file@percent }
-\newlabel{tab:naturalistic-aggregate}{{1}{4}{Seven-model aggregate differences from the matched race/gender-agnostic baseline $\pm $ 95\% scenario-bootstrap CIs. CAA projections are divided by each model's causal training gap; Likert is the probability-weighted 1--7 rating. Bold CIs exclude zero. \textbf {Demographic descriptions increase both measures for negative outcomes on average, whereas positive-outcome Likert ratings decrease.}}{table.1}{}}
 \@writefile{toc}{\contentsline {paragraph}{Results.}{4}{section*.8}\protected@file@percent }
+\citation{pan-kehler-2025-pragmatic}
+\citation{hu-levy-2023-prompting}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Differences from the matched white-male condition for positive and negative outcomes. \textbf  {Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases. Minority conditions are generally more causal than the white male baselines for CAA projections.}}}{5}{figure.4}\protected@file@percent }
+\newlabel{fig:naturalistic-aggregate}{{4}{5}{Differences from the matched white-male condition for positive and negative outcomes. \textbf {Likert ratings and CAA projections disagree in causality attribution in positive scenarios and agree in negative cases. Minority conditions are generally more causal than the white male baselines for CAA projections.}}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Discussion}{5}{section.3}\protected@file@percent }
+\newlabel{sec:discussion}{{3}{5}{Discussion}{section.3}{}}
 \bibstyle{plainnat}
 \bibdata{paper}
 \bibcite{christian-mazor-2026-selfblinding}{{1}{2026}{{Christian and Mazor}}{{}}}
@@ -59,11 +64,9 @@
 \bibcite{hu-rubiofernandez-2026-referential}{{7}{2026}{{Hu and Rubio-Fern\'andez}}{{}}}
 \bibcite{hu-etal-2025-shades}{{8}{2025}{{Hu et~al.}}{{Hu, Sosa, and Ullman}}}
 \bibcite{jeretic-etal-2020-natural}{{9}{2020}{{Jeretic et~al.}}{{Jeretic, Warstadt, Bhooshan, and Williams}}}
-\bibcite{kehler_coherence_2002}{{10}{2002}{{Kehler}}{{}}}
-\bibcite{lepori-etal-2026-fantasy}{{11}{2025}{{Lepori et~al.}}{{Lepori, Hu, Dasgupta, Patel, Serre, and Pavlick}}}
+\bibcite{kauf-etal-2023-event}{{10}{2023}{{Kauf et~al.}}{{Kauf, Ivanova, Rambelli, Chersoni, She, Chowdhury, Fedorenko, and Lenci}}}
+\bibcite{kehler_coherence_2002}{{11}{2002}{{Kehler}}{{}}}
 \bibcite{li-etal-2021-predicting}{{12}{2021}{{Li et~al.}}{{Li, Schuster, and Degen}}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Discussion}{5}{section.3}\protected@file@percent }
-\newlabel{sec:discussion}{{3}{5}{Discussion}{section.3}{}}
 \bibcite{meta-2024-llama32}{{13}{2024}{{Meta Llama}}{{}}}
 \bibcite{pan-kehler-2025-pragmatic}{{14}{2025}{{Pan and Kehler}}{{}}}
 \bibcite{rimsky-etal-2024-steering}{{15}{2024}{{Rimsky et~al.}}{{Rimsky, Gabrieli, Schulz, Tong, Hubinger, and Turner}}}
@@ -71,87 +74,96 @@
 \bibcite{ruis2023goldilocks}{{17}{2023}{{Ruis et~al.}}{{Ruis, Khan, Biderman, Hooker, Rocktäschel, and Grefenstette}}}
 \bibcite{schuster-etal-2020-harnessing}{{18}{2020}{{Schuster et~al.}}{{Schuster, Chen, and Degen}}}
 \bibcite{tamkin-etal-2023-discrimination}{{19}{2023}{{Tamkin et~al.}}{{Tamkin, Askell, Lovitt, Durmus, Joseph, Kravec, Nguyen, Kaplan, and Ganguli}}}
-\bibcite{qwen-team-2025-qwen3}{{20}{2025}{{Yang et~al.}}{{}}}
-\gdef \LT@i {\LT@entry 
-    {4}{12.00002pt}\LT@entry 
-    {1}{182.89436pt}\LT@entry 
-    {1}{178.89436pt}}
-\gdef \LT@ii {\LT@entry 
-    {4}{12.00002pt}\LT@entry 
-    {1}{182.89436pt}\LT@entry 
-    {1}{178.89436pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Dataset examples}{7}{appendix.A}\protected@file@percent }
-\newlabel{app:representation-examples}{{A}{7}{Dataset examples}{appendix.A}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Within-sentence causal items}{7}{subsection.A.1}\protected@file@percent }
-\newlabel{app:within-sentence-examples}{{A.1}{7}{Within-sentence causal items}{subsection.A.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Cross-sentence causal items}{7}{subsection.A.2}\protected@file@percent }
-\newlabel{app:cross-sentence-examples}{{A.2}{7}{Cross-sentence causal items}{subsection.A.2}{}}
-\gdef \LT@iii {\LT@entry 
-    {4}{12.00002pt}\LT@entry 
-    {1}{182.89436pt}\LT@entry 
-    {1}{178.89436pt}}
+\bibcite{vega-mendoza-etal-2021-concurrent}{{20}{2021}{{Vega-Mendoza et~al.}}{{Vega-Mendoza, Pickering, and Nieuwland}}}
+\bibcite{qwen-team-2025-qwen3}{{21}{2025}{{Yang et~al.}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Behavioral evaluation details}{8}{appendix.A}\protected@file@percent }
+\newlabel{app:behavior-details}{{A}{8}{Behavioral evaluation details}{appendix.A}{}}
+\@writefile{toc}{\contentsline {paragraph}{Yes/No prompt and score.}{8}{section*.11}\protected@file@percent }
+\newlabel{eq:answer-sequence-probability}{{1}{8}{Yes/No prompt and score}{equation.A.1}{}}
+\newlabel{eq:yes-probability}{{2}{8}{Yes/No prompt and score}{equation.A.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{7-point Likert prompt and score.}{8}{section*.12}\protected@file@percent }
+\newlabel{eq:Likert-score}{{4}{8}{7-point Likert prompt and score}{equation.A.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Behavioral evaluation ceiling and validation of data construction.}{8}{section*.13}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Distributions of Gemini~3.6 Flash causal ratings for critical and control items in the cross-sentence (left) and within-sentence (right) constructions, where 1 means definitely not causal and 7 means definitely causal. \textbf  {Critical ratings concentrate near 7 and control ratings near 1 in both constructions.}}}{8}{figure.5}\protected@file@percent }
+\newlabel{fig:gemini36-likert-histograms}{{5}{8}{Distributions of Gemini~3.6 Flash causal ratings for critical and control items in the cross-sentence (left) and within-sentence (right) constructions, where 1 means definitely not causal and 7 means definitely causal. \textbf {Critical ratings concentrate near 7 and control ratings near 1 in both constructions.}}{figure.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{IDK Why surprisal score.}{9}{section*.14}\protected@file@percent }
+\newlabel{eq:surprisal}{{5}{9}{IDK Why surprisal score}{equation.A.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Candidate scoring and paired accuracy.}{9}{section*.15}\protected@file@percent }
+\newlabel{eq:paired-accuracy}{{6}{9}{Candidate scoring and paired accuracy}{equation.A.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Representation identification details}{9}{appendix.B}\protected@file@percent }
+\newlabel{app:representation-details}{{B}{9}{Representation identification details}{appendix.B}{}}
+\newlabel{app:representation-examples}{{B}{9}{Representation identification details}{appendix.B}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Within-sentence causal items}{9}{subsection.B.1}\protected@file@percent }
+\newlabel{app:within-sentence-examples}{{B.1}{9}{Within-sentence causal items}{subsection.B.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Examples from the within-sentence causal dataset.}}{9}{table.1}\protected@file@percent }
+\newlabel{tab:within-sentence-examples}{{1}{9}{Examples from the within-sentence causal dataset}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Cross-sentence causal items}{9}{subsection.B.2}\protected@file@percent }
+\newlabel{app:cross-sentence-examples}{{B.2}{9}{Cross-sentence causal items}{subsection.B.2}{}}
 \citation{hu-etal-2025-shades}
-\citation{lepori-etal-2026-fantasy}
-\gdef \LT@iv {\LT@entry 
-    {4}{12.00002pt}\LT@entry 
-    {1}{182.89436pt}\LT@entry 
-    {1}{178.89436pt}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Occasion items}{8}{subsection.A.3}\protected@file@percent }
-\newlabel{app:occasion-examples}{{A.3}{8}{Occasion items}{subsection.A.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Plausibility items}{8}{subsection.A.4}\protected@file@percent }
-\newlabel{app:plausibility-examples}{{A.4}{8}{Plausibility items}{subsection.A.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Naturalistic scenarios: statistics and examples}{8}{subsection.A.5}\protected@file@percent }
-\newlabel{app:naturalistic-stimuli}{{A.5}{8}{Naturalistic scenarios: statistics and examples}{subsection.A.5}{}}
-\gdef \LT@v {\LT@entry 
+\citation{kauf-etal-2023-event}
+\citation{vega-mendoza-etal-2021-concurrent}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Examples from the cross-sentence causal dataset.}}{10}{table.2}\protected@file@percent }
+\newlabel{tab:cross-sentence-examples}{{2}{10}{Examples from the cross-sentence causal dataset}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Occasion items}{10}{subsection.B.3}\protected@file@percent }
+\newlabel{app:occasion-examples}{{B.3}{10}{Occasion items}{subsection.B.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Examples from the occasion dataset.}}{10}{table.3}\protected@file@percent }
+\newlabel{tab:occasion-examples}{{3}{10}{Examples from the occasion dataset}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4}Plausibility items}{11}{subsection.B.4}\protected@file@percent }
+\newlabel{app:plausibility-examples}{{B.4}{11}{Plausibility items}{subsection.B.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Examples from the three-source event-feasibility dataset.}}{11}{table.4}\protected@file@percent }
+\newlabel{tab:plausibility-examples}{{4}{11}{Examples from the three-source event-feasibility dataset}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.5}CAA extraction and evaluation}{11}{subsection.B.5}\protected@file@percent }
+\newlabel{app:caa-details}{{B.5}{11}{CAA extraction and evaluation}{subsection.B.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Direction extraction.}{11}{section*.16}\protected@file@percent }
+\newlabel{eq:caa-direction}{{7}{11}{Direction extraction}{equation.B.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{Projection and evaluation.}{11}{section*.17}\protected@file@percent }
+\newlabel{eq:caa-projection}{{8}{11}{Projection and evaluation}{equation.B.8}{}}
+\newlabel{eq:caa-paired-accuracy}{{9}{11}{Projection and evaluation}{equation.B.9}{}}
+\gdef \LT@i {\LT@entry 
     {1}{159.01889pt}\LT@entry 
     {1}{41.76155pt}\LT@entry 
     {1}{41.76155pt}\LT@entry 
     {1}{41.76155pt}\LT@entry 
     {1}{41.76155pt}\LT@entry 
     {1}{59.64764pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph  {D} marks the demographic-detail position, \emph  {ND} marks the non-demographic-detail position, and \emph  {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition.}}{9}{table.2}\protected@file@percent }
-\newlabel{tab:rq3-stimuli}{{2}{9}{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph {D} marks the demographic-detail position, \emph {ND} marks the non-demographic-detail position, and \emph {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition}{table.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Naturalistic per-model results}{11}{appendix.B}\protected@file@percent }
-\newlabel{app:naturalistic-model-results}{{B}{11}{Naturalistic per-model results}{appendix.B}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf  {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}}{11}{table.3}\protected@file@percent }
-\newlabel{tab:naturalistic-negative}{{3}{11}{Per-model CAA projection differences for negative outcomes. Bold CIs exclude zero. \textbf {Six models have at least one nonzero contrast, but the direction differs for Gemma~2 2B.}}{table.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf  {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}}{11}{table.4}\protected@file@percent }
-\newlabel{tab:naturalistic-positive}{{4}{11}{Per-model CAA projection differences for positive outcomes. Bold CIs exclude zero. \textbf {Gemma~2 2B and Llama~3.1 70B have nonzero contrasts.}}{table.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf  {The aggregate increase is largest and most consistent in Qwen3 8B.}}}{11}{table.5}\protected@file@percent }
-\newlabel{tab:naturalistic-likert-negative}{{5}{11}{Per-model Likert-rating differences for negative outcomes. Bold CIs exclude zero. \textbf {The aggregate increase is largest and most consistent in Qwen3 8B.}}{table.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf  {The aggregate decrease is driven primarily by Qwen3 4B.}}}{11}{table.6}\protected@file@percent }
-\newlabel{tab:naturalistic-likert-positive}{{6}{11}{Per-model Likert-rating differences for positive outcomes. Bold CIs exclude zero. \textbf {The aggregate decrease is driven primarily by Qwen3 4B.}}{table.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Norm-matched random-vector baselines}{11}{appendix.C}\protected@file@percent }
-\newlabel{app:random-baselines}{{C}{11}{Norm-matched random-vector baselines}{appendix.C}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf  {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}}{11}{table.7}\protected@file@percent }
-\newlabel{tab:random-vector-accuracy}{{7}{11}{Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}{table.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Behavioral evaluation details}{11}{appendix.D}\protected@file@percent }
-\newlabel{app:behavior-details}{{D}{11}{Behavioral evaluation details}{appendix.D}{}}
-\@writefile{toc}{\contentsline {paragraph}{Yes/No prompt and score.}{11}{section*.10}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{12}{table.8}\protected@file@percent }
-\newlabel{tab:random-vector-naturalistic-negative}{{8}{12}{Random-direction demographic-minus-agnostic CAA differences for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{12}{table.9}\protected@file@percent }
-\newlabel{tab:random-vector-naturalistic-positive}{{9}{12}{Random-direction demographic-minus-agnostic CAA differences for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.9}{}}
-\newlabel{eq:yes-probability}{{1}{12}{Yes/No prompt and score}{equation.D.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{7-point Likert prompt and score.}{12}{section*.11}\protected@file@percent }
-\newlabel{eq:Likert-score}{{2}{12}{7-point Likert prompt and score}{equation.D.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{IDK Why surprisal score.}{12}{section*.12}\protected@file@percent }
-\newlabel{eq:surprisal}{{3}{12}{IDK Why surprisal score}{equation.D.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Because-And surprisal score.}{13}{section*.13}\protected@file@percent }
-\newlabel{eq:because-and}{{4}{13}{Because-And surprisal score}{equation.D.4}{}}
-\@writefile{toc}{\contentsline {paragraph}{Paired accuracy and sampling parameters.}{13}{section*.14}\protected@file@percent }
-\newlabel{eq:paired-accuracy}{{5}{13}{Paired accuracy and sampling parameters}{equation.D.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {E}CAA extraction and evaluation details}{13}{appendix.E}\protected@file@percent }
-\newlabel{app:caa-details}{{E}{13}{CAA extraction and evaluation details}{appendix.E}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {E.1}Causal CAA direction extraction}{13}{subsection.E.1}\protected@file@percent }
-\newlabel{app:caa-extraction}{{E.1}{13}{Causal CAA direction extraction}{subsection.E.1}{}}
-\newlabel{eq:caa-direction}{{6}{13}{Causal CAA direction extraction}{equation.E.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {E.2}CAA projection and evaluation}{13}{subsection.E.2}\protected@file@percent }
-\newlabel{app:caa-evaluation}{{E.2}{13}{CAA projection and evaluation}{subsection.E.2}{}}
-\newlabel{eq:caa-projection}{{7}{13}{CAA projection and evaluation}{equation.E.7}{}}
-\newlabel{eq:caa-paired-accuracy}{{8}{13}{CAA projection and evaluation}{equation.E.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {F}Projection statistics}{14}{appendix.F}\protected@file@percent }
-\newlabel{app:raw-caa}{{F}{14}{Projection statistics}{appendix.F}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf  {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}}{14}{figure.4}\protected@file@percent }
-\newlabel{fig:rq3-distributions}{{4}{14}{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, using causal directions trained on the cross-sentence split. \textbf {The distributions overlap substantially, while the paired differences from the race/gender-agnostic baseline vary across models (Table~\ref {tab:naturalistic-negative}).}}{figure.4}{}}
-\gdef \@abspage@last{14}
+\@writefile{toc}{\contentsline {paragraph}{Confidence intervals.}{12}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {C}Naturalistic evaluation details}{12}{appendix.C}\protected@file@percent }
+\newlabel{app:naturalistic-details}{{C}{12}{Naturalistic evaluation details}{appendix.C}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}Naturalistic scenarios: statistics and examples}{12}{subsection.C.1}\protected@file@percent }
+\newlabel{app:naturalistic-stimuli}{{C.1}{12}{Naturalistic scenarios: statistics and examples}{subsection.C.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph  {D} marks the demographic-detail position, \emph  {ND} marks the non-demographic-detail position, and \emph  {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition.}}{12}{table.5}\protected@file@percent }
+\newlabel{tab:rq3-stimuli}{{5}{12}{Templates and inserted details for all 65 matched negative-outcome scenarios. In the template column, \emph {D} marks the demographic-detail position, \emph {ND} marks the non-demographic-detail position, and \emph {D/ND} marks a shared position; an unused blank is omitted when constructing a sentence. Each remaining cell gives only the text inserted for that condition}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}Score definitions}{14}{subsection.C.2}\protected@file@percent }
+\newlabel{app:naturalistic-scores}{{C.2}{14}{Score definitions}{subsection.C.2}{}}
+\newlabel{eq:naturalistic-projection-normalization}{{10}{14}{Score definitions}{equation.C.10}{}}
+\newlabel{eq:naturalistic-white-male-contrasts}{{11}{14}{Score definitions}{equation.C.11}{}}
+\newlabel{eq:naturalistic-white-male-rating-contrasts}{{12}{14}{Score definitions}{equation.C.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.3}Confidence intervals}{14}{subsection.C.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.4}Naturalistic per-model results}{14}{subsection.C.4}\protected@file@percent }
+\newlabel{app:naturalistic-model-results}{{C.4}{14}{Naturalistic per-model results}{subsection.C.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Naturalistic results for all seven models. \textbf  {The size and direction of the demographic differences vary substantially across models, and the projection and prompted-rating patterns often diverge.}}}{15}{figure.6}\protected@file@percent }
+\newlabel{fig:naturalistic-per-model}{{6}{15}{Naturalistic results for all seven models. \textbf {The size and direction of the demographic differences vary substantially across models, and the projection and prompted-rating patterns often diverge.}}{figure.6}{}}
+\citation{vega-mendoza-etal-2021-concurrent}
+\citation{christian-mazor-2026-selfblinding}
+\citation{tamkin-etal-2023-discrimination}
+\citation{kauf-etal-2023-event}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.5}Projection statistics}{16}{subsection.C.5}\protected@file@percent }
+\newlabel{app:raw-caa}{{C.5}{16}{Projection statistics}{subsection.C.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, projected onto the causal directions trained on the cross-sentence split. \textbf  {The distributions overlap substantially, while the paired differences vary across models (Figure~\ref {fig:naturalistic-per-model}).}}}{16}{figure.7}\protected@file@percent }
+\newlabel{fig:rq3-distributions}{{7}{16}{Training-gap-normalized CAA projection distributions for four matched demographic conditions across 65 negative-outcome scenarios per model, projected onto the causal directions trained on the cross-sentence split. \textbf {The distributions overlap substantially, while the paired differences vary across models (Figure~\ref {fig:naturalistic-per-model}).}}{figure.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Norm-matched random-vector baselines}{16}{appendix.D}\protected@file@percent }
+\newlabel{app:random-baselines}{{D}{16}{Norm-matched random-vector baselines}{appendix.D}{}}
+\newlabel{eq:random-direction}{{13}{16}{Norm-matched random-vector baselines}{equation.D.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Artifact licenses}{16}{appendix.E}\protected@file@percent }
+\newlabel{app:artifact-licenses}{{E}{16}{Artifact licenses}{appendix.E}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf  {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}}{17}{table.6}\protected@file@percent }
+\newlabel{tab:random-vector-accuracy}{{6}{17}{Paired accuracy of the learned causal CAA and ten norm-matched random directions evaluated at the same selected layer. Random entries report mean $\pm $ standard deviation across directions. \textbf {The learned causal direction is strongest on held-out causal items and within-sentence causal items; random-direction averages remain close to chance.}}{table.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Random-direction CAA differences between each demographic condition and the matched non-demographic baseline for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{17}{table.7}\protected@file@percent }
+\newlabel{tab:random-vector-naturalistic-negative}{{7}{17}{Random-direction CAA differences between each demographic condition and the matched non-demographic baseline for negative outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Model sizes and computational budget}{17}{appendix.F}\protected@file@percent }
+\newlabel{app:compute-budget}{{F}{17}{Model sizes and computational budget}{appendix.F}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Random-direction CAA differences between each demographic condition and the matched non-demographic baseline for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios.}}{17}{table.8}\protected@file@percent }
+\newlabel{tab:random-vector-naturalistic-positive}{{8}{17}{Random-direction CAA differences between each demographic condition and the matched non-demographic baseline for positive outcomes. Entries are means $\pm $ standard deviations across ten norm-matched directions; each direction's entry first averages the 65 paired scenarios}{table.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {G}Use of AI assistance}{18}{appendix.G}\protected@file@percent }
+\newlabel{app:ai-assistance}{{G}{18}{Use of AI assistance}{appendix.G}{}}
+\gdef \@abspage@last{18}

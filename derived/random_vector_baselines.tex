@@ -10,7 +10,21 @@ For model $m$, let $\mathbf{v}_m$ denote the learned causal direction at its sel
 \quad j=1,\ldots,10.
 \label{eq:random-direction}
 \end{equation}
-Each random direction therefore has an isotropically sampled orientation and exactly the same norm as the learned direction. We evaluate all ten directions at the learned direction's selected layer and do not select any direction using development or test performance. We reuse these seeded directions for paired accuracy, the fixed-alpha intervention sweep, and the naturalistic evaluations. Naturalistic random-direction projections are divided by that model's learned-CAA critical-minus-control training gap, matching the learned-direction calibration.
+Each random direction therefore has an isotropically sampled orientation and exactly the same norm as the learned direction. We evaluate all ten directions at the learned direction's selected layer and do not select any direction using development or test performance. We reuse these seeded directions for paired accuracy and the naturalistic evaluations. Naturalistic random-direction projections are divided by that model's learned-CAA critical-minus-control training gap, matching the learned-direction calibration.
+
+To test whether the naturalistic projection differences arise along arbitrary
+activation-space directions, we repeat the naturalistic analysis using the same
+ten norm-matched random directions. For each direction, we subtract the matched
+non-demographic projection from each demographic condition and average the
+difference across the 65 scenarios.
+Tables~\ref{tab:random-vector-naturalistic-negative}
+and~\ref{tab:random-vector-naturalistic-positive} report the mean and standard
+deviation of this value across the ten directions. The random-direction means
+remain close to zero across models, conditions, and outcome valences. Thus, the
+patterns obtained with the causal direction in
+Figures~\ref{fig:naturalistic-aggregate} and~\ref{fig:naturalistic-per-model}
+do not follow from projecting the same items onto an arbitrary norm-matched
+direction.
 \begin{table*}[htbp]
 \centering
 \small

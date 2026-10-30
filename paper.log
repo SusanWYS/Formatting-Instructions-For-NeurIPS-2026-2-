@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  8 OCT 2026 14:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.24)  30 OCT 2026 02:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -613,7 +613,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 33
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 34
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -629,50 +629,72 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-su
 per-t1.enc}]
-<figures/rq1_behavior.pdf, id=135, 467.0894pt x 100.21696pt>
-File: figures/rq1_behavior.pdf Graphic file (type pdf)
-<use figures/rq1_behavior.pdf>
-Package pdftex.def Info: figures/rq1_behavior.pdf  used on input line 71.
-(pdftex.def)             Requested size: 270.28687pt x 57.99435pt.
+<figures/rq1_behavior_neurips.pdf, id=152, 464.55368pt x 100.67787pt>
+File: figures/rq1_behavior_neurips.pdf Graphic file (type pdf)
+<use figures/rq1_behavior_neurips.pdf>
+Package pdftex.def Info: figures/rq1_behavior_neurips.pdf  used on input line 6
+9.
+(pdftex.def)             Requested size: 238.49341pt x 51.68607pt.
 
-[2 <./figures/rq1_behavior.pdf>]
-<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=184, 771.72195pt x 236.6
+[2 <./figures/rq1_behavior_neurips.pdf>]
+<figures/rq2a_combined_cross_transfer_heatmaps.pdf, id=249, 771.72195pt x 236.6
 698pt>
 File: figures/rq2a_combined_cross_transfer_heatmaps.pdf Graphic file (type pdf)
 
 <use figures/rq2a_combined_cross_transfer_heatmaps.pdf>
 Package pdftex.def Info: figures/rq2a_combined_cross_transfer_heatmaps.pdf  use
-d on input line 128.
-(pdftex.def)             Requested size: 357.73405pt x 109.70723pt.
-<figures/rq2b_causal_ood_caa_accuracy.pdf, id=185, 466.40434pt x 99.61472pt>
+d on input line 94.
+(pdftex.def)             Requested size: 246.43874pt x 75.57698pt.
+<figures/rq2b_causal_ood_caa_accuracy.pdf, id=250, 466.62392pt x 98.01166pt>
 File: figures/rq2b_causal_ood_caa_accuracy.pdf Graphic file (type pdf)
 <use figures/rq2b_causal_ood_caa_accuracy.pdf>
 Package pdftex.def Info: figures/rq2b_causal_ood_caa_accuracy.pdf  used on inpu
-t line 136.
-(pdftex.def)             Requested size: 397.48499pt x 84.89937pt.
- [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf>] [4 <./figures/rq2b_c
-ausal_ood_caa_accuracy.pdf>] (./paper.bbl
-[5]) [6] (./appendix_examples.tex [7
+t line 101.
+(pdftex.def)             Requested size: 286.18967pt x 60.11603pt.
+ [3 <./figures/rq2a_combined_cross_transfer_heatmaps.pdf>]
+<figures/naturalistic_combined_scores_seven_model.pdf, id=320, 244.92441pt x 19
+9.5756pt>
+File: figures/naturalistic_combined_scores_seven_model.pdf Graphic file (type p
+df)
+<use figures/naturalistic_combined_scores_seven_model.pdf>
+Package pdftex.def Info: figures/naturalistic_combined_scores_seven_model.pdf  
+used on input line 123.
+(pdftex.def)             Requested size: 182.84575pt x 148.99004pt.
+ [4 <./figures/rq2b_causal_ood_caa_accuracy.pdf>]
+Underfull \vbox (badness 6016) has occurred while \output is active []
+
+ [5 <./figures/naturalistic_combined_scores_seven_model.pdf>] (./paper.bbl [6])
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 158--160
+\T1/cmtt/m/n/9 Question: Does [modifier/relative clause] explain why [outcome]?
+
+ []
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.81 \subsection{Occasion items}
-                                ]
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.112 \end{longtable}
-                     
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.151 \end{longtable}
-                     ) (./derived/rq3_self_blinding_stimuli.tex
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
+\T1/cmtt/m/n/9 Question: How strongly does [modifier/relative clause] explain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
+\T1/cmtt/m/n/9 why [outcome]? Answer with one integer from 1 to 7, where 1 mean
+s
+ []
+
+<figures/gemini36_likert_histograms.pdf, id=410, 504.39291pt x 151.2551pt>
+File: figures/gemini36_likert_histograms.pdf Graphic file (type pdf)
+<use figures/gemini36_likert_histograms.pdf>
+Package pdftex.def Info: figures/gemini36_likert_histograms.pdf  used on input 
+line 195.
+(pdftex.def)             Requested size: 397.48499pt x 119.1994pt.
+[8
+
+ <./figures/gemini36_likert_histograms.pdf>] (./appendix_examples.tex
+[9]
+Underfull \vbox (badness 2073) has occurred while \output is active []
+
+ [10])
+[11] (./derived/rq3_self_blinding_stimuli.tex
 Underfull \hbox (badness 10000) in paragraph at lines 13--13
 []|\T1/ptm/m/n/7 (+20) White male
  []
@@ -1117,76 +1139,105 @@ Underfull \hbox (badness 10000) in paragraph at lines 86--87
 []|\T1/ptm/m/n/7 (+20) who viewed the
  []
 
-[8]
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.87 \end{longtable}
-                     [9])
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[12] [13])
+<figures/naturalistic_gemma2_2b_scores.pdf, id=491, 244.92441pt x 255.94621pt>
+File: figures/naturalistic_gemma2_2b_scores.pdf Graphic file (type pdf)
+<use figures/naturalistic_gemma2_2b_scores.pdf>
+Package pdftex.def Info: figures/naturalistic_gemma2_2b_scores.pdf  used on inp
+ut line 352.
+(pdftex.def)             Requested size: 127.1981pt x 132.92096pt.
+<figures/naturalistic_gemma2_9b_scores.pdf, id=492, 240.84666pt x 255.94621pt>
+File: figures/naturalistic_gemma2_9b_scores.pdf Graphic file (type pdf)
+<use figures/naturalistic_gemma2_9b_scores.pdf>
+Package pdftex.def Info: figures/naturalistic_gemma2_9b_scores.pdf  used on inp
+ut line 356.
+(pdftex.def)             Requested size: 127.1981pt x 135.17047pt.
+<figures/naturalistic_qwen3_4b_scores.pdf, id=493, 240.84666pt x 255.94621pt>
+File: figures/naturalistic_qwen3_4b_scores.pdf Graphic file (type pdf)
+<use figures/naturalistic_qwen3_4b_scores.pdf>
+Package pdftex.def Info: figures/naturalistic_qwen3_4b_scores.pdf  used on inpu
+t line 360.
+(pdftex.def)             Requested size: 127.1981pt x 135.17047pt.
+<figures/naturalistic_qwen3_8b_scores.pdf, id=494, 244.92441pt x 255.94621pt>
+File: figures/naturalistic_qwen3_8b_scores.pdf Graphic file (type pdf)
+<use figures/naturalistic_qwen3_8b_scores.pdf>
+Package pdftex.def Info: figures/naturalistic_qwen3_8b_scores.pdf  used on inpu
+t line 366.
+(pdftex.def)             Requested size: 127.1981pt x 132.92096pt.
+<figures/naturalistic_llama32_3b_scores.pdf, id=495, 240.84666pt x 255.94621pt>
 
- [10]
-(./derived/random_vector_baselines.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 310--312
-\T1/cmtt/m/n/9 Question: Does the fact that ... explain why [outcome]? Answer
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
-\T1/cmtt/m/n/9 Question: How strongly does the fact that ... explain why
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
-\T1/cmtt/m/n/9 [outcome]? Answer with one integer from 1 to 7, where 1 means
- []
-
-[12]
-<figures/rq3_self_blinding_unit_histograms.pdf, id=374, 664.52263pt x 286.00853
+File: figures/naturalistic_llama32_3b_scores.pdf Graphic file (type pdf)
+<use figures/naturalistic_llama32_3b_scores.pdf>
+Package pdftex.def Info: figures/naturalistic_llama32_3b_scores.pdf  used on in
+put line 370.
+(pdftex.def)             Requested size: 127.1981pt x 135.17047pt.
+<figures/naturalistic_llama3_8b_scores.pdf, id=496, 240.84666pt x 255.94621pt>
+File: figures/naturalistic_llama3_8b_scores.pdf Graphic file (type pdf)
+<use figures/naturalistic_llama3_8b_scores.pdf>
+Package pdftex.def Info: figures/naturalistic_llama3_8b_scores.pdf  used on inp
+ut line 374.
+(pdftex.def)             Requested size: 127.1981pt x 135.17047pt.
+<figures/naturalistic_llama31_70b_scores.pdf, id=497, 244.92441pt x 255.94621pt
+>
+File: figures/naturalistic_llama31_70b_scores.pdf Graphic file (type pdf)
+<use figures/naturalistic_llama31_70b_scores.pdf>
+Package pdftex.def Info: figures/naturalistic_llama31_70b_scores.pdf  used on i
+nput line 380.
+(pdftex.def)             Requested size: 127.1981pt x 132.92096pt.
+ [14] [15 <./figures/naturalistic_gemma2_2b_scores.pdf> <./figures/naturalistic
+_gemma2_9b_scores.pdf> <./figures/naturalistic_qwen3_4b_scores.pdf> <./figures/
+naturalistic_qwen3_8b_scores.pdf> <./figures/naturalistic_llama32_3b_scores.pdf
+> <./figures/naturalistic_llama3_8b_scores.pdf> <./figures/naturalistic_llama31
+_70b_scores.pdf>]
+<figures/rq3_self_blinding_unit_histograms.pdf, id=568, 664.52263pt x 286.00853
 pt>
 File: figures/rq3_self_blinding_unit_histograms.pdf Graphic file (type pdf)
 <use figures/rq3_self_blinding_unit_histograms.pdf>
 Package pdftex.def Info: figures/rq3_self_blinding_unit_histograms.pdf  used on
- input line 422.
+ input line 393.
 (pdftex.def)             Requested size: 397.48499pt x 171.07837pt.
- [13] [14 <./figures/rq3_self_blinding_unit_histograms.pdf>] (./paper.aux)
+ (./derived/random_vector_baselines.tex) [16 <./figures/rq3_self_blinding_unit_
+histograms.pdf>]
+Underfull \vbox (badness 5189) has occurred while \output is active []
+
+ [17]
+[18] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 75E9B088E0CAA06AD92FC28ED24CC670;4038.
+(rerunfilecheck)             Checksum: 4949D7F24B4670BA34ED41083498F74B;4748.
  ) 
 Here is how much of TeX's memory you used:
- 14682 strings out of 476106
- 228693 string characters out of 5793933
- 2037975 words of memory out of 5000000
- 35887 multiletter control sequences out of 15000+600000
- 624308 words of font info for 405 fonts, out of 8000000 for 9000
+ 14794 strings out of 476106
+ 232907 string characters out of 5793933
+ 2028975 words of memory out of 5000000
+ 35966 multiletter control sequences out of 15000+600000
+ 630807 words of font info for 414 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 71i,17n,79p,1277b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
-b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (14 pages, 437488 bytes).
+ 71i,13n,79p,1603b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (18 pages, 542932 bytes).
 PDF statistics:
- 506 PDF objects out of 1000 (max. 8388607)
- 401 compressed objects within 5 object streams
- 89 named destinations out of 1000 (max. 500000)
- 55469 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 721 PDF objects out of 1000 (max. 8388607)
+ 534 compressed objects within 6 object streams
+ 109 named destinations out of 1000 (max. 500000)
+ 65786 words of extra memory for PDF output out of 74296 (max. 10000000)
 

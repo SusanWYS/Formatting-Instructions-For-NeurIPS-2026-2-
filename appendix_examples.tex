@@ -1,104 +1,95 @@
-% Source: eliciture_interp/ood_test.txt
+% Source: eliciture_interp_paper/data/behavioral/within_sentence_causal.tsv
 \subsection{Within-sentence causal items}
 \label{app:within-sentence-examples}
 
-The following ten examples come from the 150-pair within-sentence set used for
+The ten examples in Table~\ref{tab:within-sentence-examples} come from the 150-pair within-sentence set used for
 both behavioral evaluation and out-of-distribution CAA evaluation. Critical and
 control members hold the outcome and construction fixed while changing whether
-the modifier plausibly explains the outcome.
+the modifier plausibly explains the outcome. The examples span adverse,
+beneficial, and neutral outcomes.
 
-\begingroup
+\begin{table}[htbp]
+\centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
+\caption{Examples from the within-sentence causal dataset.}
+\label{tab:within-sentence-examples}
+\begin{tabular}{@{}r p{.44\textwidth} p{.44\textwidth}@{}}
 \toprule
 & Critical & Control \\
 \midrule
-\endfirsthead
-\toprule
-& Critical & Control \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & The executive who falsified quarterly revenue figures was fired. & The executive who wore a blue silk tie was fired. \\
-2 & The contractor repeatedly failing mandatory safety inspections lost the municipal contract. & The contractor carrying a blue clipboard with a metal clip lost the municipal contract. \\
-3 & The department manager who altered employee performance records was demoted. & The department manager whose office was beside the west stairwell was demoted. \\
-4 & The security officer implicated in disabling cameras to conceal a theft was dismissed. & The security officer shown in a square badge photograph was dismissed. \\
-5 & The procurement director who accepted kickbacks from a supplier was removed. & The procurement director who commuted on the early morning train was removed. \\
-6 & The accountant caught backdating tax records after an audit began was formally disciplined. & The accountant drinking coffee from a ceramic mug was formally disciplined. \\
-7 & The supplier that bribed an official on the selection committee was barred from future bids. & The supplier whose brochure was printed on matte paper was barred from future bids. \\
-8 & The clinic administrator implicated by an audit exposing diverted patient fees resigned. & The clinic administrator seated at a desk beside a narrow window resigned. \\
-9 & The warehouse supervisor who ordered workers to bypass machine safety locks was suspended. & The warehouse supervisor who kept spare gloves in a lower drawer was suspended. \\
-10 & The board member responsible for disclosing confidential board votes was expelled. & The board member taking notes with a black fountain pen was expelled. \\
-\end{longtable}
-\addtocounter{table}{-1}
-\endgroup
+2 & The tennis player limited by a severe wrist injury forfeited the match. & The tennis player carrying a black fabric racket bag forfeited the match. \\
+3 & The dinner guest whom the host repeatedly insulted left early. & The dinner guest whose invitation was printed on thick white paper left early. \\
+4 & The friend having revealed a private secret without permission offered an apology. & The friend carrying a phone with a plain black case offered an apology. \\
+5 & The customer whose appliance stopped working one day after purchase received a full refund. & The customer who wore a jacket with brass buttons received a full refund. \\
+6 & The cook noticing a strong spoiled odor discarded the soup. & The cook using a stainless-steel pot discarded the soup. \\
+7 & The commuter who saw a forecast predicting heavy afternoon rain carried an umbrella. & The commuter whose train pass had a blue stripe carried an umbrella. \\
+8 & The shopper responding to a safety recall selected a different product. & The shopper carrying a basket with a folding metal handle selected a different product. \\
+9 & The listener subscribed to the science podcast that explained technical subjects without oversimplifying them. & The listener subscribed to the science podcast whose studio microphones were stored in padded black cases. \\
+10 & The newspaper having misstated the final vote count issued a correction. & The newspaper using a masthead with a serif typeface issued a correction. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % Source: eliciture_interp_paper/data/causal_cross_sentence/rq23_train_dev.tsv
 % (examples restricted to the frozen 384-pair causal training split)
 \subsection{Cross-sentence causal items}
 \label{app:cross-sentence-examples}
 
-The following examples are drawn from the fully audited cross-sentence causal
+The examples in Table~\ref{tab:cross-sentence-examples} are drawn from the fully audited cross-sentence causal
 set used to extract the causal CAA directions. We partition its 480
 two-sentence pairs into 384/48/48 matched pairs for training, development, and
 testing. In each critical item, the first sentence plausibly causes the outcome
 in the second sentence; in the control, the first sentence provides an
 incidental detail. The examples below come from the training split.
+They span adverse, beneficial, and neutral outcomes.
 
-\begingroup
+\begin{table}[htbp]
+\centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
+\caption{Examples from the cross-sentence causal dataset.}
+\label{tab:cross-sentence-examples}
+\begin{tabular}{@{}r p{.44\textwidth} p{.44\textwidth}@{}}
 \toprule
 & Critical & Control \\
 \midrule
-\endfirsthead
-\toprule
-& Critical & Control \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & The potatoes sat in flooded fields for weeks. The potatoes rotted underground. & The potatoes grew near a wooden property line. The potatoes rotted underground. \\
 2 & The dog ate greasy table scraps every day. The dog developed a painful stomach illness. & The dog wore a thick leather collar. The dog developed a painful stomach illness. \\
 3 & The microphones were placed too close to the monitors. The microphones created a loud feedback loop. & The microphones were bought from a local music shop. The microphones created a loud feedback loop. \\
-4 & The citizens lacked internet access during the blackout. The citizens listened to the radio. & The citizens lived in traditional brick houses. The citizens listened to the radio. \\
-5 & The local pedestrians walked under bright new streetlights. The local pedestrians felt much safer at night. & The local pedestrians wore warm winter coats. The local pedestrians felt much safer at night. \\
-6 & The television displayed vertical green lines on the screen. The television was returned to the store. & The television belonged to a retired school teacher. The television was returned to the store. \\
-7 & The software company shared raw user location data. The software company faced severe public backlash. & The software company occupied a renovated warehouse space. The software company faced severe public backlash. \\
-8 & The class used a helpful textbook. The class learned the topic quickly. & The class occupied a corner room. The class learned the topic quickly. \\
-9 & The applicant owed too much money to other lenders. The applicant was denied the home loan. & The applicant worked near a large park. The applicant was denied the home loan. \\
-10 & The seafood was left in an open freezer. The seafood was thrown away. & The seafood was packed in a square crate. The seafood was thrown away. \\
-\end{longtable}
-\addtocounter{table}{-1}
-\endgroup
+4 & The local pedestrians walked under bright new streetlights. The local pedestrians felt much safer at night. & The local pedestrians wore warm winter coats. The local pedestrians felt much safer at night. \\
+5 & The class used a helpful textbook. The class learned the topic quickly. & The class occupied a corner room. The class learned the topic quickly. \\
+6 & The hospital staff received free annual flu shots. The hospital staff took fewer sick days. & The hospital staff parked in the east garage. The hospital staff took fewer sick days. \\
+7 & The municipal reservoirs received the annual monsoon rains. The municipal reservoirs filled to maximum capacity. & The municipal reservoirs sat behind a chain fence. The municipal reservoirs filled to maximum capacity. \\
+8 & The transit authority prepared for a huge street festival. The transit authority increased the train frequency. & The transit authority published a weekly employee newsletter. The transit authority increased the train frequency. \\
+9 & The train drivers approached the warped metal tracks. The train drivers reduced their speeds. & The train drivers wore polarized sunglasses. The train drivers reduced their speeds. \\
+10 & The lifeguards worked under the intense midday sun. The lifeguards applied thick sunscreen. & The lifeguards sat on tall wooden chairs. The lifeguards applied thick sunscreen. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-% Source: eliciture_interp/stimuli_critical_temporal_enlarged.csv
 \subsection{Occasion items}
 \label{app:occasion-examples}
 
+% Source: eliciture_interp_paper/data/baselines/occasion.csv
 We partition 1,200 occasion pairs into 800/200/200 matched pairs for training,
-development, and testing. We show ten pairs below as qualitative examples.
+development, and testing. All evaluated sentences begin with a capital letter
+and end with a period. We show ten pairs in Table~\ref{tab:occasion-examples} as qualitative examples.
 
-\begingroup
+\begin{table}[htbp]
+\centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
+\caption{Examples from the occasion dataset.}
+\label{tab:occasion-examples}
+\begin{tabular}{@{}r p{.44\textwidth} p{.44\textwidth}@{}}
 \toprule
 & Critical (Occasion-compatible) & Control \\
 \midrule
-\endfirsthead
-\toprule
-& Critical (Occasion-compatible) & Control \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & A lifeguard got a painful sunburn last Sunday. & A translator got a painful sunburn last Sunday. \\
 2 & A hiker got their boots completely covered in thick mud yesterday. & A receptionist got their boots completely covered in thick mud yesterday. \\
 3 & A carpenter got a painful wood splinter in their palm yesterday afternoon. & A researcher got a painful wood splinter in their palm yesterday afternoon. \\
@@ -108,46 +99,47 @@ development, and testing. We show ten pairs below as qualitative examples.
 7 & A prep cook smelled strongly of chopped onions yesterday evening. & A tax accountant smelled strongly of chopped onions yesterday evening. \\
 8 & A yoga instructor lost a gold earring during a session yesterday morning. & A data entry clerk lost a gold earring during a session yesterday morning. \\
 9 & An archivist got a sharp paper cut on their index finger yesterday. & A soccer coach got a sharp paper cut on their index finger yesterday. \\
-10 & An ice hockey player inhaled freezing air and got throat irritation yesterday morning. & A database administrator inhaled freezing air and got throat irritation yesterday morning. \\
-\end{longtable}
-\addtocounter{table}{-1}
-\endgroup
+10 & An ice hockey player inhaled a lot of freezing cold air and got throat irritation yesterday morning. & A database administrator inhaled a lot of freezing cold air and got throat irritation yesterday morning. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-% Source: Impossible_Features/data/classification/hu_shades/data.csv
+% Source: eliciture_interp_paper/data/baselines/event_feasibility.csv
 \subsection{Plausibility items}
 \label{app:plausibility-examples}
 
-The plausibility dataset contrasts probable events with matched physically
-impossible events adapted from \citet{hu-etal-2025-shades} and
-\citet{lepori-etal-2026-fantasy}. We partition its 70 pairs into 42/14/14
-matched pairs for training, development, and testing, and show ten qualitative
-examples below.
+The plausibility baseline pools three event-feasibility contrasts: probable
+versus impossible events from \citet{hu-etal-2025-shades}, plausible versus
+implausible agent--patient reversals from EventsAdapt
+\citep{kauf-etal-2023-event}, and plausible animate versus semantically related
+inanimate agents from \citet{vega-mendoza-etal-2021-concurrent}. The last two
+sources introduce selectional and animacy violations, so this baseline should
+not be read as a pure measure of graded plausibility. We partition the 353
+pairs into 211/71/71 training, development, and test pairs. The source-specific
+splits are 42/14/14, 76/26/26, and 93/31/31 pairs, respectively. Examples from
+all three sources are shown in Table~\ref{tab:plausibility-examples}.
 
-\begingroup
+\begin{table}[htbp]
+\centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}r p{.44\linewidth} p{.44\linewidth}@{}}
+\caption{Examples from the three-source event-feasibility dataset.}
+\label{tab:plausibility-examples}
+\begin{tabular}{@{}r p{.44\textwidth} p{.44\textwidth}@{}}
 \toprule
 & Critical (Probable) & Control (Impossible) \\
 \midrule
-\endfirsthead
-\toprule
-& Critical (Probable) & Control (Impossible) \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
 1 & Someone baked a cake inside an oven. & Someone baked a cake inside a freezer. \\
 2 & Someone boiled water using a kettle. & Someone boiled water using a refrigerator. \\
-3 & Someone broke a coconut using a rock. & Someone broke a coconut using a pillow. \\
-4 & Someone built a house out of brick. & Someone built a house out of gas. \\
-5 & Someone built a bridge out of steel. & Someone built a bridge out of soup. \\
-6 & Someone called a friend using a phone. & Someone called a friend using a sandwich. \\
-7 & Someone carried groceries inside a tote bag. & Someone carried groceries inside a tornado. \\
-8 & Someone carved a statue using a chisel. & Someone carved a statue using a sock. \\
-9 & Someone caught a fish in a lake. & Someone caught a fish in a raindrop. \\
-10 & Someone chilled a drink using ice. & Someone chilled a drink using fire. \\
-\end{longtable}
-\addtocounter{table}{-1}
-\endgroup
+3 & Someone chopped a carrot using a knife. & Someone chopped a carrot using a rag. \\
+4 & The raider caught the illness. & The illness caught the raider. \\
+5 & The troublemaker crashed the car. & The car crashed the troublemaker. \\
+6 & The repairman fixed the tap. & The tap fixed the repairman. \\
+7 & The halftime show at the football match was organised by the cheerleader on Sunday. & The halftime show at the football match was organised by the goalpost on Sunday. \\
+8 & At the wedding ceremony the ring was brought by the groom nicely wrapped. & At the wedding ceremony the ring was brought by the veil nicely wrapped. \\
+9 & The employment interviews were administered by the committee for weeks. & The employment interviews were administered by the curriculum for weeks. \\
+10 & The taxi was driven by the cabdriver through town. & The taxi was driven by the wheel through town. \\
+\bottomrule
+\end{tabular}
+\end{table}

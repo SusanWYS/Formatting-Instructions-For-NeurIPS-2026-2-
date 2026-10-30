@@ -4,45 +4,45 @@ The top-level auxiliary file: paper.aux
 The style file: plainnat.bst
 Database file #1: paper.bib
 Warning--empty journal in hu-rubiofernandez-2026-referential
-You've used 20 entries,
+You've used 21 entries,
             2773 wiz_defined-function locations,
-            716 strings with 9405 characters,
-and the built_in function-call counts, 10524 in all, are:
-= -- 954
-> -- 671
+            730 strings with 9819 characters,
+and the built_in function-call counts, 11294 in all, are:
+= -- 1026
+> -- 719
 < -- 17
-+ -- 223
-- -- 203
-* -- 833
-:= -- 1623
-add.period$ -- 83
-call.type$ -- 20
-change.case$ -- 117
-chr.to.int$ -- 20
-cite$ -- 41
-duplicate$ -- 461
-empty$ -- 788
-format.name$ -- 235
-if$ -- 2243
++ -- 239
+- -- 218
+* -- 917
+:= -- 1747
+add.period$ -- 90
+call.type$ -- 21
+change.case$ -- 125
+chr.to.int$ -- 21
+cite$ -- 43
+duplicate$ -- 488
+empty$ -- 842
+format.name$ -- 251
+if$ -- 2400
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 17
-newline$ -- 125
-num.names$ -- 92
-pop$ -- 256
+missing$ -- 19
+newline$ -- 134
+num.names$ -- 96
+pop$ -- 261
 preamble$ -- 1
-purify$ -- 99
+purify$ -- 106
 quote$ -- 0
-skip$ -- 392
+skip$ -- 406
 stack$ -- 0
-substring$ -- 313
-swap$ -- 89
+substring$ -- 369
+swap$ -- 91
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 210
+type$ -- 221
 warning$ -- 1
-while$ -- 88
+while$ -- 94
 width$ -- 0
-write$ -- 301
+write$ -- 323
 (There was 1 warning)
